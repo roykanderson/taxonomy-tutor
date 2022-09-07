@@ -1,5 +1,5 @@
 // Component imports
-import SpeciesCard from "./components/SpeciesCard"
+import SpeciesCard from './components/SpeciesCard'
 
 function App() {
   return (

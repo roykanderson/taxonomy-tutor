@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react'
+import '../App.css'
 
 import axios from 'axios'
 
-const SpeciesCard = () => {  
+const SpeciesCard = () => {
   const [imgSrc, setImgSrc] = useState(null)
+  const [commonName, setCommonName] = useState(null)
+  const [sciName, setSciName] = useState(null)
 
   useEffect(() => {
     console.log('effect')
@@ -12,13 +15,21 @@ const SpeciesCard = () => {
       const res = await axios.get(baseUrl)
       console.log(res.data[0].photos[0])
       setImgSrc(res.data[0].photos[0].large_url)
+      setCommonName(res.data[0].taxon.common_name.name)
+      setSciName(res.data[0].taxon.name)
     }
 
     getObservations()
   }, [])
 
   return (
-    <img src={imgSrc} alt="" />
+    <div className="species-card">
+      <img className="species-image" src={imgSrc} alt="" />
+      <div className="species-info">
+        <div className="common-name">{commonName}</div>
+        <div className="sci-name">{sciName}</div>
+      </div>
+    </div>
   )
 }
 

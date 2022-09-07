@@ -1,0 +1,27 @@
+.species-card {
+  background-color: #404040;
+  width: 200px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.species-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+}
+
+.common-name {
+  color: #f5f2f2;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 200;
+}
+
+.sci-name {
+  color: #b1b1b1;
+  padding: 0 10px 10px 10px;
+  font-weight: 100;
+  font-size: 15px;
+}
