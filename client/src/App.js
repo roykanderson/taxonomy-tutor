@@ -1,9 +1,10 @@
 // Component imports
 import { useEffect, useState } from 'react'
 
-import SpeciesGrid from './components/SpeciesGrid'
-
+import './App.css'
 import observationsService from './services/observations'
+
+import SpeciesGrid from './components/SpeciesGrid'
 
 function App() {
   const [taxon, setTaxon] = useState('echinodermata')
