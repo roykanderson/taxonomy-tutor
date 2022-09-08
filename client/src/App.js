@@ -21,10 +21,10 @@ function App() {
   }, [taxon])
 
   return (
-    <>
+    <div className='container'>
       <SearchBar setTaxon={setTaxon} />
       {observations && <SpeciesGrid observations={observations} />}
-    </>
+    </div>
   )
 }
 
