@@ -5,9 +5,10 @@ import './App.css'
 import observationsService from './services/observations'
 
 import SpeciesGrid from './components/SpeciesGrid'
+import SearchBar from './components/SearchBar'
 
 function App() {
-  const [taxon, setTaxon] = useState('echinodermata')
+  const [taxon, setTaxon] = useState('')
   const [observations, setObservations] = useState(null)
 
   useEffect(() => {
@@ -21,6 +22,7 @@ function App() {
 
   return (
     <>
+      <SearchBar setTaxon={setTaxon} />
       {observations && <SpeciesGrid observations={observations} />}
     </>
   )
