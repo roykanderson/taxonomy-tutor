@@ -13,12 +13,10 @@ const SearchBar = ({ setTaxon }) => {
   }
 
   return (
-    <div className='search-bar'>
-      <form onSubmit={handleSubmitSearch}>
-        <input type="text" value={search} name='Taxon' onChange={handleSearchChange} />
-        <button type="submit">Search</button>
-      </form>
-    </div>
+    <form className="search-bar" onSubmit={handleSubmitSearch}>
+      <input type="text" value={search} name='Taxon' onChange={handleSearchChange} />
+      <button type="submit">Search</button>
+    </form>
   )
 }
 

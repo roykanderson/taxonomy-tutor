@@ -1,6 +1,7 @@
+import SearchBar from './SearchBar'
 import SpeciesCard from './SpeciesCard'
 
-const SpeciesGrid = ({ observations }) => {
+const SpeciesGrid = ({ observations, setTaxon }) => {
   const getPhotoUrl = (observation) => {
     let url = observation.photos[0].url
     const pattern1 = /square.jpg$/
@@ -15,7 +16,8 @@ const SpeciesGrid = ({ observations }) => {
 
   return (
     <div className="species-grid">
-      {observations.map((obs => {
+      <SearchBar setTaxon={setTaxon} />
+      {observations && observations.map((obs => {
         return (<SpeciesCard key={obs.id} commonName={obs.taxon.preferred_common_name} sciName={obs.taxon.name} imgSrc={getPhotoUrl(obs)} />)
       }))}
     </div> 

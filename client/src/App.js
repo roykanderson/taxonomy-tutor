@@ -5,7 +5,6 @@ import './App.css'
 import observationsService from './services/observations'
 
 import SpeciesGrid from './components/SpeciesGrid'
-import SearchBar from './components/SearchBar'
 
 function App() {
   const [taxon, setTaxon] = useState('')
@@ -22,8 +21,7 @@ function App() {
 
   return (
     <div className='container'>
-      <SearchBar setTaxon={setTaxon} />
-      {observations && <SpeciesGrid observations={observations} />}
+      <SpeciesGrid observations={observations} setTaxon={setTaxon} />
     </div>
   )
 }
