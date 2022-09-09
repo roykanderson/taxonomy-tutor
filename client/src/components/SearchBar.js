@@ -1,11 +1,19 @@
 import { useState } from 'react'
+import LoadingIcon from './LoadingIcon'
 
-const SearchBar = ({ setTaxon }) => {
+const SearchBar = ({ taxon, setTaxon, isFetchingData }) => {
   const [search, setSearch] = useState('')
+  const [shake, setShake] = useState(false)
 
   const handleSubmitSearch = (event) => {
     event.preventDefault()
-    setTaxon(search)
+
+    search === taxon
+      ? setShake(true)
+      : setTaxon(search)
+
+    // Remove shake class after animation finishes
+    setTimeout(() => setShake(false), 500)
   }
 
   const handleSearchChange = ({ target }) => {
@@ -13,10 +21,13 @@ const SearchBar = ({ setTaxon }) => {
   }
 
   return (
-    <form className="search-bar" onSubmit={handleSubmitSearch}>
-      <input type="text" value={search} name='Taxon' onChange={handleSearchChange} />
-      <button type="submit">Search</button>
-    </form>
+    <>
+      <form className={`search-bar${shake ? ' shake' : ''}`} onSubmit={handleSubmitSearch} >
+        <input type="text" value={search} name='Taxon' onChange={handleSearchChange} />
+        <button type="submit">Search</button>
+        {isFetchingData && <LoadingIcon />}
+      </form>
+    </>
   )
 }
 

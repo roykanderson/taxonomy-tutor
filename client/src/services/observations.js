@@ -8,7 +8,6 @@ const fetchObservations = async (taxon) => {
   const res = await axios.get(url)
 
   // Filter to ensure all observations have a common name
-  console.log(res.data.results.filter(obs => obs.taxon.preferred_common_name))
   return res.data.results.filter(obs => obs.taxon.preferred_common_name)
 }
 

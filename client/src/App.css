@@ -27,11 +27,34 @@ input:-webkit-autofill,
 }
 
 .search-bar {
-  width: 30.4rem;
   grid-column: span 4;
   display: flex;
   height: 2.4rem;
   margin-top: 2.4rem;
+}
+
+.shake {
+  animation: shake 0.8s;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }
 
 .search-bar * {
@@ -39,7 +62,7 @@ input:-webkit-autofill,
 }
 
 .search-bar input {
-  flex: 4;
+  width: 23.47rem;
   background-color: #cfcfcf;
   color: #404040;
   padding-inline: 0.625rem;
@@ -53,13 +76,32 @@ input:-webkit-autofill,
 }
 
 .search-bar button {
-  flex: 1;
+  width: 5.68rem;
   background-color: #404040;
   color: #cfcfcf;
   font-size: 1rem;
   font-weight: 500;
   border-top-right-radius: 1.2rem;
   border-bottom-right-radius: 1.2rem;
+}
+
+.spinner {
+  width: 1.8rem;
+  height: 1.8rem;
+  margin-left: 2.4rem;
+  border: 0.3rem solid;
+  border-color: #c9c9c9 #c9c9c9 #c9c9c9 transparent;
+  border-radius: 50%;
+  animation: spin-anim 0.8s linear infinite;
+}
+
+@keyframes spin-anim {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
 }
 
 .species-card {
@@ -90,6 +132,8 @@ input:-webkit-autofill,
 }
 
 .species-card img {
+  object-fit: cover;
+  object-position: center;
   width: 14rem;
   height: 14rem;
 }
