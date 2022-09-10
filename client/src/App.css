@@ -72,7 +72,7 @@ input:-webkit-autofill,
 .search-bar input:focus {
   outline: none;
   opacity: 70%;
-  transition: all 0.15s;
+  transition: all 0.1s;
 }
 
 .search-bar button {
@@ -92,7 +92,7 @@ input:-webkit-autofill,
   border: 0.3rem solid;
   border-color: #c9c9c9 #c9c9c9 #c9c9c9 transparent;
   border-radius: 50%;
-  animation: spin-anim 0.8s linear infinite;
+  animation: spin-anim 0.7s linear infinite;
 }
 
 @keyframes spin-anim {
@@ -108,8 +108,16 @@ input:-webkit-autofill,
   background-color: #404040;
 }
 
+.species-card:hover {
+  cursor: pointer;
+}
+
 .species-info {
   padding: 0.625rem;
+}
+
+.species-info:hover .sci-name {
+  opacity: 80%;
 }
 
 .common-name {
@@ -136,4 +144,8 @@ input:-webkit-autofill,
   object-position: center;
   width: 14rem;
   height: 14rem;
+}
+
+.species-card img:hover {
+  opacity: 80%;
 }
