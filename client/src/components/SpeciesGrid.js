@@ -23,23 +23,19 @@ const SpeciesGrid = () => {
   }, [taxon])
 
   const getPhotoUrl = (observation) => {
-    let url = observation.photos[0].url
-    const pattern1 = /square.jpg$/
-    const pattern2 = /square.jpeg$/
-    const pattern3 = /square.JPG$/
-    const pattern4 = /square.JPEG$/
-    url = url.replace(pattern1, 'large.jpg')
-    url = url.replace(pattern2, 'large.jpeg')
-    url = url.replace(pattern3, 'large.JPG')
-    return url.replace(pattern4, 'large.JPEG')
+    let url = observation.taxon.default_photo.url
+    const pattern = /square/
+    return url.replace(pattern, 'large')
   }
 
   return (
     <div className="species-grid">
       <SearchBar taxon={taxon} setTaxon={setTaxon} isFetchingData={isFetchingData} />
-      {observations && observations.map((obs => {
-        return (<SpeciesCard key={obs.id} commonName={obs.taxon.preferred_common_name} sciName={obs.taxon.name} imgSrc={getPhotoUrl(obs)} />)
-      }))}
+      {observations && [...new Map(observations.map(item => [item.taxon['name'], item])).values()] // only display one observation of each species
+        .map((obs => {
+          return (<SpeciesCard key={obs.id} commonName={obs.taxon.preferred_common_name} sciName={obs.taxon.name} imgSrc={getPhotoUrl(obs)} />)
+        }))
+      }
     </div> 
   )
 }
