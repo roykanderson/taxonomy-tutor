@@ -23,7 +23,7 @@ const SearchBar = ({ taxon, setTaxon, isFetchingData }) => {
   return (
     <>
       <form className={`search-bar${shake ? ' shake' : ''}`} onSubmit={handleSubmitSearch} >
-        <input type="text" value={search} name='Taxon' autocomplete='off' onChange={handleSearchChange} />
+        <input type="text" value={search} name='Taxon' autoComplete='off' onChange={handleSearchChange} />
         <button type="submit">Search</button>
         {isFetchingData && <LoadingIcon />}
       </form>
