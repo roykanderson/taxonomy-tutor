@@ -21,8 +21,7 @@ const setSchema = new mongoose.Schema({
   taxonIds: [
     {
       type: String,
-      required: true,
-      unique: true
+      required: true
     }
   ]
 })
