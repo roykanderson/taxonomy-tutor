@@ -5,8 +5,9 @@ require('express-async-errors')
 
 // Local modules
 const config = require('./utils/config')
-const middleware = require('./utils/middleware')
+const { reqLogger, userExtractor, unknownEndpoint, errorHandler } = require('./utils/middleware')
 const logger = require('./utils/logger')
+const loginRouter = require('./controllers/loginRouter')
 const usersRouter = require('./controllers/usersRouter')
 const setsRouter = require('./controllers/setsRouter')
 
@@ -25,10 +26,11 @@ mongoose.connect(config.MONGODB_URI)
 // Take middleware into use
 app.use(cors())
 app.use(express.json())
-app.use(middleware.reqLogger)
+app.use(reqLogger)
+app.use('/api/login', loginRouter)
 app.use('/api/users', usersRouter)
-app.use('/api/sets', setsRouter)
-app.use(middleware.unknownEndpoint)
-app.use(middleware.errorHandler)
+app.use('/api/sets', userExtractor, setsRouter)
+app.use(unknownEndpoint)
+app.use(errorHandler)
 
 module.exports = app
