@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const setSchema = new mongoose.Schema({
+const studySetSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
@@ -26,7 +26,7 @@ const setSchema = new mongoose.Schema({
   ]
 })
 
-setSchema.set('toJSON', {
+studySetSchema.set('toJSON', {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id
     delete returnedObject._id
@@ -34,6 +34,6 @@ setSchema.set('toJSON', {
   }
 })
 
-const Set = mongoose.model('Set', setSchema)
+const StudySet = mongoose.model('StudySet', studySetSchema)
 
-module.exports = Set
+module.exports = StudySet

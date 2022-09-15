@@ -2,12 +2,12 @@ const bcrypt = require('bcrypt')
 
 const usersRouter = require('express').Router()
 const User = require('../models/User')
-const Set = require('../models/Set')
+const StudySet = require('../models/StudySet')
 
 usersRouter.get('/', async (req, res) => {
   const users = await User
     .find({})
-    .populate('sets', { name: 1, dateCreated: 1, numberOfTaxa: 1, taxonIds: 1})
+    .populate('StudySets', { name: 1, dateCreated: 1, numberOfTaxa: 1, taxonIds: 1})
 
     res.status(200).json(users)
 })

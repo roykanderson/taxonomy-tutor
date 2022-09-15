@@ -11,10 +11,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  sets: [
+  studySets: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Set'
+      ref: 'StudySet'
     }
   ]
 })
