@@ -88,6 +88,11 @@ input:-webkit-autofill,
   border-bottom-right-radius: 1.2rem;
 }
 
+.search-bar button:hover {
+  cursor: pointer;
+  opacity: 70%;
+}
+
 .spinner {
   width: 1.8rem;
   height: 1.8rem;
@@ -184,6 +189,7 @@ input:-webkit-autofill,
   color: #cfcfcf;
   font-weight: 200;
   font-size: 0.875rem;
+  font-style: italic;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

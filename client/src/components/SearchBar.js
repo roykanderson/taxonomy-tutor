@@ -40,6 +40,7 @@ const SearchBar = ({ taxon, setTaxon, isFetchingData }) => {
       setShake(true)
     } else {
       setTaxon(search)
+      setSearch('')
       setSuggestions(null)
     }
 
