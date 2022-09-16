@@ -60,7 +60,7 @@ const SearchBar = ({ taxon, setTaxon, isFetchingData }) => {
       <input type="text" value={search} name='Taxon' autoComplete='off' onChange={handleSearchChange} />
       <button type="submit">Search</button>
       {isFetchingData && <LoadingIcon />}
-      <DropdownSuggestions suggestions={suggestions} />
+      <DropdownSuggestions suggestions={suggestions} setTaxon={setTaxon} setSearch={setSearch} setSuggestions={setSuggestions} />
     </form>
   )
 }
