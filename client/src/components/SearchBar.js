@@ -64,7 +64,7 @@ const SearchBar = ({ search, setSearch, isFetchingData }) => {
           : 'Search'
         }
       </button>
-      <DropdownSuggestions suggestions={suggestions} setSuggestions={setSuggestions} setSearch={setSearch} setInput={setInput} />
+      <DropdownSuggestions suggestions={suggestions} setSuggestions={setSuggestions} setInput={setInput} setSearch={setSearch} />
     </form>
   )
 }
