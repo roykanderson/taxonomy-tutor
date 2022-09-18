@@ -9,12 +9,12 @@ import DropdownSuggestions from './DropdownSuggestions'
 
 const SearchBar = ({ taxon, setTaxon, isFetchingData }) => {
   const [search, setSearch] = useState('')
-  const [shake, setShake] = useState(false)
   const [suggestions, setSuggestions] = useState(null)
+  const [shake, setShake] = useState(false)
 
   const useOutsideToggler = (ref) => {
     useEffect(() => {
-      // Set suggestions to null if clicked outside dropdown to hide menu
+      // Hide suggestions if click happens outside dropdown menu by setting suggestions to null
       const handleClickOutside = (event) => {
         if (ref.current && !ref.current.contains(event.target)) {
           setSearch('')
@@ -58,8 +58,12 @@ const SearchBar = ({ taxon, setTaxon, isFetchingData }) => {
   return (
     <form ref={wrapperRef} className={`search-bar${shake ? ' shake' : ''}`} onSubmit={handleSubmitSearch} >
       <input type="text" value={search} name='Taxon' autoComplete='off' onChange={handleSearchChange} />
-      <button type="submit">Search</button>
-      {isFetchingData && <LoadingIcon />}
+      <button type="submit">
+        {isFetchingData
+          ? <LoadingIcon />
+          : 'Search'
+        }
+      </button>
       <DropdownSuggestions suggestions={suggestions} setTaxon={setTaxon} setSearch={setSearch} setSuggestions={setSuggestions} />
     </form>
   )

@@ -29,14 +29,16 @@ const SpeciesGrid = () => {
   }
 
   return (
-    <div className="species-grid">
+    <>
       <SearchBar taxon={taxon} setTaxon={setTaxon} isFetchingData={isFetchingData} />
-      {observations && [...new Map(observations.map(item => [item.taxon['name'], item])).values()] // only display one observation of each species
-        .map((obs => {
-          return (<SpeciesCard key={obs.id} commonName={obs.taxon.preferred_common_name} sciName={obs.taxon.name} imgSrc={getPhotoUrl(obs)} />)
-        }))
-      }
-    </div> 
+      <div className="species-grid">
+        {observations && [...new Map(observations.map(item => [item.taxon['name'], item])).values()] // only display one observation of each species
+          .map((obs => {
+            return (<SpeciesCard key={obs.id} commonName={obs.taxon.preferred_common_name} sciName={obs.taxon.name} imgSrc={getPhotoUrl(obs)} />)
+          }))
+        }
+      </div>
+    </>
   )
 }
 

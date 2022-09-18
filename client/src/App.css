@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 body,
 p,
@@ -18,22 +19,54 @@ input:-webkit-autofill,
     transition: background-color 600000s 0s, color 600000s 0s;
   }
 
+.container {
+  width: fit-content;
+  min-width: 80%;
+  margin: auto;
+}
+
 .species-grid {
-  max-width: 80%;
   margin: auto;
   display: grid;
-  grid-template-rows: 1fr auto;
-  grid-template-columns: repeat(4, 14rem);
+  grid-template-columns: repeat(4, auto);
+  justify-content: space-between;
   gap: 2.4rem;
-  justify-content: center;
 }
+
+
+@media (min-width: 830px) and (max-width: 1100px) {
+  .species-grid {
+    grid-template-columns: repeat(3, auto);
+  }
+}
+
+@media (max-width: 829px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (min-width: 571px) and (max-width: 829px) {
+  .species-grid {
+    grid-template-columns: repeat(2, auto);
+  }
+}
+
+@media (max-width: 570px) {
+  .species-grid {
+    grid-template-columns: auto;
+  }
+}
+
 
 .search-bar {
   position: relative;
   grid-column: span 4;
   display: flex;
   height: 2.4rem;
-  margin-top: 2.4rem;
+  margin: 2.4rem 0;
 }
 
 .shake {
@@ -86,6 +119,9 @@ input:-webkit-autofill,
   font-weight: 500;
   border-top-right-radius: 1.2rem;
   border-bottom-right-radius: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search-bar button:hover {
@@ -94,13 +130,12 @@ input:-webkit-autofill,
 }
 
 .spinner {
-  width: 1.8rem;
-  height: 1.8rem;
-  margin-left: 2.4rem;
-  border: 0.3rem solid;
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 0.15rem solid;
   border-color: #c9c9c9 #c9c9c9 #c9c9c9 transparent;
   border-radius: 50%;
-  animation: spin-anim 0.7s linear infinite;
+  animation: spin-anim 0.8s linear infinite;
 }
 
 @keyframes spin-anim {
@@ -161,6 +196,7 @@ input:-webkit-autofill,
 
 .species-card {
   background-color: #404040;
+  max-width: 14rem;
 }
 
 .species-card:hover {
