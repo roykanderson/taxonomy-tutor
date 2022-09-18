@@ -1,10 +1,10 @@
 import React from "react"
 
-const DropdownSuggestions = ({ suggestions, setTaxon, setSearch, setSuggestions }) => {
+const DropdownSuggestions = ({ suggestions, setSuggestions, setInput, setSearch }) => {
   const handleSuggestionClick = ({ target }) => {
-    setTaxon(target.getAttribute('data-name'))
-    setSearch('')
     setSuggestions(null)
+    setInput('')
+    setSearch(target.getAttribute('data-name'))
   }
 
   return (
