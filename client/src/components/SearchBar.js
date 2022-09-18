@@ -7,8 +7,8 @@ import LoadingIcon from './LoadingIcon'
 import taxaService from '../services/taxaService'
 import DropdownSuggestions from './DropdownSuggestions'
 
-const SearchBar = ({ taxon, setTaxon, isFetchingData }) => {
-  const [search, setSearch] = useState('')
+const SearchBar = ({ search, setSearch, isFetchingData }) => {
+  const [input, setInput] = useState('')
   const [suggestions, setSuggestions] = useState(null)
   const [shake, setShake] = useState(false)
 
@@ -17,7 +17,7 @@ const SearchBar = ({ taxon, setTaxon, isFetchingData }) => {
       // Hide suggestions if click happens outside dropdown menu by setting suggestions to null
       const handleClickOutside = (event) => {
         if (ref.current && !ref.current.contains(event.target)) {
-          setSearch('')
+          setInput('')
           setSuggestions(null)
         }
       }
@@ -36,11 +36,11 @@ const SearchBar = ({ taxon, setTaxon, isFetchingData }) => {
   const handleSubmitSearch = (event) => {
     event.preventDefault()
 
-    if (search === taxon) {
+    if (input === search) {
       setShake(true)
     } else {
-      setTaxon(search)
-      setSearch('')
+      setSearch(input)
+      setInput('')
       setSuggestions(null)
     }
 
@@ -48,23 +48,23 @@ const SearchBar = ({ taxon, setTaxon, isFetchingData }) => {
     setTimeout(() => setShake(false), 500)
   }
 
-  const handleSearchChange = async ({ target }) => {
-    setSearch(target.value)
+  const handleInputChange = async ({ target }) => {
+    setInput(target.value)
     target.value
-      ? setSuggestions(await taxaService.fetchTaxaSuggestions(search))
+      ? setSuggestions(await taxaService.fetchTaxaSuggestions(input))
       : setSuggestions(null)
   }
 
   return (
     <form ref={wrapperRef} className={`search-bar${shake ? ' shake' : ''}`} onSubmit={handleSubmitSearch} >
-      <input type="text" value={search} name='Taxon' autoComplete='off' onChange={handleSearchChange} />
+      <input type="text" value={input} name='Taxon' autoComplete='off' onChange={handleInputChange} />
       <button type="submit">
         {isFetchingData
           ? <LoadingIcon />
           : 'Search'
         }
       </button>
-      <DropdownSuggestions suggestions={suggestions} setTaxon={setTaxon} setSearch={setSearch} setSuggestions={setSuggestions} />
+      <DropdownSuggestions suggestions={suggestions} setSearch={setSearch} setInput={setInput} setSuggestions={setSuggestions} />
     </form>
   )
 }
