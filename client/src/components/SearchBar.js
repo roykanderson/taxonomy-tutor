@@ -3,6 +3,8 @@ import { useState, useEffect, useRef } from 'react'
 // TODO: SET UP CLICKING SUGGESTION TRIGGERING SEARCH
 // TODO: SUGGESTIONS AND SEARCH WITHOUT CALLING API MULTIPLE TIMES
 
+import { ReactComponent as SearchIcon } from '../assets/search-icon.svg'
+
 import LoadingIcon from './LoadingIcon'
 import taxaService from '../services/taxaService'
 import DropdownSuggestions from './DropdownSuggestions'
@@ -61,7 +63,7 @@ const SearchBar = ({ search, setSearch, isFetchingData }) => {
       <button type="submit">
         {isFetchingData
           ? <LoadingIcon />
-          : 'Search'
+          : <SearchIcon />
         }
       </button>
       <DropdownSuggestions suggestions={suggestions} setSuggestions={setSuggestions} setInput={setInput} setSearch={setSearch} />

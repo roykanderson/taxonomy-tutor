@@ -25,13 +25,17 @@ function App() {
   }, [search])
 
   return (
-    <div className='container'>
-      <header>
-        <Logo />
-        <Navbar search={search} setSearch={setSearch} isFetchingData={isFetchingData} />
-      </header>
-      <SpeciesGrid results={results} />
-    </div>
+    <>
+      <div className='header-wrapper'>
+        <header className='header'>
+          <Logo />
+          <Navbar search={search} setSearch={setSearch} isFetchingData={isFetchingData} />
+        </header>
+      </div>
+      <main className='container'>
+        <SpeciesGrid results={results} />
+      </main>
+    </>
   )
 }
 

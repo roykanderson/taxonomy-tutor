@@ -1,6 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
+html {
+  --grey-dark: #404040;
+  --grey: #515151;
+  --grey-light: #B1B1B1;
+  --white: #F5F2F2;
+  --green-dark: #00A05D;
+  --green: #00D475;
+}
+
 body,
 p,
 ul {
@@ -9,15 +18,28 @@ ul {
 }
 
 body {
-  font-family: Inter, Arial, sans-serif;
-  background-color: #515151;
+  font-family: Roboto Mono;
+  background-color: var(--grey-dark);
 }
 
 /* Disable autofill after form submission */
 input:-webkit-autofill,
-  input:-webkit-autofill:focus {
-    transition: background-color 600000s 0s, color 600000s 0s;
-  }
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+.header-wrapper {
+  background-color: var(--grey);
+}
+
+.header {
+  background-color: var(--grey);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 80%;
+  margin: auto;
+}
 
 .container {
   width: fit-content;
@@ -26,11 +48,11 @@ input:-webkit-autofill,
 }
 
 .species-grid {
-  margin: auto;
+  margin: 2.4rem auto;
   display: grid;
   grid-template-columns: repeat(4, auto);
-  justify-content: space-between;
   gap: 2.4rem;
+  justify-content: space-between;
 }
 
 
@@ -98,9 +120,10 @@ input:-webkit-autofill,
 }
 
 .search-bar input {
+  font-family: Roboto Mono;
   width: 23.47rem;
-  background-color: #eeeeee;
-  color: #404040;
+  background-color: var(--grey-light);
+  color: var(--grey-dark);
   padding-inline: 0.625rem;
   font-size: 1.125rem;
 }
@@ -112,9 +135,9 @@ input:-webkit-autofill,
 }
 
 .search-bar button {
-  width: 5.68rem;
-  background-color: #404040;
-  color: #cfcfcf;
+  padding: 0 0.75rem;
+  background-color: var(--green-dark);
+  color: var(--green);
   font-size: 1rem;
   font-weight: 500;
   border-top-right-radius: 1.2rem;
@@ -133,7 +156,7 @@ input:-webkit-autofill,
   width: 1.2rem;
   height: 1.2rem;
   border: 0.15rem solid;
-  border-color: #c9c9c9 #c9c9c9 #c9c9c9 transparent;
+  border-color: var(--green) var(--green) var(--green) transparent;
   border-radius: 50%;
   animation: spin-anim 0.8s linear infinite;
 }
@@ -155,11 +178,11 @@ input:-webkit-autofill,
 
 .suggestion {
   display: flex;
-  background-color: #cfcfcf;
+  background-color: var(--grey-light);
   width: 24.47rem;
   height: 2.4rem;
   padding: 0.25rem 0 0.25rem 0.25rem;
-  border-top: 0.063rem solid #aeaeae;
+  border-top: 0.063rem solid var(--grey);
 }
 
 .suggestion:hover {
@@ -194,8 +217,18 @@ input:-webkit-autofill,
   font-style: italic;
 }
 
+.navbar-link {
+  text-decoration: none;
+  color: var(--grey-light);
+}
+
+.navbar-link.active {
+  font-weight: 600;
+  color: var(--green);
+}
+
 .species-card {
-  background-color: #404040;
+  background-color: var(--grey);
   max-width: 14rem;
 }
 
@@ -212,7 +245,7 @@ input:-webkit-autofill,
 }
 
 .common-name {
-  color: #f5f2f2;
+  color: var(--grey-light);
   font-size: 1.375rem;
   font-weight: 300;
   overflow: hidden;
@@ -222,7 +255,7 @@ input:-webkit-autofill,
 }
 
 .sci-name {
-  color: #cfcfcf;
+  color: var(--grey-light);
   font-weight: 200;
   font-size: 0.875rem;
   font-style: italic;
