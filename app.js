@@ -10,6 +10,7 @@ const logger = require('./utils/logger')
 const loginRouter = require('./controllers/loginRouter')
 const usersRouter = require('./controllers/usersRouter')
 const studySetsRouter = require('./controllers/studySetsRouter')
+const taxaRouter = require('./controllers/taxaRouter')
 
 const app = express()
 
@@ -30,6 +31,7 @@ app.use(reqLogger)
 app.use('/api/login', loginRouter)
 app.use('/api/users', userExtractor, usersRouter)
 app.use('/api/sets', userExtractor, studySetsRouter)
+app.use('/api/taxa', taxaRouter)
 app.use(unknownEndpoint)
 app.use(errorHandler)
 
