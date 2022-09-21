@@ -14,7 +14,10 @@ taxaRouter.get('/', async (req, res) => {
 })
 
 taxaRouter.get('/descendants', async (req, res) => {
-  const apiResponse = await axios.get(`${BASE_URL}?per_page=24&rank=species&taxon_id=${req.query.id}&page=${req.query.page}`)
+  const perPage = 48
+  const rank = 'species'
+
+  const apiResponse = await axios.get(`${BASE_URL}?per_page=${perPage}&rank=${rank}&taxon_id=${req.query.id}&page=${req.query.page}`)
 
   helpers.firstLettersToUppercase(apiResponse.data.results)
 
