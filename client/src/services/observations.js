@@ -1,18 +1,28 @@
 import axios from 'axios'
 
 // Base url for fetching iNat observations
-const BASE_URL = 'https://api.inaturalist.org/v1/observations?order=desc&order_by=created_at&quality_grade=research&photos=true&photo_license=cc0&per_page=100'
+const BASE_URL = 'http://localhost:3001/api/taxa'
 
-const fetchObservations = async (taxon) => {
-  const url = `${BASE_URL}&q=${taxon}`
+const searchForTaxon = async (query) => {
+  const url = `${BASE_URL}?q=${query}`
   const res = await axios.get(url)
-
-  // Filter to ensure all observations have a common name
-  return res.data.results.filter(obs => obs.taxon.preferred_common_name)
+  console.log(res.data)
+  return res.data
 }
 
+const searchForDescendants = async (id, page) => {
+  const url = `${BASE_URL}/descendants?id=${id}&page=${page}`
+  const res = await axios.get(url)
+  console.log(res.data)
+  return res.data
+}
+
+searchForTaxon('sharks')
+searchForDescendants('47273', 1)
+
 const observationsService = {
-  fetchObservations
+  searchForTaxon,
+  searchForDescendants
 }
 
 export default observationsService

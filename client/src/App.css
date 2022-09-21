@@ -135,7 +135,7 @@ input:-webkit-autofill:focus {
 }
 
 .search-bar button {
-  padding: 0 0.75rem;
+  min-width: 3rem;
   background-color: var(--green-dark);
   color: var(--green);
   font-size: 1rem;
@@ -153,8 +153,8 @@ input:-webkit-autofill:focus {
 }
 
 .spinner {
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 0.8rem;
+  height: 0.8rem;
   border: 0.15rem solid;
   border-color: var(--green) var(--green) var(--green) transparent;
   border-radius: 50%;

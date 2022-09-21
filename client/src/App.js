@@ -9,16 +9,22 @@ import SpeciesGrid from './components/SpeciesGrid'
 
 function App() {
   const [search, setSearch] = useState('')
+  const [resultTaxon, setResultTaxon] = useState(null)
   const [results, setResults] = useState(null)
   const [isFetchingData, setIsFetchingData] = useState(false)
 
   useEffect(() => {
     const fetchResults = async () => {
+      setResultTaxon(null)
       setResults(null)
       setIsFetchingData(true)
-      const res = await observationsService.fetchObservations(search)
+
+      const taxon = await observationsService.searchForTaxon(search)
+      const descendants = await observationsService.searchForDescendants(taxon.id, 1)
+
       setIsFetchingData(false)
-      setResults(res)
+      setResultTaxon(taxon)
+      setResults(descendants)
     }
 
     if (search) fetchResults()
