@@ -1,5 +1,5 @@
 const axios = require('axios')
-
+const helpers = require('../utils/helpers')
 const taxaRouter = require('express').Router()
 
 const BASE_URL = 'https://api.inaturalist.org/v1/taxa'
@@ -15,6 +15,9 @@ taxaRouter.get('/', async (req, res) => {
 
 taxaRouter.get('/descendants', async (req, res) => {
   const apiResponse = await axios.get(`${BASE_URL}?per_page=24&rank=species&taxon_id=${req.query.id}&page=${req.query.page}`)
+
+  helpers.firstLettersToUppercase(apiResponse.data.results)
+
   return res.status(200).json(apiResponse.data.results)
 })
 
