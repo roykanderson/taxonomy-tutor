@@ -1,12 +1,12 @@
+import { Link } from 'react-router-dom'
+
 import SearchBar from './SearchBar'
 
-const Navbar = ({ search, setSearch, isFetchingData }) => {
+const Navbar = ({ search, setSearch, isLoading }) => {
   return (
     <>
-      <SearchBar search={search} setSearch={setSearch} isFetchingData={isFetchingData} />
-      <a href="" className='navbar-link'>Explore</a>
-      <a href="" className='navbar-link'>Study</a>
-      <a href="" className='navbar-link active'>Profile</a>
+      <SearchBar search={search} setSearch={setSearch} />
+      <Link to='/profile' className='navbar-profile'>Profile</Link>
     </>
   )
 }

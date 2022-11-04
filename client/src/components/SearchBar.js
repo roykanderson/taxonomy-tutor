@@ -1,4 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+
+import { useField } from '../hooks'
 
 // TODO: SET UP CLICKING SUGGESTION TRIGGERING SEARCH
 // TODO: SUGGESTIONS AND SEARCH WITHOUT CALLING API MULTIPLE TIMES
@@ -9,11 +12,14 @@ import LoadingIcon from './LoadingIcon'
 import taxaService from '../services/taxaService'
 import DropdownSuggestions from './DropdownSuggestions'
 
-const SearchBar = ({ search, setSearch, isFetchingData }) => {
-  const [input, setInput] = useState('')
+const SearchBar = ({ search, setSearch, isLoading }) => {
+  const navigate = useNavigate()
+  const previousSearch = useParams().search
+  
   const [suggestions, setSuggestions] = useState(null)
   const [shake, setShake] = useState(false)
 
+  /*
   const useOutsideToggler = (ref) => {
     useEffect(() => {
       // Hide suggestions if click happens outside dropdown menu by setting suggestions to null
@@ -34,15 +40,15 @@ const SearchBar = ({ search, setSearch, isFetchingData }) => {
 
   const wrapperRef = useRef(null)
   useOutsideToggler(wrapperRef)
+` */
 
-  const handleSubmitSearch = (event) => {
+  const handleSearch = (event) => {
     event.preventDefault()
 
-    if (input === search) {
+    if (search === previousSearch) {
       setShake(true)
     } else {
-      setSearch(input)
-      setInput('')
+      navigate(`/species?search=${search}`)
       setSuggestions(null)
     }
 
@@ -50,23 +56,23 @@ const SearchBar = ({ search, setSearch, isFetchingData }) => {
     setTimeout(() => setShake(false), 500)
   }
 
-  const handleInputChange = async ({ target }) => {
-    setInput(target.value)
+  const handleSearchChange = async ({ target }) => {
+    setSearch(target.value)
     target.value
-      ? setSuggestions(await taxaService.fetchTaxaSuggestions(input))
+      ? setSuggestions(await taxaService.fetchTaxaSuggestions(search))
       : setSuggestions(null)
   }
 
   return (
-    <form ref={wrapperRef} className={`search-bar${shake ? ' shake' : ''}`} onSubmit={handleSubmitSearch} >
-      <input type="text" value={input} name='Taxon' autoComplete='off' onChange={handleInputChange} />
+    <form /*ref={wrapperRef}*/ className={`search-bar${shake ? ' shake' : ''}`} onSubmit={handleSearch} >
+      <input type='text' value={search} onChange={handleSearchChange} name='Taxon' autoComplete='off' />
       <button type="submit">
-        {isFetchingData
+        {isLoading
           ? <LoadingIcon />
           : <SearchIcon />
         }
       </button>
-      <DropdownSuggestions suggestions={suggestions} setSuggestions={setSuggestions} setInput={setInput} setSearch={setSearch} />
+      <DropdownSuggestions suggestions={suggestions} setSuggestions={setSuggestions} setInput={search} setSearch={search} />
     </form>
   )
 }

@@ -6,14 +6,12 @@ const BASE_URL = 'http://localhost:3001/api/taxa'
 const searchForTaxon = async (query) => {
   const url = `${BASE_URL}?q=${query}`
   const res = await axios.get(url)
-  console.log(res.data)
   return res.data
 }
 
 const searchForDescendants = async (id, page) => {
   const url = `${BASE_URL}/descendants?id=${id}&page=${page}`
   const res = await axios.get(url)
-  console.log(res.data)
   return res.data
 }
 

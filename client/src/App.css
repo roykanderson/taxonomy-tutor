@@ -217,14 +217,9 @@ input:-webkit-autofill:focus {
   font-style: italic;
 }
 
-.navbar-link {
+.navbar-profile {
   text-decoration: none;
   color: var(--grey-light);
-}
-
-.navbar-link.active {
-  font-weight: 600;
-  color: var(--green);
 }
 
 .species-card {
