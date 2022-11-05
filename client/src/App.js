@@ -9,7 +9,6 @@ import SpeciesGrid from './components/SpeciesGrid'
 import { useField, useResults } from './hooks'
 
 function App() {
-  const [search, setSearch] = useState('')
   const location = useLocation()
 
   return (
@@ -19,13 +18,13 @@ function App() {
           <Link to='/'>
             <Logo />
           </Link>
-          <Navbar search={search} setSearch={setSearch} />
+          <Navbar />
         </header>
       </div>
 
       <Routes>
         <Route path='/' element={<h1>HOME</h1>} />
-        <Route path='/species' element={<SpeciesGrid search={search} />} />
+        <Route path='/search' element={<SpeciesGrid />} />
         <Route path='/profile' element={<h1>hello woRLD</h1>} />
       </Routes>
     </>

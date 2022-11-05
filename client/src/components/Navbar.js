@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom'
 
 import SearchBar from './SearchBar'
 
-const Navbar = ({ search, setSearch, isLoading }) => {
+const Navbar = () => {
   return (
     <>
-      <SearchBar search={search} setSearch={setSearch} />
+      <SearchBar />
       <Link to='/profile' className='navbar-profile'>Profile</Link>
     </>
   )

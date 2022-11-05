@@ -1,8 +1,12 @@
+import { useSearchParams } from 'react-router-dom'
+
 import { useResults } from '../hooks'
 import SpeciesCard from './SpeciesCard'
 
-const SpeciesGrid = ({ search }) => {
-  const results = useResults(search)
+const SpeciesGrid = () => {
+  const [searchParams, setSearchParams] = useSearchParams()
+  console.log(searchParams.get('q'))
+  const { results, isLoading } = useResults(searchParams.get('q'))
 
   const getPhotoUrl = (taxon) => {
     let url = taxon.default_photo.url
@@ -13,7 +17,7 @@ const SpeciesGrid = ({ search }) => {
   return (
     <main className='container'>
       <div className="species-grid">
-        {results.results && results.results
+        {results && results
           .map((taxon => {
             return (<SpeciesCard key={taxon.id} commonName={taxon.preferred_common_name} sciName={taxon.name} imgSrc={getPhotoUrl(taxon)} />)
           }))
