@@ -1,10 +1,13 @@
 import React from "react"
+import { useNavigate } from "react-router-dom"
 
-const DropdownSuggestions = ({ suggestions, setSuggestions, setInput, setSearch }) => {
+const DropdownSuggestions = ({ suggestions, setSuggestions, setSearch }) => {
+  const navigate = useNavigate()
+
   const handleSuggestionClick = ({ target }) => {
     setSuggestions(null)
-    setInput('')
     setSearch(target.getAttribute('data-name'))
+    navigate(`/search?q=${target.getAttribute('data-name')}`)
   }
 
   return (

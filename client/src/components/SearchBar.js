@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { useNavigate, useParams, useLocation } from 'react-router-dom'
+import { useNavigate, useSearchParams, useLocation } from 'react-router-dom'
 
 import { useField } from '../hooks'
 
@@ -15,6 +15,7 @@ import DropdownSuggestions from './DropdownSuggestions'
 const SearchBar = () => {
   const navigate = useNavigate()
   const location = useLocation()
+  const [searchParams, setSearchParams] = useSearchParams()
 
   // const previousSearch = useParams()
   const [search, setSearch] = useState('')
@@ -24,18 +25,17 @@ const SearchBar = () => {
 
   
   useEffect(() => {
-    if (location.pathname !== '/search') {
-      setSearch('')
-    }
+    location.pathname === '/search'
+      ? setSearch(searchParams.get('q'))
+      : setSearch('')
   }, [location])
 
-  /*
   const useOutsideToggler = (ref) => {
     useEffect(() => {
       // Hide suggestions if click happens outside dropdown menu by setting suggestions to null
       const handleClickOutside = (event) => {
         if (ref.current && !ref.current.contains(event.target)) {
-          setInput('')
+          setSearch('')
           setSuggestions(null)
         }
       }
@@ -50,7 +50,6 @@ const SearchBar = () => {
 
   const wrapperRef = useRef(null)
   useOutsideToggler(wrapperRef)
-` */
 
   const handleSearch = (event) => {
     event.preventDefault()
@@ -67,8 +66,11 @@ const SearchBar = () => {
     // setTimeout(() => setShake(false), 500)
   }
 
-  const handleInputChange = (event) => {
-    setSearch(event.target.value)
+  const handleInputChange = async ({ target }) => {
+    setSearch(target.value)
+    target.value
+      ? setSuggestions(await taxaService.fetchTaxaSuggestions(search))
+      : setSuggestions(null)
   }
 
   /*
@@ -101,7 +103,7 @@ const SearchBar = () => {
     <button type='submit'>
       <SearchIcon />
     </button>
-    <DropdownSuggestions suggestions={suggestions} setSuggestions={setSuggestions} />
+    <DropdownSuggestions suggestions={suggestions} setSuggestions={setSuggestions} setSearch={setSearch} />
   </form>
  )
 }
