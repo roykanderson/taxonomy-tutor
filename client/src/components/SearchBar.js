@@ -1,111 +1,50 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate, useSearchParams, useLocation } from 'react-router-dom'
-
-import { useField } from '../hooks'
 
 // TODO: SET UP CLICKING SUGGESTION TRIGGERING SEARCH
 // TODO: SUGGESTIONS AND SEARCH WITHOUT CALLING API MULTIPLE TIMES
 
 import { ReactComponent as SearchIcon } from '../assets/search-icon.svg'
 
-import LoadingIcon from './LoadingIcon'
 import taxaService from '../services/taxaService'
 import DropdownSuggestions from './DropdownSuggestions'
 
 const SearchBar = () => {
-  const navigate = useNavigate()
-  const location = useLocation()
-  const [searchParams, setSearchParams] = useSearchParams()
-
-  // const previousSearch = useParams()
-  const [search, setSearch] = useState('')
-
+  const [input, setInput] = useState('')
   const [suggestions, setSuggestions] = useState(null)
-  const [shake, setShake] = useState(false)
 
-  
+  const location = useLocation()
+  const [searchParams] = useSearchParams()
+
   useEffect(() => {
     location.pathname === '/search'
-      ? setSearch(searchParams.get('q'))
-      : setSearch('')
-  }, [location])
+      ? setInput(searchParams.get('q'))
+      : setInput('')
+  }, [location, searchParams])
 
-  const useOutsideToggler = (ref) => {
-    useEffect(() => {
-      // Hide suggestions if click happens outside dropdown menu by setting suggestions to null
-      const handleClickOutside = (event) => {
-        if (ref.current && !ref.current.contains(event.target)) {
-          setSearch('')
-          setSuggestions(null)
-        }
-      }
-      // Bind the event listener
-      document.addEventListener("mousedown", handleClickOutside)
-      return () => {
-        // Unbind the event listener on clean up
-        document.removeEventListener("mousedown", handleClickOutside)
-      }
-    }, [ref])
-  }
+  const navigate = useNavigate()
 
-  const wrapperRef = useRef(null)
-  useOutsideToggler(wrapperRef)
-
-  const handleSearch = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault()
-    navigate(`/search?q=${search}`)
-    /*
-    if (search === previousSearch) {
-      setShake(true)
-    } else {
-      navigate(`/species?search=${search}`)
-      setSuggestions(null)
-    }
-    */
-    // Remove shake class after animation finishes
-    // setTimeout(() => setShake(false), 500)
+    navigate(`/search?q=${input}`)
   }
 
   const handleInputChange = async ({ target }) => {
-    setSearch(target.value)
+    setInput(target.value)
     target.value
-      ? setSuggestions(await taxaService.fetchTaxaSuggestions(search))
+      ? setSuggestions(await taxaService.fetchTaxaSuggestions(input))
       : setSuggestions(null)
   }
 
-  /*
-  const handleSearchChange = async ({ target }) => {
-    setSearch(target.value)
-    target.value
-      ? setSuggestions(await taxaService.fetchTaxaSuggestions(search))
-      : setSuggestions(null)
-  }
-  /*
-
-  /*
   return (
-    <form ref={wrapperRef} className={`search-bar${shake ? ' shake' : ''}`} onSubmit={handleSearch} >
-      <input type='text' value={search} onChange={handleSearchChange} name='Taxon' autoComplete='off' />
-      <button type="submit">
-        {isLoading
-          ? <LoadingIcon />
-          : <SearchIcon />
-        }
+    <form className='search-bar' onSubmit={handleSubmit}>
+      <input type='text' value={input} onChange={handleInputChange} />
+      <button type='submit'>
+        <SearchIcon />
       </button>
-      <DropdownSuggestions suggestions={suggestions} setSuggestions={setSuggestions} setInput={search} setSearch={search} />
+      <DropdownSuggestions suggestions={suggestions} setSuggestions={setSuggestions} setInput={setInput} />
     </form>
   )
-  */
- 
- return (
-  <form className='search-bar' onSubmit={handleSearch}>
-    <input type='text' value={search} onChange={handleInputChange} />
-    <button type='submit'>
-      <SearchIcon />
-    </button>
-    <DropdownSuggestions suggestions={suggestions} setSuggestions={setSuggestions} setSearch={setSearch} />
-  </form>
- )
 }
 
 export default SearchBar
