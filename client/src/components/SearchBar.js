@@ -1,13 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useSearchParams, useLocation } from 'react-router-dom'
 
-// TODO: SET UP CLICKING SUGGESTION TRIGGERING SEARCH
-// TODO: SUGGESTIONS AND SEARCH WITHOUT CALLING API MULTIPLE TIMES
-
-import { ReactComponent as SearchIcon } from '../assets/search-icon.svg'
-
 import taxaService from '../services/taxaService'
 import DropdownSuggestions from './DropdownSuggestions'
+
+import { ReactComponent as SearchIcon } from '../assets/search-icon.svg'
 
 const SearchBar = () => {
   const [input, setInput] = useState('')
@@ -27,6 +24,8 @@ const SearchBar = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    setFocused(false)
+    setSuggestions(null)
     navigate(`/search?q=${input}`)
   }
 
@@ -37,7 +36,8 @@ const SearchBar = () => {
       : setSuggestions(null)
   }
 
-  const onFocus = () => {
+  const onFocus = async () => {
+    setSuggestions(await taxaService.fetchTaxaSuggestions(input))
     setFocused(true)
   }
 
@@ -51,7 +51,8 @@ const SearchBar = () => {
       <button type='submit'>
         <SearchIcon />
       </button>
-      {focused && <DropdownSuggestions suggestions={suggestions} setSuggestions={setSuggestions} setInput={setInput} />}
+      {focused &&
+        <DropdownSuggestions suggestions={suggestions} setSuggestions={setSuggestions} setInput={setInput} />}
     </form>
   )
 }

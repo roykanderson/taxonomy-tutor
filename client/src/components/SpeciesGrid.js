@@ -5,9 +5,13 @@ import LoadingIcon from './LoadingIcon'
 import { useResults } from '../hooks'
 
 const SpeciesGrid = () => {
+  //console.log('Rendering SpeciesGrid')
   const [searchParams] = useSearchParams()
 
   const { data, isLoading } = useResults(searchParams.get('q'))
+
+  //console.log('q: ', searchParams.get('q'))
+  //console.log('Data:', data)
 
   const getPhotoUrl = (taxon) => {
     let url = taxon.default_photo.url

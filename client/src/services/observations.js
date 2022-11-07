@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { useSearchParams } from 'react-router-dom'
 
 // Base url for fetching iNat observations
 const BASE_URL = 'http://localhost:3001/api/taxa'
