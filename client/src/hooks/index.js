@@ -20,18 +20,13 @@ export const useField = (type) => {
 // Accepts a search argument. Returns search results and status of async request.
 export const useResults = (search) => {
   const fetchResults = async () => {
-    // setResults(null)
-    // setIsLoading(true)
-
     // The server first matches the search to a taxon
     const taxon = await observationsService.searchForTaxon(search)
 
     // Then retrieves all descendants
     const descendants = await observationsService.searchForDescendants(taxon.id, 1)
-    console.log('UseResults', descendants)
+    console.log('descendants:', descendants)
     return descendants
-    // setIsLoading(false)
-    // setResults(descendants)
   }
   
   return useQuery(['results'], fetchResults)

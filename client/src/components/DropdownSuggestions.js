@@ -1,12 +1,14 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
 
-const DropdownSuggestions = ({ suggestions, setSuggestions, setSearch }) => {
+const DropdownSuggestions = ({ suggestions, setSuggestions, setInput }) => {
   const navigate = useNavigate()
 
-  const handleSuggestionClick = ({ target }) => {
+  const handleClick = ({ target }) => {
+    console.log('click')
     setSuggestions(null)
-    setSearch(target.getAttribute('data-name'))
+    setInput(target.getAttribute('data-name'))
+    console.log(target.getAttribute('data-name'))
     navigate(`/search?q=${target.getAttribute('data-name')}`)
   }
 
@@ -15,7 +17,7 @@ const DropdownSuggestions = ({ suggestions, setSuggestions, setSearch }) => {
       {suggestions && suggestions.map(suggestion =>
         <React.Fragment key={suggestion.id}>
           {suggestion.default_photo &&
-            <li className='suggestion' onClick={handleSuggestionClick} data-name={suggestion.name}>
+            <li className='suggestion' onMouseDown={handleClick} data-name={suggestion.name}>
               <img src={suggestion.default_photo.url} alt={suggestion.preferred_common_name} data-name={suggestion.name} />
               <div className='suggestion-info' data-name={suggestion.name} >
                 <div className='suggestion-info-name' data-name={suggestion.name}>{suggestion.preferred_common_name}</div>

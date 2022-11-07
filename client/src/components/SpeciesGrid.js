@@ -9,8 +9,6 @@ const SpeciesGrid = () => {
 
   const { data, isLoading } = useResults(searchParams.get('q'))
 
-  console.log('species card', data)
-
   const getPhotoUrl = (taxon) => {
     let url = taxon.default_photo.url
     const pattern = /square/

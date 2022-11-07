@@ -12,6 +12,7 @@ import DropdownSuggestions from './DropdownSuggestions'
 const SearchBar = () => {
   const [input, setInput] = useState('')
   const [suggestions, setSuggestions] = useState(null)
+  const [focused, setFocused] = useState(null)
 
   const location = useLocation()
   const [searchParams] = useSearchParams()
@@ -36,13 +37,21 @@ const SearchBar = () => {
       : setSuggestions(null)
   }
 
+  const onFocus = () => {
+    setFocused(true)
+  }
+
+  const onBlur = () => {
+    setTimeout(setFocused(false), 5000)
+  }
+
   return (
-    <form className='search-bar' onSubmit={handleSubmit}>
+    <form className='search-bar' onSubmit={handleSubmit} onFocus={onFocus} onBlur={onBlur} >
       <input type='text' value={input} onChange={handleInputChange} />
       <button type='submit'>
         <SearchIcon />
       </button>
-      <DropdownSuggestions suggestions={suggestions} setSuggestions={setSuggestions} setInput={setInput} />
+      {focused && <DropdownSuggestions suggestions={suggestions} setSuggestions={setSuggestions} setInput={setInput} />}
     </form>
   )
 }
