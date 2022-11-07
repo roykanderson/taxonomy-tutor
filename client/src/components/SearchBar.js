@@ -30,6 +30,7 @@ const SearchBar = () => {
   }
 
   const handleInputChange = async ({ target }) => {
+    setFocused(true)
     setInput(target.value)
     target.value
       ? setSuggestions(await taxaService.fetchTaxaSuggestions(input))
@@ -37,8 +38,8 @@ const SearchBar = () => {
   }
 
   const onFocus = async () => {
-    setSuggestions(await taxaService.fetchTaxaSuggestions(input))
     setFocused(true)
+    setSuggestions(await taxaService.fetchTaxaSuggestions(input))
   }
 
   const onBlur = () => {
