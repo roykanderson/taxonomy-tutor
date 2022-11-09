@@ -1,12 +1,20 @@
-const SpeciesCard = ({ commonName, sciName, imgSrc }) => {
+import { Link } from 'react-router-dom'
+
+const SpeciesCard = ({ taxon }) => {
+  const getPhotoUrl = (taxon) => {
+    let url = taxon.default_photo.url
+    const pattern = /square/
+    return url.replace(pattern, 'large')
+  }
+
   return (
-    <div className="species-card">
-      <img className="species-image" src={imgSrc} alt="" />
+    <Link to={`/species/${taxon.id}`} state={taxon} className="species-card">
+      <img className="species-image" src={getPhotoUrl(taxon)} alt="" />
       <div className="species-info">
-        <p className="common-name">{commonName}</p>
-        <p className="sci-name">{sciName}</p>
+        <p className="common-name">{taxon.preferred_common_name}</p>
+        <p className="sci-name">{taxon.name}</p>
       </div>
-    </div>
+    </Link>
   )
 }
 

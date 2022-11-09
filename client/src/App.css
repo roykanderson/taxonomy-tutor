@@ -225,10 +225,7 @@ input:-webkit-autofill:focus {
 .species-card {
   background-color: var(--grey);
   max-width: 14rem;
-}
-
-.species-card:hover {
-  cursor: pointer;
+  text-decoration: none;
 }
 
 .species-info {
