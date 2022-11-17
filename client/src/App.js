@@ -1,6 +1,6 @@
 import { Routes, Route, Link } from 'react-router-dom'
 
-import './App.css'
+import './styles/App.css'
 import { ReactComponent as Logo } from './assets/logo.svg'
 
 import Navbar from './components/Navbar'
@@ -20,9 +20,9 @@ function App() {
       </div>
 
       <Routes>
-        <Route path='/' element={<h1>HOME</h1>} />
+        <Route path='/' element={<></>} />
         <Route path='/search' element={<SpeciesGrid />} />
-        <Route path='/profile' element={<h1>hello woRLD</h1>} />
+        <Route path='/profile' element={<></>} />
         <Route path='/species/:id' element={<SpeciesPage />} />
       </Routes>
     </>
