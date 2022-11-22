@@ -45,6 +45,7 @@ input:-webkit-autofill:focus {
   width: fit-content;
   min-width: 80%;
   margin: auto;
+  height: calc(100vh - 7.2rem);
 }
 
 .species-grid {
@@ -54,7 +55,6 @@ input:-webkit-autofill:focus {
   gap: 2.4rem;
   justify-content: space-between;
 }
-
 
 @media (min-width: 830px) and (max-width: 1100px) {
   .species-grid {
@@ -81,7 +81,6 @@ input:-webkit-autofill:focus {
     grid-template-columns: auto;
   }
 }
-
 
 .search-bar {
   position: relative;
@@ -152,10 +151,17 @@ input:-webkit-autofill:focus {
   opacity: 70%;
 }
 
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60%;
+}
+
 .spinner {
-  width: 0.8rem;
-  height: 0.8rem;
-  border: 0.15rem solid;
+  width: 2rem;
+  height: 2rem;
+  border: 0.3rem solid;
   border-color: var(--green) var(--green) var(--green) transparent;
   border-radius: 50%;
   animation: spin-anim 0.8s linear infinite;

@@ -10,14 +10,14 @@ const SpeciesGrid = () => {
 
   return (
     <main className='container'>
-      <div className="species-grid">
-        {isLoading
-          ? <LoadingIcon />
-          : data.map((taxon => {
-              return (<SpeciesCard key={taxon.id} taxon={taxon} />)
-            }))
-        }
-      </div>
+      {isLoading
+        ? <LoadingIcon />
+        : <div className='species-grid'>
+          {data.map(taxon => {
+            return <SpeciesCard key={taxon.id} taxon={taxon} />
+          })}
+        </div>
+      }
     </main>
   )
 }
