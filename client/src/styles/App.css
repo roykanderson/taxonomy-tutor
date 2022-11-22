@@ -276,10 +276,95 @@ input:-webkit-autofill:focus {
   opacity: 80%;
 }
 
-.page-names {
-  color: var(--white)
+/* Species Info Page */
+
+.page-container {
+  max-width: 80%;
+  margin: 2.4rem auto;
+  display: flex;
+  flex-direction: row;
+  gap: 1.2rem;
+}
+
+.page-left {
+  flex: 1;
+}
+
+.page-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.8rem 1.2rem;
+  background-color: var(--grey);
+  margin-bottom: 1.2rem;
+}
+
+.page-common-name {
+  font-size: 1.875rem;
+  color: var(--white);
+}
+
+.page-sci-name {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--grey-light);
+}
+
+.page-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: Roboto Mono;
+  font-size: 1rem;
+  padding: 0;
+  border: none;
+  border-radius: 1.5rem;
+  background-color: var(--green);
+  color: var(--green-dark);
+}
+
+.page-button:hover {
+  cursor: pointer;
+  background-color: var(--green-dark);
+  color: var(--green);
+}
+
+.page-button:hover .button-plus {
+  background-color: var(--green);
+  color: var(--green-dark);
+}
+
+.button-text {
+  padding: 0.2rem 1.2rem;
+}
+
+.button-plus {
+  padding: 0.2rem 0.6rem;
+  background-color: var(--green-dark);
+  color: var(--green);
+  font-size: 1.5rem;
+  font-weight: 100;
 }
 
 .page-wiki {
-  color: var(--grey-light)
+  background-color: var(--grey);
+  color: var(--grey-light);
+  padding: 1.2rem;
+}
+
+.page-wiki-info {
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.page-wiki-cite a {
+  font-style: italic;
+  color: var(--grey-light);
+}
+
+.page-img {
+  max-width: 40%;
+  object-fit: cover;
+  object-position: center;
 }
