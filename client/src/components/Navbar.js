@@ -13,7 +13,10 @@ const Navbar = () => {
       <SearchBar />
       {user
         ? <Link to='/profile' className='navbar-right-text'>Profile</Link>
-        : <Link to='/login' className='navbar-right-text'>Log In</Link>
+        : <>
+            <Link to='/login' className='navbar-right-text'>Log in</Link>
+            <Link to='/signup' className='navbar-right-text'>Sign up</Link>
+          </>
       }
     </>
   )

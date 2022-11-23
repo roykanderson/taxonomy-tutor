@@ -7,6 +7,7 @@ import { ReactComponent as Logo } from './assets/logo.svg'
 import { UserContext } from './utils/UserContext'
 
 import LoginPage from './components/LoginPage'
+import SignupPage from './components/SignupPage'
 import Navbar from './components/Navbar'
 import SpeciesGrid from './components/SpeciesGrid'
 import SpeciesPage from './components/SpeciesPage'
@@ -28,6 +29,7 @@ function App() {
       <Routes>
         <Route path='/' element={<></>} />
         <Route path='/login' element={<LoginPage />} />
+        <Route path='/signup' element={<SignupPage />} />
         <Route path='/search' element={<SpeciesGrid />} />
         <Route path='/profile' element={<></>} />
         <Route path='/species/:id' element={<SpeciesPage />} />
