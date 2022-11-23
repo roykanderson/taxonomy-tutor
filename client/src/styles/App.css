@@ -370,3 +370,103 @@ input:-webkit-autofill:focus {
   object-fit: cover;
   object-position: center;
 }
+
+/* Login Page */
+
+.login-container {
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 7.2rem);
+}
+
+.login-left {
+  background-color: var(--green-dark);
+  color: var(--green);
+  width: 33vw;
+  padding-top: 7.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.login-right {
+  width: 67vw;
+  margin-top: 7.2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.login-fields {
+  background-color: var(--grey);
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  padding: 1.8rem;
+  margin-bottom: 1.8rem;
+}
+
+.login-fields-error {
+  margin-bottom: 1.8rem;
+  color: var(--grey-light);
+}
+
+.login-link {
+  color: var(--green);
+}
+
+.login-fields-username {
+  margin-bottom: 1.8rem
+}
+
+.login-fields input {
+  font-family: Roboto Mono;
+  height: 2.4rem;
+  width: 23.47rem;
+  background-color: var(--grey-light);
+  color: var(--grey-dark);
+  padding-inline: 0.625rem;
+  font-size: 1.125rem;
+  border: none;
+}
+
+.login-fields input:focus {
+  outline: none;
+  opacity: 70%;
+  transition: all 0.1s;
+}
+
+.login-submit {
+  background-color: var(--green-dark);
+  color: var(--green);
+  font-family: Roboto Mono;
+  border: none;
+  width: 28.27rem;
+  height: 2.525rem;
+  padding: none;
+  font-size: 1.125rem;
+}
+
+.login-submit:hover {
+  cursor: pointer;
+  background-color: var(--green);
+  color: var(--green-dark);
+}
+
+/* 
+.search-bar input {
+  font-family: Roboto Mono;
+  width: 23.47rem;
+  background-color: var(--grey-light);
+  color: var(--grey-dark);
+  padding-inline: 0.625rem;
+  font-size: 1.125rem;
+}
+
+.search-bar input:focus {
+  outline: none;
+  opacity: 70%;
+  transition: all 0.1s;
+}
+*/
