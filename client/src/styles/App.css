@@ -223,7 +223,7 @@ input:-webkit-autofill:focus {
   font-style: italic;
 }
 
-.navbar-profile {
+.navbar-right-text {
   text-decoration: none;
   color: var(--grey-light);
 }
@@ -345,6 +345,8 @@ input:-webkit-autofill:focus {
   color: var(--green);
   font-size: 1.5rem;
   font-weight: 100;
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
 }
 
 .page-wiki {
