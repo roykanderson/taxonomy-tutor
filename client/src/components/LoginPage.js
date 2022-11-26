@@ -4,7 +4,13 @@ import { Link } from 'react-router-dom'
 const LoginPage = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [error, setError] = useState(true)
+  const [error, setError] = useState(false)
+
+  const handleLogin = (event) => {
+    event.preventDefault()
+    console.log(username, password)
+    // TODO MORE HERE CONNECTING LOGIN TO BACKEND
+  }
 
   return (
     <div className="login-container">
@@ -15,7 +21,7 @@ const LoginPage = () => {
         </div>
       </div>
       <div className="login-right">
-        <form>
+        <form onSubmit={handleLogin}>
           <div className="login-fields">
             {error &&
               <div className="login-fields-error">
@@ -28,10 +34,20 @@ const LoginPage = () => {
               </div>
             }
             <div className="login-fields-username">
-              <input type="text" placeholder='Username' />
+              <input
+                type="text"
+                placeholder='Username'
+                value={username}
+                onChange={({ target }) => setUsername(target.value)}
+              />
             </div>
             <div className="login-fields-password">
-              <input type="password" placeholder='Password' />
+              <input
+                type="password"
+                placeholder='Password'
+                value={password}
+                onChange={({ target }) => setPassword(target.value)}
+              />
             </div>
           </div>
           <button className="login-submit" type="submit">Log in</button>

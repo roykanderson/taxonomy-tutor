@@ -45,11 +45,39 @@ input:-webkit-autofill:focus {
   width: fit-content;
   min-width: 80%;
   margin: auto;
-  height: calc(100vh - 7.2rem);
+  padding: 2.4rem;
+  min-height: calc(100vh - 7.2rem);
+}
+
+.results-info {
+  background-color: var(--grey-light);
+  display: flex;
+  justify-content: space-between;
+  padding: 1.2rem;
+}
+
+.results-info-text {
+  font-size: 1.625rem;
+  color: var(--grey)
+}
+
+.results-info-page {
+  background-color: var(--grey-dark);
+  display: flex;
+  align-items: center;
+  color: var(--grey-light);
+  padding: 0.6rem;
+  border-radius: 2.4rem;
+}
+
+.results-info-page button {
+  border: none;
+  padding: 0 0.6rem;
+  background-color: var(--grey-dark);
 }
 
 .species-grid {
-  margin: 2.4rem auto;
+  margin: 2.4rem auto 0 auto;
   display: grid;
   grid-template-columns: repeat(4, auto);
   gap: 2.4rem;
@@ -416,8 +444,8 @@ input:-webkit-autofill:focus {
   color: var(--green);
 }
 
-.login-fields-username {
-  margin-bottom: 1.8rem
+.login-fields-password {
+  margin-top: 1.8rem;
 }
 
 .login-fields input {
@@ -453,20 +481,3 @@ input:-webkit-autofill:focus {
   background-color: var(--green);
   color: var(--green-dark);
 }
-
-/* 
-.search-bar input {
-  font-family: Roboto Mono;
-  width: 23.47rem;
-  background-color: var(--grey-light);
-  color: var(--grey-dark);
-  padding-inline: 0.625rem;
-  font-size: 1.125rem;
-}
-
-.search-bar input:focus {
-  outline: none;
-  opacity: 70%;
-  transition: all 0.1s;
-}
-*/

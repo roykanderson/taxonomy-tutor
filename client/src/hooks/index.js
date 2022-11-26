@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query'
 
 import observationsService from '../services/observations'
 import wikiService from '../services/wikiService'
+import userService from '../services/userService'
 
 export const useField = (type) => {
   const [value, setValue] = useState('')
@@ -19,26 +20,37 @@ export const useField = (type) => {
 }
 
 // Accepts a search argument. Returns search results and status of async request.
-export const useResults = (search) => {
-  const fetchResults = async (search) => {
+export const useResults = (search, page = 1) => {
+  const fetchResults = async ({ queryKey }) => {
     // The server first matches the search to a taxon
-    const taxon = await observationsService.searchForTaxon(search.queryKey[1])
+    const taxon = await observationsService.searchForTaxon(queryKey[1])
 
     // Then retrieves all descendants
-    const descendants = await observationsService.searchForDescendants(taxon.id, 1)
+    const descendants = await observationsService.searchForDescendants(taxon.id, queryKey[2])
     return descendants
   }
 
   return useQuery({
-    queryKey: ['results', search],
-    queryFn: fetchResults
+    queryKey: ['results', search, page],
+    queryFn: fetchResults,
+    staleTime: Infinity,
+    keepPreviousData: true
   })
 }
 
 export const useWikiSummary = (url) => {
-  return useQuery(
-    ['wikiSummary'],
-    async () => await wikiService.getWikiSummary(url),
-    Infinity
-  )
+  return useQuery({
+    queryKey: ['wikiSummary', url],
+    queryFn: async ({ queryKey }) => await wikiService.getWikiSummary(queryKey[1]),
+    staleTime: Infinity
+  })
+}
+
+export const useSignup = (credentials) => {
+  const signUp = async (credentials) => {
+    const response = await userService.signUp(credentials)
+    return response.data
+  }
+
+  return useQuery(['user'], signUp)
 }
