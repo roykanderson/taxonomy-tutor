@@ -16,7 +16,7 @@ const SpeciesGrid = () => {
 
   const [page, setPage] = useState(1)
 
-  const { data, isLoading } = useResults(search, page)
+  const { data, isFetching } = useResults(search, page)
 
   return (
     <main className='container'>
@@ -38,7 +38,7 @@ const SpeciesGrid = () => {
           </div>
         }
       </div>
-      {isLoading
+      {isFetching
         ? <LoadingIcon />
         : <div className='species-grid'>
           {data.results.map(taxon => {

@@ -1,22 +1,28 @@
 import { useState } from "react"
+import { useMutation } from "@tanstack/react-query"
 
+import { useContext } from 'react'
+import { UserContext } from '../utils/UserContext'
 import userService from "../services/userService"
+import LoadingIcon from "./LoadingIcon"
 
 const SignupPage = () => {
+  const { user, setUser } = useContext(UserContext)
+
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
-  const [error, setError] = useState(false)
-  const [errorMessage, setErrorMessage] = useState('')
 
-  const handleSignup = async (event) => {
-    event.preventDefault()
-    console.log(username, password, confirmPassword)
-    const response = await userService.signUp({ username, password })
-    console.log(response)
-
-    // REFACTOR TO USE REACT QUERY TO POST SIGNUPS/LOGINS
-  }
+  const mutation = useMutation({
+    mutationFn: async (event) => {
+      event.preventDefault()
+      return await userService.signUp({ username, password, confirmPassword })
+    },
+    onSuccess: (data) => {
+      setUser(data)
+      // SET USER TO LOCAL STORAGE AND SAVE TOKEN
+    }
+  })
 
   return (
     <div className="login-container">
@@ -27,12 +33,12 @@ const SignupPage = () => {
         </div>
       </div>
       <div className="login-right">
-        <form onSubmit={handleSignup}>
+        <form onSubmit={mutation.mutate}>
           <div className="login-fields">
-            {error &&
+            {mutation.isError &&
               <div className="login-fields-error">
                 <p>
-                  {errorMessage}
+                  {mutation.error.message}
                 </p>
               </div>
             }
@@ -61,7 +67,9 @@ const SignupPage = () => {
               />
             </div>
           </div>
-          <button className="login-submit" type="submit">Sign up</button>
+          <button className="login-submit" type="submit">
+            {mutation.isLoading ? <LoadingIcon /> : 'Sign up'}
+          </button>
         </form>
       </div>
     </div>
