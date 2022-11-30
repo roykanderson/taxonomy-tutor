@@ -256,6 +256,10 @@ input:-webkit-autofill:focus {
   color: var(--grey-light);
 }
 
+.navbar-right-text.active {
+  color: var(--green)
+}
+
 .species-card {
   background-color: var(--grey);
   max-width: 14rem;

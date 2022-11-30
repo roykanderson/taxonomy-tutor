@@ -1,18 +1,29 @@
 import axios from 'axios'
 
-const BASE_URL = 'http://localhost:3001/api/users'
+const SIGNUP_URL = 'http://localhost:3001/api/users'
+const LOGIN_URL = 'http://localhost:3001/api/login'
 
-const signUp = async credentials => {
+const signUp = async (credentials) => {
   try {
-    const response = await axios.post(BASE_URL, credentials)
+    const response = await axios.post(SIGNUP_URL, credentials)
     return response.data
-  } catch(error) {
+  } catch (error) {
+    throw new Error(error.response.data.message)
+  }
+}
+
+const logIn = async (credentials) => {
+  try {
+    const response = await axios.post(LOGIN_URL, credentials)
+    return response.data
+  } catch (error) {
     throw new Error(error.response.data.message)
   }
 }
 
 const userService = {
-  signUp
+  signUp,
+  logIn
 }
 
 export default userService

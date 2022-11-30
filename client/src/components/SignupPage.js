@@ -20,7 +20,7 @@ const SignupPage = () => {
     },
     onSuccess: (data) => {
       setUser(data)
-      // SET USER TO LOCAL STORAGE AND SAVE TOKEN
+      window.localStorage.setItem('user', JSON.stringify(data))
     }
   })
 
