@@ -6,7 +6,7 @@ import { useContext } from 'react'
 import { UserContext } from '../utils/UserContext'
 
 const LoginPage = () => {
-  const { user, setUser } = useContext(UserContext)
+  const { setUser } = useContext(UserContext)
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')

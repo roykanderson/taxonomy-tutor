@@ -7,7 +7,7 @@ import userService from "../services/userService"
 import LoadingIcon from "./LoadingIcon"
 
 const SignupPage = () => {
-  const { user, setUser } = useContext(UserContext)
+  const { setUser } = useContext(UserContext)
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')

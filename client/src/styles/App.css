@@ -5,6 +5,7 @@ html {
   --grey-dark: #404040;
   --grey: #515151;
   --grey-light: #B1B1B1;
+  --grey-extra-light: #DDDDDD;
   --white: #F5F2F2;
   --green-dark: #00A05D;
   --green: #00D475;
@@ -220,7 +221,7 @@ input:-webkit-autofill:focus {
 }
 
 .suggestion:hover {
-  background-color: #dddddd;
+  background-color: var(--grey-extra-light);
   cursor: pointer;
 }
 
@@ -252,12 +253,90 @@ input:-webkit-autofill:focus {
 }
 
 .navbar-right-text {
-  text-decoration: none;
   color: var(--grey-light);
+  text-decoration: none;
+  font-size: 1rem;
 }
 
 .navbar-right-text.active {
-  color: var(--green)
+  color: var(--green);
+}
+
+.navbar-profile {
+  position: relative;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-profile button {
+  background-color: var(--green);
+  color: var(--grey-dark);
+  border: none;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 1.2rem;
+  font-size: 1.2rem;
+  font-family: Roboto Mono;
+}
+
+.navbar-profile button:hover {
+  cursor: pointer;
+}
+
+.navbar-profile-dropdown {
+  position: absolute;
+  right: 0;
+  top: 2.7rem;
+  background-color: var(--grey-dark);
+  color: var(--grey-light);
+  width: 11.2rem;
+  padding: 0 0.6rem;
+  border: 0.031rem solid var(--grey-light);
+  border-radius: 0.625rem;
+}
+
+.navbar-profile-dropdown-username {
+  display: flex;
+  gap: 0.6rem;
+  overflow: hidden;
+  align-items: center;
+  padding: 0.6rem 0;
+}
+
+.navbar-profile-dropdown-username div:nth-child(1) {
+  background-color: var(--green);
+  color: var(--grey-dark);
+  font-size: 1.2rem;
+  min-width: 2.4rem;
+  min-height: 2.4rem;
+  border-radius: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-profile-dropdown-username div:nth-child(2) {
+  font-size: 0.75rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.navbar-profile-dropdown-option {
+  border-top: 0.031rem solid var(--grey-light);
+  padding: 0.6rem 0;
+  font-size: 1rem;
+}
+
+.navbar-profile-dropdown-option-link {
+  color: var(--grey-light);
+  text-decoration: none;
+}
+
+.navbar-profile-dropdown-option:hover .navbar-profile-dropdown-option-link {
+  color: var(--green);
 }
 
 .species-card {
