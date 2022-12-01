@@ -26,13 +26,21 @@ const SpeciesGrid = () => {
         </div>
         {data &&
           <div className='results-info-page'>
-            <button onClick={() => setPage(page - 1)} disabled={page === 1}>
+            <button
+              className={page === 1 ? '' : 'active'}
+              onClick={() => setPage(page - 1)}
+              disabled={page === 1}
+            >
               {page === 1 ? <BackArrowGrey /> : <BackArrowGreen />}
             </button>
             <div>
                 <>Page {page} of {Math.ceil(data.total_results / data.per_page)}</>
             </div>
-            <button onClick={() => setPage(page + 1)} disabled={page === Math.ceil(data.total_results / data.per_page)}>
+            <button
+              className={page === Math.ceil(data.total_results / data.per_page) ? '' : 'active'}
+              onClick={() => setPage(page + 1)}
+              disabled={page === Math.ceil(data.total_results / data.per_page)}
+            >
               {page === Math.ceil(data.total_results / data.per_page) ? <NextArrowGrey /> : <NextArrowGreen />}
             </button>
           </div>

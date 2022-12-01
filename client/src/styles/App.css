@@ -77,6 +77,10 @@ input:-webkit-autofill:focus {
   background-color: var(--grey-dark);
 }
 
+.results-info-page button.active {
+  cursor: pointer;
+}
+
 .species-grid {
   margin: 2.4rem auto 0 auto;
   display: grid;
