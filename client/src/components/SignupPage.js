@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useMutation } from "@tanstack/react-query"
+import { useNavigate } from "react-router-dom"
 
 import { useContext } from 'react'
 import { UserContext } from '../utils/UserContext'
@@ -8,6 +9,8 @@ import LoadingIcon from "./LoadingIcon"
 
 const SignupPage = () => {
   const { setUser } = useContext(UserContext)
+
+  const navigate = useNavigate()
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -21,6 +24,7 @@ const SignupPage = () => {
     onSuccess: (data) => {
       setUser(data)
       window.localStorage.setItem('user', JSON.stringify(data))
+      navigate('/')
     }
   })
 

@@ -8,7 +8,7 @@ import { UserContext } from '../utils/UserContext'
 import SearchBar from './SearchBar'
 
 const Navbar = () => {
-  const { user } = useContext(UserContext)
+  const { user, setUser } = useContext(UserContext)
   const location = useLocation()
   const navigate = useNavigate()
 
@@ -19,7 +19,8 @@ const Navbar = () => {
   }
 
   const handleLogOut = () => {
-    console.log('Logging out...')
+    setUser(null)
+    window.localStorage.clear()
     navigate('/')
   }
 
