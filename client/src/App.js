@@ -1,5 +1,5 @@
 import { Routes, Route, Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import './styles/App.css'
 import { ReactComponent as Logo } from './assets/logo.svg'
@@ -14,6 +14,14 @@ import SpeciesPage from './components/SpeciesPage'
 
 function App() {
   const [user, setUser] = useState(null)
+
+  useEffect(() => {
+    const userJSON = window.localStorage.getItem('user')
+    if (userJSON) {
+      const user = JSON.parse(userJSON)
+      setUser(user)
+    }
+  }, [])
 
   return (
     <UserContext.Provider value={{user, setUser}}>

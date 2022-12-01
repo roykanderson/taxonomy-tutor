@@ -20,6 +20,7 @@ const Navbar = () => {
 
   const handleLogOut = () => {
     setUser(null)
+    setMenuActive(false)
     window.localStorage.clear()
     navigate('/')
   }
