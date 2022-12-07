@@ -20,6 +20,7 @@ const LoginPage = () => {
     },
     onSuccess: (data) => {
       setUser(data)
+      userService.setToken(data.token)
       window.localStorage.setItem('user', JSON.stringify(data))
       navigate('/')
     }

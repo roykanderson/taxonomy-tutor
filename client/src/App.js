@@ -11,6 +11,7 @@ import SignupPage from './components/SignupPage'
 import Navbar from './components/Navbar'
 import SpeciesGrid from './components/SpeciesGrid'
 import SpeciesPage from './components/SpeciesPage'
+import Profile from './components/Profile'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -39,7 +40,7 @@ function App() {
         <Route path='/login' element={<LoginPage />} />
         <Route path='/signup' element={<SignupPage />} />
         <Route path='/search' element={<SpeciesGrid />} />
-        <Route path='/profile' element={<></>} />
+        <Route path='/profile' element={<Profile />} />
         <Route path='/species/:id' element={<SpeciesPage />} />
       </Routes>
     </UserContext.Provider>
