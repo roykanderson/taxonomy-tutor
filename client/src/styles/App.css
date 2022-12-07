@@ -568,3 +568,60 @@ input:-webkit-autofill:focus {
   background-color: var(--green);
   color: var(--green-dark);
 }
+
+/* Profile */
+.profile-container {
+  max-width: 80%;
+  margin: 2.4rem auto;
+}
+
+.profile-banner {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.profile-banner div:nth-child(1) {
+  width: 4.063rem;
+  height: 4.063rem;
+  background-color: var(--green);
+  color: var(--grey-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.125rem;
+  border-radius: 2.0315rem;
+}
+
+.profile-banner div:nth-child(2) {
+  color: var(--white);
+  font-size: 1.875rem;
+}
+
+.profile-options {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.profile-options button {
+  background-color: transparent;
+  border: none;
+  border-radius: 2rem;
+  color: var(--grey-light);
+  font-size: 1.1rem;
+  font-family: Roboto Mono;
+  font-weight: 300;
+  padding: 0.438rem 0.876rem;
+}
+
+.profile-options button:hover {
+  opacity: 80%;
+  cursor: pointer;
+}
+
+.profile-options button.active {
+  background-color: var(--grey);
+}
