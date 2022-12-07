@@ -1,4 +1,5 @@
 const studySetsRouter = require('express').Router()
+const { response } = require('express')
 const StudySet = require('../models/StudySet')
 const User = require('../models/User')
 const helpers = require('../utils/helpers')
@@ -11,11 +12,13 @@ studySetsRouter.get('/', async (req, res) => {
 
 studySetsRouter.post('/', async (req, res) => {
   // Only allow StudySet to be created with valid jwt
-  if (!req.user) {
-    return res.status(401).json({ error: 'token missing or invalid' })
+  const token = getTokenFrom(req)
+  const decodedToken = jwt.verify(token, process.env.SECRET)
+  if (!decocdedToken.id) {
+    return response.status(401).json({ error: 'token missing or invalid'})
   }
+  const user = await User.findById(decodedToken.id)
 
-  const user = req.user
   const { name, taxonIds } = req.body
 
   // Ensure taxon IDs are valid
@@ -25,15 +28,15 @@ studySetsRouter.post('/', async (req, res) => {
   }
   
   const studySet = new StudySet({
-    user: user.id,
+    user: user._id,
     name: name,
     dateCreated: new Date(),
+    dateLastUpdated: new Date(),
     numberOfTaxa: taxonIds.length,
     taxonIds: taxonIds
   })
 
   const savedStudySet = await studySet.save()
-
   user.studySets = user.studySets.concat(savedStudySet)
   await user.save()
 
@@ -41,6 +44,13 @@ studySetsRouter.post('/', async (req, res) => {
 })
 
 studySetsRouter.delete('/:id', async (req, res) => {
+  // Only allow StudySet to be deleted with valid jwt
+  const token = getTokenFrom(req)
+  const decodedToken = jwt.verify(token, process.env.SECRET)
+  if (!decocdedToken.id) {
+    return response.status(401).json({ error: 'token missing or invalid'})
+  }
+
   const studySetToDelete = await StudySet.findById(req.params.id)
 
   // If set was already deleted, return status code 204
@@ -59,6 +69,13 @@ studySetsRouter.delete('/:id', async (req, res) => {
 })
 
 studySetsRouter.put('/:id', async (req, res) => {
+  // Only allow StudySet to be updated with valid jwt
+  const token = getTokenFrom(req)
+  const decodedToken = jwt.verify(token, process.env.SECRET)
+  if (!decocdedToken.id) {
+    return response.status(401).json({ error: 'token missing or invalid'})
+  }
+
   const studySetToUpdate = await StudySet.findById(req.params.id)
   console.log(studySetToUpdate)
   // Only allow creator to update the StudySet

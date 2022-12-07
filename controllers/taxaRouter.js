@@ -21,7 +21,7 @@ taxaRouter.get('/descendants', async (req, res) => {
 
   helpers.firstLettersToUppercase(apiResponse.data.results)
 
-  return res.status(200).json(apiResponse.data.results)
+  return res.status(200).json(apiResponse.data)
 })
 
 module.exports = taxaRouter

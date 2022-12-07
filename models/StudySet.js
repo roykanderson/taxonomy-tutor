@@ -14,6 +14,10 @@ const studySetSchema = new mongoose.Schema({
     type: Date,
     required: true
   },
+  dateLastUpdated: {
+    type: Date,
+    required: true
+  },
   numberOfTaxa: {
     type: Number,
     required: true

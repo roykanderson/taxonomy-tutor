@@ -14,18 +14,26 @@ usersRouter.get('/', async (req, res) => {
 })
 
 usersRouter.post('/', async (req, res) => {
-  const { username, password } = req.body
+  const { username, password, confirmPassword } = req.body
+
+  // Ensure passwords match
+  if (password !== confirmPassword) {
+    return res.status(400).json({message: 'Passwords do not match.'})
+  }
   
   // Ensure username is unique
   const exisitingUser = await User.findOne({ username })
   if (exisitingUser) {
-    return res.status(400).json({ error: 'username must be unique' })
+    return res.status(400).json({ message: 'Username already taken.' })
   }
 
   // Ensure password is valid
+  /*
   if (password.length < 8) {
+    console.log('password length')
     return res.status(400).json({ error: 'password must be at least 8 characters' })
   }
+  */
 
   // Encrypt password
   const saltRounds = 10
@@ -37,8 +45,15 @@ usersRouter.post('/', async (req, res) => {
   // Save new User to DB
   const savedUser = await user.save()
 
+  const userForToken = {
+    username: savedUser.username,
+    id: savedUser.id
+  }
+
+  const token = jwt.sign(userForToken, process.env.SECRET)
+
   // Respond with status 201 created and new User
-  res.status(201).json(savedUser)
+  res.status(201).json({token, username: savedUser.username })
 })
 
 usersRouter.delete('/:id', async (req, res) => {
