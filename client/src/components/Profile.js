@@ -1,10 +1,11 @@
 import { useContext } from 'react'
 import { UserContext } from '../utils/UserContext'
-
-import ProfileSets from './ProfileSets'
+import { Link, Outlet, useLocation } from 'react-router-dom'
 
 const Profile = () => {
   const { user } = useContext(UserContext)
+
+  const location = useLocation()
 
   return (
     <main className="profile-container">
@@ -17,18 +18,18 @@ const Profile = () => {
         </div>
       </div>
       <div className='profile-options'>
-        <div className='profile-options'>
-          <button className='active'>
+        <button className={location.pathname === '/profile' ? 'active' : ''}>
+          <Link to=''>
             My species sets
-          </button>
-          <button>
+          </Link>
+        </button>
+        <button className={location.pathname === '/profile/create' ? 'active' : ''}>
+          <Link to='create'>
             Create new set
-          </button>
-        </div>
+          </Link>
+        </button>
       </div>
-      <div className='profile-content'>
-        <ProfileSets />
-      </div>
+      <Outlet />
     </main>
   )
 }

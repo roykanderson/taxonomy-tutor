@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route, Link, Navigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 import './styles/App.css'
@@ -12,6 +12,8 @@ import Navbar from './components/Navbar'
 import SpeciesGrid from './components/SpeciesGrid'
 import SpeciesPage from './components/SpeciesPage'
 import Profile from './components/Profile'
+import ProfileSets from './components/ProfileSets'
+import CreateSetForm from './components/CreateSetForm'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -36,12 +38,15 @@ function App() {
       </div>
 
       <Routes>
-        <Route path='/' element={<></>} />
-        <Route path='/login' element={<LoginPage />} />
-        <Route path='/signup' element={<SignupPage />} />
-        <Route path='/search' element={<SpeciesGrid />} />
-        <Route path='/profile' element={<Profile />} />
-        <Route path='/species/:id' element={<SpeciesPage />} />
+        <Route index element={<></>} />
+        <Route path='login' element={user ? <Navigate replace to='/profile' /> : <LoginPage />} />
+        <Route path='signup' element={user ? <Navigate replace to='/profile' /> : <SignupPage />} />
+        <Route path='search' element={<SpeciesGrid />} />
+        <Route path='profile' element={user ? <Profile /> : <Navigate replace to='/login' />}>
+          <Route path='' element={<ProfileSets />} />
+          <Route path='create' element={<CreateSetForm />} />
+        </Route>
+        <Route path='species/:id' element={<SpeciesPage />} />
       </Routes>
     </UserContext.Provider>
   )
