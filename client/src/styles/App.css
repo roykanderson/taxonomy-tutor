@@ -35,11 +35,11 @@ a {
 }
 
 .header-wrapper {
-  background-color: var(--grey);
+  background-color: var(--grey-extra-dark);
 }
 
 .header {
-  background-color: var(--grey);
+  background-color: var(--grey-extra-dark);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -56,30 +56,32 @@ a {
 }
 
 .results-info {
-  background-color: var(--grey-light);
   display: flex;
   justify-content: space-between;
-  padding: 1.2rem;
 }
 
 .results-info-text {
   font-size: 1.625rem;
-  color: var(--grey)
+  color: var(--grey-extra-light);
 }
 
 .results-info-page {
-  background-color: var(--grey-dark);
+  background-color: var(--grey-extra-dark);
   display: flex;
   align-items: center;
+  gap: 1.2rem;
   color: var(--grey-light);
   padding: 0.6rem;
   border-radius: 2.4rem;
 }
 
+.results-info-page:hover {
+  opacity: 80%;
+}
+
 .results-info-page button {
   border: none;
-  padding: 0 0.6rem;
-  background-color: var(--grey-dark);
+  background-color: var(--grey-extra-dark);
 }
 
 .results-info-page button.active {
@@ -349,9 +351,10 @@ a {
 }
 
 .species-card {
-  background-color: var(--grey);
+  background-color: var(--grey-light);
   max-width: 14rem;
   text-decoration: none;
+  color: var(--grey-extra-dark);
 }
 
 .species-info {
@@ -363,9 +366,7 @@ a {
 }
 
 .common-name {
-  color: var(--grey-light);
   font-size: 1.375rem;
-  font-weight: 300;
   overflow: hidden;
    text-overflow: ellipsis;
    display: -webkit-box;
@@ -376,8 +377,6 @@ a {
 }
 
 .sci-name {
-  color: var(--grey-light);
-  font-weight: 200;
   font-size: 0.875rem;
   font-style: italic;
   overflow: hidden;
