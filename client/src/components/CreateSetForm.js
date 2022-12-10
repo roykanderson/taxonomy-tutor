@@ -5,7 +5,7 @@ import CreateTitle from "./CreateTitle"
 
 const CreateSetForm = () => {
   const [title, setTitle] = useState('')
-  const [taxonIds, setTaxonIds] = useState(['FAKEID'])
+  const [taxonIds, setTaxonIds] = useState([])
   const [species, setSpecies] = useState('')
 
   return (

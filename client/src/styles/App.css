@@ -607,7 +607,7 @@ a {
   display: flex;
   gap: 1.2rem;
   align-items: center;
-  margin-bottom: 0.6rem;
+  margin-bottom: 1.2rem;
 }
 
 .profile-options button {
@@ -699,6 +699,19 @@ a {
 .create-add:hover {
   border-bottom: 0.12rem solid var(--green);
   cursor: pointer;
+}
+
+.create-add.active {
+  border-bottom: 0.12rem solid var(--grey-light);
+  background-color: var(--grey-light);
+  color: var(--grey-dark);
+  cursor: text;
+}
+
+.create-add.active:focus {
+  outline: none;
+  opacity: 80%;
+  transition: all 0.15s;
 }
 
 .create-submit {
