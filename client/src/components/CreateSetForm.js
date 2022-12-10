@@ -6,7 +6,7 @@ import CreateTitle from "./CreateTitle"
 const CreateSetForm = () => {
   const [title, setTitle] = useState('')
   const [taxonIds, setTaxonIds] = useState([])
-  const [species, setSpecies] = useState('')
+  console.log(taxonIds)
 
   return (
     <div className="create-container">
@@ -15,8 +15,6 @@ const CreateSetForm = () => {
         <CreateTaxon key={taxonId} taxonId={taxonId} index={index} />
       )}
       <CreateAddButton
-        species={species}
-        setSpecies={setSpecies}
         taxonIds={taxonIds}
         setTaxonIds={setTaxonIds}
       />

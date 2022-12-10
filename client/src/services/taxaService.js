@@ -7,6 +7,8 @@ const fetchTaxaSuggestions = async (search) => {
   return res.data.results.filter(taxon => taxon.preferred_common_name)
 }
 
-const taxaService = { fetchTaxaSuggestions }
+const taxaService = {
+  fetchTaxaSuggestions
+}
 
 export default taxaService

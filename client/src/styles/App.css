@@ -201,6 +201,7 @@ a {
 .spinner {
   width: 2rem;
   height: 2rem;
+  margin: 2.4rem;
   border: 0.3rem solid;
   border-color: var(--green) var(--green) var(--green) transparent;
   border-radius: 50%;
@@ -639,13 +640,13 @@ a {
 .create-container {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
 }
 
 .create-title {
   background-color: var(--grey-light);
   color: var(--grey-dark);
   padding: 0.6rem 1.2rem;
+  margin-bottom: 1.2rem;
 }
 
 .create-title div {
@@ -673,6 +674,7 @@ a {
   padding: 0.6rem 1.2rem;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 1.2rem;
 }
 
 .create-taxon-left div:nth-child(1) {
@@ -710,11 +712,40 @@ a {
 
 .create-add.active:focus {
   outline: none;
+  border-bottom: 0.12rem solid var(--green);
+}
+
+.create-suggestion {
+  height: 2.4rem;
+  background-color: var(--grey-extra-dark);
+  color: var(--grey-light);
+  font-weight: 300;
+  border-bottom: 0.08rem solid var(--grey);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.create-suggestion:hover {
+  cursor: pointer;
   opacity: 80%;
-  transition: all 0.15s;
+}
+
+.create-suggestion img {
+  width: 2.4rem;
+  height: 2.4rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+.create-suggestion-sci {
+  margin-left: 0.9rem;
+  font-style: italic;
+  opacity: 70%;
 }
 
 .create-submit {
+  margin-top: 1.2rem;
   background-color: var(--green);
   color: var(--grey-extra-dark);
   font-family: Roboto Mono;

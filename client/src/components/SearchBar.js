@@ -33,7 +33,7 @@ const SearchBar = () => {
     setFocused(true)
     setInput(target.value)
     target.value
-      ? setSuggestions(await taxaService.fetchTaxaSuggestions(input))
+      ? setSuggestions(await taxaService.fetchTaxaSuggestions(target.value))
       : setSuggestions(null)
   }
 
