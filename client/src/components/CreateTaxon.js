@@ -69,7 +69,9 @@ const CreateTaxon = ({ taxonId, taxa, setTaxa, index }) => {
       <ul className='create-suggestions taxon'>
         {suggestions && suggestions.map(suggestion =>
           <li key={suggestion.id} className='create-suggestion' onMouseDown={handleSuggestionClick} data-id={suggestion.id}>
-            <img src={suggestion.default_photo.url} alt={suggestion.preferred_common_name} data-id={suggestion.id} />
+            {suggestion.default_photo &&
+              <img src={suggestion.default_photo.url} alt={suggestion.preferred_common_name} data-id={suggestion.id} />
+            }
             <div className="create-suggestion-common" data-id={suggestion.id}>
               {suggestion.preferred_common_name}
             </div>
