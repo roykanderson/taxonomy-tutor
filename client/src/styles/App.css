@@ -646,7 +646,6 @@ a {
   background-color: var(--grey-light);
   color: var(--grey-dark);
   padding: 0.6rem 1.2rem;
-  margin-bottom: 1.2rem;
 }
 
 .create-title div {
@@ -671,10 +670,16 @@ a {
 .create-taxon {
   background-color: var(--grey-light);
   color: var(--grey-dark);
-  padding: 0.6rem 1.2rem;
+  padding-right: 0.6rem;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1.2rem;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 1.2rem;
+}
+
+.create-taxon-left {
+  flex: 1;
 }
 
 .create-taxon-left div:nth-child(1) {
@@ -684,6 +689,59 @@ a {
 .create-taxon-left div:nth-child(2) {
   font-size: 1.125rem;
   font-weight: 500;
+}
+
+.create-names {
+  display: flex;
+  justify-content: left;
+}
+
+.create-taxon-input {
+  background-color: transparent;
+  color: var(--grey-dark);
+  border: none;
+  font-family: Roboto Mono;
+  font-size: 1.125rem;
+  font-weight: 500;
+  min-width: 100%;
+}
+
+.create-taxon-input:hover {
+  background-color: var(--grey-extra-light);
+}
+
+.create-taxon-input:focus {
+  outline: none;
+  border-bottom: 0.12rem solid var(--grey);
+  min-width: 100%;
+}
+
+.create-taxon-input:focus:hover {
+  background-color: transparent;
+}
+
+.create-sci {
+  font-weight: 200;
+  font-style: italic;
+  opacity: 80%;
+}
+
+.create-taxon-button {
+  padding: 0.6rem 1.2rem;
+  background-color: var(--grey-extra-dark);
+  color: var(--grey-light);
+  font-family: Roboto Mono;
+  border: none;
+  border-radius: 1.2rem;
+}
+
+.create-taxon-button:hover {
+  opacity: 80%;
+  cursor: pointer;
+}
+
+.create-suggestions.taxon {
+  margin-left: 4.688rem;
 }
 
 .create-add {
@@ -696,6 +754,7 @@ a {
   padding: 0.6rem 1.2rem;
   display: flex;
   justify-content: center;
+  margin-top: 1.2rem;
 }
 
 .create-add:hover {
@@ -713,6 +772,10 @@ a {
 .create-add.active:focus {
   outline: none;
   border-bottom: 0.12rem solid var(--green);
+}
+
+.create-suggestions {
+  margin-top: none;
 }
 
 .create-suggestion {

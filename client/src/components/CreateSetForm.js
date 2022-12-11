@@ -5,18 +5,17 @@ import CreateTitle from "./CreateTitle"
 
 const CreateSetForm = () => {
   const [title, setTitle] = useState('')
-  const [taxonIds, setTaxonIds] = useState([])
-  console.log(taxonIds)
+  const [taxa, setTaxa] = useState([])
 
   return (
     <div className="create-container">
       <CreateTitle title={title} setTitle={setTitle} />
-      {taxonIds.map((taxonId, index) =>
-        <CreateTaxon key={taxonId} taxonId={taxonId} index={index} />
+      {taxa.map((taxon, index) =>
+        <CreateTaxon key={taxon.id} taxon={taxon} taxa={taxa} setTaxa={setTaxa} index={index} />
       )}
       <CreateAddButton
-        taxonIds={taxonIds}
-        setTaxonIds={setTaxonIds}
+        taxa={taxa}
+        setTaxa={setTaxa}
       />
       <button className="create-submit">
         Create

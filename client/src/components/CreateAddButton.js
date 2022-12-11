@@ -1,7 +1,8 @@
 import { useState } from "react"
+import observationsService from "../services/observations"
 import taxaService from "../services/taxaService"
 
-const CreateAddButton = ({ taxonIds, setTaxonIds }) => {
+const CreateAddButton = ({ taxa, setTaxa }) => {
   const [active, setActive] = useState(false)
   const [input, setInput] = useState('')
   const [suggestions, setSuggestions] = useState('')
@@ -16,10 +17,10 @@ const CreateAddButton = ({ taxonIds, setTaxonIds }) => {
     }
   }
 
-  const handleSuggestionClick = ({ target }) => {
+  const handleSuggestionClick = async ({ target }) => {
     setSuggestions(null)
     setInput('')
-    setTaxonIds(taxonIds.concat(target.getAttribute('data-id')))
+    setTaxa(taxa.concat(await observationsService.fetchTaxaById(target.getAttribute('data-id'))))
     setActive(false)
   }
 

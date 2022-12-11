@@ -15,6 +15,12 @@ const searchForDescendants = async (id, page) => {
   return res.data
 }
 
+const fetchTaxaById = async (id) => {
+  const url = `https://api.inaturalist.org/v1/taxa/${id}`
+  const res = await axios.get(url)
+  return res.data.results[0]
+}
+
 /*
 const searchForSpecies = async (query, page) => {
   // First search for a taxon
@@ -35,7 +41,8 @@ const searchForSpecies = async (query, page) => {
 
 const observationsService = {
   searchForTaxon,
-  searchForDescendants
+  searchForDescendants,
+  fetchTaxaById
   // searchForSpecies
 }
 
