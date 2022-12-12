@@ -13,6 +13,7 @@ const setToken = (newToken) => {
 const signUp = async (credentials) => {
   try {
     const response = await axios.post(SIGNUP_URL, credentials)
+    setToken(response.data.token)
     return response.data
   } catch (error) {
     throw new Error(error.response.data.message)
@@ -22,19 +23,24 @@ const signUp = async (credentials) => {
 const logIn = async (credentials) => {
   try {
     const response = await axios.post(LOGIN_URL, credentials)
+    setToken(response.data.token)
     return response.data
   } catch (error) {
     throw new Error(error.response.data.message)
   }
 }
 
-const createSet = async (name) => {
+const logOut = async () => {
+  setToken(null)
+}
+
+const createSet = async (name, taxonIds) => {
   try {
     const config = {
       headers: { Authorization: token }
     }
 
-    const set = { name: name, taxonIds: [] }
+    const set = { name: name, taxonIds: taxonIds }
 
     const response = await axios.post(SETS_URL, set, config)
     return response.data

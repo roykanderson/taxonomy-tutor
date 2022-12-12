@@ -6,6 +6,7 @@ import { useContext } from 'react'
 import { UserContext } from '../utils/UserContext'
 
 import SearchBar from './SearchBar'
+import userService from '../services/userService'
 
 const Navbar = () => {
   const { user, setUser } = useContext(UserContext)
@@ -22,6 +23,7 @@ const Navbar = () => {
     setUser(null)
     setMenuActive(false)
     window.localStorage.clear()
+    userService.logOut()
     navigate('/')
   }
 
