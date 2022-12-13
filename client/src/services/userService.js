@@ -34,6 +34,22 @@ const logOut = async () => {
   setToken(null)
 }
 
+
+const getSets = async () => {
+  console.log('TOKEN: ', token)
+  try {
+    const config = {
+      headers: { Authorization: token }
+    }
+
+    const response = await axios.get(SETS_URL, config)
+    console.log(response.data)
+    return response.data
+  } catch (error) {
+    throw new Error(error.response.data.message)
+  }
+}
+
 const createSet = async (name, taxonIds) => {
   try {
     const config = {
@@ -68,6 +84,8 @@ const userService = {
   setToken,
   signUp,
   logIn,
+  logOut,
+  getSets,
   createSet,
   updateSet
 }

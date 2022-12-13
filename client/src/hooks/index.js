@@ -54,3 +54,12 @@ export const useSignup = (credentials) => {
 
   return useQuery(['user'], signUp)
 }
+
+export const useSets = () => {
+  const getSets = async () => {
+    const response = await userService.getSets()
+    return response
+  }
+
+  return useQuery(['sets'], getSets)
+}

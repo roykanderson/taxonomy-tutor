@@ -827,3 +827,8 @@ a {
   opacity: 80%;
   cursor: pointer;
 }
+
+/* profile sets */
+.sets-container {
+  display: flex;
+}
