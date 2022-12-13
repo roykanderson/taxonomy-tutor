@@ -23,7 +23,8 @@ const firstLettersToUppercase = async (results) => {
 }
 
 const getTokenFrom = (req) => {
-  const authorization = req.get('authorization')
+  const authorization = req.get('Authorization')
+  console.log("AUTH: ", authorization)
   if (authorization && authorization.toLowerCase().startsWith('bearer ')) {
     return authorization.substring(7)
   }

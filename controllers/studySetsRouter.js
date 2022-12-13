@@ -3,18 +3,27 @@ const { response } = require('express')
 const StudySet = require('../models/StudySet')
 const User = require('../models/User')
 const helpers = require('../utils/helpers')
+const jwt = require('jsonwebtoken')
 
 studySetsRouter.get('/', async (req, res) => {
-  const studySets = await StudySet.find({})
+  // Only allow StudySets to be retrieved with valid jwt
+  const token = helpers.getTokenFrom(req)
+  const decodedToken = jwt.verify(token, process.env.SECRET)
+  if (!decodedToken.id) {
+    return response.status(401).json({ message: 'token missing or invalid'})
+  }
+  const user = await User
+    .findById(decodedToken.id)
+    .populate('studySets', { name: 1, dateCreated: 1, numberOfTaxa: 1, taxonIds: 1 })
 
-    res.status(200).json(studySets)
+  res.status(200).json(user.studySets)
 })
 
 studySetsRouter.post('/', async (req, res) => {
   // Only allow StudySet to be created with valid jwt
-  const token = getTokenFrom(req)
+  const token = helpers.getTokenFrom(req)
   const decodedToken = jwt.verify(token, process.env.SECRET)
-  if (!decocdedToken.id) {
+  if (!decodedToken.id) {
     return response.status(401).json({ error: 'token missing or invalid'})
   }
   const user = await User.findById(decodedToken.id)
