@@ -14,17 +14,17 @@ const Sets = () => {
 
   if (isError) {
     return (
-      <div>
+      <div className='error'>
         {error}
       </div>
     )
   }
 
   return (
-    <Link className="sets-container">
+    <div className="sets-container">
       {
         data.map(set => 
-          <div key={set.id} className="sets-set">
+          <Link key={set.id} className="sets-set" to={`/profile/${set.id}`} state={set}>
             <p>
               {set.name}
             </p>
@@ -34,10 +34,10 @@ const Sets = () => {
             <p>
               {set.numberOfTaxa} species
             </p>
-          </div>
+          </Link>
         )
       }
-    </Link>
+    </div>
   )
 }
 

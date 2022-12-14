@@ -15,6 +15,7 @@ import Profile from './components/Profile'
 import Sets from './components/Sets'
 import CreateSetForm from './components/CreateSetForm'
 import userService from './services/userService'
+import StudyPage from './components/StudyPage'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -48,6 +49,7 @@ function App() {
           <Route path='' element={<Sets />} />
           <Route path='create' element={<CreateSetForm />} />
         </Route>
+        <Route path='profile/:id' element={<StudyPage />} />
         <Route path='species/:id' element={<SpeciesPage />} />
       </Routes>
     </UserContext.Provider>
