@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import { useSets } from "../hooks"
 import LoadingIcon from "./LoadingIcon"
 
@@ -19,7 +21,7 @@ const Sets = () => {
   }
 
   return (
-    <div className="sets-container">
+    <Link className="sets-container">
       {
         data.map(set => 
           <div key={set.id} className="sets-set">
@@ -27,7 +29,7 @@ const Sets = () => {
               {set.name}
             </p>
             <p>
-              {set.dateLastUpdated}
+              {new Date(set.dateLastUpdated).toLocaleDateString('en-us', { year: 'numeric', month: 'long', day: 'numeric' })}
             </p>
             <p>
               {set.numberOfTaxa} species
@@ -35,7 +37,7 @@ const Sets = () => {
           </div>
         )
       }
-    </div>
+    </Link>
   )
 }
 
