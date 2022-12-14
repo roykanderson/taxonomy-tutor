@@ -14,7 +14,7 @@ studySetsRouter.get('/', async (req, res) => {
   }
   const user = await User
     .findById(decodedToken.id)
-    .populate('studySets', { name: 1, dateCreated: 1, numberOfTaxa: 1, taxonIds: 1 })
+    .populate('studySets', { name: 1, dateCreated: 1, dateLastUpdated: 1, numberOfTaxa: 1, taxonIds: 1 })
 
   res.status(200).json(user.studySets)
 })
