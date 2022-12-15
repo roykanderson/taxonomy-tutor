@@ -76,6 +76,7 @@ export const useTaxa = (ids) => {
 
   return useQuery({
     queryKey: ['taxa', ids],
-    queryFn: getTaxa
+    queryFn: getTaxa,
+    staleTime: Infinity
   })
 }

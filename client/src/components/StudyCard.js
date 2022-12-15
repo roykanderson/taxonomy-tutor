@@ -1,35 +1,43 @@
 import { useState } from "react"
 import { useLocation } from "react-router-dom"
+
 import { useTaxa } from "../hooks"
+import LoadingIcon from "./LoadingIcon"
+import { getDefaultPhotoUrl } from "../utils/helpers"
 
 const StudyCard = () => {
   const location = useLocation()
   const set = location.state
 
-  const { data } = useTaxa(set.taxonIds)
-  console.log(data)
+  const { data, isFetching } = useTaxa(set.taxonIds)
 
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [index, setIndex] = useState(0)
   const [shuffle, setShuffle] = useState(false)
   const [reveal, setReveal] = useState(false)
 
   const handleLeftClick = () => {
-    if (currentIndex !== 0) {
-      setCurrentIndex(currentIndex - 1)
+    if (index !== 0) {
+      setIndex(index - 1)
     }
   }
 
   const handleRightClick = () => {
-    if (currentIndex !== set.taxonIds.length - 1) {
-      setCurrentIndex(currentIndex + 1)
+    if (index !== set.taxonIds.length - 1) {
+      setIndex(index + 1)
     }
+  }
+
+  if (isFetching) {
+    return (
+      <LoadingIcon />
+    )
   }
 
   return (
     <div className="study-card">
       <div className="study-card-banner">
         <div className="study-card-banner-index">
-          {currentIndex + 1} of {set.numberOfTaxa} species
+          {index + 1} of {set.numberOfTaxa} species
         </div>
         <button
           className={shuffle ? "study-card-banner-shuffle active" : "study-card-banner-shuffle"}
@@ -39,13 +47,23 @@ const StudyCard = () => {
         </button>
       </div>
       <div className="study-card-content">
-        <img src={'NEED TO CONNECT TO TAXA SERVICE TO GET IMG LINK'} alt='Species to study' />
+        <img src={getDefaultPhotoUrl(data[index])} alt='Species to study' />
         {reveal
-          ? <div>
-              NEED TO CONNECT TO WIKI SERVICE AND TAXA SERVICE TO DISPLAY SPECIES INFO HERE
+          ? <div className="study-card-content-info">
+              <div className="study-card-content-info-names">
+                <div>
+                  {data[index].preferred_common_name}
+                </div>
+                <div>
+                  {data[index].name}
+                </div>
+              </div>
+              <div className="study-card-content-info-text">
+                {data[index].wikiSummary}
+              </div>
             </div>
           : <button
-              className="study-card-content-reveal"
+              className="study-card-content-button"
               onClick={() => setReveal(true)}
             >
               Reveal species information
@@ -55,13 +73,13 @@ const StudyCard = () => {
       <div className="study-card-arrows">
         <button
           onClick={handleLeftClick}
-          className={currentIndex === 0 ? '' : 'active'}
+          className={index === 0 ? '' : 'active'}
         >
           {'<'}
         </button>
         <button
           onClick={handleRightClick}
-          className={currentIndex === set.taxonIds.length - 1 ? '' : 'active'}
+          className={index === set.taxonIds.length - 1 ? '' : 'active'}
         >
           {'>'}
         </button>
