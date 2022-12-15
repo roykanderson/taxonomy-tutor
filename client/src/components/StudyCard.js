@@ -1,9 +1,13 @@
 import { useState } from "react"
 import { useLocation } from "react-router-dom"
+import { useTaxa } from "../hooks"
 
 const StudyCard = () => {
   const location = useLocation()
   const set = location.state
+
+  const { data } = useTaxa(set.taxonIds)
+  console.log(data)
 
   const [currentIndex, setCurrentIndex] = useState(0)
   const [shuffle, setShuffle] = useState(false)

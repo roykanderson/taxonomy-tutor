@@ -63,3 +63,19 @@ export const useSets = () => {
 
   return useQuery(['sets'], getSets)
 }
+
+export const useTaxa = (ids) => {
+  const getTaxa = async ({ queryKey }) => {
+    const taxa = queryKey[1].map(async id => {
+      const taxon = await observationsService.fetchTaxaById(id)
+      taxon.wikiSummary = await wikiService.getWikiSummary(taxon.wikipedia_url)
+      return taxon
+    })
+    return await Promise.all(taxa)
+  }
+
+  return useQuery({
+    queryKey: ['taxa', ids],
+    queryFn: getTaxa
+  })
+}
