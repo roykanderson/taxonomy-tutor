@@ -3,17 +3,20 @@ import { useLocation } from "react-router-dom"
 
 import { useTaxa } from "../hooks"
 import LoadingIcon from "./LoadingIcon"
-import { getDefaultPhotoUrl } from "../utils/helpers"
+import { getDefaultPhotoUrl, shuffleArrayAroundIndex } from "../utils/helpers"
 
 const StudyCard = () => {
   const location = useLocation()
   const set = location.state
 
-  const { data, isFetching } = useTaxa(set.taxonIds)
+  console.log('START: ', set.taxonIds)
 
   const [index, setIndex] = useState(0)
+  const [array, setArray] = useState(set.taxonIds)
   const [shuffle, setShuffle] = useState(false)
   const [reveal, setReveal] = useState(false)
+
+  const { data, isFetching } = useTaxa(array)
 
   const handleLeftClick = () => {
     if (index !== 0) {
@@ -27,6 +30,18 @@ const StudyCard = () => {
       setIndex(index + 1)
     }
     setReveal(false)
+  }
+
+  const handleShuffle = () => {
+    if (!shuffle) {
+      setArray(shuffleArrayAroundIndex(set.taxonIds.slice(), index))
+      setShuffle(true)
+    }
+    else {
+      setIndex(set.taxonIds.indexOf(array[index]))
+      setArray(set.taxonIds)
+      setShuffle(false)
+    }
   }
 
   if (isFetching) {
@@ -61,7 +76,7 @@ const StudyCard = () => {
           <div className="study-card-banner-box shuffle">
             <button
               className={shuffle ? "study-card-banner-box-shuffle active" : "study-card-banner-box-shuffle"}
-              onClick={() => setShuffle(!shuffle)}
+              onClick={handleShuffle}
             >
               Shuffle: {shuffle ? 'on' : 'off'}
             </button>
