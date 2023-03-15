@@ -23,7 +23,7 @@ const CreateSetForm = () => {
     <div className="create-container">
       <CreateTitle title={title} setTitle={setTitle} />
       {taxa.map((taxon, index) =>
-        <CreateTaxon key={taxon.id} taxon={taxon} taxa={taxa} setTaxa={setTaxa} index={index} />
+        <CreateTaxon key={taxon.id} taxa={taxa} setTaxa={setTaxa} index={index} />
       )}
       <CreateAddButton
         taxa={taxa}
