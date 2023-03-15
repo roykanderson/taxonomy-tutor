@@ -36,15 +36,31 @@ const StudyCard = () => {
   return (
     <div className="study-card">
       <div className="study-card-banner">
-        <div className="study-card-banner-index">
+        <div className="study-card-banner-box">
           {index + 1} of {set.numberOfTaxa} species
         </div>
-        <button
-          className={shuffle ? "study-card-banner-shuffle active" : "study-card-banner-shuffle"}
-          onClick={() => setShuffle(!shuffle)}
-        >
-          Shuffle: {shuffle ? 'on' : 'off'}
-        </button>
+        <div className="study-card-banner-box">
+          <button
+            onClick={handleLeftClick}
+            className={index === 0 ? 'study-card-banner-box-arrow' : 'study-card-banner-box-arrow active'}
+          >
+            {'<'}
+          </button>
+          <button
+            onClick={handleRightClick}
+            className={index === (set.taxonIds.length - 1) ? 'study-card-banner-box-arrow' : 'study-card-banner-box-arrow active'}
+          >
+            {'>'}
+          </button>
+        </div>
+        <div className="study-card-banner-box">
+          <button
+            className={shuffle ? "study-card-banner-box-shuffle active" : "study-card-banner-box-shuffle"}
+            onClick={() => setShuffle(!shuffle)}
+          >
+            Shuffle: {shuffle ? 'on' : 'off'}
+          </button>
+        </div>
       </div>
       <div className="study-card-content">
         <img src={getDefaultPhotoUrl(data[index])} alt='Species to study' />
@@ -69,20 +85,6 @@ const StudyCard = () => {
               Reveal species information
             </button>
         }
-      </div>
-      <div className="study-card-arrows">
-        <button
-          onClick={handleLeftClick}
-          className={index === 0 ? '' : 'active'}
-        >
-          {'<'}
-        </button>
-        <button
-          onClick={handleRightClick}
-          className={index === set.taxonIds.length - 1 ? '' : 'active'}
-        >
-          {'>'}
-        </button>
       </div>
     </div>
   )

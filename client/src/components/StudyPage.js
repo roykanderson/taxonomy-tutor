@@ -13,7 +13,7 @@ const StudyPage = () => {
           {set.name}
         </div>
         <div>
-          {set.dateLastUpdated}
+          Updated {new Date(set.dateLastUpdated).toLocaleDateString('en-us', { year: 'numeric', month: 'long', day: 'numeric' })}
         </div>
       </div>
 

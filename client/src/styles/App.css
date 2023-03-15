@@ -871,5 +871,177 @@ a {
 /* Study Page */
 
 .study-container {
-  
+  max-width: 80%;
+  margin: 2.4rem auto;
+}
+
+.study-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;;
+}
+
+.study-title div:nth-child(1) {
+  color: var(--grey-extra-light);
+  font-size: 1.875rem;
+}
+
+.study-title div:nth-child(2) {
+  color: var(--grey-light);
+}
+
+.study-options {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.study-options button {
+  background-color: transparent;
+  border: none;
+  border-radius: 2rem;
+  color: var(--grey-light);
+  font-size: 1.1rem;
+  font-family: Roboto Mono;
+  font-weight: 300;
+  padding: 0.438rem 0.876rem;
+}
+
+.study-options button:hover {
+  opacity: 80%;
+  cursor: pointer;
+}
+
+.study-options button.active {
+  background-color: var(--grey-extra-dark);
+}
+
+.study-options button a {
+  color: var(--grey-light);
+}
+
+/* StudyCard component */
+
+.study-card-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--grey-extra-dark);
+  color: var(--grey-light);
+  font-size: 1.125rem;
+  height: 3rem;
+  padding: 0 1.2rem;
+}
+
+.study-card-banner-box {
+  display: flex;
+  flex: 1;
+}
+
+.study-card-banner-box {
+  justify-content: left;
+}
+
+.study-card-banner-box:nth-child(2) {
+  justify-content: center;
+}
+
+.study-card-banner-box:nth-child(3) {
+  justify-content: right;
+}
+
+.study-card-banner-box button {
+  font-family: Roboto Mono;
+  background-color: var(--grey-dark);
+  color: var(--grey-light);
+  border: none;
+  height: 2.125rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1.2rem;
+}
+
+.study-card-banner-box-arrow {
+  font-size: 2rem;
+  font-weight: 100;
+  margin: 0.3rem;
+}
+
+.study-card-banner-box-arrow.active:hover {
+  cursor: pointer;
+  opacity: 80%;
+}
+
+.study-card-banner-box-arrow.active:active {
+  background-color: var(--green);
+  color: var(--grey-extra-dark);
+}
+
+.study-card-banner-box-shuffle {
+  font-size: 1.125rem;
+}
+
+.study-card-banner-box-shuffle.active {
+  color: var(--green);
+}
+
+.study-card-banner-box-shuffle:hover {
+  cursor: pointer;
+  opacity: 80%;
+}
+
+.study-card-content {
+  display: flex;
+  height: 14.4rem;
+  background-color: var(--grey-light);
+  height: 20.4rem;
+}
+
+.study-card-content img {
+  max-width: 40%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.study-card-content-button {
+  background-color: var(--grey-dark);
+  color: var(--grey-light);
+  margin: auto;
+  padding: 0.6rem 1.8rem;
+  border: none;
+  border-radius: 2rem;
+  font-family: Roboto Mono;
+  font-size: 1rem;
+}
+
+.study-card-content-button:hover {
+  opacity: 80%;
+  cursor: pointer;
+}
+
+.study-card-content-info {
+  padding: 1.2rem;
+  color: var(--grey-extra-dark);
+}
+
+.study-card-content-info-names div:nth-child(1) {
+  font-size: 2rem;
+}
+
+.study-card-content-info-names div:nth-child(2) {
+  font-style: italic;
+  font-size: 1.25rem;
+  font-weight: 200;
+  margin-bottom: 0.6rem;
+}
+
+.study-card-content-info-text {
+  border-top: 0.1rem solid var(--grey-extra-dark);
+  padding: 0.6rem 0;
+  height: 11.5rem;
+  overflow: scroll;
 }
