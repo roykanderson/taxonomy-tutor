@@ -19,12 +19,14 @@ const StudyCard = () => {
     if (index !== 0) {
       setIndex(index - 1)
     }
+    setReveal(false)
   }
 
   const handleRightClick = () => {
     if (index !== set.taxonIds.length - 1) {
       setIndex(index + 1)
     }
+    setReveal(false)
   }
 
   if (isFetching) {
@@ -36,31 +38,35 @@ const StudyCard = () => {
   return (
     <div className="study-card">
       <div className="study-card-banner">
-        <div className="study-card-banner-box">
+        <div className="study-card-banner-box species">
           {index + 1} of {set.numberOfTaxa} species
         </div>
-        <div className="study-card-banner-box">
-          <button
-            onClick={handleLeftClick}
-            className={index === 0 ? 'study-card-banner-box-arrow' : 'study-card-banner-box-arrow active'}
-          >
-            {'<'}
-          </button>
-          <button
-            onClick={handleRightClick}
-            className={index === (set.taxonIds.length - 1) ? 'study-card-banner-box-arrow' : 'study-card-banner-box-arrow active'}
-          >
-            {'>'}
-          </button>
-        </div>
-        <div className="study-card-banner-box">
-          <button
-            className={shuffle ? "study-card-banner-box-shuffle active" : "study-card-banner-box-shuffle"}
-            onClick={() => setShuffle(!shuffle)}
-          >
-            Shuffle: {shuffle ? 'on' : 'off'}
-          </button>
-        </div>
+        {set.numberOfTaxa > 1 &&
+          <div className="study-card-banner-box arrows">
+            <button
+              onClick={handleLeftClick}
+              className={index === 0 ? 'study-card-banner-box-arrow' : 'study-card-banner-box-arrow active'}
+            >
+              {'<'}
+            </button>
+            <button
+              onClick={handleRightClick}
+              className={index === (set.taxonIds.length - 1) ? 'study-card-banner-box-arrow' : 'study-card-banner-box-arrow active'}
+            >
+              {'>'}
+            </button>
+          </div>
+        }
+        {set.numberOfTaxa > 1 &&
+          <div className="study-card-banner-box shuffle">
+            <button
+              className={shuffle ? "study-card-banner-box-shuffle active" : "study-card-banner-box-shuffle"}
+              onClick={() => setShuffle(!shuffle)}
+            >
+              Shuffle: {shuffle ? 'on' : 'off'}
+            </button>
+          </div>
+        }
       </div>
       <div className="study-card-content">
         <img src={getDefaultPhotoUrl(data[index])} alt='Species to study' />
@@ -77,6 +83,12 @@ const StudyCard = () => {
               <div className="study-card-content-info-text">
                 {data[index].wikiSummary}
               </div>
+              <button
+                className="study-card-content-button"
+                onClick={() => setReveal(false)}
+              >
+                Hide species information
+              </button>
             </div>
           : <button
               className="study-card-content-button"

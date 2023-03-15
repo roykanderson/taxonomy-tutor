@@ -940,15 +940,15 @@ a {
   flex: 1;
 }
 
-.study-card-banner-box {
+.study-card-banner-box.species {
   justify-content: left;
 }
 
-.study-card-banner-box:nth-child(2) {
+.study-card-banner-box.arrows {
   justify-content: center;
 }
 
-.study-card-banner-box:nth-child(3) {
+.study-card-banner-box.shuffle {
   justify-content: right;
 }
 
@@ -1040,8 +1040,9 @@ a {
 }
 
 .study-card-content-info-text {
-  border-top: 0.1rem solid var(--grey-extra-dark);
+  border-top: 0.05rem solid var(--grey-extra-dark);
   padding: 0.6rem 0;
-  height: 11.5rem;
+  max-height: 9rem;
   overflow: scroll;
+  margin: 0.6rem 0;
 }
