@@ -3,7 +3,7 @@ import { useState } from "react"
 import taxaService from "../services/taxaService"
 import observationsService from "../services/observations"
 
-const CreateTaxon = ({ taxonId, taxa, setTaxa, index }) => {
+const CreateTaxon = ({ taxa, setTaxa, index }) => {
   const [input, setInput] = useState(taxa[index].preferred_common_name)
   const [focused, setFocused] = useState(false)
   const [suggestions, setSuggestions] = useState(null)
