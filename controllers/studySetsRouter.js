@@ -56,7 +56,7 @@ studySetsRouter.delete('/:id', async (req, res) => {
   // Only allow StudySet to be deleted with valid jwt
   const token = helpers.getTokenFrom(req)
   const decodedToken = jwt.verify(token, process.env.SECRET)
-  if (!decocdedToken.id) {
+  if (!decodedToken.id) {
     return response.status(401).json({ error: 'token missing or invalid'})
   }
 
