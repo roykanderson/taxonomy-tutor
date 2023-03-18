@@ -86,7 +86,7 @@ studySetsRouter.put('/:id', async (req, res) => {
   }
 
   const studySetToUpdate = await StudySet.findById(req.params.id)
-  console.log(studySetToUpdate)
+  
   // Only allow creator to update the StudySet
   if (studySetToUpdate.user && studySetToUpdate.user.toString() !== req.user.id) {
     return res.status(401).json({ error: 'only the creator can update a set' })
@@ -99,7 +99,12 @@ studySetsRouter.put('/:id', async (req, res) => {
   }
 
   // Update existing StudySet
-  const studySet = { name: req.body.name, taxonIds: Array.from(taxonIds) }
+  const studySet = {
+    name: req.body.name,
+    dateLastUpdated: new Date(),
+    numberOfTaxa: Array.from(taxonIds).length,
+    taxonIds: Array.from(taxonIds)
+  }
   const updatedStudySet = await StudySet.findByIdAndUpdate(
     req.params.id,
     studySet,
