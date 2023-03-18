@@ -54,7 +54,7 @@ studySetsRouter.post('/', async (req, res) => {
 
 studySetsRouter.delete('/:id', async (req, res) => {
   // Only allow StudySet to be deleted with valid jwt
-  const token = getTokenFrom(req)
+  const token = helpers.getTokenFrom(req)
   const decodedToken = jwt.verify(token, process.env.SECRET)
   if (!decocdedToken.id) {
     return response.status(401).json({ error: 'token missing or invalid'})
@@ -79,9 +79,9 @@ studySetsRouter.delete('/:id', async (req, res) => {
 
 studySetsRouter.put('/:id', async (req, res) => {
   // Only allow StudySet to be updated with valid jwt
-  const token = getTokenFrom(req)
+  const token = helpers.getTokenFrom(req)
   const decodedToken = jwt.verify(token, process.env.SECRET)
-  if (!decocdedToken.id) {
+  if (!decodedToken.id) {
     return response.status(401).json({ error: 'token missing or invalid'})
   }
 
