@@ -1,16 +1,19 @@
 import { useState, useEffect } from "react"
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 
 import EditTitle from "./EditTitle"
 import EditTaxon from "./EditTaxon"
 import EditAddButton from "./EditAddButton"
 
 import observationsService from "../services/observations"
+import userService from "../services/userService"
 import { arraysContainEqualValues } from "../utils/helpers"
 
 const StudyEdit = () => {
   const location = useLocation()
   const set = location.state
+
+  const navigate = useNavigate()
 
   const [title, setTitle] = useState(set.name)
   const [taxa, setTaxa] = useState([])
@@ -33,35 +36,26 @@ const StudyEdit = () => {
 
   const checkForTitleChanges = (newTitle) => {
     if (newTitle !== originalTitle) {
-      console.log('NEW TITLE:', title)
       setIsChanged(true)
     }
     else {
-      console.log('PASSED!')
       setIsChanged(false)
     }
   }
 
   const checkForTaxaChanges = (newTaxa) => {
     if (arraysContainEqualValues(newTaxa.map((taxon) => String(taxon.id)), originalTaxa)) {
-      console.log('PASSED!')
       setIsChanged(false)
     }
     else {
-      console.log('NEW TAXA:', newTaxa)
-      console.log('OLD:', originalTaxa)
       setIsChanged(true)
     }
   }
 
-  const handleUpdate = () => {
-    return null
+  const handleUpdate = async () => {
+    const updatedSet = await userService.updateSet(set.id, title, taxa.map((taxon) => taxon.id))
+    navigate(`/profile/${set.id}`, { state: updatedSet })
   }
-
-  
-  console.log('CHANGED?', isChanged)
-  console.log('ORIGINAL TITLE:', originalTitle)
-  console.log('ORIGINAL TAXA:', originalTaxa)
 
   return (
     <div className="create-container">
