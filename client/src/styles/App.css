@@ -828,6 +828,16 @@ a {
   cursor: pointer;
 }
 
+.create-submit.inactive {
+  background-color: var(--grey);
+  color: var(--grey-extra-dark);
+}
+
+.create-submit.inactive:hover {
+  cursor: default;
+  opacity: 100%;
+}
+
 /* profile sets */
 .sets-container {
   display: flex;

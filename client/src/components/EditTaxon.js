@@ -3,7 +3,7 @@ import { useState } from "react"
 import taxaService from "../services/taxaService"
 import observationsService from "../services/observations"
 
-const EditTaxon = ({ taxa, setTaxa, index }) => {
+const EditTaxon = ({ taxa, setTaxa, index, checkForTaxaChanges }) => {
 
   const [input, setInput] = useState(taxa[index].preferred_common_name)
   const [focused, setFocused] = useState(false)
@@ -33,12 +33,14 @@ const EditTaxon = ({ taxa, setTaxa, index }) => {
 
     setTaxa(newTaxa)
     setInput(newTaxon.preferred_common_name)
+    checkForTaxaChanges(newTaxa)
   }
 
   const handleRemove = () => {
     const newTaxa = taxa.slice()
     newTaxa.splice(index, 1)
     setTaxa(newTaxa)
+    checkForTaxaChanges(newTaxa)
   }
 
   return (
