@@ -13,7 +13,9 @@ const StudyCardContainer = () => {
 
   if (isFetching) {
     return (
-      <LoadingIcon />
+      <div className='study-card-loading-icon-container'>
+        <LoadingIcon />
+      </div>
     )
   }
 

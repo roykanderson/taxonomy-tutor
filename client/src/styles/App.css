@@ -932,7 +932,14 @@ a {
   color: var(--grey-light);
 }
 
-/* StudyCard component */
+/* StudyCardContent component */
+
+.study-card-loading-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 23.4rem;
+}
 
 .study-card-banner {
   display: flex;
