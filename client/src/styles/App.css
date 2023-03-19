@@ -1012,13 +1012,14 @@ a {
 
 .study-card-content {
   display: flex;
-  height: 14.4rem;
   background-color: var(--grey-light);
   height: 20.4rem;
 }
 
 .study-card-content img {
-  max-width: 40%;
+  height: 20.4rem;
+  max-width: 20.4rem;
+  min-width: 20.4rem;
   object-fit: cover;
   object-position: center;
 }
@@ -1034,6 +1035,10 @@ a {
   font-size: 1rem;
 }
 
+.study-card-content-button.hide {
+  margin: auto 0 0 0;
+}
+
 .study-card-content-button:hover {
   opacity: 80%;
   cursor: pointer;
@@ -1042,15 +1047,18 @@ a {
 .study-card-content-info {
   padding: 1.2rem;
   color: var(--grey-extra-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .study-card-content-info-names div:nth-child(1) {
-  font-size: 2rem;
+  font-size: 2.25vw;
 }
 
 .study-card-content-info-names div:nth-child(2) {
   font-style: italic;
-  font-size: 1.25rem;
+  font-size: 2vw;
   font-weight: 200;
   margin-bottom: 0.6rem;
 }

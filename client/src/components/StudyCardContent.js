@@ -79,7 +79,8 @@ const StudyCardContent = ({ data, set }) => {
         <div className="study-card-banner-box species">
           Species {set.idIndices[array[index]] + 1} of {set.numberOfTaxa}
         </div>
-      </div><div className="study-card-content">
+      </div>
+      <div className="study-card-content">
         {reveal
           ? <div className="study-card-content-info">
               <div className="study-card-content-info-names">
@@ -94,7 +95,7 @@ const StudyCardContent = ({ data, set }) => {
                 {data[set.idIndices[array[index]]].wikiSummary}
               </div>
               <button
-                className="study-card-content-button"
+                className="study-card-content-button hide"
                 onClick={() => setReveal(false)}
               >
                 Hide species information
