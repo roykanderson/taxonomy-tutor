@@ -16,7 +16,7 @@ import Sets from './components/Sets'
 import CreateSetForm from './components/CreateSetForm'
 import userService from './services/userService'
 import StudyPage from './components/StudyPage'
-import StudyCard from './components/StudyCard'
+import StudyCardContainer from './components/StudyCardContainer'
 import StudyEdit from './components/StudyEdit'
 
 const App = () => {
@@ -52,7 +52,7 @@ const App = () => {
           <Route path='create' element={<CreateSetForm />} />
         </Route>
         <Route path='profile/:id' element={<StudyPage />}>
-          <Route path='' element={<StudyCard />} />
+          <Route path='' element={<StudyCardContainer />} />
           <Route path='edit' element={<StudyEdit />} />
         </Route>
         <Route path='species/:id' element={<SpeciesPage />} />

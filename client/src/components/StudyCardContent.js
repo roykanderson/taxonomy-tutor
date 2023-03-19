@@ -1,25 +1,12 @@
 import { useState } from "react"
-import { useLocation } from "react-router-dom"
 
-import { useTaxa } from "../hooks"
-import LoadingIcon from "./LoadingIcon"
 import { getDefaultPhotoUrl, shuffleArrayAroundIndex } from "../utils/helpers"
 
-const StudyCard = () => {
-  const location = useLocation()
-  const set = location.state
-  set.idIndices = []
-
-  set.taxonIds.forEach((id, index) => {
-    set.idIndices[id] = index
-  })
-
+const StudyCardContent = ({ data, set }) => {
   const [index, setIndex] = useState(0)
   const [array, setArray] = useState(set.taxonIds)
   const [shuffle, setShuffle] = useState(false)
   const [reveal, setReveal] = useState(false)
-
-  const { data, isFetching } = useTaxa(array)
 
   const handleLeftClick = () => {
     if (index !== 0) {
@@ -45,12 +32,6 @@ const StudyCard = () => {
       setArray(set.taxonIds)
       setShuffle(false)
     }
-  }
-
-  if (isFetching) {
-    return (
-      <LoadingIcon />
-    )
   }
 
   return (
@@ -85,8 +66,7 @@ const StudyCard = () => {
         <div className="study-card-banner-box species">
           Species {set.idIndices[array[index]] + 1} of {set.numberOfTaxa}
         </div>
-      </div>
-      <div className="study-card-content">
+      </div><div className="study-card-content">
         {reveal
           ? <div className="study-card-content-info">
               <div className="study-card-content-info-names">
@@ -120,4 +100,4 @@ const StudyCard = () => {
   )
 }
 
-export default StudyCard
+export default StudyCardContent
