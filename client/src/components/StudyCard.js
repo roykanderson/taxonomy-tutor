@@ -8,8 +8,11 @@ import { getDefaultPhotoUrl, shuffleArrayAroundIndex } from "../utils/helpers"
 const StudyCard = () => {
   const location = useLocation()
   const set = location.state
+  set.idIndices = []
 
-  console.log('START: ', set.taxonIds)
+  set.taxonIds.forEach((id, index) => {
+    set.idIndices[id] = index
+  })
 
   const [index, setIndex] = useState(0)
   const [array, setArray] = useState(set.taxonIds)
@@ -53,9 +56,16 @@ const StudyCard = () => {
   return (
     <div className="study-card">
       <div className="study-card-banner">
-        <div className="study-card-banner-box species">
-          {index + 1} of {set.numberOfTaxa} species
-        </div>
+        {set.numberOfTaxa > 1 &&
+          <div className="study-card-banner-box shuffle">
+            <button
+              className={shuffle ? "study-card-banner-box-shuffle active" : "study-card-banner-box-shuffle"}
+              onClick={handleShuffle}
+            >
+              Shuffle: {shuffle ? 'on' : 'off'}
+            </button>
+          </div>
+        }
         {set.numberOfTaxa > 1 &&
           <div className="study-card-banner-box arrows">
             <button
@@ -72,19 +82,11 @@ const StudyCard = () => {
             </button>
           </div>
         }
-        {set.numberOfTaxa > 1 &&
-          <div className="study-card-banner-box shuffle">
-            <button
-              className={shuffle ? "study-card-banner-box-shuffle active" : "study-card-banner-box-shuffle"}
-              onClick={handleShuffle}
-            >
-              Shuffle: {shuffle ? 'on' : 'off'}
-            </button>
-          </div>
-        }
+        <div className="study-card-banner-box species">
+          Species {set.idIndices[array[index]] + 1} of {set.numberOfTaxa}
+        </div>
       </div>
       <div className="study-card-content">
-        <img src={getDefaultPhotoUrl(data[index])} alt='Species to study' />
         {reveal
           ? <div className="study-card-content-info">
               <div className="study-card-content-info-names">
@@ -112,6 +114,7 @@ const StudyCard = () => {
               Reveal species information
             </button>
         }
+        <img src={getDefaultPhotoUrl(data[index])} alt='Species to study' />
       </div>
     </div>
   )

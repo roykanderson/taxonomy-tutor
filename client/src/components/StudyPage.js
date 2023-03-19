@@ -3,8 +3,7 @@ import { useLocation, Link, Outlet } from "react-router-dom"
 const StudyPage = () => {
   const location = useLocation()
   const set = location.state
-  // Connect to taxa and wiki service to display data
-  console.log(set)
+
   return (
     <div className="study-container" >
 

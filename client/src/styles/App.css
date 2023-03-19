@@ -951,7 +951,7 @@ a {
 }
 
 .study-card-banner-box.species {
-  justify-content: left;
+  justify-content: right;
 }
 
 .study-card-banner-box.arrows {
@@ -959,7 +959,7 @@ a {
 }
 
 .study-card-banner-box.shuffle {
-  justify-content: right;
+  justify-content: left;
 }
 
 .study-card-banner-box button {
@@ -979,6 +979,11 @@ a {
   font-size: 2rem;
   font-weight: 100;
   margin: 0.3rem;
+  opacity: 30%;
+}
+
+.study-card-banner-box-arrow.active {
+  opacity: 100%;
 }
 
 .study-card-banner-box-arrow.active:hover {
@@ -989,6 +994,7 @@ a {
 .study-card-banner-box-arrow.active:active {
   background-color: var(--green);
   color: var(--grey-extra-dark);
+  opacity: 60%;
 }
 
 .study-card-banner-box-shuffle {
