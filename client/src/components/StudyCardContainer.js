@@ -8,11 +8,6 @@ import LoadingIcon from "./LoadingIcon"
 const StudyCardContainer = () => {
   const location = useLocation()
   const set = location.state
-  set.idIndices = []
-
-  set.taxonIds.forEach((id, index) => {
-    set.idIndices[id] = index
-  })
 
   const { data, isFetching } = useTaxa(set.taxonIds)
 

@@ -3,6 +3,15 @@ import { useState } from "react"
 import { getDefaultPhotoUrl, shuffleArrayAroundIndex } from "../utils/helpers"
 
 const StudyCardContent = ({ data, set }) => {
+  set.idIndices = []
+
+  set.taxonIds.forEach((id, index) => {
+    set.idIndices[id] = index
+    console.log(set.idIndices[id])
+  })
+
+  console.log('set.idIndices', set.idIndices)
+
   const [index, setIndex] = useState(0)
   const [array, setArray] = useState(set.taxonIds)
   const [shuffle, setShuffle] = useState(false)
@@ -33,6 +42,10 @@ const StudyCardContent = ({ data, set }) => {
       setShuffle(false)
     }
   }
+
+  console.log('array', array)
+  console.log('array[index]', array[index])
+  console.log('set.idIndices[array[index]] + 1', set.idIndices[array[index]] + 1)
 
   return (
     <div className="study-card">
@@ -71,14 +84,14 @@ const StudyCardContent = ({ data, set }) => {
           ? <div className="study-card-content-info">
               <div className="study-card-content-info-names">
                 <div>
-                  {data[index].preferred_common_name}
+                  {data[set.idIndices[array[index]]].preferred_common_name}
                 </div>
                 <div>
-                  {data[index].name}
+                  {data[set.idIndices[array[index]]].name}
                 </div>
               </div>
               <div className="study-card-content-info-text">
-                {data[index].wikiSummary}
+                {data[set.idIndices[array[index]]].wikiSummary}
               </div>
               <button
                 className="study-card-content-button"
@@ -94,7 +107,7 @@ const StudyCardContent = ({ data, set }) => {
               Reveal species information
             </button>
         }
-        <img src={getDefaultPhotoUrl(data[index])} alt='Species to study' />
+        <img src={getDefaultPhotoUrl(data[set.idIndices[array[index]]])} alt='Species to study' />
       </div>
     </div>
   )
