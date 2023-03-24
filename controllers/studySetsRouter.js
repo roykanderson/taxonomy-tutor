@@ -94,7 +94,7 @@ studySetsRouter.put('/:id', async (req, res) => {
 
   // Only allow unique iNaturalist taxonIds in StudySet
   const taxonIds = new Set(req.body.taxonIds)
-  if (taxonIds.length !== req.body.taxonIds.length) {
+  if (taxonIds.size !== req.body.taxonIds.length) {
     return res.status(401).json({ error: 'taxonIds not all unique'})
   }
 
