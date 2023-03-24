@@ -43,7 +43,7 @@ const SpeciesPage = () => {
       </div>
       <img className="page-img" src={getDefaultPhotoUrl(taxon)} alt="species" />
       {showModal &&
-        <SpeciesAddModal />
+        <SpeciesAddModal setShowModal={setShowModal} taxon={taxon} />
       }
     </main>
   )

@@ -5,7 +5,9 @@ html {
   --grey-extra-dark: #333333;
   --grey-dark: #404040;
   --grey: #515151;
+  --grey-medium: #969696;
   --grey-light: #B1B1B1;
+  --grey-medium-light: #A9A9A9;
   --grey-extra-light: #DDDDDD;
   --white: #F5F2F2;
   --green-dark: #00A05D;
@@ -404,6 +406,7 @@ a {
   display: flex;
   flex-direction: row;
   gap: 1.2rem;
+  position: relative;
 }
 
 .page-left {
@@ -489,6 +492,130 @@ a {
   max-width: 40%;
   object-fit: cover;
   object-position: center;
+}
+
+/* Species Add Modal */
+
+.species-add-modal-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 2.4rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem;
+  width: 70%;
+  background-color: var(--grey-light);
+  color: var(--grey-extra-dark);
+  border-radius: 1rem;
+}
+
+.species-add-modal-header {
+  margin: 0 0 1.2rem 0;
+}
+
+.species-add-modal-sets {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  height: 12.9rem;
+  overflow: scroll;
+  gap: 0.6rem;
+}
+
+.species-add-modal-set {
+  font-size: 1rem;
+  color: var(--grey-dark);
+  padding: 0.4125rem 0.6rem;
+  background-color: var(--grey-medium-light);
+}
+
+.species-add-modal-set:hover {
+  cursor: pointer;
+  background-color: #a0a0a0;
+}
+
+.species-add-modal-set.active {
+  background-color: var(--grey-extra-dark);
+  color: var(--green);
+}
+
+.species-add-modal-set.active:hover {
+  cursor: default;
+}
+
+.species-add-modal-set-toprow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.125rem;
+}
+
+.species-add-modal-set-toprow p:nth-child(1) {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.species-add-modal-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.species-add-modal-create-button {
+  background-color: var(--grey-extra-dark);
+  color: var(--grey-light);
+  font-family: Roboto Mono;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 2.4rem;
+}
+
+.species-add-modal-create-button:hover {
+  cursor: pointer;
+  opacity: 80%;
+}
+
+.species-add-modal-create-input {
+  background-color: var(--grey-extra-light);
+  color: var(--grey-extra-dark);
+  font-family: Roboto Mono;
+  font-size: 0.9rem;
+  padding: 0 0.6rem;
+  border: none;
+  width: 60%;
+}
+
+.species-add-modal-create-input:focus {
+  outline: none;
+}
+
+.species-add-modal-add {
+  background-color: var(--grey-medium-light);
+  color: var(--grey);
+  font-family: Roboto Mono;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 2.4rem;
+}
+
+.species-add-modal-add.active {
+  background-color: var(--grey-extra-dark);
+  color: var(--green);
+}
+
+.species-add-modal-add.active .spinner {
+  width: 0.6rem;
+  height: 0.6rem;
+  margin: 0;
+  border: 0.2rem solid;
+}
+
+.species-add-modal-add.active:hover {
+  cursor: pointer;
+  opacity: 80%;
 }
 
 /* Login Page */
