@@ -92,8 +92,13 @@ studySetsRouter.put('/:id', async (req, res) => {
     return res.status(401).json({ error: 'only the creator can update a set' })
   }
 
-  // Only allow unique and valid iNaturalist taxonIds in StudySet
+  // Only allow unique iNaturalist taxonIds in StudySet
   const taxonIds = new Set(req.body.taxonIds)
+  if (taxonIds.length !== req.body.taxonIds.length) {
+    return res.status(401).json({ error: 'taxonIds not all unique'})
+  }
+
+  // Only allow valid iNaturalist taxonIds in StudySet
   if (!helpers.isValidTaxonIds(taxonIds)) {
     return res.status(401).json({ error: 'invalid taxon id(s)' })
   }
