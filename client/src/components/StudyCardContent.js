@@ -9,8 +9,6 @@ const StudyCardContent = ({ data, set }) => {
     set.idIndices[id] = index
   })
 
-  console.log('set.idIndices', set.idIndices)
-
   const [index, setIndex] = useState(0)
   const [array, setArray] = useState(set.taxonIds)
   const [shuffle, setShuffle] = useState(false)
