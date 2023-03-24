@@ -1,14 +1,18 @@
+import { useState } from "react"
 import { useLocation } from "react-router-dom"
 
 import { useWikiSummary } from "../hooks"
 import { getDefaultPhotoUrl } from "../utils/helpers"
 import LoadingIcon from "./LoadingIcon"
+import SpeciesAddModal from "./SpeciesAddModal"
 
 const SpeciesPage = () => {
   const location = useLocation()
   const taxon = location.state
   
   const { data, isFetching } = useWikiSummary(taxon.wikipedia_url)
+
+  const [showModal, setShowModal] = useState(false)
 
   return (
     <main className="page-container">
@@ -19,7 +23,7 @@ const SpeciesPage = () => {
               <div className="page-common-name">{taxon.preferred_common_name}</div>
               <div className="page-sci-name">{taxon.name}</div>
             </div>
-            <button className="page-button">
+            <button className="page-button" onClick={() => setShowModal(true)}>
               <div className="button-text">Add to set</div>
               <div className="button-plus">+</div>
             </button>
@@ -38,6 +42,9 @@ const SpeciesPage = () => {
         </div>
       </div>
       <img className="page-img" src={getDefaultPhotoUrl(taxon)} alt="species" />
+      {showModal &&
+        <SpeciesAddModal />
+      }
     </main>
   )
 }
