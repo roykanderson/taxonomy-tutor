@@ -7,7 +7,6 @@ const StudyCardContent = ({ data, set }) => {
 
   set.taxonIds.forEach((id, index) => {
     set.idIndices[id] = index
-    console.log(set.idIndices[id])
   })
 
   console.log('set.idIndices', set.idIndices)
@@ -42,10 +41,6 @@ const StudyCardContent = ({ data, set }) => {
       setShuffle(false)
     }
   }
-
-  console.log('array', array)
-  console.log('array[index]', array[index])
-  console.log('set.idIndices[array[index]] + 1', set.idIndices[array[index]] + 1)
 
   return (
     <div className="study-card">
