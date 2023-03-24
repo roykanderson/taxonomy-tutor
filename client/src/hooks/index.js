@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 
 import observationsService from '../services/observations'
 import wikiService from '../services/wikiService'
@@ -78,5 +78,27 @@ export const useTaxa = (ids) => {
     queryKey: ['taxa', ids],
     queryFn: getTaxa,
     staleTime: Infinity
+  })
+}
+
+export const useUpdateSet = (setShowModal) => {
+  return useMutation({
+    mutationFn: ({ taxon, set }) => {
+      return userService.updateSet(set.id, set.name, set.taxonIds.concat(String(taxon.id)))
+    },
+    onSuccess: () => {
+      setShowModal(false)
+    }
+  })
+}
+
+export const useCreateSet = (setShowModal) => {
+  return useMutation({
+    mutationFn: ({ taxon, title }) => {
+      return userService.createSet(title, [String(taxon.id)])
+    },
+    onSuccess: () => {
+      setShowModal(false)
+    }
   })
 }
