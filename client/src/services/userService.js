@@ -59,7 +59,7 @@ const createSet = async (name, taxonIds) => {
     const response = await axios.post(SETS_URL, set, config)
     return response.data
   } catch (error) {
-    throw new Error(error.response.data)
+    throw new Error(error.response.data.error)
   }
 }
 
@@ -74,7 +74,7 @@ const updateSet = async (id, name, taxonIds) => {
     const response = await axios.put(`${SETS_URL}/${id}`, body, config)
     return response.data
   } catch (error) {
-    throw new Error(error.response.data)
+    throw new Error(error.response.data.error)
   }
 }
 

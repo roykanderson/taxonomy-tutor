@@ -2,8 +2,8 @@ import { useUpdateSet, useCreateSet } from '../hooks'
 
 import LoadingIcon from './LoadingIcon'
 
-const SpeciesAddModalAdd = ({ activeSet, title, setShowModal, taxon, data }) => {
-  const updateSet = useUpdateSet(setShowModal)
+const SpeciesAddModalAdd = ({ activeSet, title, setShowModal, taxon, data, error, setError }) => {
+  const updateSet = useUpdateSet(setShowModal, setError)
   const createSet = useCreateSet(setShowModal)
 
   const handleAdd = () => {
@@ -20,6 +20,14 @@ const SpeciesAddModalAdd = ({ activeSet, title, setShowModal, taxon, data }) => 
     return (
       <button className='species-add-modal-add active'>
         <LoadingIcon />
+      </button>
+    )
+  }
+
+  else if (error) {
+    return (
+      <button className='species-add-modal-add error'>
+        Already in that set!
       </button>
     )
   }

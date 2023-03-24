@@ -1,8 +1,9 @@
-const SpeciesAddModalSets = ({ data, activeSet, setActiveSet, setCreateActive }) => {
+const SpeciesAddModalSets = ({ data, activeSet, setActiveSet, setCreateActive, setError }) => {
 
   const handleSetClick = (setId) => {
     setActiveSet(setId)
     setCreateActive(false)
+    setError(false)
   }
 
   return (
