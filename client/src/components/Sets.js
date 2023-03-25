@@ -12,10 +12,18 @@ const Sets = () => {
     )
   }
 
-  if (isError) {
+  else if (isError) {
     return (
       <div className='error'>
         {error}
+      </div>
+    )
+  }
+
+  else if (data.length === 0) {
+    return (
+      <div className='sets-nosets'>
+        It looks like you haven't created any study sets yet. Now's the perfect time to start!
       </div>
     )
   }

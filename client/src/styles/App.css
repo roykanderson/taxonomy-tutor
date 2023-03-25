@@ -1074,6 +1074,13 @@ a {
   gap: 1.2rem;
 }
 
+.sets-nosets {
+  margin: 4.8rem 2.4rem 0 2.4rem;
+  display: flex;
+  justify-content: center;
+  color: var(--grey-light);
+}
+
 .sets-set {
   background-color: var(--grey-light);
   padding: 1.2rem;
