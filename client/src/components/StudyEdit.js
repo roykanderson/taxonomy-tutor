@@ -70,7 +70,7 @@ const StudyEdit = () => {
         <button className='study-edit-delete' onClick={() => setShowModal(true)}>
           Delete set
         </button>
-        <button className={isChanged ? 'create-submit study-edit' : 'create-submit study-edit inactive'} onClick={handleUpdate}>
+        <button className={isChanged ? 'create-submit study-edit' : 'create-submit study-edit inactive'} onClick={handleUpdate} disabled={!isChanged}>
           Update
         </button>
       </div>
