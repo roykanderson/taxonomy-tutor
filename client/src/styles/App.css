@@ -12,6 +12,7 @@ html {
   --white: #F5F2F2;
   --green-dark: #00A05D;
   --green: #00D475;
+  --red: #e97e7e;
 }
 
 body,
@@ -993,6 +994,77 @@ a {
 .create-submit.inactive:hover {
   cursor: default;
   opacity: 100%;
+}
+
+/* Study Edit */
+
+.study-edit-buttons {
+  display: flex;
+  justify-content: right;
+  margin-top: 1.2rem;
+  gap: 1.8rem;
+}
+
+.create-submit.study-edit {
+  margin: 0;
+}
+
+.study-edit-delete {
+  background-color: var(--grey-extra-dark);
+  color: var(--red);
+  font-family: Roboto Mono;
+  font-size: 1.2rem;
+  font-weight: 500;
+  min-width: 15%;
+  height: 2.4rem;
+  border: none;
+  border-radius: 1.2rem;
+  display: block;
+  padding: 0.438rem 1.4rem;
+}
+
+.study-edit-delete:hover {
+  cursor: pointer;
+  opacity: 80%;
+}
+
+/* DeleteSetModal */
+
+.delete-set-modal-container {
+  width: 60%;
+  margin: auto;
+  padding: 1.2rem 2.4rem;
+  background-color: var(--grey-light);
+  color: var(--grey-extra-dark)
+}
+
+.delete-set-modal-header {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.delete-set-modal-buttons {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.delete-set-modal-button {
+  background-color: var(--grey-extra-dark);
+  color: var(--grey-light);
+  font-family: Roboto Mono;
+  font-size: 1.1rem;
+  font-weight: 400;
+  min-width: 15%;
+  height: 2.4rem;
+  border: none;
+  border-radius: 1.2rem;
+  padding: 0.438rem 1.4rem;
+}
+
+.delete-set-modal-button:hover {
+  cursor: pointer;
+  opacity: 80%;
 }
 
 /* profile sets */

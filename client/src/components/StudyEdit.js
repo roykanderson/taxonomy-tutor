@@ -8,6 +8,7 @@ import EditAddButton from "./EditAddButton"
 import observationsService from "../services/observations"
 import userService from "../services/userService"
 import { arraysContainEqualValues } from "../utils/helpers"
+import DeleteSetModal from "./DeleteSetModal"
 
 const StudyEdit = () => {
   const location = useLocation()
@@ -17,6 +18,7 @@ const StudyEdit = () => {
 
   const [title, setTitle] = useState(set.name)
   const [taxa, setTaxa] = useState([])
+  const [showModal, setShowModal] = useState(false)
 
   const originalTitle = set.name
   const originalTaxa = set.taxonIds
@@ -64,9 +66,17 @@ const StudyEdit = () => {
         <EditTaxon key={taxon.id} taxa={taxa} setTaxa={setTaxa} index={index} checkForTaxaChanges={checkForTaxaChanges} />
       )}
       <EditAddButton taxa={taxa} setTaxa={setTaxa} checkForTaxaChanges={checkForTaxaChanges} />
-      <button className={isChanged ? 'create-submit' : 'create-submit inactive'} onClick={handleUpdate}>
-        Update
-      </button>
+      <div className="study-edit-buttons">
+        <button className='study-edit-delete' onClick={() => setShowModal(true)}>
+          Delete set
+        </button>
+        <button className={isChanged ? 'create-submit study-edit' : 'create-submit study-edit inactive'} onClick={handleUpdate}>
+          Update
+        </button>
+      </div>
+      {showModal &&
+        <DeleteSetModal setShowModal={setShowModal} set={set} />
+      }
     </div>
   )
 }

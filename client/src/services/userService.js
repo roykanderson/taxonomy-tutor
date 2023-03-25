@@ -78,6 +78,19 @@ const updateSet = async (id, name, taxonIds) => {
   }
 }
 
+const deleteSet = async (id) => {
+  try {
+    const config = {
+      headers: { Authorization: token }
+    }
+
+    const response = await axios.delete(`${SETS_URL}/${id}`, config)
+    return response.data
+  } catch (error) {
+    throw new Error(error.response.data.error)
+  }
+}
+
 const userService = {
   setToken,
   signUp,
@@ -85,7 +98,8 @@ const userService = {
   logOut,
   getSets,
   createSet,
-  updateSet
+  updateSet,
+  deleteSet
 }
 
 export default userService

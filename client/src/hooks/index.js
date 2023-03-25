@@ -106,6 +106,17 @@ export const useCreateSet = (setShowModal) => {
   })
 }
 
+export const useDeleteSet = (navigateAfterDeletion) => {
+  return useMutation({
+    mutationFn: async (id) => {
+      await userService.deleteSet(id)
+    },
+    onSuccess: () => {
+      navigateAfterDeletion()
+    }
+  })
+}
+
 export const useOutsideAlerter = (ref, sideEffectFn) => {
   useEffect(() => {
     /**
