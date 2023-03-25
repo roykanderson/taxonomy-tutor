@@ -16,9 +16,7 @@ const CreateSetForm = () => {
   const createSet = useCreateSet(navigate)
 
   const handleCreate = () => {
-    if (title) {
-      createSet.mutate({ title, taxonIds: taxa.map(taxa => taxa.id) })
-    }
+    createSet.mutate({ title, taxonIds: taxa.map(taxa => taxa.id) })
   }
 
   return (
@@ -31,7 +29,7 @@ const CreateSetForm = () => {
         taxa={taxa}
         setTaxa={setTaxa}
       />
-      <button className="create-submit" onClick={handleCreate}>
+      <button className={title ? 'create-submit' : 'create-submit inactive'} onClick={handleCreate} disabled={!title}>
         Create
       </button>
     </div>
