@@ -31,19 +31,21 @@ const Sets = () => {
   return (
     <div className="sets-container">
       {
-        data.map(set => 
-          <Link key={set.id} className="sets-set" to={`/profile/${set.id}`} state={set}>
-            <p>
-              {set.name}
-            </p>
-            <p>
-              {new Date(set.dateLastUpdated).toLocaleDateString('en-us', { year: 'numeric', month: 'long', day: 'numeric' })}
-            </p>
-            <p>
-              {set.numberOfTaxa} species
-            </p>
-          </Link>
-        )
+        data
+          .sort((set1, set2) => new Date(set2.dateLastUpdated) - new Date(set1.dateLastUpdated)) // Sort sets by most recently updated
+          .map(set => 
+            <Link key={set.id} className="sets-set" to={`/profile/${set.id}`} state={set}>
+              <p>
+                {set.name}
+              </p>
+              <p>
+                {new Date(set.dateLastUpdated).toLocaleDateString('en-us', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </p>
+              <p>
+                {set.numberOfTaxa} species
+              </p>
+            </Link>
+          )
       }
     </div>
   )
