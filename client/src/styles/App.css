@@ -510,8 +510,29 @@ a {
   border-radius: 1rem;
 }
 
+.species-add-modal-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
 .species-add-modal-header {
   margin: 0 0 1.2rem 0;
+}
+
+.species-add-modal-closebutton {
+  background-color: transparent;
+  color: var(--grey-extra-dark);
+  border: none;
+  padding: 0;
+  font-family: Roboto Mono;
+  font-size: 1.5rem;
+}
+
+.species-add-modal-closebutton:hover {
+  cursor: pointer;
+  opacity: 50%;
 }
 
 .species-add-modal-sets {

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useMutation, useQuery } from '@tanstack/react-query'
 
 import observationsService from '../services/observations'
@@ -104,4 +104,23 @@ export const useCreateSet = (setShowModal) => {
       setShowModal(false)
     }
   })
+}
+
+export const useOutsideAlerter = (ref, sideEffectFn) => {
+  useEffect(() => {
+    /**
+     * Alert if clicked on outside of element
+     */
+    const handleClickOutside = (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        sideEffectFn()
+      }
+    }
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener("mousedown", handleClickOutside)
+    };
+  }, [ref, sideEffectFn]);
 }
