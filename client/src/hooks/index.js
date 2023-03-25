@@ -81,6 +81,17 @@ export const useTaxa = (ids) => {
   })
 }
 
+export const useCreateSet = (navigate) => {
+  return useMutation({
+    mutationFn: async ({ title, taxonIds }) => {
+      await userService.createSet(title, taxonIds)
+    },
+    onSuccess: () => {
+      navigate('/profile')
+    }
+  })
+}
+
 export const useUpdateSetFromSearch = (setShowModal, setError) => {
   return useMutation({
     mutationFn: async ({ taxon, set }) => {

@@ -1,7 +1,8 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-import userService from "../services/userService"
+import { useCreateSet } from "../hooks"
+
 import CreateAddButton from "./CreateAddButton"
 import CreateTaxon from "./CreateTaxon"
 import CreateTitle from "./CreateTitle"
@@ -12,10 +13,11 @@ const CreateSetForm = () => {
   const [title, setTitle] = useState('')
   const [taxa, setTaxa] = useState([])
 
+  const createSet = useCreateSet(navigate)
+
   const handleCreate = () => {
     if (title) {
-      userService.createSet(title, taxa.map(taxa => taxa.id))
-      navigate('/profile')
+      createSet.mutate({ title, taxonIds: taxa.map(taxa => taxa.id) })
     }
   }
 
