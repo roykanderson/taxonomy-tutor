@@ -35,6 +35,11 @@ studySetsRouter.post('/', async (req, res) => {
   if (!isValidTaxonIds) {
     return res.status(400).json({ error: 'invalid taxon id(s)' })
   }
+
+  // Ensure StudySet has a title
+  if (!name) {
+    return res.status(400).json({ error: 'title missing'})
+  }
   
   const studySet = new StudySet({
     user: user._id,
