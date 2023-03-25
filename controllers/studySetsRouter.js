@@ -72,7 +72,15 @@ studySetsRouter.delete('/:id', async (req, res) => {
     return res.status(401).json({ error: 'only the creator can delete a study set' })
   }
 
+  // Delete StudySet
   await StudySet.findByIdAndRemove(req.params.id)
+
+  // Remove the StudySet's reference in User document
+  await User.findByIdAndUpdate(req.user.id, {
+      $pull: {
+        'studySets': req.params.id
+      }
+  })
   
   res.status(204).end()
 })
