@@ -7,7 +7,7 @@ const OutsideAlerter = (props) => {
   useOutsideAlerter(wrapperRef, props.sideEffectFn);
 
   return (
-    <div ref={wrapperRef}>
+    <div className='outside-alerter' ref={wrapperRef}>
       {props.children}
     </div>
   )

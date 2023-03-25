@@ -496,15 +496,24 @@ a {
 
 /* Species Add Modal */
 
-.species-add-modal-container {
-  position: absolute;
+.species-add-modal-overlay {
+  position: fixed;
+  top: 0;
   left: 0;
-  right: 0;
-  top: 2.4rem;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.outside-alerter {
+  width: 70%
+}
+
+.species-add-modal-container {
   padding: 2rem;
-  width: 70%;
   background-color: var(--grey-light);
   color: var(--grey-extra-dark);
   border-radius: 1rem;
