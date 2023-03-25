@@ -40,6 +40,14 @@ const StudyCardContent = ({ data, set }) => {
     }
   }
 
+  if (data.length === 0) {
+    return (
+      <div className="study-card-nospecies">
+        Looks like this study set is empty! Click the "Edit" button to add species.
+      </div>
+    )
+  }
+
   return (
     <div className="study-card">
       <div className="study-card-banner">
