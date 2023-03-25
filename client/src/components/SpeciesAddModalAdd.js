@@ -1,22 +1,22 @@
-import { useUpdateSet, useCreateSet } from '../hooks'
+import { useUpdateSetFromSearch, useCreateSetFromSearch } from '../hooks'
 
 import LoadingIcon from './LoadingIcon'
 
 const SpeciesAddModalAdd = ({ activeSet, title, setShowModal, taxon, data, error, setError }) => {
-  const updateSet = useUpdateSet(setShowModal, setError)
-  const createSet = useCreateSet(setShowModal)
+  const updateSetFromSearch = useUpdateSetFromSearch(setShowModal, setError)
+  const createSetFromSearch = useCreateSetFromSearch(setShowModal)
 
   const handleAdd = () => {
     // Add species to an existing set
     if (activeSet) {
-      updateSet.mutate({ taxon: taxon, set: data.filter(set => set.id === activeSet)[0] })
+      updateSetFromSearch.mutate({ taxon: taxon, set: data.filter(set => set.id === activeSet)[0] })
     }
     else if (title) {
-      createSet.mutate({ taxon, title })
+      createSetFromSearch.mutate({ taxon, title })
     }
   }
 
-  if (updateSet.isLoading || createSet.isLoading) {
+  if (updateSetFromSearch.isLoading || createSetFromSearch.isLoading) {
     return (
       <button className='species-add-modal-add active'>
         <LoadingIcon />
