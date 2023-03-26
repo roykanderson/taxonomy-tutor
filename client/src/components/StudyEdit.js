@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate, useOutletContext } from "react-router-dom"
+import { useQueryClient } from "@tanstack/react-query"
 
 import userService from "../services/userService"
 import { arraysContainEqualValues } from "../utils/helpers"
@@ -13,6 +14,7 @@ const StudyEdit = () => {
   const { set, taxa } = useOutletContext()
 
   const navigate = useNavigate()
+  const queryClient = useQueryClient()
 
   const [title, setTitle] = useState(set.name)
   const [selectedTaxa, setSelectedTaxa] = useState(taxa)
@@ -42,14 +44,15 @@ const StudyEdit = () => {
   }
 
   const handleUpdate = async () => {
-    const updatedSet = await userService.updateSet(set.id, title, taxa.map((taxon) => taxon.id))
+    const updatedSet = await userService.updateSet(set.id, title, selectedTaxa.map((taxon) => taxon.id))
+    queryClient.invalidateQueries('sets')
     navigate(`/profile/${set.id}`, { state: updatedSet })
   }
 
   return (
     <div className="create-container">
       <EditTitle title={title} setTitle={setTitle} checkForTitleChanges={checkForTitleChanges} />
-      {taxa.map((taxon, index) =>
+      {selectedTaxa.map((taxon, index) =>
         <EditTaxon key={taxon.id} selectedTaxa={selectedTaxa} setSelectedTaxa={setSelectedTaxa} index={index} checkForTaxaChanges={checkForTaxaChanges} />
       )}
       <EditAddButton selectedTaxa={selectedTaxa} setSelectedTaxa={setSelectedTaxa} checkForTaxaChanges={checkForTaxaChanges} />

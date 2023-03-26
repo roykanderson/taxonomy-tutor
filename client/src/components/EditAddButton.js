@@ -2,7 +2,7 @@ import { useState } from "react"
 import observationsService from "../services/observations"
 import taxaService from "../services/taxaService"
 
-const EditAddButton = ({ taxa, setTaxa, checkForTaxaChanges }) => {
+const EditAddButton = ({ selectedTaxa, setSelectedTaxa, checkForTaxaChanges }) => {
   const [active, setActive] = useState(false)
   const [input, setInput] = useState('')
   const [suggestions, setSuggestions] = useState('')
@@ -20,8 +20,8 @@ const EditAddButton = ({ taxa, setTaxa, checkForTaxaChanges }) => {
   const handleSuggestionClick = async ({ target }) => {
     setSuggestions(null)
     setInput('')
-    const newTaxa = taxa.concat(await observationsService.fetchTaxaById(target.getAttribute('data-id')))
-    setTaxa(newTaxa)
+    const newTaxa = selectedTaxa.concat(await observationsService.fetchTaxaById(target.getAttribute('data-id')))
+    setSelectedTaxa(newTaxa)
     setActive(false)
     checkForTaxaChanges(newTaxa)
   }

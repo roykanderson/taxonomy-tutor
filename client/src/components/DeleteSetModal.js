@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom"
+import { useQueryClient } from "@tanstack/react-query"
 
 import OutsideAlerter from "./OutsideAlerter"
 
@@ -6,6 +7,7 @@ import { useDeleteSet } from "../hooks"
 
 const DeleteSetModal = ({ setShowModal, set }) => {
   const navigate = useNavigate()
+  const queryClient = useQueryClient()
 
   const navigateAfterDeletion = () => {
     navigate('/profile')
@@ -15,6 +17,7 @@ const DeleteSetModal = ({ setShowModal, set }) => {
 
   const handleDelete = () => {
     deleteSet.mutate(set.id)
+    queryClient.invalidateQueries('sets')
   }
 
   return (
