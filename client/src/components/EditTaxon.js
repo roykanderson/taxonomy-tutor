@@ -3,9 +3,9 @@ import { useState } from "react"
 import taxaService from "../services/taxaService"
 import observationsService from "../services/observations"
 
-const EditTaxon = ({ taxa, setTaxa, index, checkForTaxaChanges }) => {
+const EditTaxon = ({ selectedTaxa, setSelectedTaxa, index, checkForTaxaChanges }) => {
 
-  const [input, setInput] = useState(taxa[index].preferred_common_name)
+  const [input, setInput] = useState(selectedTaxa[index].preferred_common_name)
   const [focused, setFocused] = useState(false)
   const [suggestions, setSuggestions] = useState(null)
 
@@ -22,31 +22,31 @@ const EditTaxon = ({ taxa, setTaxa, index, checkForTaxaChanges }) => {
   const onBlur = () => {
     setFocused(false)
     setSuggestions(null)
-    setInput(taxa[index].preferred_common_name)
+    setInput(selectedTaxa[index].preferred_common_name)
   }
   
   const handleSuggestionClick = async ({ target }) => {
     const id = target.getAttribute('data-id')
     const newTaxon = await observationsService.fetchTaxaById(id)
-    const newTaxa = taxa.slice()
+    const newTaxa = selectedTaxa.slice()
     newTaxa[index] = newTaxon
 
-    setTaxa(newTaxa)
+    setSelectedTaxa(newTaxa)
     setInput(newTaxon.preferred_common_name)
     checkForTaxaChanges(newTaxa)
   }
 
   const handleRemove = () => {
-    const newTaxa = taxa.slice()
+    const newTaxa = selectedTaxa.slice()
     newTaxa.splice(index, 1)
-    setTaxa(newTaxa)
+    setSelectedTaxa(newTaxa)
     checkForTaxaChanges(newTaxa)
   }
 
   return (
     <>
       <div className={focused ? 'create-taxon active' : 'create-taxon'}>
-        <img src={taxa[index].default_photo.url} alt={taxa[index].preferred_common_name} />
+        <img src={selectedTaxa[index].default_photo.url} alt={selectedTaxa[index].preferred_common_name} />
         <div className="create-taxon-left">
           <div> 
             {index + 1}
@@ -61,7 +61,7 @@ const EditTaxon = ({ taxa, setTaxa, index, checkForTaxaChanges }) => {
           />
           {!focused && 
             <div className="create-sci">
-              {taxa[index].name}
+              {selectedTaxa[index].name}
             </div>
           }
         </div>

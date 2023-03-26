@@ -1,8 +1,11 @@
 import { useState } from "react"
+import { useOutletContext } from "react-router-dom"
 
 import { getDefaultPhotoUrl, shuffleArrayAroundIndex } from "../utils/helpers"
 
-const StudyCardContent = ({ data, set }) => {
+const StudyCardContent = () => {
+  const { set, taxa } = useOutletContext()
+
   set.idIndices = []
 
   set.taxonIds.forEach((id, index) => {
@@ -40,7 +43,7 @@ const StudyCardContent = ({ data, set }) => {
     }
   }
 
-  if (data.length === 0) {
+  if (taxa.length === 0) {
     return (
       <div className="study-card-nospecies">
         Looks like this study set is empty! Click the "Edit" button to add species.
@@ -86,14 +89,14 @@ const StudyCardContent = ({ data, set }) => {
           ? <div className="study-card-content-info">
               <div className="study-card-content-info-names">
                 <div>
-                  {data[set.idIndices[array[index]]].preferred_common_name}
+                  {taxa[set.idIndices[array[index]]].preferred_common_name}
                 </div>
                 <div>
-                  {data[set.idIndices[array[index]]].name}
+                  {taxa[set.idIndices[array[index]]].name}
                 </div>
               </div>
               <div className="study-card-content-info-text">
-                {data[set.idIndices[array[index]]].wikiSummary}
+                {taxa[set.idIndices[array[index]]].wikiSummary}
               </div>
               <button
                 className="study-card-content-button hide"
@@ -109,7 +112,7 @@ const StudyCardContent = ({ data, set }) => {
               Reveal species information
             </button>
         }
-        <img src={getDefaultPhotoUrl(data[set.idIndices[array[index]]])} alt='Species to study' />
+        <img src={getDefaultPhotoUrl(taxa[set.idIndices[array[index]]])} alt='Species to study' />
       </div>
     </div>
   )

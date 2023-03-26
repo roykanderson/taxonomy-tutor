@@ -1,16 +1,16 @@
 import { useLocation, Link, Outlet } from "react-router-dom"
+
 import { useSet, useTaxa } from "../hooks"
+import { extractSetIdFromPathname } from '../utils/helpers'
+
 import LoadingIcon from "./LoadingIcon"
 
 const StudyPage = () => {
   const location = useLocation()
-  const setId = location.pathname.split('/').pop()
+  const setId = extractSetIdFromPathname(location.pathname)
   const { data: set, isFetching: isFetchingSet } = useSet(setId)
-  console.log(set)
-
   const taxonIds = set?.taxonIds
   const { data: taxa, isFetching: isFetchingTaxa } = useTaxa(taxonIds)
-  console.log(taxa)
 
   if (isFetchingSet || isFetchingTaxa) {
     return (
@@ -32,18 +32,18 @@ const StudyPage = () => {
 
       <div className="study-options">
         <button className={location.pathname === `/profile/${set.id}` ? 'active' : ''}>
-          <Link to='' state={set}>
+          <Link to=''>
             Study
           </Link>
         </button>
         <button className={location.pathname === `/profile/${set.id}/edit` ? 'active' : ''}>
-          <Link to='edit' state={set}>
+          <Link to='edit'>
             Edit
           </Link>
         </button>
       </div>
 
-      <Outlet />
+      <Outlet context={{ set, taxa }} />
     </div>
   )
 }

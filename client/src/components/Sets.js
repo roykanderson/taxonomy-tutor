@@ -34,7 +34,7 @@ const Sets = () => {
         data
           .sort((set1, set2) => new Date(set2.dateLastUpdated) - new Date(set1.dateLastUpdated)) // Sort sets by most recently updated
           .map(set => 
-            <Link key={set.id} className="sets-set" to={`/profile/${set.id}`} state={set}>
+            <Link key={set.id} className="sets-set" to={`/profile/${set.id}`}>
               <p>
                 {set.name}
               </p>
