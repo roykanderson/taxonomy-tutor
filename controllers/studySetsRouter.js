@@ -19,6 +19,28 @@ studySetsRouter.get('/', async (req, res) => {
   res.status(200).json(user.studySets)
 })
 
+studySetsRouter.get('/:id', async (req, res) => {
+  // Only allow Study to be retrieved with valid jwt
+  const token = helpers.getTokenFrom(req)
+  const decodedToken = jwt.verify(token, process.env.SECRET)
+  if (!decodedToken.id) {
+    return res.status(401).json({ error: 'token missing or invalid' })
+  }
+
+  const setId = req.params.id
+
+  const set = await StudySet.findById(setId)
+
+  // Return error if set was not found
+  if (!set) {
+    return res.status(401).json({ error: 'set could not be found' })
+  }
+
+  console.log(set)
+
+  res.status(200).json(set)
+})
+
 studySetsRouter.post('/', async (req, res) => {
   // Only allow StudySet to be created with valid jwt
   const token = helpers.getTokenFrom(req)
