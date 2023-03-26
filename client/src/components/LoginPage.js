@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import userService from '../services/userService'
 import { useContext } from 'react'
 import { UserContext } from '../utils/UserContext'
@@ -9,6 +9,7 @@ const LoginPage = () => {
   const { setUser } = useContext(UserContext)
 
   const navigate = useNavigate()
+  const queryClient = useQueryClient()
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -22,6 +23,7 @@ const LoginPage = () => {
       setUser(data)
       userService.setToken(data.token)
       window.localStorage.setItem('user', JSON.stringify(data))
+      queryClient.invalidateQueries()
       navigate('/')
     }
   })
