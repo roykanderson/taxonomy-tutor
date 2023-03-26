@@ -1,8 +1,22 @@
 import { useLocation, Link, Outlet } from "react-router-dom"
+import { useSet, useTaxa } from "../hooks"
+import LoadingIcon from "./LoadingIcon"
 
 const StudyPage = () => {
   const location = useLocation()
-  const set = location.state
+  const setId = location.pathname.split('/').pop()
+  const { data: set, isFetching: isFetchingSet } = useSet(setId)
+  console.log(set)
+
+  const taxonIds = set?.taxonIds
+  const { data: taxa, isFetching: isFetchingTaxa } = useTaxa(taxonIds)
+  console.log(taxa)
+
+  if (isFetchingSet || isFetchingTaxa) {
+    return (
+      <LoadingIcon />
+    )
+  }
 
   return (
     <div className="study-container" >

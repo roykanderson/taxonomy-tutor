@@ -34,6 +34,19 @@ const logOut = async () => {
   setToken(null)
 }
 
+const getSet = async (id) => {
+  const user = JSON.parse(localStorage.getItem('user'))
+  try {
+    const config = {
+      headers: { Authorization: `bearer ${user.token}` }
+    }
+    const response = await axios.get(`${SETS_URL}/${id}`, config)
+    return response.data
+  } catch (error) {
+    throw new Error(error.response.data.message)
+  }
+}
+
 
 const getSets = async () => {
   try {
@@ -96,6 +109,7 @@ const userService = {
   signUp,
   logIn,
   logOut,
+  getSet,
   getSets,
   createSet,
   updateSet,

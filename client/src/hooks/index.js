@@ -55,6 +55,19 @@ export const useSignup = (credentials) => {
   return useQuery(['user'], signUp)
 }
 
+export const useSet = (setId) => {
+  const getSet = async () => {
+    const response = await userService.getSet(setId)
+    return response
+  }
+
+  return useQuery({
+    queryKey: ['set', setId],
+    queryFn: getSet,
+    staleTime: Infinity
+  })
+}
+
 export const useSets = () => {
   const getSets = async () => {
     const response = await userService.getSets()
@@ -64,10 +77,10 @@ export const useSets = () => {
   return useQuery(['sets'], getSets)
 }
 
-export const useTaxa = (ids) => {
+export const useTaxa = (taxonIds) => {
   const getTaxa = async ({ queryKey }) => {
-    const taxa = queryKey[1].map(async id => {
-      const taxon = await observationsService.fetchTaxaById(id)
+    const taxa = queryKey[1].map(async taxonId => {
+      const taxon = await observationsService.fetchTaxaById(taxonId)
       taxon.wikiSummary = await wikiService.getWikiSummary(taxon.wikipedia_url)
       return taxon
     })
@@ -75,9 +88,10 @@ export const useTaxa = (ids) => {
   }
 
   return useQuery({
-    queryKey: ['taxa', ids],
+    queryKey: ['taxa', taxonIds],
     queryFn: getTaxa,
-    staleTime: Infinity
+    staleTime: Infinity,
+    enabled: !!taxonIds
   })
 }
 
