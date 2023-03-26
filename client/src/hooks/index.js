@@ -74,7 +74,11 @@ export const useSets = () => {
     return response
   }
 
-  return useQuery(['sets'], getSets)
+  return useQuery({
+    queryKey: ['sets'],
+    queryFn: getSets,
+    staleTime: Infinity
+  })
 }
 
 export const useTaxa = (taxonIds) => {
