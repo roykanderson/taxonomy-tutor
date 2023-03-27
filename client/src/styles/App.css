@@ -1133,7 +1133,18 @@ a {
   margin: 2.4rem auto;
 }
 
+.study-back-link {
+  color: var(--grey-light);
+  font-weight: 300;
+}
+
+.study-back-link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .study-title {
+  margin-top: 0.9rem;
   display: flex;
   justify-content: space-between;
   align-items: center;

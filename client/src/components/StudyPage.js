@@ -21,6 +21,10 @@ const StudyPage = () => {
   return (
     <div className="study-container" >
 
+      <Link className="study-back-link" to='/profile'>
+        Back to profile
+      </Link>
+
       <div className="study-title">
         <div>
           {set.name}
