@@ -1,5 +1,4 @@
 import { useState } from "react"
-import observationsService from "../services/observations"
 import taxaService from "../services/taxaService"
 
 const CreateAddButton = ({ taxa, setTaxa }) => {
@@ -7,8 +6,6 @@ const CreateAddButton = ({ taxa, setTaxa }) => {
   const [input, setInput] = useState('')
   const [suggestions, setSuggestions] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
-
-  console.log(suggestions)
 
   const handleInputChange = async ({ target }) => {
     setInput(target.value)
