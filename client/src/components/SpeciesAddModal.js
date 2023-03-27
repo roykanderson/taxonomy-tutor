@@ -22,8 +22,6 @@ const SpeciesAddModal = ({ setShowModal, taxon }) => {
     setError(false)
   }
 
-  console.log(data)
-
   return (
     <div className="species-add-modal-overlay">
       <OutsideAlerter sideEffectFn={() => setShowModal(false)}>

@@ -1,10 +1,14 @@
+import { useQueryClient } from '@tanstack/react-query'
+
 import { useUpdateSetFromSearch, useCreateSetFromSearch } from '../hooks'
 
 import LoadingIcon from './LoadingIcon'
 
 const SpeciesAddModalAdd = ({ activeSet, title, setShowModal, taxon, data, error, setError }) => {
-  const updateSetFromSearch = useUpdateSetFromSearch(setShowModal, setError)
-  const createSetFromSearch = useCreateSetFromSearch(setShowModal)
+  const queryClient = useQueryClient()
+
+  const updateSetFromSearch = useUpdateSetFromSearch(setShowModal, setError, (key) => queryClient.invalidateQueries(key))
+  const createSetFromSearch = useCreateSetFromSearch(setShowModal, (key) => queryClient.invalidateQueries(key))
 
   const handleAdd = () => {
     // Add species to an existing set

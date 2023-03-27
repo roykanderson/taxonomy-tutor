@@ -110,7 +110,7 @@ export const useCreateSet = (navigate) => {
   })
 }
 
-export const useUpdateSetFromSearch = (setShowModal, setError) => {
+export const useUpdateSetFromSearch = (setShowModal, setError, invalidateQueries) => {
   return useMutation({
     mutationFn: async ({ taxon, set }) => {
       await userService.updateSet(set.id, set.name, set.taxonIds.concat(String(taxon.id)))
@@ -120,17 +120,19 @@ export const useUpdateSetFromSearch = (setShowModal, setError) => {
     },
     onSuccess: () => {
       setShowModal(false)
+      invalidateQueries('sets')
     }
   })
 }
 
-export const useCreateSetFromSearch = (setShowModal) => {
+export const useCreateSetFromSearch = (setShowModal, invalidateQueries) => {
   return useMutation({
     mutationFn: async ({ taxon, title }) => {
       await userService.createSet(title, [String(taxon.id)])
     },
     onSuccess: () => {
       setShowModal(false)
+      invalidateQueries('sets')
     }
   })
 }
