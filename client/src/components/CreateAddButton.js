@@ -8,6 +8,8 @@ const CreateAddButton = ({ taxa, setTaxa }) => {
   const [suggestions, setSuggestions] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
 
+  console.log(suggestions)
+
   const handleInputChange = async ({ target }) => {
     setInput(target.value)
     if (target.value) {
@@ -25,7 +27,7 @@ const CreateAddButton = ({ taxa, setTaxa }) => {
       setTimeout(() => setErrorMessage(''), 2000)
     }
     else {
-      setTaxa(taxa.concat(await observationsService.fetchTaxaById(target.getAttribute('data-id'))))
+      setTaxa(taxa.concat(suggestions[target.getAttribute('index')]))
     }
     
     setSuggestions(null)
@@ -45,15 +47,15 @@ const CreateAddButton = ({ taxa, setTaxa }) => {
               onChange={handleInputChange}
             />
             <ul className='create-suggestions'>
-              {suggestions && suggestions.map(suggestion =>
-                <li key={suggestion.id} className='create-suggestion' onMouseDown={handleSuggestionClick} data-id={suggestion.id}>
+              {suggestions && suggestions.map((suggestion, index) =>
+                <li key={suggestion.id} className='create-suggestion' onMouseDown={handleSuggestionClick} data-id={suggestion.id} index={index}>
                   {suggestion.default_photo &&
-                    <img src={suggestion.default_photo.url} alt={suggestion.preferred_common_name} data-id={suggestion.id} />
+                    <img src={suggestion.default_photo.url} alt={suggestion.preferred_common_name} data-id={suggestion.id} index={index} />
                   }
-                  <div className="create-suggestion-common" data-id={suggestion.id}>
+                  <div className="create-suggestion-common" data-id={suggestion.id} index={index}>
                     {suggestion.preferred_common_name}
                   </div>
-                  <div className="create-suggestion-sci" data-id={suggestion.id}>
+                  <div className="create-suggestion-sci" data-id={suggestion.id} index={index}>
                     {suggestion.name}
                   </div>
                 </li>
