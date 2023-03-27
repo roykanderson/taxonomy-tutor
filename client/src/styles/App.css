@@ -843,6 +843,17 @@ a {
   margin-top: 1.2rem;
 }
 
+.create-taxon-nophoto {
+  height: 4.688rem;
+  width: 4.688rem;
+  background-color: var(--grey-medium);
+  font-size: 0.7rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .create-taxon-left {
   flex: 1;
 }

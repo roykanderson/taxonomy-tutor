@@ -42,11 +42,17 @@ const EditTaxon = ({ selectedTaxa, setSelectedTaxa, index, checkForTaxaChanges }
     setSelectedTaxa(newTaxa)
     checkForTaxaChanges(newTaxa)
   }
+  console.log(selectedTaxa[index])
 
   return (
     <>
       <div className={focused ? 'create-taxon active' : 'create-taxon'}>
-        <img src={selectedTaxa[index].default_photo.url} alt={selectedTaxa[index].preferred_common_name} />
+        {selectedTaxa[index].default_photo
+          ? <img src={selectedTaxa[index].default_photo.url} alt={selectedTaxa[index].preferred_common_name} />
+          : <div className='create-taxon-nophoto'>
+              No photo available
+            </div>
+        }
         <div className="create-taxon-left">
           <div> 
             {index + 1}
@@ -54,7 +60,10 @@ const EditTaxon = ({ selectedTaxa, setSelectedTaxa, index, checkForTaxaChanges }
           <input
             className="create-taxon-input"
             type="text"
-            value={input}
+            value={input
+              ? input
+              : selectedTaxa[index].name
+            }
             onChange={handleChange}
             onFocus={() => setFocused(true)}
             onBlur={onBlur}
