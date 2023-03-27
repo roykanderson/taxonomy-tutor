@@ -22,6 +22,8 @@ const SpeciesAddModal = ({ setShowModal, taxon }) => {
     setError(false)
   }
 
+  console.log(data)
+
   return (
     <div className="species-add-modal-overlay">
       <OutsideAlerter sideEffectFn={() => setShowModal(false)}>
@@ -37,7 +39,12 @@ const SpeciesAddModal = ({ setShowModal, taxon }) => {
                     X
                   </button>
                 </div>
-                <SpeciesAddModalSets data={data} activeSet={activeSet} setActiveSet={setActiveSet} setCreateActive={setCreateActive} setError={setError} />
+                {data.length === 0
+                  ? <div className='species-add-modal-nosets'>
+                      It looks like you haven't created any study sets yet. Now's the perfect time to start!
+                    </div>
+                  : <SpeciesAddModalSets data={data} activeSet={activeSet} setActiveSet={setActiveSet} setCreateActive={setCreateActive} setError={setError} />
+                }
                 <div className='species-add-modal-buttons'>
                   <SpeciesAddModalCreate createActive={createActive} title={title} setTitle={setTitle} handleCreateClick={handleCreateClick} />
                   <SpeciesAddModalAdd activeSet={activeSet} title={title} setShowModal={setShowModal} taxon={taxon} data={data} error={error} setError={setError} />

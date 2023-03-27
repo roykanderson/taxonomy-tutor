@@ -545,6 +545,13 @@ a {
   opacity: 50%;
 }
 
+.species-add-modal-nosets {
+  height: 10.9rem;
+  margin: 2rem 2.4rem 0 2.4rem;
+  display: flex;
+  justify-content: center;
+}
+
 .species-add-modal-sets {
   margin-bottom: 1.2rem;
   display: flex;
