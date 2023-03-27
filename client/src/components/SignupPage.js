@@ -1,11 +1,10 @@
 import { useState } from "react"
-import { useMutation } from "@tanstack/react-query"
 import { useNavigate } from "react-router-dom"
 
 import { useContext } from 'react'
 import { UserContext } from '../utils/UserContext'
-import userService from "../services/userService"
 import LoadingIcon from "./LoadingIcon"
+import { useSignUp } from "../hooks"
 
 const SignupPage = () => {
   const { setUser } = useContext(UserContext)
@@ -16,17 +15,7 @@ const SignupPage = () => {
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
 
-  const mutation = useMutation({
-    mutationFn: async (event) => {
-      event.preventDefault()
-      return await userService.signUp({ username, password, confirmPassword })
-    },
-    onSuccess: (data) => {
-      setUser(data)
-      window.localStorage.setItem('user', JSON.stringify(data))
-      navigate('/')
-    }
-  })
+  const signUp = useSignUp(username, password, confirmPassword, setUser, navigate)
 
   return (
     <div className="login-container">
@@ -37,12 +26,12 @@ const SignupPage = () => {
         </div>
       </div>
       <div className="login-right">
-        <form onSubmit={mutation.mutate}>
+        <form onSubmit={signUp.mutate}>
           <div className="login-fields">
-            {mutation.isError &&
+            {signUp.isError &&
               <div className="login-fields-error">
                 <p>
-                  {mutation.error.message}
+                  {signUp.error.message}
                 </p>
               </div>
             }
@@ -72,7 +61,7 @@ const SignupPage = () => {
             </div>
           </div>
           <button className="login-submit" type="submit">
-            {mutation.isLoading ? <LoadingIcon /> : 'Sign up'}
+            {signUp.isLoading ? <LoadingIcon /> : 'Sign up'}
           </button>
         </form>
       </div>

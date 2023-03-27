@@ -39,20 +39,33 @@ export const useResults = (search, page = 1) => {
 }
 
 export const useWikiSummary = (url) => {
+  const getWikiSummary = async ({ queryKey }) => {
+    const wikiSummary = await wikiService.getWikiSummary(queryKey[1])
+    if (wikiSummary) {
+      return wikiSummary
+    }
+    return null
+  }
+
   return useQuery({
     queryKey: ['wikiSummary', url],
-    queryFn: async ({ queryKey }) => await wikiService.getWikiSummary(queryKey[1]),
+    queryFn: getWikiSummary,
     staleTime: Infinity
   })
 }
 
-export const useSignup = (credentials) => {
-  const signUp = async (credentials) => {
-    const response = await userService.signUp(credentials)
-    return response.data
-  }
-
-  return useQuery(['user'], signUp)
+export const useSignUp = (username, password, confirmPassword, setUser, navigate) => {
+  return useMutation({
+    mutationFn: async (event) => {
+      event.preventDefault()
+      return await userService.signUp({ username, password, confirmPassword })
+    },
+    onSuccess: (data) => {
+      setUser(data)
+      window.localStorage.setItem('user', JSON.stringify(data))
+      navigate('/')
+    }
+  })
 }
 
 export const useSet = (setId) => {
