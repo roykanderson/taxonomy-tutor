@@ -922,6 +922,11 @@ a {
   margin-top: 1.2rem;
 }
 
+.create-add.error {
+  background-color: var(--grey-extra-dark);
+  color: var(--red);
+}
+
 .create-add:hover {
   border-bottom: 0.12rem solid var(--green);
   cursor: pointer;

@@ -6,6 +6,7 @@ const CreateAddButton = ({ taxa, setTaxa }) => {
   const [active, setActive] = useState(false)
   const [input, setInput] = useState('')
   const [suggestions, setSuggestions] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
 
   const handleInputChange = async ({ target }) => {
     setInput(target.value)
@@ -18,9 +19,17 @@ const CreateAddButton = ({ taxa, setTaxa }) => {
   }
 
   const handleSuggestionClick = async ({ target }) => {
+    // Prevent user from adding duplicate taxa
+    if (taxa.some(taxon => String(taxon.id) === target.getAttribute('data-id'))) {
+      setErrorMessage('Oops! That species is already in the set.')
+      setTimeout(() => setErrorMessage(''), 2000)
+    }
+    else {
+      setTaxa(taxa.concat(await observationsService.fetchTaxaById(target.getAttribute('data-id'))))
+    }
+    
     setSuggestions(null)
     setInput('')
-    setTaxa(taxa.concat(await observationsService.fetchTaxaById(target.getAttribute('data-id'))))
     setActive(false)
   }
 
@@ -51,8 +60,15 @@ const CreateAddButton = ({ taxa, setTaxa }) => {
               )}
             </ul>
           </>
-        : <button className="create-add" onClick={() => setActive(true)}>
-            + Add species
+        : <button className={errorMessage ? 'create-add error' : 'create-add'} onClick={() => setActive(true)}>
+            {errorMessage
+              ? <>
+                  {errorMessage}
+                </>
+              : <>
+                  + Add species
+                </>
+            }
           </button>
       }
     </>
