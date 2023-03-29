@@ -89,14 +89,20 @@ const StudyCardContent = () => {
           ? <div className="study-card-content-info">
               <div className="study-card-content-info-names">
                 <div>
-                  {taxa[set.idIndices[array[index]]].preferred_common_name}
+                  {taxa[set.idIndices[array[index]]].preferred_common_name
+                    ? taxa[set.idIndices[array[index]]].preferred_common_name
+                    : taxa[set.idIndices[array[index]]].name
+                  }
                 </div>
                 <div>
                   {taxa[set.idIndices[array[index]]].name}
                 </div>
               </div>
               <div className="study-card-content-info-text">
-                {taxa[set.idIndices[array[index]]].wikiSummary}
+                {taxa[set.idIndices[array[index]]].wikiSummary
+                  ? taxa[set.idIndices[array[index]]].wikiSummary
+                  : <>No Wikipedia information available.</>
+                }
               </div>
               <button
                 className="study-card-content-button hide"
@@ -112,7 +118,10 @@ const StudyCardContent = () => {
               Reveal species information
             </button>
         }
-        <img src={getDefaultPhotoUrl(taxa[set.idIndices[array[index]]])} alt='Species to study' />
+        {getDefaultPhotoUrl(taxa[set.idIndices[array[index]]])
+          ? <img src={getDefaultPhotoUrl(taxa[set.idIndices[array[index]]])} alt='Species to study' />
+          : <div className="study-card-noimage">No image available.</div>
+        }
       </div>
     </div>
   )
