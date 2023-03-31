@@ -41,7 +41,10 @@ const SpeciesPage = () => {
           }
         </div>
       </div>
-      <img className="page-img" src={getDefaultPhotoUrl(taxon)} alt="species" />
+      {getDefaultPhotoUrl(taxon)
+        ? <img className="page-img" src={getDefaultPhotoUrl(taxon)} alt="species" />
+        : <div className="page-noimage">No image available.</div>
+      }
       {showModal &&
         <SpeciesAddModal setShowModal={setShowModal} taxon={taxon} />
       }

@@ -495,6 +495,15 @@ a {
   object-position: center;
 }
 
+.page-noimage {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--grey-light);
+  background-color: var(--grey);
+}
+
 /* Species Add Modal */
 
 .species-add-modal-overlay {
@@ -1144,6 +1153,11 @@ a {
   margin: 2.4rem auto;
 }
 
+.study-title-profile {
+  color: var(--green);
+  font-size: 1.875rem;
+}
+
 .study-back-link {
   color: var(--grey-light);
   font-weight: 300;
@@ -1154,17 +1168,19 @@ a {
   text-decoration: underline;
 }
 
+.study-back-link-slash {
+  color: var(--grey-medium);
+  font-weight: 200;
+}
+
 .study-title {
   margin-top: 0.9rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.2rem;;
-}
-
-.study-title div:nth-child(1) {
-  color: var(--grey-extra-light);
-  font-size: 1.875rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 0.1rem solid var(--grey);
 }
 
 .study-title div:nth-child(2) {

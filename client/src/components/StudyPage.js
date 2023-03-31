@@ -1,11 +1,14 @@
 import { useLocation, Link, Outlet } from "react-router-dom"
+import { useContext } from "react"
 
+import { UserContext } from '../utils/UserContext'
 import { useSet, useTaxa } from "../hooks"
 import { extractSetIdFromPathname } from '../utils/helpers'
 
 import LoadingIcon from "./LoadingIcon"
 
 const StudyPage = () => {
+  const { user } = useContext(UserContext)
   const location = useLocation()
   const setId = extractSetIdFromPathname(location.pathname)
   const { data: set, isFetching: isFetchingSet } = useSet(setId)
@@ -20,16 +23,15 @@ const StudyPage = () => {
 
   return (
     <div className="study-container" >
-
-      <Link className="study-back-link" to='/profile'>
-        Back to profile
-      </Link>
-
       <div className="study-title">
-        <div>
+        <div className="study-title-profile">
+          <Link className="study-back-link" to='/profile'>
+            {user.username}
+          </Link>
+          <span className="study-back-link-slash">/</span>
           {set.name}
         </div>
-        <div>
+        <div className="study-title-date">
           Last updated {new Date(set.dateLastUpdated).toLocaleDateString('en-us', { year: 'numeric', month: 'long', day: 'numeric' })}
         </div>
       </div>
