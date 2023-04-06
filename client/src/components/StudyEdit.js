@@ -3,7 +3,7 @@ import { useNavigate, useOutletContext } from "react-router-dom"
 import { useQueryClient } from "@tanstack/react-query"
 
 import userService from "../services/userService"
-import { arraysContainEqualValues } from "../utils/helpers"
+import arraysContainEqualValues from '../utils/arraysContainEqualValues'
 import DeleteSetModal from "./DeleteSetModal"
 
 import EditTitle from "./EditTitle"

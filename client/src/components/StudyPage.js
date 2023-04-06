@@ -4,7 +4,7 @@ import { useContext } from "react"
 import { UserContext } from '../context/UserContext'
 import useSet from '../hooks/useSet'
 import useTaxa from '../hooks/useTaxa'
-import { extractSetIdFromPathname } from '../utils/helpers'
+import extractSetIdFromPathname from '../utils/extractSetIdFromPathname'
 
 import LoadingIcon from "./LoadingIcon"
 

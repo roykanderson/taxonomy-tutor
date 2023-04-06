@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-import { getDefaultPhotoUrl } from '../utils/helpers'
+import getDefaultPhotoUrl from '../utils/getDefaultPhotoUrl'
 
 // FIX Ursidae error when searching for bears with photoURL
 
