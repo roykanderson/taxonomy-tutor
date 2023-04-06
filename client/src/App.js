@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import './styles/App.css'
 import { ReactComponent as Logo } from './assets/logo.svg'
 
-import { UserContext } from './utils/UserContext'
+import { UserContext } from './context/UserContext'
 
 import LoginPage from './components/LoginPage'
 import SignupPage from './components/SignupPage'

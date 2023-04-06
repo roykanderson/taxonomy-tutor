@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
 import { useContext } from 'react'
-import { UserContext } from '../utils/UserContext'
+import { UserContext } from '../context/UserContext'
 
 import SearchBar from './SearchBar'
 import userService from '../services/userService'

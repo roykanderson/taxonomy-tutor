@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import userService from '../services/userService'
 import { useContext } from 'react'
-import { UserContext } from '../utils/UserContext'
+import { UserContext } from '../context/UserContext'
 
 const LoginPage = () => {
   const { setUser } = useContext(UserContext)
