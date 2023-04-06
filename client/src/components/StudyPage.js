@@ -2,7 +2,8 @@ import { useLocation, Link, Outlet } from "react-router-dom"
 import { useContext } from "react"
 
 import { UserContext } from '../utils/UserContext'
-import { useSet, useTaxa } from "../hooks"
+import useSet from '../hooks/useSet'
+import useTaxa from '../hooks/useTaxa'
 import { extractSetIdFromPathname } from '../utils/helpers'
 
 import LoadingIcon from "./LoadingIcon"

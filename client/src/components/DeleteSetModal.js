@@ -3,7 +3,7 @@ import { useQueryClient } from "@tanstack/react-query"
 
 import OutsideAlerter from "./OutsideAlerter"
 
-import { useDeleteSet } from "../hooks"
+import useDeleteSet from '../hooks/useDeleteSet'
 
 const DeleteSetModal = ({ setShowModal, set }) => {
   const navigate = useNavigate()

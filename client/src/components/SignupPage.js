@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { useContext } from 'react'
 import { UserContext } from '../utils/UserContext'
 import LoadingIcon from "./LoadingIcon"
-import { useSignUp } from "../hooks"
+import useSignUp from '../hooks/useSignup'
 
 const SignupPage = () => {
   const { setUser } = useContext(UserContext)

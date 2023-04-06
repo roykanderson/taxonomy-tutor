@@ -1,6 +1,6 @@
 import { useRef } from "react"
 
-import { useOutsideAlerter } from "../hooks";
+import useOutsideAlerter from '../hooks/useOutsideAlerter'
 
 const OutsideAlerter = (props) => {
   const wrapperRef = useRef(null);

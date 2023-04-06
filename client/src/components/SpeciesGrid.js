@@ -8,7 +8,7 @@ import { ReactComponent as NextArrowGreen } from '../assets/next-arrow-green.svg
 
 import SpeciesCard from './SpeciesCard'
 import LoadingIcon from './LoadingIcon'
-import { useResults } from '../hooks'
+import useResults from '../hooks/useResults'
 
 const SpeciesGrid = () => {
   const [searchParams] = useSearchParams()

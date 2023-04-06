@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-import { useSets } from "../hooks"
+import useSets from '../hooks/useSets'
 
 import LoadingIcon from "./LoadingIcon"
 import SpeciesAddModalSets from './SpeciesAddModalSets'

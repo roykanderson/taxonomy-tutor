@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useLocation } from "react-router-dom"
 
-import { useWikiSummary } from "../hooks"
+import useWikiSummary from '../hooks/useWikiSummary'
 import { getDefaultPhotoUrl } from "../utils/helpers"
 import LoadingIcon from "./LoadingIcon"
 import SpeciesAddModal from "./SpeciesAddModal"

@@ -1,6 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query'
 
-import { useUpdateSetFromSearch, useCreateSetFromSearch } from '../hooks'
+import useUpdateSetFromSearch from '../hooks/useUpdateSetFromSearch'
+import useCreateSetFromSearch from '../hooks/useCreateSetFromSearch'
 
 import LoadingIcon from './LoadingIcon'
 

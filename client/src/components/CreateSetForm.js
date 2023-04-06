@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useQueryClient } from "@tanstack/react-query"
 
-import { useCreateSet } from "../hooks"
+import useCreateSet from '../hooks/useCreateSet'
 
 import CreateAddButton from "./CreateAddButton"
 import CreateTaxon from "./CreateTaxon"
