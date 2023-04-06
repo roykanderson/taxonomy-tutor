@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 
-import observationsService from '../services/observations'
+import observationsService from '../services/taxaService'
 import wikiService from '../services/wikiService'
 
 // useTaxa accepts an array of taxon ids, and returns an array of corresponding Taxon objects retrieved from the iNaturalist API.

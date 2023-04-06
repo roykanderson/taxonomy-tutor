@@ -1,7 +1,7 @@
 import { useState } from "react"
 
-import taxaService from "../services/taxaService"
-import observationsService from "../services/observations"
+import suggestionService from "../services/suggestionService"
+import observationsService from "../services/taxaService"
 
 const CreateTaxon = ({ taxa, setTaxa, index }) => {
   const [input, setInput] = useState(taxa[index].preferred_common_name)
@@ -11,7 +11,7 @@ const CreateTaxon = ({ taxa, setTaxa, index }) => {
   const handleChange = async ({ target }) => {
     setInput(target.value)
     if (target.value) {
-      const results = await taxaService.fetchTaxaSuggestions(target.value)
+      const results = await suggestionService.fetchTaxaSuggestions(target.value)
       setSuggestions(results.filter(result => result.rank === 'species'))
     } else {
       setSuggestions(null)

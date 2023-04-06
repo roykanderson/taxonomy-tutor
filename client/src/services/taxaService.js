@@ -1,14 +1,30 @@
 import axios from 'axios'
 
-const BASE_URL = 'https://api.inaturalist.org/v1/taxa/autocomplete'
+// Base url for fetching iNat observations
+const BASE_URL = 'http://localhost:3001/api/taxa'
 
-const fetchTaxaSuggestions = async (search) => {
-  const res = await axios.get(`${BASE_URL}?q=${search}`)
-  return res.data.results.filter(taxon => taxon.preferred_common_name)
+const searchForTaxon = async (query) => {
+  const url = `${BASE_URL}?q=${query}`
+  const res = await axios.get(url)
+  return res.data
+}
+
+const searchForDescendants = async (id, page) => {
+  const url = `${BASE_URL}/descendants?id=${id}&page=${page}`
+  const res = await axios.get(url)
+  return res.data
+}
+
+const fetchTaxaById = async (id) => {
+  const url = `https://api.inaturalist.org/v1/taxa/${id}`
+  const res = await axios.get(url)
+  return res.data.results[0]
 }
 
 const taxaService = {
-  fetchTaxaSuggestions
+  searchForTaxon,
+  searchForDescendants,
+  fetchTaxaById
 }
 
 export default taxaService

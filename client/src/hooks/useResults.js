@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 
-import observationsService from "../services/observations"
+import observationsService from '../services/taxaService'
 
 // useResults accepts a search argument, then returns search results and status of async request.
 

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useSearchParams, useLocation } from 'react-router-dom'
 
-import taxaService from '../services/taxaService'
+import suggestionService from '../services/suggestionService'
 import DropdownSuggestions from './DropdownSuggestions'
 
 import { ReactComponent as SearchIcon } from '../assets/search-icon.svg'
@@ -33,13 +33,13 @@ const SearchBar = () => {
     setFocused(true)
     setInput(target.value)
     target.value
-      ? setSuggestions(await taxaService.fetchTaxaSuggestions(target.value))
+      ? setSuggestions(await suggestionService.fetchTaxaSuggestions(target.value))
       : setSuggestions(null)
   }
 
   const onFocus = async () => {
     setFocused(true)
-    setSuggestions(await taxaService.fetchTaxaSuggestions(input))
+    setSuggestions(await suggestionService.fetchTaxaSuggestions(input))
   }
 
   const onBlur = () => {
