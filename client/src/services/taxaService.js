@@ -3,6 +3,7 @@ import axios from 'axios'
 // Base url for fetching iNat observations
 const TAXA_URL = 'http://localhost:3001/api/taxa'
 const SUGGESTION_URL = 'https://api.inaturalist.org/v1/taxa/autocomplete'
+const WIKI_URL = 'https://en.wikipedia.org/w/api.php'
 
 const searchForTaxon = async (query) => {
   const url = `${TAXA_URL}?q=${query}`
@@ -27,11 +28,25 @@ const fetchTaxaSuggestions = async (search) => {
   return res.data.results.filter(taxon => taxon.preferred_common_name)
 }
 
+const getWikiSummary = async (url) => {
+  if (url) {
+    const title = url.substring(url.lastIndexOf('/') + 1)
+    const link = `${WIKI_URL}?format=json&action=query&prop=extracts&explaintext=1&titles=${title}&origin=*`
+    const response = await axios.get(link)
+    const extract = Object.values(response.data.query.pages)[0].extract
+    const [rawSummary] = extract.match(/^.*/)
+    const cleanSummary = rawSummary.replace(/\(\)/g, '')
+
+    return cleanSummary
+  }
+}
+
 const taxaService = {
   searchForTaxon,
   searchForDescendants,
   fetchTaxaById,
-  fetchTaxaSuggestions
+  fetchTaxaSuggestions,
+  getWikiSummary
 }
 
 export default taxaService
