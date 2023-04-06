@@ -1,9 +1,9 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { useMutation, useQueryClient } from '@tanstack/react-query'
-import userService from '../services/userService'
-import { useContext } from 'react'
+import { useQueryClient } from '@tanstack/react-query'
+
 import { UserContext } from '../context/UserContext'
+import useLogin from '../hooks/useLogin'
 
 const LoginPage = () => {
   const { setUser } = useContext(UserContext)
@@ -14,19 +14,7 @@ const LoginPage = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
-  const mutation = useMutation({
-    mutationFn: async (event) => {
-      event.preventDefault()
-      return await userService.logIn({ username, password })
-    },
-    onSuccess: (data) => {
-      setUser(data)
-      userService.setToken(data.token)
-      window.localStorage.setItem('user', JSON.stringify(data))
-      queryClient.invalidateQueries()
-      navigate('/')
-    }
-  })
+  const login = useLogin(username, password, setUser, queryClient, navigate)
 
   return (
     <div className="login-container">
@@ -37,12 +25,12 @@ const LoginPage = () => {
         </div>
       </div>
       <div className="login-right">
-        <form onSubmit={mutation.mutate}>
+        <form onSubmit={login.mutate}>
           <div className="login-fields">
-            {mutation.isError &&
+            {login.isError &&
               <div className="login-fields-error">
                 <p>
-                  {mutation.error.message}
+                  {login.error.message}
                 </p>
                 <p>
                   Don't have an account? <Link className='login-link' to='/signup'>Sign up</Link>.
