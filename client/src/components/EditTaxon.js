@@ -1,6 +1,5 @@
 import { useState } from "react"
 
-import suggestionService from "../services/suggestionService"
 import taxaService from "../services/taxaService"
 
 const EditTaxon = ({ selectedTaxa, setSelectedTaxa, index, checkForTaxaChanges }) => {
@@ -12,7 +11,7 @@ const EditTaxon = ({ selectedTaxa, setSelectedTaxa, index, checkForTaxaChanges }
   const handleChange = async ({ target }) => {
     setInput(target.value)
     if (target.value) {
-      const results = await suggestionService.fetchTaxaSuggestions(target.value)
+      const results = await taxaService.fetchTaxaSuggestions(target.value)
       setSuggestions(results.filter(result => result.rank === 'species'))
     } else {
       setSuggestions(null)

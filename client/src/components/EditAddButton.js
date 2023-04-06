@@ -1,6 +1,5 @@
 import { useState } from "react"
 import taxaService from "../services/taxaService"
-import suggestionService from "../services/suggestionService"
 
 const EditAddButton = ({ selectedTaxa, setSelectedTaxa, checkForTaxaChanges }) => {
   const [active, setActive] = useState(false)
@@ -10,7 +9,7 @@ const EditAddButton = ({ selectedTaxa, setSelectedTaxa, checkForTaxaChanges }) =
   const handleInputChange = async ({ target }) => {
     setInput(target.value)
     if (target.value) {
-      const results = await suggestionService.fetchTaxaSuggestions(target.value)
+      const results = await taxaService.fetchTaxaSuggestions(target.value)
       setSuggestions(results.filter(result => result.rank === 'species'))
     } else {
       setSuggestions(null)
