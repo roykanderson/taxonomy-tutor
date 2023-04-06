@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { useQueryClient } from "@tanstack/react-query"
 
-import OutsideAlerter from "./OutsideAlerter"
+import OutsideDetector from "./OutsideDetector"
 
 import useDeleteSet from '../hooks/useDeleteSet'
 
@@ -22,7 +22,7 @@ const DeleteSetModal = ({ setShowModal, set }) => {
 
   return (
     <div className="species-add-modal-overlay">
-      <OutsideAlerter sideEffectFn={() => setShowModal(false)}>
+      <OutsideDetector sideEffectFn={() => setShowModal(false)}>
         <div className='delete-set-modal-container'>
           <div className="delete-set-modal-header">
             Are you sure you want to delete "{set.name}"?
@@ -36,7 +36,7 @@ const DeleteSetModal = ({ setShowModal, set }) => {
             </button>
           </div>
         </div>
-      </OutsideAlerter>
+      </OutsideDetector>
     </div>
   )
 }

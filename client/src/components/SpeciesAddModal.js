@@ -6,7 +6,7 @@ import LoadingIcon from "./LoadingIcon"
 import SpeciesAddModalSets from './SpeciesAddModalSets'
 import SpeciesAddModalCreate from "./SpeciesAddModalCreate"
 import SpeciesAddModalAdd from './SpeciesAddModalAdd'
-import OutsideAlerter from "./OutsideAlerter"
+import OutsideDetector from "./OutsideDetector"
 
 const SpeciesAddModal = ({ setShowModal, taxon }) => {
   const { data, isFetching } = useSets()
@@ -24,7 +24,7 @@ const SpeciesAddModal = ({ setShowModal, taxon }) => {
 
   return (
     <div className="species-add-modal-overlay">
-      <OutsideAlerter sideEffectFn={() => setShowModal(false)}>
+      <OutsideDetector sideEffectFn={() => setShowModal(false)}>
         <div className='species-add-modal-container'>
           {isFetching
             ? <LoadingIcon />
@@ -50,7 +50,7 @@ const SpeciesAddModal = ({ setShowModal, taxon }) => {
               </>
           }
         </div>
-      </OutsideAlerter>
+      </OutsideDetector>
     </div>
   )
 }
