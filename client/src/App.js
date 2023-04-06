@@ -1,7 +1,7 @@
 import { Routes, Route, Link, Navigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
-import './styles/App.css'
+import './assets/styles/App.css'
 import { ReactComponent as Logo } from './assets/logo.svg'
 
 import { UserContext } from './context/UserContext'
