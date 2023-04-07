@@ -2,8 +2,8 @@ import { useState, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useQueryClient } from '@tanstack/react-query'
 
-import { UserContext } from '../context/UserContext'
-import useLogin from '../hooks/useLogin'
+import { UserContext } from '../../context/UserContext'
+import useLogin from '../../hooks/useLogin'
 
 const LoginPage = () => {
   const { setUser } = useContext(UserContext)

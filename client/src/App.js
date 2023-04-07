@@ -7,7 +7,7 @@ import { ReactComponent as Logo } from './assets/logo.svg'
 import { UserContext } from './context/UserContext'
 
 import Home from './pages/Home/Home'
-import LoginPage from './components/LoginPage'
+import LoginPage from './pages/Login/LoginPage'
 import SignupPage from './components/SignupPage'
 import Navbar from './components/Navbar'
 import SpeciesGrid from './components/SpeciesGrid'
