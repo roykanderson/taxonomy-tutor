@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import useSets from '../../hooks/useSets'
 import LoadingIcon from "../../components/LoadingIcon"
 
-const Sets = () => {
+const ProfileSets = () => {
   const { data, isFetching, isError, error } = useSets()
 
   if (isFetching) {
@@ -51,4 +51,4 @@ const Sets = () => {
   )
 }
 
-export default Sets
+export default ProfileSets

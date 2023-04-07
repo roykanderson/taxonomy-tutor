@@ -1,14 +1,14 @@
 import { useLocation, Link, Outlet } from "react-router-dom"
 import { useContext } from "react"
 
-import { UserContext } from '../../../context/UserContext'
-import useSet from '../../../hooks/useSet'
-import useTaxa from '../../../hooks/useTaxa'
-import extractSetIdFromPathname from '../../../utils/extractSetIdFromPathname'
+import { UserContext } from '../../context/UserContext'
+import useSet from '../../hooks/useSet'
+import useTaxa from '../../hooks/useTaxa'
+import extractSetIdFromPathname from '../../utils/extractSetIdFromPathname'
 
-import LoadingIcon from "../../../components/LoadingIcon"
+import LoadingIcon from "../../components/LoadingIcon"
 
-const StudyPage = () => {
+const ProfileSet = () => {
   const { user } = useContext(UserContext)
   const location = useLocation()
   const setId = extractSetIdFromPathname(location.pathname)
@@ -55,4 +55,4 @@ const StudyPage = () => {
   )
 }
 
-export default StudyPage
+export default ProfileSet

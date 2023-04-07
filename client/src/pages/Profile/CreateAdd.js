@@ -1,7 +1,7 @@
 import { useState } from "react"
-import taxaService from "../../../services/taxaService"
+import taxaService from "../../services/taxaService"
 
-const CreateAddButton = ({ taxa, setTaxa }) => {
+const CreateAdd = ({ taxa, setTaxa }) => {
   const [active, setActive] = useState(false)
   const [input, setInput] = useState('')
   const [suggestions, setSuggestions] = useState('')
@@ -74,4 +74,4 @@ const CreateAddButton = ({ taxa, setTaxa }) => {
   )
 }
 
-export default CreateAddButton
+export default CreateAdd

@@ -2,13 +2,13 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useQueryClient } from "@tanstack/react-query"
 
-import useCreateSet from '../../../hooks/useCreateSet'
+import useCreateSet from '../../hooks/useCreateSet'
 
-import CreateAddButton from "./CreateAddButton"
+import CreateAdd from "./CreateAdd"
 import CreateTaxon from "./CreateTaxon"
 import CreateTitle from "./CreateTitle"
 
-const CreateSetForm = () => {
+const ProfileCreate = () => {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
 
@@ -28,7 +28,7 @@ const CreateSetForm = () => {
       {taxa.map((taxon, index) =>
         <CreateTaxon key={taxon.id} taxa={taxa} setTaxa={setTaxa} index={index} />
       )}
-      <CreateAddButton
+      <CreateAdd
         taxa={taxa}
         setTaxa={setTaxa}
       />
@@ -39,4 +39,4 @@ const CreateSetForm = () => {
   )
 }
 
-export default CreateSetForm
+export default ProfileCreate

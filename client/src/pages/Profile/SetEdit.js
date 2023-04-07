@@ -2,15 +2,15 @@ import { useState } from "react"
 import { useNavigate, useOutletContext } from "react-router-dom"
 import { useQueryClient } from "@tanstack/react-query"
 
-import userService from "../../../../services/userService"
-import arraysContainEqualValues from '../../../../utils/arraysContainEqualValues'
+import userService from "../../services/userService"
+import arraysContainEqualValues from '../../utils/arraysContainEqualValues'
 
 import EditTitle from "./EditTitle"
 import EditTaxon from "./EditTaxon"
-import EditAddButton from "./EditAddButton"
-import DeleteSetModal from "./DeleteSetModal"
+import EditAdd from "./EditAdd"
+import EditModal from "./EditModal"
 
-const StudyEdit = () => {
+const SetEdit = () => {
   const { set, taxa } = useOutletContext()
 
   const navigate = useNavigate()
@@ -55,7 +55,7 @@ const StudyEdit = () => {
       {selectedTaxa.map((taxon, index) =>
         <EditTaxon key={taxon.id} selectedTaxa={selectedTaxa} setSelectedTaxa={setSelectedTaxa} index={index} checkForTaxaChanges={checkForTaxaChanges} />
       )}
-      <EditAddButton selectedTaxa={selectedTaxa} setSelectedTaxa={setSelectedTaxa} checkForTaxaChanges={checkForTaxaChanges} />
+      <EditAdd selectedTaxa={selectedTaxa} setSelectedTaxa={setSelectedTaxa} checkForTaxaChanges={checkForTaxaChanges} />
       <div className="study-edit-buttons">
         <button className='study-edit-delete' onClick={() => setShowModal(true)}>
           Delete set
@@ -65,10 +65,10 @@ const StudyEdit = () => {
         </button>
       </div>
       {showModal &&
-        <DeleteSetModal setShowModal={setShowModal} set={set} />
+        <EditModal setShowModal={setShowModal} set={set} />
       }
     </div>
   )
 }
 
-export default StudyEdit
+export default SetEdit

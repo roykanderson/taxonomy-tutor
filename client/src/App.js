@@ -13,12 +13,12 @@ import Navbar from './components/Navbar'
 import SpeciesGrid from './pages/Search/SpeciesGrid'
 import SpeciesPage from './pages/Search/Result/SpeciesPage'
 import Profile from './pages/Profile/Profile'
-import Sets from './pages/Profile/Sets'
-import CreateSetForm from './pages/Profile/Create/CreateSetForm'
+import ProfileSets from './pages/Profile/ProfileSets'
+import ProfileCreate from './pages/Profile/ProfileCreate'
 import userService from './services/userService'
-import StudyPage from './pages/Profile/Set/StudyPage'
-import StudyCard from './pages/Profile/Set/StudyCard'
-import StudyEdit from './pages/Profile/Set/Edit/StudyEdit'
+import ProfileSet from './pages/Profile/ProfileSet'
+import SetContent from './pages/Profile/SetContent'
+import SetEdit from './pages/Profile/SetEdit'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -47,12 +47,12 @@ const App = () => {
         <Route index element={<Home />} />
         <Route path='login' element={user ? <Navigate replace to='/profile' /> : <Login />} />
         <Route path='profile' element={user ? <Profile /> : <Navigate replace to='/login' />}>
-          <Route path='' element={<Sets />} />
-          <Route path='create' element={<CreateSetForm />} />
+          <Route path='' element={<ProfileSets />} />
+          <Route path='create' element={<ProfileCreate />} />
         </Route>
-        <Route path='profile/:id' element={<StudyPage />}>
-          <Route path='' element={<StudyCard />} />
-          <Route path='edit' element={<StudyEdit />} />
+        <Route path='profile/:id' element={<ProfileSet />}>
+          <Route path='' element={<SetContent />} />
+          <Route path='edit' element={<SetEdit />} />
         </Route>
         <Route path='search' element={<SpeciesGrid />} />
         <Route path='search/:id' element={<SpeciesPage />} />

@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom"
 import { useQueryClient } from "@tanstack/react-query"
 
-import OutsideDetector from "../../../../components/OutsideDetector"
+import OutsideDetector from "../../components/OutsideDetector"
 
-import useDeleteSet from '../../../../hooks/useDeleteSet'
+import useDeleteSet from '../../hooks/useDeleteSet'
 
-const DeleteSetModal = ({ setShowModal, set }) => {
+const EditModal = ({ setShowModal, set }) => {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
 
@@ -41,4 +41,4 @@ const DeleteSetModal = ({ setShowModal, set }) => {
   )
 }
 
-export default DeleteSetModal
+export default EditModal

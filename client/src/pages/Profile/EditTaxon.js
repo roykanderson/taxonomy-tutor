@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-import taxaService from "../../../../services/taxaService"
+import taxaService from "../../services/taxaService"
 
 const EditTaxon = ({ selectedTaxa, setSelectedTaxa, index, checkForTaxaChanges }) => {
 

@@ -1,7 +1,7 @@
 import { useState } from "react"
-import taxaService from "../../../../services/taxaService"
+import taxaService from "../../services/taxaService"
 
-const EditAddButton = ({ selectedTaxa, setSelectedTaxa, checkForTaxaChanges }) => {
+const EditAdd = ({ selectedTaxa, setSelectedTaxa, checkForTaxaChanges }) => {
   const [active, setActive] = useState(false)
   const [input, setInput] = useState('')
   const [suggestions, setSuggestions] = useState('')
@@ -60,4 +60,4 @@ const EditAddButton = ({ selectedTaxa, setSelectedTaxa, checkForTaxaChanges }) =
   )
 }
 
-export default EditAddButton
+export default EditAdd
