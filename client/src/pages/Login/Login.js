@@ -5,7 +5,7 @@ import { useQueryClient } from '@tanstack/react-query'
 import { UserContext } from '../../context/UserContext'
 import useLogin from '../../hooks/useLogin'
 
-const LoginPage = () => {
+const Login = () => {
   const { setUser } = useContext(UserContext)
 
   const navigate = useNavigate()
@@ -61,4 +61,4 @@ const LoginPage = () => {
   )
 }
 
-export default LoginPage
+export default Login

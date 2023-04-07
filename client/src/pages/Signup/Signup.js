@@ -7,7 +7,7 @@ import { UserContext } from '../../context/UserContext'
 import LoadingIcon from "../../components/LoadingIcon"
 import useSignUp from '../../hooks/useSignup'
 
-const SignupPage = () => {
+const Signup = () => {
   const { setUser } = useContext(UserContext)
 
   const navigate = useNavigate()
@@ -71,4 +71,4 @@ const SignupPage = () => {
   )
 }
 
-export default SignupPage
+export default Signup
