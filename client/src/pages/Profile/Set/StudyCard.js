@@ -1,8 +1,8 @@
 import { useState } from "react"
 import { useOutletContext } from "react-router-dom"
 
-import getDefaultPhotoUrl from '../utils/getDefaultPhotoUrl'
-import shuffleArrayAroundIndex from '../utils/shuffleArrayAroundIndex'
+import getDefaultPhotoUrl from '../../../utils/getDefaultPhotoUrl'
+import shuffleArrayAroundIndex from '../../../utils/shuffleArrayAroundIndex'
 
 const StudyCardContent = () => {
   const { set, taxa } = useOutletContext()

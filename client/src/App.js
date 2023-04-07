@@ -14,10 +14,10 @@ import SpeciesGrid from './components/SpeciesGrid'
 import SpeciesPage from './components/SpeciesPage'
 import Profile from './pages/Profile/Profile'
 import Sets from './pages/Profile/Sets'
-import CreateSetForm from './pages/Profile/CreateSetForm'
+import CreateSetForm from './pages/Profile/Create/CreateSetForm'
 import userService from './services/userService'
-import StudyPage from './components/StudyPage'
-import StudyCard from './components/StudyCard'
+import StudyPage from './pages/Profile/Set/StudyPage'
+import StudyCard from './pages/Profile/Set/StudyCard'
 import StudyEdit from './components/StudyEdit'
 
 const App = () => {

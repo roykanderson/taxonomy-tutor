@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-import taxaService from "../../services/taxaService"
+import taxaService from "../../../services/taxaService"
 
 const CreateTaxon = ({ taxa, setTaxa, index }) => {
   const [input, setInput] = useState(taxa[index].preferred_common_name)
