@@ -2,13 +2,13 @@ import { useState } from "react"
 import { useNavigate, useOutletContext } from "react-router-dom"
 import { useQueryClient } from "@tanstack/react-query"
 
-import userService from "../services/userService"
-import arraysContainEqualValues from '../utils/arraysContainEqualValues'
-import DeleteSetModal from "./DeleteSetModal"
+import userService from "../../../../services/userService"
+import arraysContainEqualValues from '../../../../utils/arraysContainEqualValues'
 
 import EditTitle from "./EditTitle"
 import EditTaxon from "./EditTaxon"
 import EditAddButton from "./EditAddButton"
+import DeleteSetModal from "./DeleteSetModal"
 
 const StudyEdit = () => {
   const { set, taxa } = useOutletContext()

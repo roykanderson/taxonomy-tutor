@@ -1,5 +1,5 @@
 import { useState } from "react"
-import taxaService from "../services/taxaService"
+import taxaService from "../../../../services/taxaService"
 
 const EditAddButton = ({ selectedTaxa, setSelectedTaxa, checkForTaxaChanges }) => {
   const [active, setActive] = useState(false)

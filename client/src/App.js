@@ -18,7 +18,7 @@ import CreateSetForm from './pages/Profile/Create/CreateSetForm'
 import userService from './services/userService'
 import StudyPage from './pages/Profile/Set/StudyPage'
 import StudyCard from './pages/Profile/Set/StudyCard'
-import StudyEdit from './components/StudyEdit'
+import StudyEdit from './pages/Profile/Set/Edit/StudyEdit'
 
 const App = () => {
   const [user, setUser] = useState(null)
