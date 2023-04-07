@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { useQueryClient } from "@tanstack/react-query"
 
 import { useContext } from 'react'
 import { UserContext } from '../../context/UserContext'
@@ -10,12 +11,13 @@ const SignupPage = () => {
   const { setUser } = useContext(UserContext)
 
   const navigate = useNavigate()
+  const queryClient = useQueryClient()
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
 
-  const signUp = useSignUp(username, password, confirmPassword, setUser, navigate)
+  const signUp = useSignUp(username, password, confirmPassword, setUser, queryClient, navigate)
 
   return (
     <div className="login-container">
