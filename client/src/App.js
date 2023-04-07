@@ -8,7 +8,7 @@ import { UserContext } from './context/UserContext'
 
 import Home from './pages/Home/Home'
 import LoginPage from './pages/Login/LoginPage'
-import SignupPage from './components/SignupPage'
+import SignupPage from './pages/Signup/SignupPage'
 import Navbar from './components/Navbar'
 import SpeciesGrid from './components/SpeciesGrid'
 import SpeciesPage from './components/SpeciesPage'

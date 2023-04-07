@@ -2,9 +2,9 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 import { useContext } from 'react'
-import { UserContext } from '../context/UserContext'
-import LoadingIcon from "./LoadingIcon"
-import useSignUp from '../hooks/useSignup'
+import { UserContext } from '../../context/UserContext'
+import LoadingIcon from "../../components/LoadingIcon"
+import useSignUp from '../../hooks/useSignup'
 
 const SignupPage = () => {
   const { setUser } = useContext(UserContext)
