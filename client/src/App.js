@@ -6,6 +6,7 @@ import { ReactComponent as Logo } from './assets/logo.svg'
 
 import { UserContext } from './context/UserContext'
 
+import Home from './pages/Home/Home'
 import LoginPage from './components/LoginPage'
 import SignupPage from './components/SignupPage'
 import Navbar from './components/Navbar'
@@ -43,7 +44,7 @@ const App = () => {
       </div>
 
       <Routes>
-        <Route index element={<></>} />
+        <Route index element={<Home />} />
         <Route path='login' element={user ? <Navigate replace to='/profile' /> : <LoginPage />} />
         <Route path='signup' element={user ? <Navigate replace to='/profile' /> : <SignupPage />} />
         <Route path='search' element={<SpeciesGrid />} />
