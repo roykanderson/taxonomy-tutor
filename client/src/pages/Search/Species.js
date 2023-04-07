@@ -1,12 +1,12 @@
 import { useState } from "react"
 import { useLocation } from "react-router-dom"
 
-import useWikiSummary from '../../../hooks/useWikiSummary'
-import getDefaultPhotoUrl from '../../../utils/getDefaultPhotoUrl'
-import LoadingIcon from "../../../components/LoadingIcon"
-import SpeciesAddModal from "./SpeciesAddModal"
+import useWikiSummary from '../../hooks/useWikiSummary'
+import getDefaultPhotoUrl from '../../utils/getDefaultPhotoUrl'
+import LoadingIcon from "../../components/LoadingIcon"
+import SpeciesModal from "./SpeciesModal"
 
-const SpeciesPage = () => {
+const Species = () => {
   const location = useLocation()
   const taxon = location.state
   
@@ -46,10 +46,10 @@ const SpeciesPage = () => {
         : <div className="page-noimage">No image available.</div>
       }
       {showModal &&
-        <SpeciesAddModal setShowModal={setShowModal} taxon={taxon} />
+        <SpeciesModal setShowModal={setShowModal} taxon={taxon} />
       }
     </main>
   )
 }
 
-export default SpeciesPage
+export default Species

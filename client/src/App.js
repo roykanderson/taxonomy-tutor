@@ -10,8 +10,8 @@ import Home from './pages/Home/Home'
 import Login from './pages/Login/Login'
 import Signup from './pages/Signup/Signup'
 import Navbar from './components/Navbar'
-import SpeciesGrid from './pages/Search/SpeciesGrid'
-import SpeciesPage from './pages/Search/Result/SpeciesPage'
+import Search from './pages/Search/Search'
+import Species from './pages/Search/Species'
 import Profile from './pages/Profile/Profile'
 import ProfileSets from './pages/Profile/ProfileSets'
 import ProfileCreate from './pages/Profile/ProfileCreate'
@@ -54,8 +54,8 @@ const App = () => {
           <Route path='' element={<SetContent />} />
           <Route path='edit' element={<SetEdit />} />
         </Route>
-        <Route path='search' element={<SpeciesGrid />} />
-        <Route path='search/:id' element={<SpeciesPage />} />
+        <Route path='search' element={<Search />} />
+        <Route path='search/:id' element={<Species />} />
         <Route path='signup' element={user ? <Navigate replace to='/profile' /> : <Signup />} />
       </Routes>
     </UserContext.Provider>

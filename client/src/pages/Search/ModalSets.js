@@ -1,4 +1,4 @@
-const SpeciesAddModalSets = ({ data, activeSet, setActiveSet, setCreateActive, setError }) => {
+const ModalSets = ({ data, activeSet, setActiveSet, setCreateActive, setError }) => {
 
   const handleSetClick = (setId) => {
     setActiveSet(setId)
@@ -36,4 +36,4 @@ const SpeciesAddModalSets = ({ data, activeSet, setActiveSet, setCreateActive, s
   )
 }
 
-export default SpeciesAddModalSets
+export default ModalSets

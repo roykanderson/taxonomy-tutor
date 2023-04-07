@@ -4,7 +4,7 @@ import getDefaultPhotoUrl from '../../utils/getDefaultPhotoUrl'
 
 // FIX Ursidae error when searching for bears with photoURL
 
-const SpeciesCard = ({ taxon }) => {
+const SearchResult = ({ taxon }) => {
   return (
     <Link to={`/search/${taxon.id}`} state={taxon} className="species-card">
       <img className="species-image" src={getDefaultPhotoUrl(taxon)} alt="" />
@@ -16,4 +16,4 @@ const SpeciesCard = ({ taxon }) => {
   )
 }
 
-export default SpeciesCard
+export default SearchResult

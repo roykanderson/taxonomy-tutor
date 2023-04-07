@@ -1,4 +1,4 @@
-const SpeciesAddModalCreate = ({ createActive, title, setTitle, handleCreateClick }) => {
+const ModalCreate = ({ createActive, title, setTitle, handleCreateClick }) => {
  return (
   <>
     {createActive
@@ -20,4 +20,4 @@ const SpeciesAddModalCreate = ({ createActive, title, setTitle, handleCreateClic
  )
 }
 
-export default SpeciesAddModalCreate
+export default ModalCreate

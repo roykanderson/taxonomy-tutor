@@ -6,11 +6,11 @@ import { ReactComponent as BackArrowGreen } from '../../assets/back-arrow-green.
 import { ReactComponent as NextArrowGrey } from '../../assets/next-arrow-grey.svg'
 import { ReactComponent as NextArrowGreen } from '../../assets/next-arrow-green.svg'
 
-import SpeciesCard from './SpeciesCard'
+import SearchResult from './SearchResult'
 import LoadingIcon from '../../components/LoadingIcon'
 import useResults from '../../hooks/useResults'
 
-const SpeciesGrid = () => {
+const Search = () => {
   const [searchParams] = useSearchParams()
   const search = searchParams.get('q')
 
@@ -50,7 +50,7 @@ const SpeciesGrid = () => {
         ? <LoadingIcon />
         : <div className='species-grid'>
           {data.results.map(taxon => {
-            return <SpeciesCard key={taxon.id} taxon={taxon} />
+            return <SearchResult key={taxon.id} taxon={taxon} />
           })}
         </div>
       }
@@ -58,4 +58,4 @@ const SpeciesGrid = () => {
   )
 }
 
-export default SpeciesGrid
+export default Search

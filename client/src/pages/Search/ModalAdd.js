@@ -1,11 +1,11 @@
 import { useQueryClient } from '@tanstack/react-query'
 
-import useUpdateSetFromSearch from '../../../hooks/useUpdateSetFromSearch'
-import useCreateSetFromSearch from '../../../hooks/useCreateSetFromSearch'
+import useUpdateSetFromSearch from '../../hooks/useUpdateSetFromSearch'
+import useCreateSetFromSearch from '../../hooks/useCreateSetFromSearch'
 
-import LoadingIcon from '../../../components/LoadingIcon'
+import LoadingIcon from '../../components/LoadingIcon'
 
-const SpeciesAddModalAdd = ({ activeSet, title, setShowModal, taxon, data, error, setError }) => {
+const ModalAdd = ({ activeSet, title, setShowModal, taxon, data, error, setError }) => {
   const queryClient = useQueryClient()
 
   const updateSetFromSearch = useUpdateSetFromSearch(setShowModal, setError, (key) => queryClient.invalidateQueries(key))
@@ -55,4 +55,4 @@ const SpeciesAddModalAdd = ({ activeSet, title, setShowModal, taxon, data, error
   )
 }
 
-export default SpeciesAddModalAdd
+export default ModalAdd

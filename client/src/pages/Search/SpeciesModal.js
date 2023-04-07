@@ -1,14 +1,14 @@
 import { useState } from "react"
 
-import useSets from '../../../hooks/useSets'
+import useSets from '../../hooks/useSets'
 
-import LoadingIcon from "../../../components/LoadingIcon"
-import SpeciesAddModalSets from './SpeciesAddModalSets'
-import SpeciesAddModalCreate from "./SpeciesAddModalCreate"
-import SpeciesAddModalAdd from './SpeciesAddModalAdd'
-import OutsideDetector from "../../../components/OutsideDetector"
+import LoadingIcon from "../../components/LoadingIcon"
+import ModalSets from './ModalSets'
+import ModalCreate from "./ModalCreate"
+import ModalAdd from './ModalAdd'
+import OutsideDetector from "../../components/OutsideDetector"
 
-const SpeciesAddModal = ({ setShowModal, taxon }) => {
+const SpeciesModal = ({ setShowModal, taxon }) => {
   const { data, isFetching } = useSets()
 
   const [createActive, setCreateActive] = useState(false)
@@ -41,11 +41,11 @@ const SpeciesAddModal = ({ setShowModal, taxon }) => {
                   ? <div className='species-add-modal-nosets'>
                       It looks like you haven't created any study sets yet. Now's the perfect time to start!
                     </div>
-                  : <SpeciesAddModalSets data={data} activeSet={activeSet} setActiveSet={setActiveSet} setCreateActive={setCreateActive} setError={setError} />
+                  : <ModalSets data={data} activeSet={activeSet} setActiveSet={setActiveSet} setCreateActive={setCreateActive} setError={setError} />
                 }
                 <div className='species-add-modal-buttons'>
-                  <SpeciesAddModalCreate createActive={createActive} title={title} setTitle={setTitle} handleCreateClick={handleCreateClick} />
-                  <SpeciesAddModalAdd activeSet={activeSet} title={title} setShowModal={setShowModal} taxon={taxon} data={data} error={error} setError={setError} />
+                  <ModalCreate createActive={createActive} title={title} setTitle={setTitle} handleCreateClick={handleCreateClick} />
+                  <ModalAdd activeSet={activeSet} title={title} setShowModal={setShowModal} taxon={taxon} data={data} error={error} setError={setError} />
                 </div>
               </>
           }
@@ -55,4 +55,4 @@ const SpeciesAddModal = ({ setShowModal, taxon }) => {
   )
 }
 
-export default SpeciesAddModal
+export default SpeciesModal
