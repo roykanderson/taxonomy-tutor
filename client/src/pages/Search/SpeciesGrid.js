@@ -1,14 +1,14 @@
 import { useSearchParams } from 'react-router-dom'
 import { useState } from 'react'
 
-import { ReactComponent as BackArrowGrey } from '../assets/back-arrow-grey.svg'
-import { ReactComponent as BackArrowGreen } from '../assets/back-arrow-green.svg'
-import { ReactComponent as NextArrowGrey } from '../assets/next-arrow-grey.svg'
-import { ReactComponent as NextArrowGreen } from '../assets/next-arrow-green.svg'
+import { ReactComponent as BackArrowGrey } from '../../assets/back-arrow-grey.svg'
+import { ReactComponent as BackArrowGreen } from '../../assets/back-arrow-green.svg'
+import { ReactComponent as NextArrowGrey } from '../../assets/next-arrow-grey.svg'
+import { ReactComponent as NextArrowGreen } from '../../assets/next-arrow-green.svg'
 
 import SpeciesCard from './SpeciesCard'
-import LoadingIcon from './LoadingIcon'
-import useResults from '../hooks/useResults'
+import LoadingIcon from '../../components/LoadingIcon'
+import useResults from '../../hooks/useResults'
 
 const SpeciesGrid = () => {
   const [searchParams] = useSearchParams()

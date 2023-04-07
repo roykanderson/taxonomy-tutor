@@ -1,9 +1,9 @@
 import { useState } from "react"
 import { useLocation } from "react-router-dom"
 
-import useWikiSummary from '../hooks/useWikiSummary'
-import getDefaultPhotoUrl from '../utils/getDefaultPhotoUrl'
-import LoadingIcon from "./LoadingIcon"
+import useWikiSummary from '../../../hooks/useWikiSummary'
+import getDefaultPhotoUrl from '../../../utils/getDefaultPhotoUrl'
+import LoadingIcon from "../../../components/LoadingIcon"
 import SpeciesAddModal from "./SpeciesAddModal"
 
 const SpeciesPage = () => {

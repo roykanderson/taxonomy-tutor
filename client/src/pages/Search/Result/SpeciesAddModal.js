@@ -1,12 +1,12 @@
 import { useState } from "react"
 
-import useSets from '../hooks/useSets'
+import useSets from '../../../hooks/useSets'
 
-import LoadingIcon from "./LoadingIcon"
+import LoadingIcon from "../../../components/LoadingIcon"
 import SpeciesAddModalSets from './SpeciesAddModalSets'
 import SpeciesAddModalCreate from "./SpeciesAddModalCreate"
 import SpeciesAddModalAdd from './SpeciesAddModalAdd'
-import OutsideDetector from "./OutsideDetector"
+import OutsideDetector from "../../../components/OutsideDetector"
 
 const SpeciesAddModal = ({ setShowModal, taxon }) => {
   const { data, isFetching } = useSets()
