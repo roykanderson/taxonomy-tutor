@@ -6,7 +6,7 @@ import getDefaultPhotoUrl from '../utils/getDefaultPhotoUrl'
 
 const SpeciesCard = ({ taxon }) => {
   return (
-    <Link to={`/species/${taxon.id}`} state={taxon} className="species-card">
+    <Link to={`/search/${taxon.id}`} state={taxon} className="species-card">
       <img className="species-image" src={getDefaultPhotoUrl(taxon)} alt="" />
       <div className="species-info">
         <p className="common-name">{taxon.preferred_common_name}</p>

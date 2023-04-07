@@ -48,6 +48,7 @@ const App = () => {
         <Route path='login' element={user ? <Navigate replace to='/profile' /> : <LoginPage />} />
         <Route path='signup' element={user ? <Navigate replace to='/profile' /> : <SignupPage />} />
         <Route path='search' element={<SpeciesGrid />} />
+        <Route path='search/:id' element={<SpeciesPage />} />
         <Route path='profile' element={user ? <Profile /> : <Navigate replace to='/login' />}>
           <Route path='' element={<Sets />} />
           <Route path='create' element={<CreateSetForm />} />
@@ -56,7 +57,6 @@ const App = () => {
           <Route path='' element={<StudyCard />} />
           <Route path='edit' element={<StudyEdit />} />
         </Route>
-        <Route path='species/:id' element={<SpeciesPage />} />
       </Routes>
     </UserContext.Provider>
   )
