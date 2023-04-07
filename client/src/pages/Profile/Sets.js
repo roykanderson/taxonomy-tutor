@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
-import useSets from '../hooks/useSets'
-import LoadingIcon from "./LoadingIcon"
+import useSets from '../../hooks/useSets'
+import LoadingIcon from "../../components/LoadingIcon"
 
 const Sets = () => {
   const { data, isFetching, isError, error } = useSets()

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import taxaService from "../services/taxaService"
+import taxaService from "../../services/taxaService"
 
 const CreateAddButton = ({ taxa, setTaxa }) => {
   const [active, setActive] = useState(false)
