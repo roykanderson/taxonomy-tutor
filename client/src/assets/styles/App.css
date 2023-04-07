@@ -26,6 +26,7 @@ body {
   font-family: Roboto Mono;
   background-color: var(--grey-dark);
 }
+*/
 
 /* Disable autofill after form submission */
 input:-webkit-autofill,
@@ -37,6 +38,7 @@ a {
   text-decoration: none;
 }
 
+/*
 .header-wrapper {
   background-color: var(--grey-extra-dark);
 }
@@ -49,6 +51,7 @@ a {
   max-width: 80%;
   margin: auto;
 }
+*/
 
 .container {
   width: fit-content;
@@ -125,6 +128,7 @@ a {
   }
 }
 
+/*
 .search-bar {
   position: relative;
   grid-column: span 4;
@@ -136,7 +140,8 @@ a {
 .shake {
   animation: shake 0.8s;
 }
-
+*/
+/*
 @keyframes shake {
   10%,
   90% {
@@ -156,7 +161,8 @@ a {
     transform: translate3d(4px, 0, 0);
   }
 }
-
+*/
+/*
 .search-bar * {
   border: none;
 }
@@ -193,7 +199,9 @@ a {
   cursor: pointer;
   opacity: 70%;
 }
+*/
 
+/*
 .spinner-container {
   display: flex;
   justify-content: center;
@@ -219,7 +227,9 @@ a {
       transform: rotate(360deg);
   }
 }
+*/
 
+/*
 .suggestions {
   position: absolute;
   z-index: 2;
@@ -266,7 +276,8 @@ a {
 .suggestion-info-rank span {
   font-style: italic;
 }
-
+*/
+/*
 .navbar-right-text {
   color: var(--grey-light);
   text-decoration: none;
@@ -276,6 +287,9 @@ a {
 .navbar-right-text.active {
   color: var(--green);
 }
+*/
+
+/*
 
 .navbar-profile {
   position: relative;
@@ -353,6 +367,7 @@ a {
 .navbar-profile-dropdown-option:hover .navbar-profile-dropdown-option-link {
   color: var(--green);
 }
+*/
 
 .species-card {
   background-color: var(--grey-light);
@@ -518,9 +533,11 @@ a {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+/*
 .outside-detector {
   width: 70%
 }
+*/
 
 .species-add-modal-container {
   padding: 2rem;

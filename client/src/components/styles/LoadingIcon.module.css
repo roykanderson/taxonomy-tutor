@@ -1,0 +1,25 @@
+.LoadingIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60%;
+}
+
+.LoadingIcon__spinner {
+  width: 2rem;
+  height: 2rem;
+  margin: 2.4rem;
+  border: 0.3rem solid;
+  border-color: var(--green) var(--green) var(--green) transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}

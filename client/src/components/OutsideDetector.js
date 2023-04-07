@@ -2,12 +2,14 @@ import { useRef } from "react"
 
 import useOutsideDetector from '../hooks/useOutsideDetector'
 
+import styles from './styles/OutsideDetector.module.css'
+
 const OutsideDetector = (props) => {
   const wrapperRef = useRef(null);
   useOutsideDetector(wrapperRef, props.sideEffectFn);
 
   return (
-    <div className='outside-detector' ref={wrapperRef}>
+    <div className={styles.OutsideDetector} ref={wrapperRef}>
       {props.children}
     </div>
   )

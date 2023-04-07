@@ -1,10 +1,5 @@
-import { Routes, Route, Link, Navigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-
-import './assets/styles/App.css'
-import './assets/styles/base.css'
-
-import { ReactComponent as Logo } from './assets/logo.svg'
+import { Routes, Route, Navigate } from 'react-router-dom'
 
 import { UserContext } from './context/UserContext'
 
@@ -22,6 +17,8 @@ import ProfileSet from './pages/Profile/ProfileSet'
 import SetContent from './pages/Profile/SetContent'
 import SetEdit from './pages/Profile/SetEdit'
 
+import './assets/styles/App.css'
+
 const App = () => {
   const [user, setUser] = useState(null)
 
@@ -35,15 +32,9 @@ const App = () => {
   }, [])
 
   return (
-    <UserContext.Provider value={{user, setUser}}>
-      <div className='header-wrapper'>
-        <header className='header'>
-          <Link to='/'>
-            <Logo />
-          </Link>
-          <Navbar />
-        </header>
-      </div>
+    <UserContext.Provider value={{ user, setUser }}>
+      
+      <Navbar />
 
       <Routes>
         <Route index element={<Home />} />
@@ -60,6 +51,7 @@ const App = () => {
         <Route path='search/:id' element={<Species />} />
         <Route path='signup' element={user ? <Navigate replace to='/profile' /> : <Signup />} />
       </Routes>
+    
     </UserContext.Provider>
   )
 }

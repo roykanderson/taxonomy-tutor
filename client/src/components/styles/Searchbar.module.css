@@ -1,0 +1,42 @@
+.Searchbar {
+  position: relative;
+  grid-column: span 4;
+  display: flex;
+  height: 2.4rem;
+  margin: 2.4rem 0;
+}
+
+.Searchbar__input {
+  font-family: Roboto Mono;
+  width: 23.47rem;
+  background-color: var(--grey-light);
+  color: var(--grey-dark);
+  padding-inline: 0.625rem;
+  font-size: 1.125rem;
+  border: none;
+}
+
+.Searchbar__input:focus {
+  outline: none;
+  opacity: 70%;
+  transition: all 0.1s;
+}
+
+.Searchbar__submit {
+  min-width: 3rem;
+  background-color: var(--green-dark);
+  color: var(--green);
+  font-size: 1rem;
+  font-weight: 500;
+  border-top-right-radius: 1.2rem;
+  border-bottom-right-radius: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+.Searchbar__submit:hover {
+  cursor: pointer;
+  opacity: 70%;
+}

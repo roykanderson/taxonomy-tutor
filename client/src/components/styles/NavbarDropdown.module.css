@@ -1,0 +1,54 @@
+.NavbarDropdown {
+  position: absolute;
+  right: 0;
+  top: 2.7rem;
+  background-color: var(--grey-dark);
+  color: var(--grey-light);
+  width: 11.2rem;
+  padding: 0 0.6rem;
+  border: 0.031rem solid var(--grey-light);
+  border-radius: 0.625rem;
+}
+
+.NavbarDropdown__userContainer {
+  display: flex;
+  gap: 0.6rem;
+  overflow: hidden;
+  align-items: center;
+  padding: 0.6rem 0;
+}
+
+.NavbarDropdown__userIcon {
+  background-color: var(--green);
+  color: var(--grey-dark);
+  font-size: 1.2rem;
+  min-width: 2.4rem;
+  min-height: 2.4rem;
+  border-radius: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.NavbarDropdown__username {
+  font-size: 0.75rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.NavbarDropdown__linkContainer {
+  border-top: 0.031rem solid var(--grey-light);
+  padding: 0.6rem 0;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.NavbarDropdown__link {
+  color: var(--grey-light);
+  text-decoration: none;
+}
+
+.NavbarDropdown__linkContainer:hover .NavbarDropdown__link {
+  color: var(--green);
+}

@@ -1,0 +1,34 @@
+.Navbar {
+  background-color: var(--grey-extra-dark);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.Navbar__profile {
+  position: relative;
+  background-color: var(--green);
+  color: var(--grey-dark);
+  border: none;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 1.2rem;
+  font-size: 1.2rem;
+  font-family: Roboto Mono;
+}
+
+.Navbar__profile:hover {
+  cursor: pointer;
+}
+
+.Navbar__link {
+  color: var(--grey-light);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.Navbar__link--active {
+  color: var(--green);
+}

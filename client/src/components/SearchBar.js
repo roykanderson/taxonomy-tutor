@@ -2,11 +2,12 @@ import { useState, useEffect } from 'react'
 import { useNavigate, useSearchParams, useLocation } from 'react-router-dom'
 
 import taxaService from '../services/taxaService'
-import DropdownSuggestions from './DropdownSuggestions'
+import Suggestions from './Suggestions'
 
 import { ReactComponent as SearchIcon } from '../assets/search-icon.svg'
+import styles from './styles/Searchbar.module.css'
 
-const SearchBar = () => {
+const Searchbar = () => {
   const [input, setInput] = useState('')
   const [suggestions, setSuggestions] = useState(null)
   const [focused, setFocused] = useState(null)
@@ -47,15 +48,15 @@ const SearchBar = () => {
   }
 
   return (
-    <form className='search-bar' onSubmit={handleSubmit} onFocus={onFocus} onBlur={onBlur} >
-      <input type='text' value={input} onChange={handleInputChange} />
-      <button type='submit'>
+    <form className={styles.Searchbar} onSubmit={handleSubmit} onFocus={onFocus} onBlur={onBlur} >
+      <input className={styles.Searchbar__input} type='text' value={input} onChange={handleInputChange} />
+      <button className={styles.Searchbar__submit} type='submit'>
         <SearchIcon />
       </button>
       {focused &&
-        <DropdownSuggestions suggestions={suggestions} setSuggestions={setSuggestions} setInput={setInput} />}
+        <Suggestions suggestions={suggestions} setSuggestions={setSuggestions} setInput={setInput} />}
     </form>
   )
 }
 
-export default SearchBar
+export default Searchbar

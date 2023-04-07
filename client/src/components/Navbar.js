@@ -1,12 +1,13 @@
-import { Link } from 'react-router-dom'
-import { useLocation, useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
-import { useContext } from 'react'
 import { UserContext } from '../context/UserContext'
-
-import SearchBar from './SearchBar'
 import userService from '../services/userService'
+
+import Searchbar from './Searchbar'
+import { ReactComponent as Logo } from '../assets/logo.svg'
+import styles from './styles/Navbar.module.css'
+import NavbarDropdown from './NavbarDropdown'
 
 const Navbar = () => {
   const { user, setUser } = useContext(UserContext)
@@ -28,39 +29,41 @@ const Navbar = () => {
   }
 
   return (
-    <>
-      <SearchBar />
-      {user
-        ? <div className='navbar-profile'>
-            <button onFocus={() => setMenuActive(true)} onBlur={() => setMenuActive(false)}>
+    <header>
+      <nav className={styles.Navbar}>
+        <Link to='/'>
+          <Logo />
+        </Link>
+        <Searchbar />
+        {user
+          ? <button
+              className={styles.Navbar__profile}
+              onFocus={() => setMenuActive(true)}
+              onBlur={() => setMenuActive(false)}
+            >
               {user.username.charAt(0).toUpperCase()}
+              {menuActive
+                ? <NavbarDropdown user={user} handleNavigateToProfile={handleNavigateToProfile} handleLogOut={handleLogOut}/>
+                : <></>
+              }
             </button>
-            {menuActive
-              ? <div className='navbar-profile-dropdown'>
-                  <div className='navbar-profile-dropdown-username'>
-                    <div>
-                      {user.username.charAt(0).toUpperCase()}
-                    </div>
-                    <div>
-                      {user.username}
-                    </div>
-                  </div>
-                  <div className='navbar-profile-dropdown-option'>
-                    <Link className='navbar-profile-dropdown-option-link' to='/profile' onMouseDown={handleNavigateToProfile}>My species sets</Link>
-                  </div>
-                  <div className='navbar-profile-dropdown-option'>
-                    <Link className='navbar-profile-dropdown-option-link' to='/' onMouseDown={handleLogOut}>Log out</Link>
-                  </div>
-                </div>
-              : <></>
-            }
-          </div>
-        : <>
-            <Link to='/login' className={`navbar-right-text ${location.pathname === '/login' ? 'active' : ''}`}>Log in</Link>
-            <Link to='/signup' className={`navbar-right-text ${location.pathname === '/signup' ? 'active' : ''}`}>Sign up</Link>
-          </>
-      }
-    </>
+          : <>
+              <Link
+                to='/login'
+                className={`${styles.Navbar__link} ${location.pathname === '/login' ? styles['Navbar__link--active'] : ''}`}
+              >
+                Log in
+              </Link>
+              <Link
+                to='/signup'
+                className={`${styles.Navbar__link} ${location.pathname === '/signup' ? styles['Navbar__link--active'] : ''}`}
+              >
+                Sign up
+              </Link>
+            </>
+        }
+        </nav>
+    </header>
   )
 }
 

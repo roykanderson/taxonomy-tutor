@@ -1,7 +1,9 @@
+import styles from './styles/LoadingIcon.module.css'
+
 const LoadingIcon = () => {
   return (
-    <div className='spinner-container'>
-      <div className="spinner"></div>
+    <div className={styles.LoadingIcon}>
+      <div className={styles.LoadingIcon__spinner}></div>
     </div>
   )
 }
