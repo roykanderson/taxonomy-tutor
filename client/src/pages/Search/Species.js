@@ -6,6 +6,8 @@ import getDefaultPhotoUrl from '../../utils/getDefaultPhotoUrl'
 import LoadingIcon from "../../components/LoadingIcon"
 import SpeciesModal from "./SpeciesModal"
 
+import styles from './styles/Species.module.css'
+
 const Species = () => {
   const location = useLocation()
   const taxon = location.state
@@ -15,35 +17,35 @@ const Species = () => {
   const [showModal, setShowModal] = useState(false)
 
   return (
-    <main className="page-container">
-      <div className="page-left">
+    <main className={styles.Species}>
+      <section className={styles.Species__info}>
         <div>
-          <div className="page-title">
-            <div className="page-names">
-              <div className="page-common-name">{taxon.preferred_common_name}</div>
-              <div className="page-sci-name">{taxon.name}</div>
+          <section className={styles.Species__titleSection}>
+            <div className={styles.Species__namesContainer}>
+              <div className={styles.Species__commonName}>{taxon.preferred_common_name}</div>
+              <div className={styles.Species__sciName}>{taxon.name}</div>
             </div>
-            <button className="page-button" onClick={() => setShowModal(true)}>
-              <div className="button-text">Add to set</div>
-              <div className="button-plus">+</div>
+            <button className={styles.Species__addButton} onClick={() => setShowModal(true)}>
+              <div className={styles.Species__addButtonText}>Add to set</div>
+              <div className={styles.Species__addButtonPlus}>+</div>
             </button>
-          </div>
+          </section>
         </div>
-        <div className="page-wiki">
+        <div className={styles.Species__wiki}>
           {isFetching
             ? <LoadingIcon />
             : data
               ? <>
-                <div className="page-wiki-info">{data}</div>
-                <div className="page-wiki-cite">Information from <a href={taxon.wikipedia_url}>Wikipedia</a></div>
+                <div className={styles.Species__wikiDescription}>{data}</div>
+                <div className={styles.Species__wikiCitation}>Information from <a href={taxon.wikipedia_url}>Wikipedia</a></div>
                 </>
               : <>No Wikipedia information</>
           }
         </div>
-      </div>
+      </section>
       {getDefaultPhotoUrl(taxon)
-        ? <img className="page-img" src={getDefaultPhotoUrl(taxon)} alt="species" />
-        : <div className="page-noimage">No image available.</div>
+        ? <img className={styles.Species__image} src={getDefaultPhotoUrl(taxon)} alt="species" />
+        : <div className={styles.Species__noImage}>No image available.</div>
       }
       {showModal &&
         <SpeciesModal setShowModal={setShowModal} taxon={taxon} />

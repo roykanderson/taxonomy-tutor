@@ -1,0 +1,102 @@
+.Species {
+  max-width: 80%;
+  margin: 2.4rem auto;
+  display: flex;
+  flex-direction: row;
+  gap: 1.2rem;
+  position: relative;
+}
+
+.Species__info {
+  flex: 1;
+}
+
+.Species__titleSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.8rem 1.2rem;
+  background-color: var(--grey);
+  margin-bottom: 1.2rem;
+}
+
+.Species__commonName {
+  font-size: 1.875rem;
+  color: var(--white);
+}
+
+.Species__sciName {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--grey-light);
+}
+
+.Species__addButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: Roboto Mono;
+  font-size: 1rem;
+  padding: 0;
+  border: none;
+  border-radius: 1.5rem;
+  background-color: var(--green);
+  color: var(--green-dark);
+}
+
+.Species__addButton:hover {
+  cursor: pointer;
+  background-color: var(--green-dark);
+  color: var(--green);
+}
+
+.Species__addButton:hover .Species__addButtonPlus {
+  background-color: var(--green);
+  color: var(--green-dark);
+}
+
+.Species__addButtonText {
+  padding: 0.2rem 1.2rem;
+}
+
+.Species__addButtonPlus {
+  padding: 0.2rem 0.6rem;
+  background-color: var(--green-dark);
+  color: var(--green);
+  font-size: 1.5rem;
+  font-weight: 100;
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+}
+
+.Species__wiki {
+  background-color: var(--grey);
+  color: var(--grey-light);
+  padding: 1.2rem;
+}
+
+.Species__wikiDescription {
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.Species__wikiCitation a {
+  font-style: italic;
+  color: var(--grey-light);
+}
+
+.Species__image {
+  max-width: 40%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.Species__noImage {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--grey-light);
+  background-color: var(--grey);
+}
