@@ -43,9 +43,8 @@ const Navbar = () => {
                   onBlur={() => setMenuActive(false)}
                 >
                   {user.username.charAt(0).toUpperCase()}
-                  {menuActive
-                    ? <NavbarDropdown user={user} handleNavigateToProfile={handleNavigateToProfile} handleLogOut={handleLogOut}/>
-                    : <></>
+                  {menuActive &&
+                    <NavbarDropdown user={user} handleNavigateToProfile={handleNavigateToProfile} handleLogOut={handleLogOut}/>
                   }
                 </button>
             </div>
