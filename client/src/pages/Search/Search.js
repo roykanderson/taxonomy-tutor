@@ -10,6 +10,8 @@ import SearchResult from './SearchResult'
 import LoadingIcon from '../../components/LoadingIcon'
 import useResults from '../../hooks/useResults'
 
+import styles from './styles/Search.module.css'
+
 const Search = () => {
   const [searchParams] = useSearchParams()
   const search = searchParams.get('q')
@@ -19,25 +21,23 @@ const Search = () => {
   const { data, isFetching } = useResults(search, page)
 
   return (
-    <main className='container'>
-      <div className='results-info'>
-        <div className='results-info-text'>
+    <main className={styles.Search}>
+      <section className={styles.Search__summary}>
+        <div className={styles.Search__summaryText}>
           Showing results for "{search}"
         </div>
         {data &&
-          <div className='results-info-page'>
+          <div className={styles.Search__summaryPage}>
             <button
-              className={page === 1 ? '' : 'active'}
+              className={page === 1 ? `${styles.Search__pageButton}` : `${styles.Search__pageButton} ${styles['Search__pageButton--active']}`}
               onClick={() => setPage(page - 1)}
               disabled={page === 1}
             >
               {page === 1 ? <BackArrowGrey /> : <BackArrowGreen />}
             </button>
-            <div>
-                <>Page {page} of {Math.ceil(data.total_results / data.per_page)}</>
-            </div>
+            Page {page} of {Math.ceil(data.total_results / data.per_page)}
             <button
-              className={page === Math.ceil(data.total_results / data.per_page) ? '' : 'active'}
+              className={page === Math.ceil(data.total_results / data.per_page) ? `${styles.Search__pageButton}` : `${styles.Search__pageButton} ${styles['Search__pageButton--active']}`}
               onClick={() => setPage(page + 1)}
               disabled={page === Math.ceil(data.total_results / data.per_page)}
             >
@@ -45,14 +45,14 @@ const Search = () => {
             </button>
           </div>
         }
-      </div>
+      </section>
       {isFetching
         ? <LoadingIcon />
-        : <div className='species-grid'>
+        : <section className={styles.Search__results}>
           {data.results.map(taxon => {
             return <SearchResult key={taxon.id} taxon={taxon} />
           })}
-        </div>
+        </section>
       }
     </main>
   )
