@@ -1,0 +1,26 @@
+.SearchPage {
+  background-color: var(--grey-extra-dark);
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  color: var(--grey-light);
+  padding: 0.6rem;
+  border-radius: 2.4rem;
+}
+
+.SearchPage:hover {
+  opacity: 80%;
+}
+
+.SearchPage__button {
+  border: none;
+  background-color: var(--grey-extra-dark);
+}
+
+.SearchPage__button--active {
+  cursor: pointer;
+}
+
+.SearchPage__button--active:hover {
+  transform: scale(1.5);
+}

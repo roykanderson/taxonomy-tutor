@@ -16,31 +16,8 @@
   color: var(--grey-extra-light);
 }
 
-.Search__summaryPage {
-  background-color: var(--grey-extra-dark);
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-  color: var(--grey-light);
-  padding: 0.6rem;
-  border-radius: 2.4rem;
-}
-
-.Search__summaryPage:hover {
-  opacity: 80%;
-}
-
-.Search__pageButton {
-  border: none;
-  background-color: var(--grey-extra-dark);
-}
-
-.Search__pageButton--active {
-  cursor: pointer;
-}
-
 .Search__results {
-  margin: 2.4rem auto 0 auto;
+  margin: 2.4rem auto;
   display: grid;
   grid-template-columns: repeat(4, auto);
   gap: 2.4rem;
@@ -71,4 +48,9 @@
   .Search__results {
     grid-template-columns: auto;
   }
+}
+
+.Search__footer {
+  display: flex;
+  justify-content: flex-end;
 }
