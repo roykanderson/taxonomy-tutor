@@ -1,10 +1,23 @@
 .Navbar {
   background-color: var(--grey-extra-dark);
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding-left: 10%;
   padding-right: 10%;
+}
+
+.Navbar__logo {
+  flex: 1;
+  display: flex;
+  justify-content: left;
+  margin-right: auto;
+}
+
+.Navbar__profileContainer {
+  flex: 1;
+  display: flex;
+  justify-content: right;
+  margin-left: auto;
 }
 
 .Navbar__profile {

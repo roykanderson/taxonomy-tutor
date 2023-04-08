@@ -31,22 +31,24 @@ const Navbar = () => {
   return (
     <header>
       <nav className={styles.Navbar}>
-        <Link to='/'>
+        <Link className={styles.Navbar__logo} to='/'>
           <Logo />
         </Link>
         <Searchbar />
         {user
-          ? <button
-              className={styles.Navbar__profile}
-              onFocus={() => setMenuActive(true)}
-              onBlur={() => setMenuActive(false)}
-            >
-              {user.username.charAt(0).toUpperCase()}
-              {menuActive
-                ? <NavbarDropdown user={user} handleNavigateToProfile={handleNavigateToProfile} handleLogOut={handleLogOut}/>
-                : <></>
-              }
-            </button>
+          ? <div className={styles.Navbar__profileContainer}>
+              <button
+                  className={styles.Navbar__profile}
+                  onFocus={() => setMenuActive(true)}
+                  onBlur={() => setMenuActive(false)}
+                >
+                  {user.username.charAt(0).toUpperCase()}
+                  {menuActive
+                    ? <NavbarDropdown user={user} handleNavigateToProfile={handleNavigateToProfile} handleLogOut={handleLogOut}/>
+                    : <></>
+                  }
+                </button>
+            </div>
           : <>
               <Link
                 to='/login'
