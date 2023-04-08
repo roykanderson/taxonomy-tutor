@@ -2,15 +2,17 @@ import { Link } from 'react-router-dom'
 
 import getDefaultPhotoUrl from '../../utils/getDefaultPhotoUrl'
 
+import styles from './styles/SearchResult.module.css'
+
 // FIX Ursidae error when searching for bears with photoURL
 
 const SearchResult = ({ taxon }) => {
   return (
-    <Link to={`/search/${taxon.id}`} state={taxon} className="species-card">
-      <img className="species-image" src={getDefaultPhotoUrl(taxon)} alt="" />
-      <div className="species-info">
-        <p className="common-name">{taxon.preferred_common_name}</p>
-        <p className="sci-name">{taxon.name}</p>
+    <Link to={`/search/${taxon.id}`} state={taxon} className={styles.SearchResult}>
+      <img className={styles.SearchResult__image} src={getDefaultPhotoUrl(taxon)} alt="" />
+      <div className={styles.SearchResult__namesContainer}>
+        <p className={styles.SearchResult__commonName}>{taxon.preferred_common_name}</p>
+        <p className={styles.SearchResult__sciName}>{taxon.name}</p>
       </div>
     </Link>
   )

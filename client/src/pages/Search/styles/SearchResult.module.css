@@ -1,0 +1,39 @@
+.SearchResult {
+  background-color: var(--grey-light);
+  max-width: 14rem;
+  text-decoration: none;
+  color: var(--grey-extra-dark);
+}
+
+.SearchResult:hover .SearchResult__image {
+  opacity: 80%;
+}
+
+.SearchResult__image {
+  object-fit: cover;
+  object-position: center;
+  width: 14rem;
+  height: 14rem;
+}
+
+.SearchResult__namesContainer {
+  padding: 0.625rem;
+}
+
+.SearchResult__commonName {
+  font-size: 1.375rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
+  margin-bottom: 0.625rem;
+}
+
+.SearchResult__sciName {
+  font-size: 0.875rem;
+  font-style: italic;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

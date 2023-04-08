@@ -53,6 +53,7 @@ a {
 }
 */
 
+/*
 .container {
   width: fit-content;
   min-width: 80%;
@@ -127,6 +128,7 @@ a {
     grid-template-columns: auto;
   }
 }
+*/
 
 /*
 .search-bar {
@@ -162,6 +164,7 @@ a {
   }
 }
 */
+
 /*
 .search-bar * {
   border: none;
