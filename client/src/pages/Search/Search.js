@@ -1,5 +1,5 @@
-import { useSearchParams } from 'react-router-dom'
-import { useState } from 'react'
+import { useSearchParams, useLocation } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 import { ReactComponent as BackArrowGrey } from '../../assets/back-arrow-grey.svg'
 import { ReactComponent as BackArrowGreen } from '../../assets/back-arrow-green.svg'
@@ -13,10 +13,15 @@ import useResults from '../../hooks/useResults'
 import styles from './styles/Search.module.css'
 
 const Search = () => {
+  // Obtain query from URL
   const [searchParams] = useSearchParams()
   const search = searchParams.get('q')
 
   const [page, setPage] = useState(1)
+
+  // Reset page to 1 whenever query changes
+  const location = useLocation()
+  useEffect(() => setPage(1), [location])
 
   const { data, isFetching } = useResults(search, page)
 
