@@ -30,8 +30,14 @@ const getTokenFrom = (req) => {
   return null
 }
 
+const containsOnlyAlphanumeric = (string) => {
+  const regExp = /^[A-Za-z0-9]*$/
+  return regExp.test(string)
+}
+
 module.exports = {
   isValidTaxonIds,
   firstLettersToUppercase,
-  getTokenFrom
+  getTokenFrom,
+  containsOnlyAlphanumeric
 }

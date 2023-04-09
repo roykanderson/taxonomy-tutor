@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken')
 const usersRouter = require('express').Router()
 const User = require('../models/User')
 const StudySet = require('../models/StudySet')
+const helpers = require('../utils/helpers')
 
 usersRouter.get('/', async (req, res) => {
   const users = await User
@@ -25,6 +26,11 @@ usersRouter.post('/', async (req, res) => {
   const existingUser = await User.findOne({ username })
   if (existingUser) {
     return res.status(400).json({ message: 'Username already taken.' })
+  }
+
+  // Ensure username contains only alphanumeric characters
+  if (!helpers.containsOnlyAlphanumeric(username)) {
+    return res.status(400).json({ message: 'Username must contain only alphanumeric characters.' })
   }
 
   // Ensure password is valid
