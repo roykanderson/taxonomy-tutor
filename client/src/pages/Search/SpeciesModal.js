@@ -8,6 +8,8 @@ import ModalCreate from "./ModalCreate"
 import ModalAdd from './ModalAdd'
 import OutsideDetector from "../../components/OutsideDetector"
 
+import styles from './styles/SpeciesModal.module.css'
+
 const SpeciesModal = ({ setShowModal, taxon }) => {
   const { data, isFetching } = useSets()
 
@@ -23,27 +25,27 @@ const SpeciesModal = ({ setShowModal, taxon }) => {
   }
 
   return (
-    <div className="species-add-modal-overlay">
+    <div className={styles.SpeciesModal}>
       <OutsideDetector sideEffectFn={() => setShowModal(false)}>
-        <div className='species-add-modal-container'>
+        <div className={styles.SpeciesModal__container}>
           {isFetching
             ? <LoadingIcon />
             : <>
-                <div className="species-add-modal-header-row">
-                  <h2 className='species-add-modal-header'>
+                <div className={styles.SpeciesModal__topSection}>
+                  <h2 className={styles.SpeciesModal__heading}>
                     Which set would you like to add this species to?
                   </h2>
-                  <button className='species-add-modal-closebutton' onClick={() => setShowModal(false)}>
+                  <button className={styles.SpeciesModal__closeButton} onClick={() => setShowModal(false)}>
                     X
                   </button>
                 </div>
                 {data.length === 0
-                  ? <div className='species-add-modal-nosets'>
+                  ? <div className={styles.SpeciesModal__noSets}>
                       It looks like you haven't created any study sets yet. Now's the perfect time to start!
                     </div>
                   : <ModalSets data={data} activeSet={activeSet} setActiveSet={setActiveSet} setCreateActive={setCreateActive} setError={setError} />
                 }
-                <div className='species-add-modal-buttons'>
+                <div className={styles.SpeciesModal__buttons}>
                   <ModalCreate createActive={createActive} title={title} setTitle={setTitle} handleCreateClick={handleCreateClick} />
                   <ModalAdd activeSet={activeSet} title={title} setShowModal={setShowModal} taxon={taxon} data={data} error={error} setError={setError} />
                 </div>

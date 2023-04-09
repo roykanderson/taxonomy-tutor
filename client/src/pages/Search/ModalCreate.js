@@ -1,8 +1,10 @@
+import styles from './styles/ModalCreate.module.css'
+
 const ModalCreate = ({ createActive, title, setTitle, handleCreateClick }) => {
  return (
   <>
     {createActive
-      ? <input className="species-add-modal-create-input"
+      ? <input className={styles.CreateInput}
           type='text'
           value={title}
           onChange={({ target }) => setTitle(target.value)}
@@ -10,7 +12,7 @@ const ModalCreate = ({ createActive, title, setTitle, handleCreateClick }) => {
           autoFocus
         />
       : <button
-          className="species-add-modal-create-button"
+          className={styles.CreateButton}
           onClick={handleCreateClick}
         >
           Create new set

@@ -5,6 +5,8 @@ import useCreateSetFromSearch from '../../hooks/useCreateSetFromSearch'
 
 import LoadingIcon from '../../components/LoadingIcon'
 
+import styles from './styles/ModalAdd.module.css'
+
 const ModalAdd = ({ activeSet, title, setShowModal, taxon, data, error, setError }) => {
   const queryClient = useQueryClient()
 
@@ -23,7 +25,7 @@ const ModalAdd = ({ activeSet, title, setShowModal, taxon, data, error, setError
 
   if (updateSetFromSearch.isLoading || createSetFromSearch.isLoading) {
     return (
-      <button className='species-add-modal-add active'>
+      <button className={styles.ModalAdd}>
         <LoadingIcon />
       </button>
     )
@@ -31,7 +33,7 @@ const ModalAdd = ({ activeSet, title, setShowModal, taxon, data, error, setError
 
   else if (error) {
     return (
-      <button className='species-add-modal-add error'>
+      <button className={styles.ModalAdd}>
         Already in that set!
       </button>
     )
@@ -39,7 +41,7 @@ const ModalAdd = ({ activeSet, title, setShowModal, taxon, data, error, setError
 
   return (
     <button
-      className={activeSet || title ? 'species-add-modal-add active' : 'species-add-modal-add'}
+      className={activeSet || title ? `${styles.ModalAdd} ${styles['ModalAdd--active']}` : `${styles.ModalAdd}`}
       disabled={!(activeSet || title)}
       onClick={handleAdd}
     >

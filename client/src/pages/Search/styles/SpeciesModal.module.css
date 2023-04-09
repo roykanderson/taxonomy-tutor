@@ -1,0 +1,57 @@
+/* Species Add Modal */
+
+.SpeciesModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.SpeciesModal__container {
+  padding: 2rem;
+  background-color: var(--grey-light);
+  color: var(--grey-extra-dark);
+  border-radius: 1rem;
+}
+
+.SpeciesModal__topSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.SpeciesModal__heading {
+  margin: 0 0 1.2rem 0;
+}
+
+.SpeciesModal__closeButton {
+  background-color: transparent;
+  color: var(--grey-extra-dark);
+  border: none;
+  padding: 0;
+  font-family: Roboto Mono;
+  font-size: 1.5rem;
+}
+
+.SpeciesModal__closeButton:hover {
+  cursor: pointer;
+  opacity: 50%;
+}
+
+.SpeciesModal__noSets {
+  height: 10.9rem;
+  margin: 2rem 2.4rem 0 2.4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.SpeciesModal__buttons {
+  display: flex;
+  justify-content: space-between;
+}

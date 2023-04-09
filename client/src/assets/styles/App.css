@@ -526,7 +526,7 @@ a {
 */
 
 /* Species Add Modal */
-
+/*
 .species-add-modal-overlay {
   position: fixed;
   top: 0;
@@ -538,13 +538,13 @@ a {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
 }
-
+*/
 /*
 .outside-detector {
   width: 70%
 }
 */
-
+/*
 .species-add-modal-container {
   padding: 2rem;
   background-color: var(--grey-light);
@@ -687,7 +687,7 @@ a {
   cursor: pointer;
   opacity: 80%;
 }
-
+*/
 /* Login Page */
 
 .login-container {

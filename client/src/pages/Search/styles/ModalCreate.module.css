@@ -1,0 +1,29 @@
+.CreateInput {
+  background-color: var(--grey-extra-light);
+  color: var(--grey-extra-dark);
+  font-family: Roboto Mono;
+  font-size: 0.9rem;
+  padding: 0 0.6rem;
+  border: none;
+  width: 60%;
+}
+
+.CreateInput:focus {
+  outline: none;
+}
+
+.CreateButton {
+  background-color: var(--grey-extra-dark);
+  color: var(--grey-light);
+  font-family: Roboto Mono;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 2.4rem;
+}
+
+.CreateButton:hover {
+  cursor: pointer;
+  opacity: 80%;
+}

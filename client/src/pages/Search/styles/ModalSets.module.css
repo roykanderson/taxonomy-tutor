@@ -1,0 +1,41 @@
+
+.ModalSets {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  height: 12.9rem;
+  overflow: scroll;
+  gap: 0.6rem;
+}
+
+.ModalSets__set {
+  font-size: 1rem;
+  color: var(--grey-dark);
+  padding: 0.4125rem 0.6rem;
+  background-color: var(--grey-medium-light);
+}
+
+.ModalSets__set:hover {
+  cursor: pointer;
+  background-color: #a0a0a0;
+}
+
+.ModalSets__set.ModalSets__set--active {
+  background-color: var(--grey-extra-dark);
+  color: var(--green);
+}
+
+.ModalSets__set.ModalSets__set--active:hover {
+  cursor: default;
+}
+
+.ModalSets__setTopRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.125rem;
+}
+
+.ModalSets__setTopRow p:nth-child(1) {
+  font-size: 1.1rem;
+  font-weight: bold;
+}

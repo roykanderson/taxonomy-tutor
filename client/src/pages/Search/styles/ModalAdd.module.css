@@ -1,0 +1,27 @@
+.ModalAdd {
+  background-color: var(--grey-medium-light);
+  color: var(--grey);
+  font-family: Roboto Mono;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 2.4rem;
+}
+
+.ModalAdd.ModalAdd--active {
+  background-color: var(--grey-extra-dark);
+  color: var(--green);
+}
+
+.ModalAdd.ModalAdd--active .spinner {
+  width: 0.6rem;
+  height: 0.6rem;
+  margin: 0;
+  border: 0.2rem solid;
+}
+
+.ModalAdd.ModalAdd--active:hover {
+  cursor: pointer;
+  opacity: 80%;
+}
