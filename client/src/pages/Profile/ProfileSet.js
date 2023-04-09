@@ -8,6 +8,8 @@ import extractSetIdFromPathname from '../../utils/extractSetIdFromPathname'
 
 import LoadingIcon from "../../components/LoadingIcon"
 
+import styles from './ProfileSet.module.css'
+
 const ProfileSet = () => {
   const { user } = useContext(UserContext)
   const location = useLocation()
@@ -23,28 +25,30 @@ const ProfileSet = () => {
   }
 
   return (
-    <div className="study-container" >
-      <div className="study-title">
-        <div className="study-title-profile">
-          <Link className="study-back-link" to='/profile'>
+    <div className={styles.ProfileSet}>
+      <div className={styles.ProfileSet__topSection}>
+        <div className={styles.ProfileSet__usernameTitle}>
+          <Link className={styles.ProfileSet__backLink} to='/profile'>
             {user.username}
           </Link>
-          <span className="study-back-link-slash">/</span>
+          <span className={styles.ProfileSet__slash}>
+            /
+          </span>
           {set.name}
         </div>
-        <div className="study-title-date">
+        <div>
           Last updated {new Date(set.dateLastUpdated).toLocaleDateString('en-us', { year: 'numeric', month: 'long', day: 'numeric' })}
         </div>
       </div>
 
-      <div className="study-options">
-        <button className={location.pathname === `/profile/${set.id}` ? 'active' : ''}>
-          <Link to=''>
+      <div className={styles.ProfileSet__options}>
+        <button className={location.pathname === `/profile/${set.id}` ? `${styles.ProfileSet__button} ${styles['ProfileSet__button--active']}` : `${styles.ProfileSet__button}`}>
+          <Link className={styles.ProfileSet__optionLink} to=''>
             Study
           </Link>
         </button>
-        <button className={location.pathname === `/profile/${set.id}/edit` ? 'active' : ''}>
-          <Link to='edit'>
+        <button className={location.pathname === `/profile/${set.id}/edit` ? `${styles.ProfileSet__button} ${styles['ProfileSet__button--active']}` : `${styles.ProfileSet__button}`}>
+          <Link className={styles.ProfileSet__optionLink} to='edit'>
             Edit
           </Link>
         </button>

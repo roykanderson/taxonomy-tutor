@@ -1,0 +1,69 @@
+.ProfileSet {
+  max-width: 80%;
+  margin: 2.4rem auto;
+}
+
+.ProfileSet__topSection {
+  margin-top: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 0.1rem solid var(--grey);
+}
+
+.ProfileSet__topSection div:nth-child(2) {
+  color: var(--grey-light);
+}
+
+.ProfileSet__usernameTitle {
+  color: var(--green);
+  font-size: 1.875rem;
+}
+
+.ProfileSet__backLink {
+  color: var(--grey-light);
+  font-weight: 300;
+}
+
+.ProfileSet__backLink:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.ProfileSet__slash {
+  color: var(--grey-medium);
+  font-weight: 200;
+}
+
+.ProfileSet__options {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.ProfileSet__button {
+  background-color: transparent;
+  border: none;
+  border-radius: 2rem;
+  color: var(--grey-light);
+  font-size: 1.1rem;
+  font-family: Roboto Mono;
+  font-weight: 300;
+  padding: 0.438rem 0.876rem;
+}
+
+.ProfileSet__button:hover {
+  opacity: 80%;
+  cursor: pointer;
+}
+
+.ProfileSet__button.ProfileSet__button--active {
+  background-color: var(--grey-extra-dark);
+}
+
+.ProfileSet__optionLink {
+  color: var(--grey-light);
+}
