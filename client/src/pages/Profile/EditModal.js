@@ -5,6 +5,8 @@ import OutsideDetector from "../../components/OutsideDetector"
 
 import useDeleteSet from '../../hooks/useDeleteSet'
 
+import styles from './EditModal.module.css'
+
 const EditModal = ({ setShowModal, set }) => {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
@@ -21,17 +23,17 @@ const EditModal = ({ setShowModal, set }) => {
   }
 
   return (
-    <div className="species-add-modal-overlay">
+    <div className={styles.EditModal}>
       <OutsideDetector sideEffectFn={() => setShowModal(false)}>
-        <div className='delete-set-modal-container'>
-          <div className="delete-set-modal-header">
+        <div className={styles.EditModal__container}>
+          <div className={styles.EditModal__header}>
             Are you sure you want to delete "{set.name}"?
           </div>
-          <div className="delete-set-modal-buttons">
-            <button className="delete-set-modal-button" onClick={handleDelete}>
+          <div className={styles.EditModal__buttons}>
+            <button className={styles.EditModal__button} onClick={handleDelete}>
               Yes
             </button>
-            <button className="delete-set-modal-button" onClick={() => setShowModal(false)}>
+            <button className={styles.EditModal__button} onClick={() => setShowModal(false)}>
               No
             </button>
           </div>

@@ -1,0 +1,59 @@
+.SetEdit {
+  display: flex;
+  flex-direction: column;
+}
+
+.SetEdit__buttons {
+  display: flex;
+  justify-content: right;
+  margin-top: 1.2rem;
+  gap: 1.8rem;
+}
+
+.SetEdit__deleteButton {
+  background-color: var(--grey-extra-dark);
+  color: var(--red);
+  font-family: Roboto Mono;
+  font-size: 1.2rem;
+  font-weight: 500;
+  min-width: 15%;
+  height: 2.4rem;
+  border: none;
+  border-radius: 1.2rem;
+  display: block;
+  padding: 0.438rem 1.4rem;
+}
+
+.SetEdit__deleteButton:hover {
+  cursor: pointer;
+  opacity: 80%;
+}
+
+.SetEdit__submit {
+  background-color: var(--green);
+  color: var(--grey-extra-dark);
+  font-family: Roboto Mono;
+  font-size: 1.2rem;
+  font-weight: 500;
+  min-width: 15%;
+  height: 2.4rem;
+  border: none;
+  border-radius: 1.2rem;
+  display: block;
+  padding: 0.438rem 0.876rem;
+}
+
+.SetEdit__submit:hover {
+  opacity: 80%;
+  cursor: pointer;
+}
+
+.SetEdit__submit.SetEdit__submit--inactive {
+  background-color: var(--grey);
+  color: var(--grey-extra-dark);
+}
+
+.SetEdit__submit.SetEdit__submit--inactive:hover {
+  cursor: default;
+  opacity: 100%;
+}

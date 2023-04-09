@@ -2,6 +2,8 @@ import { useState } from "react"
 
 import taxaService from "../../services/taxaService"
 
+import styles from './EditTaxon.module.css'
+
 const EditTaxon = ({ selectedTaxa, setSelectedTaxa, index, checkForTaxaChanges }) => {
 
   const [input, setInput] = useState(selectedTaxa[index].preferred_common_name)
@@ -41,23 +43,22 @@ const EditTaxon = ({ selectedTaxa, setSelectedTaxa, index, checkForTaxaChanges }
     setSelectedTaxa(newTaxa)
     checkForTaxaChanges(newTaxa)
   }
-  console.log(selectedTaxa[index])
 
   return (
     <>
-      <div className={focused ? 'create-taxon active' : 'create-taxon'}>
+      <div className={styles.EditTaxon}>
         {selectedTaxa[index].default_photo
-          ? <img src={selectedTaxa[index].default_photo.url} alt={selectedTaxa[index].preferred_common_name} />
-          : <div className='create-taxon-nophoto'>
+          ? <img className={styles.EditTaxon__photo} src={selectedTaxa[index].default_photo.url} alt={selectedTaxa[index].preferred_common_name} />
+          : <div className={styles.EditTaxon__noPhoto}>
               No photo available
             </div>
         }
-        <div className="create-taxon-left">
+        <div className={styles.EditTaxon__info}>
           <div> 
             {index + 1}
           </div>
           <input
-            className="create-taxon-input"
+            className={styles.EditTaxon__input}
             type="text"
             value={input
               ? input
@@ -68,25 +69,25 @@ const EditTaxon = ({ selectedTaxa, setSelectedTaxa, index, checkForTaxaChanges }
             onBlur={onBlur}
           />
           {!focused && 
-            <div className="create-sci">
+            <div className={styles.EditTaxon__sciName}>
               {selectedTaxa[index].name}
             </div>
           }
         </div>
-        <button className="create-taxon-button" onClick={handleRemove}>
+        <button className={styles.EditTaxon__removeButton} onClick={handleRemove}>
           Remove
         </button>
       </div>
-      <ul className='create-suggestions taxon'>
+      <ul className={styles.EditTaxonSuggestions}>
         {suggestions && suggestions.map(suggestion =>
-          <li key={suggestion.id} className='create-suggestion' onMouseDown={handleSuggestionClick} data-id={suggestion.id}>
+          <li key={suggestion.id} className={styles.EditTaxonSuggestions__suggestion} onMouseDown={handleSuggestionClick} data-id={suggestion.id}>
             {suggestion.default_photo &&
-              <img src={suggestion.default_photo.url} alt={suggestion.preferred_common_name} data-id={suggestion.id} />
+              <img className={styles.EditTaxonSuggestions__image} src={suggestion.default_photo.url} alt={suggestion.preferred_common_name} data-id={suggestion.id} />
             }
-            <div className="create-suggestion-common" data-id={suggestion.id}>
+            <div data-id={suggestion.id}>
               {suggestion.preferred_common_name}
             </div>
-            <div className="create-suggestion-sci" data-id={suggestion.id}>
+            <div className={styles.EditTaxonSuggestions__sciName} data-id={suggestion.id}>
               {suggestion.name}
             </div>
           </li>

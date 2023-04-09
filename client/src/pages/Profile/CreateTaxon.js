@@ -2,6 +2,8 @@ import { useState } from "react"
 
 import taxaService from "../../services/taxaService"
 
+import styles from './CreateTaxon.module.css'
+
 const CreateTaxon = ({ taxa, setTaxa, index }) => {
   const [input, setInput] = useState(taxa[index].preferred_common_name)
   const [focused, setFocused] = useState(false)
@@ -41,14 +43,19 @@ const CreateTaxon = ({ taxa, setTaxa, index }) => {
 
   return (
     <>
-      <div className={focused ? 'create-taxon active' : 'create-taxon'}>
-        <img src={taxa[index].default_photo.url} alt={taxa[index].preferred_common_name} />
-        <div className="create-taxon-left">
-          <div> 
+      <div className={styles.CreateTaxon}>
+        {taxa[index].default_photo
+          ? <img className={styles.CreateTaxon__photo} src={taxa[index].default_photo.url} alt={taxa[index].preferred_common_name} />
+          : <div className={styles.CreateTaxon__noPhoto}>
+              No photo available
+            </div>
+        }
+        <div className={styles.CreateTaxon__info}>
+          <div className={styles.CreateTaxon__index}> 
             {index + 1}
           </div>
           <input
-            className="create-taxon-input"
+            className={styles.CreateTaxon__input}
             type="text"
             value={input}
             onChange={handleChange}
@@ -56,25 +63,25 @@ const CreateTaxon = ({ taxa, setTaxa, index }) => {
             onBlur={onBlur}
           />
           {!focused && 
-            <div className="create-sci">
+            <div className={styles.CreateTaxon__sciName}>
               {taxa[index].name}
             </div>
           }
         </div>
-        <button className="create-taxon-button" onClick={handleRemove}>
+        <button className={styles.CreateTaxon__removeButton} onClick={handleRemove}>
           Remove
         </button>
       </div>
-      <ul className='create-suggestions taxon'>
+      <ul className={styles.CreateTaxonSuggestions}>
         {suggestions && suggestions.map(suggestion =>
-          <li key={suggestion.id} className='create-suggestion' onMouseDown={handleSuggestionClick} data-id={suggestion.id}>
+          <li key={suggestion.id} className={styles.CreateTaxonSuggestions__suggestion} onMouseDown={handleSuggestionClick} data-id={suggestion.id}>
             {suggestion.default_photo &&
-              <img src={suggestion.default_photo.url} alt={suggestion.preferred_common_name} data-id={suggestion.id} />
+              <img className={styles.CreateTaxonSuggestions__image} src={suggestion.default_photo.url} alt={suggestion.preferred_common_name} data-id={suggestion.id} />
             }
-            <div className="create-suggestion-common" data-id={suggestion.id}>
+            <div data-id={suggestion.id}>
               {suggestion.preferred_common_name}
             </div>
-            <div className="create-suggestion-sci" data-id={suggestion.id}>
+            <div className={styles.CreateTaxonSuggestions__sciName} data-id={suggestion.id}>
               {suggestion.name}
             </div>
           </li>

@@ -3,7 +3,9 @@ import styles from './CreateTitle.module.css'
 const CreateTitle = ({ title, setTitle }) => {
   return (
     <div className={styles.CreateTitle}>
-        Title
+        <div className={styles.CreateTitle__label}>
+          Title
+        </div>
         <input
           className={styles.CreateTitle__input}
           type="text"

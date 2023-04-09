@@ -1,14 +1,14 @@
-.CreateTitle {
+.EditTitle {
   background-color: var(--grey-light);
   color: var(--grey-dark);
   padding: 0.6rem 1.2rem;
 }
 
-.CreateTitle__label {
+.EditTitle__label {
   font-size: 0.875rem;
 }
 
-.CreateTitle__input {
+.EditTitle__input {
   background-color: transparent;
   color: var(--grey-dark);
   border: none;
@@ -18,7 +18,7 @@
   font-weight: 500;
 }
 
-.CreateTitle__input:focus {
+.EditTitle__input:focus {
   outline: none;
   border-bottom: 0.12rem solid var(--grey);
 }

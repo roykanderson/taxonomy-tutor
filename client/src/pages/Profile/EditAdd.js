@@ -1,6 +1,8 @@
 import { useState } from "react"
 import taxaService from "../../services/taxaService"
 
+import styles from './EditAdd.module.css'
+
 const EditAdd = ({ selectedTaxa, setSelectedTaxa, checkForTaxaChanges }) => {
   const [active, setActive] = useState(false)
   const [input, setInput] = useState('')
@@ -30,29 +32,29 @@ const EditAdd = ({ selectedTaxa, setSelectedTaxa, checkForTaxaChanges }) => {
       {active
         ? <>
             <input autoFocus={true} onBlur={() => setActive(false)}
-              className="create-add active"
+              className={`${styles.EditAdd} ${styles['EditAdd--active']}`}
               type="text"
               placeholder="Search for a species..."
               value={input}
               onChange={handleInputChange}
             />
-            <ul className='create-suggestions'>
+            <ul className={styles.EditAddSuggestions}>
               {suggestions && suggestions.map(suggestion =>
-                <li key={suggestion.id} className='create-suggestion' onMouseDown={handleSuggestionClick} data-id={suggestion.id}>
+                <li key={suggestion.id} className={styles.EditAddSuggestions__suggestion} onMouseDown={handleSuggestionClick} data-id={suggestion.id}>
                   {suggestion.default_photo &&
-                    <img src={suggestion.default_photo.url} alt={suggestion.preferred_common_name} data-id={suggestion.id} />
+                    <img className={styles.EditAddSuggestions__image} src={suggestion.default_photo.url} alt={suggestion.preferred_common_name} data-id={suggestion.id} />
                   }
-                  <div className="create-suggestion-common" data-id={suggestion.id}>
+                  <div data-id={suggestion.id}>
                     {suggestion.preferred_common_name}
                   </div>
-                  <div className="create-suggestion-sci" data-id={suggestion.id}>
+                  <div className={styles.EditAddSuggestions__sciName} data-id={suggestion.id}>
                     {suggestion.name}
                   </div>
                 </li>
               )}
             </ul>
           </>
-        : <button className="create-add" onClick={() => setActive(true)}>
+        : <button className={styles.EditAdd} onClick={() => setActive(true)}>
             + Add species
           </button>
       }

@@ -1,3 +1,5 @@
+import styles from './EditTitle.module.css'
+
 const EditTitle = ({ title, setTitle, checkForTitleChanges }) => {
   const handleChange = ({ target }) => {
     setTitle(target.value)
@@ -5,11 +7,12 @@ const EditTitle = ({ title, setTitle, checkForTitleChanges }) => {
   }
 
   return (
-    <div className="create-title">
-        <div>
+    <div className={styles.EditTitle}>
+        <div className={styles.EditTitle__label}>
           Title
         </div>
         <input
+          className={styles.EditTitle__input}
           type="text"
           name='title'
           value={title}

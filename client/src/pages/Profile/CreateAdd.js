@@ -1,6 +1,8 @@
 import { useState } from "react"
 import taxaService from "../../services/taxaService"
 
+import styles from './CreateAdd.module.css'
+
 const CreateAdd = ({ taxa, setTaxa }) => {
   const [active, setActive] = useState(false)
   const [input, setInput] = useState('')
@@ -37,29 +39,29 @@ const CreateAdd = ({ taxa, setTaxa }) => {
       {active
         ? <>
             <input autoFocus={true} onBlur={() => setActive(false)}
-              className="create-add active"
+              className={`${styles.CreateAdd} ${styles['CreateAdd--active']}`}
               type="text"
               placeholder="Search for a species..."
               value={input}
               onChange={handleInputChange}
             />
-            <ul className='create-suggestions'>
+            <ul className={styles.CreateAddSuggestions}>
               {suggestions && suggestions.map((suggestion, index) =>
-                <li key={suggestion.id} className='create-suggestion' onMouseDown={handleSuggestionClick} data-id={suggestion.id} index={index}>
+                <li key={suggestion.id} className={styles.CreateAddSuggestions__suggestion} onMouseDown={handleSuggestionClick} data-id={suggestion.id} index={index}>
                   {suggestion.default_photo &&
-                    <img src={suggestion.default_photo.url} alt={suggestion.preferred_common_name} data-id={suggestion.id} index={index} />
+                    <img className={styles.CreateAddSuggestions__image} src={suggestion.default_photo.url} alt={suggestion.preferred_common_name} data-id={suggestion.id} index={index} />
                   }
-                  <div className="create-suggestion-common" data-id={suggestion.id} index={index}>
+                  <div data-id={suggestion.id} index={index}>
                     {suggestion.preferred_common_name}
                   </div>
-                  <div className="create-suggestion-sci" data-id={suggestion.id} index={index}>
+                  <div className={styles.CreateAddSuggestions__sciName} data-id={suggestion.id} index={index}>
                     {suggestion.name}
                   </div>
                 </li>
               )}
             </ul>
           </>
-        : <button className={errorMessage ? 'create-add error' : 'create-add'} onClick={() => setActive(true)}>
+        : <button className={errorMessage ? `${styles.CreateAdd} ${styles['CreateAdd--error']}` : `${styles.CreateAdd}`} onClick={() => setActive(true)}>
             {errorMessage
               ? <>
                   {errorMessage}

@@ -1,0 +1,48 @@
+.EditModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.EditModal__container {
+  width: 60%;
+  margin: auto;
+  padding: 1.2rem 2.4rem;
+  background-color: var(--grey-light);
+  color: var(--grey-extra-dark)
+}
+
+.EditModal__header {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.EditModal__buttons {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.EditModal__button {
+  background-color: var(--grey-extra-dark);
+  color: var(--grey-light);
+  font-family: Roboto Mono;
+  font-size: 1.1rem;
+  font-weight: 400;
+  min-width: 15%;
+  height: 2.4rem;
+  border: none;
+  border-radius: 1.2rem;
+  padding: 0.438rem 1.4rem;
+}
+
+.EditModal__button:hover {
+  cursor: pointer;
+  opacity: 80%;
+}

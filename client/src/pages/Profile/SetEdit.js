@@ -10,6 +10,8 @@ import EditTaxon from "./EditTaxon"
 import EditAdd from "./EditAdd"
 import EditModal from "./EditModal"
 
+import styles from './SetEdit.module.css'
+
 const SetEdit = () => {
   const { set, taxa } = useOutletContext()
 
@@ -50,17 +52,17 @@ const SetEdit = () => {
   }
 
   return (
-    <div className="create-container">
+    <div className={styles.SetEdit}>
       <EditTitle title={title} setTitle={setTitle} checkForTitleChanges={checkForTitleChanges} />
       {selectedTaxa.map((taxon, index) =>
         <EditTaxon key={taxon.id} selectedTaxa={selectedTaxa} setSelectedTaxa={setSelectedTaxa} index={index} checkForTaxaChanges={checkForTaxaChanges} />
       )}
       <EditAdd selectedTaxa={selectedTaxa} setSelectedTaxa={setSelectedTaxa} checkForTaxaChanges={checkForTaxaChanges} />
-      <div className="study-edit-buttons">
-        <button className='study-edit-delete' onClick={() => setShowModal(true)}>
+      <div className={styles.SetEdit__buttons}>
+        <button className={styles.SetEdit__deleteButton} onClick={() => setShowModal(true)}>
           Delete set
         </button>
-        <button className={isChanged ? 'create-submit study-edit' : 'create-submit study-edit inactive'} onClick={handleUpdate} disabled={!isChanged}>
+        <button className={isChanged && title ? `${styles.SetEdit__submit}` : `${styles.SetEdit__submit} ${styles['SetEdit__submit--inactive']}`} onClick={handleUpdate} disabled={!isChanged}>
           Update
         </button>
       </div>

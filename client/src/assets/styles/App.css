@@ -841,6 +841,7 @@ a {
   flex-direction: column;
 }
 */
+/*
 .create-title {
   background-color: var(--grey-light);
   color: var(--grey-dark);
@@ -865,7 +866,9 @@ a {
   outline: none;
   border-bottom: 0.12rem solid var(--grey);
 }
+*/
 
+/*
 .create-taxon {
   background-color: var(--grey-light);
   color: var(--grey-dark);
@@ -953,7 +956,9 @@ a {
 .create-suggestions.taxon {
   margin-left: 4.688rem;
 }
+*/
 
+/*
 .create-add {
   background-color: var(--grey-extra-dark);
   color: var(--green);
@@ -988,7 +993,8 @@ a {
   outline: none;
   border-bottom: 0.12rem solid var(--green);
 }
-
+*/
+/*
 .create-suggestions {
   margin-top: none;
 }
@@ -1021,6 +1027,7 @@ a {
   font-style: italic;
   opacity: 70%;
 }
+*/
 
 /*
 .create-submit {
@@ -1056,6 +1063,7 @@ a {
 */
 /* Study Edit */
 
+/*
 .study-edit-buttons {
   display: flex;
   justify-content: right;
@@ -1085,9 +1093,10 @@ a {
   cursor: pointer;
   opacity: 80%;
 }
+*/
 
 /* DeleteSetModal */
-
+/*
 .delete-set-modal-container {
   width: 60%;
   margin: auto;
@@ -1124,7 +1133,7 @@ a {
   cursor: pointer;
   opacity: 80%;
 }
-
+*/
 /* profile sets */
 .sets-container {
   display: flex;

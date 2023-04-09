@@ -1,0 +1,67 @@
+.EditAdd {
+  background-color: var(--grey-extra-dark);
+  color: var(--green);
+  border: none;
+  font-family: Roboto Mono;
+  font-weight: 500;
+  font-size: 1.25rem;
+  padding: 0.6rem 1.2rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 1.2rem;
+}
+
+.EditAdd.EditAdd--error {
+  background-color: var(--grey-extra-dark);
+  color: var(--red);
+}
+
+.EditAdd:hover {
+  border-bottom: 0.12rem solid var(--green);
+  cursor: pointer;
+}
+
+.EditAdd.EditAdd--active {
+  border-bottom: 0.12rem solid var(--grey-light);
+  background-color: var(--grey-light);
+  color: var(--grey-dark);
+  cursor: text;
+}
+
+.EditAdd.EditAdd--active:focus {
+  outline: none;
+  border-bottom: 0.12rem solid var(--green);
+}
+
+.EditAddSuggestions {
+  margin-top: none;
+}
+
+.EditAddSuggestions__suggestion {
+  height: 2.4rem;
+  background-color: var(--grey-extra-dark);
+  color: var(--grey-light);
+  font-weight: 300;
+  border-bottom: 0.08rem solid var(--grey);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.EditAddSuggestions__suggestion:hover {
+  cursor: pointer;
+  opacity: 80%;
+}
+
+.EditAddSuggestions__image {
+  width: 2.4rem;
+  height: 2.4rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+.EditAddSuggestions__sciName {
+  margin-left: 0.9rem;
+  font-style: italic;
+  opacity: 70%;
+}
