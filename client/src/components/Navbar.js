@@ -48,7 +48,7 @@ const Navbar = () => {
                   }
                 </button>
             </div>
-          : <>
+          : <div className={styles.Navbar__linksContainer}>
               <Link
                 to='/login'
                 className={`${styles.Navbar__link} ${location.pathname === '/login' ? styles['Navbar__link--active'] : ''}`}
@@ -61,7 +61,7 @@ const Navbar = () => {
               >
                 Sign up
               </Link>
-            </>
+            </div>
         }
         </nav>
     </header>
