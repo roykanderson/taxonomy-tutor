@@ -17,7 +17,7 @@ import ProfileSet from './pages/Profile/ProfileSet'
 import SetContent from './pages/Profile/SetContent'
 import SetEdit from './pages/Profile/SetEdit'
 
-import './assets/styles/App.css'
+import './assets/index.css'
 
 const App = () => {
   const [user, setUser] = useState(null)
