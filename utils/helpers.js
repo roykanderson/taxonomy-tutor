@@ -35,9 +35,15 @@ const containsOnlyAlphanumeric = (string) => {
   return regExp.test(string)
 }
 
+const doesNotContainSpaces = (string) => {
+  const regExp = /\s/
+  return !regExp.test(string)
+}
+
 module.exports = {
   isValidTaxonIds,
   firstLettersToUppercase,
   getTokenFrom,
-  containsOnlyAlphanumeric
+  containsOnlyAlphanumeric,
+  doesNotContainSpaces
 }

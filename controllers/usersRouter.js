@@ -34,12 +34,9 @@ usersRouter.post('/', async (req, res) => {
   }
 
   // Ensure password is valid
-  /*
-  if (password.length < 8) {
-    console.log('password length')
-    return res.status(400).json({ error: 'password must be at least 8 characters' })
+  if (!helpers.doesNotContainSpaces(password)) {
+    return res.status(400).json({ message: 'Password must not contain any spaces.' })
   }
-  */
 
   // Encrypt password
   const saltRounds = 10
