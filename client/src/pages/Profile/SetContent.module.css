@@ -1,0 +1,166 @@
+.SetContentNoSpecies {
+  margin: 4.8rem 2.4rem 0 2.4rem;
+  display: flex;
+  justify-content: center;
+  color: var(--grey-light);
+}
+
+.SetContent {
+  width: 100%;
+}
+
+/*
+.study-card-loading-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 23.4rem;
+}
+*/
+
+.SetContent__banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--grey-extra-dark);
+  color: var(--grey-light);
+  font-size: 1.125rem;
+  height: 3rem;
+  padding: 0 1.2rem;
+}
+
+.SetContent__bannerBox {
+  display: flex;
+  flex: 1;
+}
+
+.SetContent__bannerBox.SetContent__bannerBox--left {
+  justify-content: left;
+}
+
+.SetContent__bannerBox.SetContent__bannerBox--center {
+  justify-content: center;
+}
+
+.SetContent__bannerBox.SetContent__bannerBox--right {
+  justify-content: right;
+}
+
+.SetContent__bannerButton {
+  font-family: Roboto Mono;
+  background-color: var(--grey-dark);
+  color: var(--grey-light);
+  border: none;
+  height: 2.125rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1.2rem;
+}
+
+.SetContent__shuffleButton {
+  font-size: 1rem;
+}
+
+.SetContent__shuffleButton.SetContent__shuffleButton--active {
+  color: var(--green);
+}
+
+.SetContent__shuffleButton:hover {
+  cursor: pointer;
+  opacity: 80%;
+}
+
+.SetContent__bannerArrow {
+  font-size: 2rem;
+  font-weight: 100;
+  margin: 0.3rem;
+  opacity: 30%;
+}
+
+.SetContent__bannerArrow.SetContent__bannerArrow--active {
+  opacity: 100%;
+}
+
+.SetContent__bannerArrow.SetContent__bannerArrow--active:hover {
+  cursor: pointer;
+  opacity: 80%;
+}
+
+.SetContent__bannerArrow.SetContent__bannerArrow--active:active {
+  background-color: var(--green);
+  color: var(--grey-extra-dark);
+  opacity: 60%;
+}
+
+.SetContent__main {
+  display: flex;
+  background-color: var(--grey-light);
+  height: 20.4rem;
+  justify-content: space-between;
+}
+
+.SetContent__textContainer {
+  padding: 1.2rem;
+  color: var(--grey-extra-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.SetContent__commonName {
+  font-size: 2.25vw;
+}
+
+.SetContent__sciName {
+  font-style: italic;
+  font-size: 2vw;
+  font-weight: 200;
+  margin-bottom: 0.6rem;
+}
+
+.SetContent__wikiText {
+  border-top: 0.05rem solid var(--grey-extra-dark);
+  padding: 0.6rem 0;
+  max-height: 9rem;
+  overflow: scroll;
+  margin: 0.6rem 0;
+}
+
+.SetContent__button {
+  background-color: var(--grey-dark);
+  color: var(--grey-light);
+  margin: auto;
+  padding: 0.6rem 1.8rem;
+  border: none;
+  border-radius: 2rem;
+  font-family: Roboto Mono;
+  font-size: 1rem;
+}
+
+.SetContent__button:hover {
+  opacity: 80%;
+  cursor: pointer;
+}
+
+.SetContent__button.SetContent__button--hide {
+  margin: auto 0 0 0;
+}
+
+.SetContent__image {
+  height: 20.4rem;
+  max-width: 20.4rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+.SetContent__noImage {
+  height: 20.4rem;
+  width: 20.4rem;
+  background-color: var(--grey-medium);
+  color: var(--grey-extra-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
