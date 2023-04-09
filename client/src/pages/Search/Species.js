@@ -1,6 +1,7 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import { useLocation } from "react-router-dom"
 
+import { UserContext } from '../../context/UserContext'
 import useWikiSummary from '../../hooks/useWikiSummary'
 import getDefaultPhotoUrl from '../../utils/getDefaultPhotoUrl'
 import LoadingIcon from "../../components/LoadingIcon"
@@ -9,6 +10,8 @@ import SpeciesModal from "./SpeciesModal"
 import styles from './Species.module.css'
 
 const Species = () => {
+  const { user } = useContext(UserContext)
+
   const location = useLocation()
   const taxon = location.state
   
@@ -25,10 +28,12 @@ const Species = () => {
               <div className={styles.Species__commonName}>{taxon.preferred_common_name}</div>
               <div className={styles.Species__sciName}>{taxon.name}</div>
             </div>
-            <button className={styles.Species__addButton} onClick={() => setShowModal(true)}>
-              <div className={styles.Species__addButtonText}>Add to set</div>
-              <div className={styles.Species__addButtonPlus}>+</div>
-            </button>
+            {user &&
+              <button className={styles.Species__addButton} onClick={() => setShowModal(true)}>
+                <div className={styles.Species__addButtonText}>Add to set</div>
+                <div className={styles.Species__addButtonPlus}>+</div>
+              </button>
+            }
           </section>
         </div>
         <div className={styles.Species__wiki}>
