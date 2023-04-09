@@ -1,0 +1,76 @@
+.Signup {
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 7.2rem);
+}
+
+.Signup__display {
+  background-color: var(--green-dark);
+  color: var(--green);
+  width: 33vw;
+  padding-top: 7.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.Signup__container {
+  width: 67vw;
+  margin-top: 7.2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.Signup__card {
+  background-color: var(--grey);
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  padding: 1.8rem;
+  margin-bottom: 1.8rem;
+}
+
+.Signup__error {
+  margin-bottom: 1.8rem;
+  color: var(--grey-light);
+}
+
+.Signup__input {
+  font-family: Roboto Mono;
+  height: 2.4rem;
+  width: 23.47rem;
+  background-color: var(--grey-light);
+  color: var(--grey-dark);
+  padding-inline: 0.625rem;
+  font-size: 1.125rem;
+  border: none;
+}
+
+.Signup__input:focus {
+  outline: none;
+  opacity: 70%;
+  transition: all 0.1s;
+}
+
+.Signup__input--marginBottom {
+  margin-bottom: 1.8rem;
+}
+
+.Signup__submit {
+  background-color: var(--green-dark);
+  color: var(--green);
+  font-family: Roboto Mono;
+  border: none;
+  width: 28.27rem;
+  height: 2.525rem;
+  padding: none;
+  font-size: 1.125rem;
+}
+
+.Signup__submit:hover {
+  cursor: pointer;
+  background-color: var(--green);
+  color: var(--green-dark);
+}

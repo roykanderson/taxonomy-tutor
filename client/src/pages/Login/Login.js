@@ -5,6 +5,8 @@ import { useQueryClient } from '@tanstack/react-query'
 import { UserContext } from '../../context/UserContext'
 import useLogin from '../../hooks/useLogin'
 
+import styles from './Login.module.css'
+
 const Login = () => {
   const { setUser } = useContext(UserContext)
 
@@ -17,44 +19,42 @@ const Login = () => {
   const login = useLogin(username, password, setUser, queryClient, navigate)
 
   return (
-    <div className="login-container">
-      <div className="login-left">
-        <div className='login-left-text'>
+    <div className={styles.Login}>
+      <div className={styles.Login__display}>
+        <div>
           <p>Every species in the world.</p>
           <p>All in one place.</p>
         </div>
       </div>
-      <div className="login-right">
+      <div className={styles.Login__container}>
         <form onSubmit={login.mutate}>
-          <div className="login-fields">
+          <div className={styles.Login__card}>
             {login.isError &&
-              <div className="login-fields-error">
+              <div className={styles.Login__error}>
                 <p>
                   {login.error.message}
                 </p>
                 <p>
-                  Don't have an account? <Link className='login-link' to='/signup'>Sign up</Link>.
+                  Don't have an account? <Link className={styles.Login__link} to='/signup'>Sign up</Link>.
                 </p>
               </div>
             }
-            <div className="login-fields-username">
               <input
+                className={`${styles.Login__input} ${styles['Login__input--marginBottom']}`}
                 type="text"
                 placeholder='Username'
                 value={username}
                 onChange={({ target }) => setUsername(target.value)}
               />
-            </div>
-            <div className="login-fields-password">
               <input
+                className={styles.Login__input}
                 type="password"
                 placeholder='Password'
                 value={password}
                 onChange={({ target }) => setPassword(target.value)}
               />
-            </div>
           </div>
-          <button className="login-submit" type="submit">Log in</button>
+          <button className={styles.Login__submit} type="submit">Log in</button>
         </form>
       </div>
     </div>

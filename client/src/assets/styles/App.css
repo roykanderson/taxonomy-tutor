@@ -689,7 +689,7 @@ a {
 }
 */
 /* Login Page */
-
+/*
 .login-container {
   display: flex;
   flex-direction: row;
@@ -770,6 +770,7 @@ a {
   background-color: var(--green);
   color: var(--green-dark);
 }
+*/
 
 /* Profile */
 .profile-container {

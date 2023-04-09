@@ -1,0 +1,84 @@
+.Login {
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 7.2rem);
+}
+
+.Login__display {
+  background-color: var(--green-dark);
+  color: var(--green);
+  width: 33vw;
+  padding-top: 7.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.Login__container {
+  width: 67vw;
+  margin-top: 7.2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.Login__card {
+  background-color: var(--grey);
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  padding: 1.8rem;
+  margin-bottom: 1.8rem;
+}
+
+.Login__error {
+  margin-bottom: 1.8rem;
+  color: var(--grey-light);
+}
+
+.Login__link {
+  color: var(--green);
+}
+
+.login-fields-password {
+  margin-top: 1.8rem;
+}
+
+.Login__input {
+  font-family: Roboto Mono;
+  height: 2.4rem;
+  width: 23.47rem;
+  background-color: var(--grey-light);
+  color: var(--grey-dark);
+  padding-inline: 0.625rem;
+  font-size: 1.125rem;
+  border: none;
+}
+
+.Login__input:focus {
+  outline: none;
+  opacity: 70%;
+  transition: all 0.1s;
+}
+
+.Login__input--marginBottom {
+  margin-bottom: 1.8rem;
+}
+
+.Login__submit {
+  background-color: var(--green-dark);
+  color: var(--green);
+  font-family: Roboto Mono;
+  border: none;
+  width: 28.27rem;
+  height: 2.525rem;
+  padding: none;
+  font-size: 1.125rem;
+}
+
+.Login__submit:hover {
+  cursor: pointer;
+  background-color: var(--green);
+  color: var(--green-dark);
+}

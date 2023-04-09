@@ -7,6 +7,8 @@ import { UserContext } from '../../context/UserContext'
 import LoadingIcon from "../../components/LoadingIcon"
 import useSignUp from '../../hooks/useSignup'
 
+import styles from './Signup.module.css'
+
 const Signup = () => {
   const { setUser } = useContext(UserContext)
 
@@ -20,49 +22,46 @@ const Signup = () => {
   const signUp = useSignUp(username, password, confirmPassword, setUser, queryClient, navigate)
 
   return (
-    <div className="login-container">
-      <div className="login-left">
-        <div className='login-left-text'>
+    <div className={styles.Signup}>
+      <div className={styles.Signup__display}>
+        <div>
           <p>Every species in the world.</p>
           <p>All in one place.</p>
         </div>
       </div>
-      <div className="login-right">
+      <div className={styles.Signup__container}>
         <form onSubmit={signUp.mutate}>
-          <div className="login-fields">
+          <div className={styles.Signup__card}>
             {signUp.isError &&
-              <div className="login-fields-error">
+              <div className={styles.Signup__error}>
                 <p>
                   {signUp.error.message}
                 </p>
               </div>
             }
-            <div className="login-fields-username">
-              <input
-                type="text"
-                placeholder='Username'
-                value={username}
-                onChange={({ target }) => setUsername(target.value)}
-              />
-            </div>
-            <div className="login-fields-password">
-              <input
-                type="password"
-                placeholder='Password'
-                value={password}
-                onChange={({ target }) => setPassword(target.value)}
-              />
-            </div>
-            <div className="login-fields-password">
-              <input
-                type="password"
-                placeholder='Confirm password'
-                value={confirmPassword}
-                onChange={({ target }) => setConfirmPassword(target.value)}
-              />
-            </div>
+            <input
+              className={`${styles.Signup__input} ${styles['Signup__input--marginBottom']}`}
+              type="text"
+              placeholder='Username'
+              value={username}
+              onChange={({ target }) => setUsername(target.value)}
+            />
+            <input
+              className={`${styles.Signup__input} ${styles['Signup__input--marginBottom']}`}
+              type="password"
+              placeholder='Password'
+              value={password}
+              onChange={({ target }) => setPassword(target.value)}
+            />
+            <input
+              className={styles.Signup__input}
+              type="password"
+              placeholder='Confirm password'
+              value={confirmPassword}
+              onChange={({ target }) => setConfirmPassword(target.value)}
+            />
           </div>
-          <button className="login-submit" type="submit">
+          <button className={styles.Signup__submit} type="submit">
             {signUp.isLoading ? <LoadingIcon /> : 'Sign up'}
           </button>
         </form>
