@@ -25,9 +25,11 @@ const Searchbar = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    setFocused(false)
-    setSuggestions(null)
-    navigate(`/search?q=${input}`)
+    if (input) {
+      setFocused(false)
+      setSuggestions(null)
+      navigate(`/search?q=${input}`)
+    }
   }
 
   const handleInputChange = async ({ target }) => {
@@ -49,7 +51,12 @@ const Searchbar = () => {
 
   return (
     <form className={styles.Searchbar} onSubmit={handleSubmit} onFocus={onFocus} onBlur={onBlur} >
-      <input className={styles.Searchbar__input} type='text' value={input} onChange={handleInputChange} />
+      <input
+        className={styles.Searchbar__input}
+        type='text'
+        value={input}
+        placeholder='Search for taxa...'
+        onChange={handleInputChange} />
       <button className={styles.Searchbar__submit} type='submit'>
         <SearchIcon />
       </button>
