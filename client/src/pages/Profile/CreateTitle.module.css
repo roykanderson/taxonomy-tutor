@@ -1,0 +1,24 @@
+.CreateTitle {
+  background-color: var(--grey-light);
+  color: var(--grey-dark);
+  padding: 0.6rem 1.2rem;
+}
+
+.CreateTitle div {
+  font-size: 0.875rem;
+}
+
+.CreateTitle__input {
+  background-color: transparent;
+  color: var(--grey-dark);
+  border: none;
+  width: 100%;
+  font-family: Roboto Mono;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.CreateTitle__input:focus {
+  outline: none;
+  border-bottom: 0.12rem solid var(--grey);
+}
