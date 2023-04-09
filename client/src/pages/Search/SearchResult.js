@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 import getDefaultPhotoUrl from '../../utils/getDefaultPhotoUrl'
 
-import styles from './styles/SearchResult.module.css'
+import styles from './SearchResult.module.css'
 
 // FIX Ursidae error when searching for bears with photoURL
 

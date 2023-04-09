@@ -6,7 +6,7 @@ import getDefaultPhotoUrl from '../../utils/getDefaultPhotoUrl'
 import LoadingIcon from "../../components/LoadingIcon"
 import SpeciesModal from "./SpeciesModal"
 
-import styles from './styles/Species.module.css'
+import styles from './Species.module.css'
 
 const Species = () => {
   const location = useLocation()

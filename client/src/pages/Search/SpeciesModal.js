@@ -8,7 +8,7 @@ import ModalCreate from "./ModalCreate"
 import ModalAdd from './ModalAdd'
 import OutsideDetector from "../../components/OutsideDetector"
 
-import styles from './styles/SpeciesModal.module.css'
+import styles from './SpeciesModal.module.css'
 
 const SpeciesModal = ({ setShowModal, taxon }) => {
   const { data, isFetching } = useSets()

@@ -5,7 +5,7 @@ import useCreateSetFromSearch from '../../hooks/useCreateSetFromSearch'
 
 import LoadingIcon from '../../components/LoadingIcon'
 
-import styles from './styles/ModalAdd.module.css'
+import styles from './ModalAdd.module.css'
 
 const ModalAdd = ({ activeSet, title, setShowModal, taxon, data, error, setError }) => {
   const queryClient = useQueryClient()

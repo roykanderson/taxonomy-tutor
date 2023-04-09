@@ -6,7 +6,7 @@ import userService from '../services/userService'
 
 import Searchbar from './Searchbar'
 import { ReactComponent as Logo } from '../assets/logo.svg'
-import styles from './styles/Navbar.module.css'
+import styles from './Navbar.module.css'
 import NavbarDropdown from './NavbarDropdown'
 
 const Navbar = () => {

@@ -1,4 +1,4 @@
-import styles from './styles/ModalCreate.module.css'
+import styles from './ModalCreate.module.css'
 
 const ModalCreate = ({ createActive, title, setTitle, handleCreateClick }) => {
  return (

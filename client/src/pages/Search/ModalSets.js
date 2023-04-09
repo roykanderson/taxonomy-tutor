@@ -1,4 +1,4 @@
-import styles from './styles/ModalSets.module.css'
+import styles from './ModalSets.module.css'
 
 const ModalSets = ({ data, activeSet, setActiveSet, setCreateActive, setError }) => {
 

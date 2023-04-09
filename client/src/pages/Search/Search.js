@@ -6,7 +6,7 @@ import SearchResult from './SearchResult'
 import LoadingIcon from '../../components/LoadingIcon'
 import useResults from '../../hooks/useResults'
 
-import styles from './styles/Search.module.css'
+import styles from './Search.module.css'
 
 const Search = () => {
   // Obtain query from URL

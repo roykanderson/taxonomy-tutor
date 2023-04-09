@@ -2,7 +2,7 @@ import { useRef } from "react"
 
 import useOutsideDetector from '../hooks/useOutsideDetector'
 
-import styles from './styles/OutsideDetector.module.css'
+import styles from './OutsideDetector.module.css'
 
 const OutsideDetector = (props) => {
   const wrapperRef = useRef(null);

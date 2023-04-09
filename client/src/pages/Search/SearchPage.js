@@ -3,7 +3,7 @@ import { ReactComponent as BackArrowGreen } from '../../assets/back-arrow-green.
 import { ReactComponent as NextArrowGrey } from '../../assets/next-arrow-grey.svg'
 import { ReactComponent as NextArrowGreen } from '../../assets/next-arrow-green.svg'
 
-import styles from './styles/SearchPage.module.css'
+import styles from './SearchPage.module.css'
 
 const SearchPage = ({ data, page, setPage }) => {
   const handleBackClick = () => {

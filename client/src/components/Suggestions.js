@@ -1,7 +1,7 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
 
-import styles from './styles/Suggestions.module.css'
+import styles from './Suggestions.module.css'
 
 const Suggestions = ({ suggestions, setSuggestions, setInput }) => {
   const navigate = useNavigate()

@@ -5,7 +5,7 @@ import taxaService from '../services/taxaService'
 import Suggestions from './Suggestions'
 
 import { ReactComponent as SearchIcon } from '../assets/search-icon.svg'
-import styles from './styles/Searchbar.module.css'
+import styles from './Searchbar.module.css'
 
 const Searchbar = () => {
   const [input, setInput] = useState('')

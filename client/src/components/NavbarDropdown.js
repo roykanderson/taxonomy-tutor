@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-import styles from './styles/NavbarDropdown.module.css'
+import styles from './NavbarDropdown.module.css'
 
 const NavbarDropdown = ({ user, handleNavigateToProfile, handleLogOut }) => {
   return (
