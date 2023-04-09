@@ -1,0 +1,45 @@
+.ProfileSets {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.ProfileSets__noSets {
+  margin: 4.8rem 2.4rem 0 2.4rem;
+  display: flex;
+  justify-content: center;
+  color: var(--grey-light);
+}
+
+.ProfileSets__set {
+  background-color: var(--grey-light);
+  padding: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.ProfileSets__set:hover {
+  cursor: pointer;
+  opacity: 80%;
+}
+
+.ProfileSets__set p {
+  flex-basis: 50%;
+  flex-grow: 1;
+  color: var(--grey-extra-dark);
+}
+
+.ProfileSets__name {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.ProfileSets__date {
+  text-align: end;
+  font-size: 1rem;
+}
+
+.ProfileSets__numSpecies {
+  font-size: 1rem;
+}
