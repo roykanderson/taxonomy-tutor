@@ -34,9 +34,7 @@ const Signup = () => {
           <div className={styles.Signup__card}>
             {signUp.isError &&
               <div className={styles.Signup__error}>
-                <p>
-                  {signUp.error.message}
-                </p>
+                {signUp.error.message}
               </div>
             }
             <input
