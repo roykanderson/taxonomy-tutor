@@ -30,8 +30,7 @@ const Species = () => {
             </div>
             {user &&
               <button className={styles.Species__addButton} onClick={() => setShowModal(true)}>
-                <div className={styles.Species__addButtonText}>Add to set</div>
-                <div className={styles.Species__addButtonPlus}>+</div>
+                Add to set
               </button>
             }
           </section>
@@ -41,10 +40,10 @@ const Species = () => {
             ? <LoadingIcon />
             : data
               ? <>
-                <div className={styles.Species__wikiDescription}>{data}</div>
-                <div className={styles.Species__wikiCitation}>Information from <a href={taxon.wikipedia_url}>Wikipedia</a></div>
+                  <div className={styles.Species__wikiDescription}>{data}</div>
+                  <div className={styles.Species__wikiCitation}>Information from <a href={taxon.wikipedia_url}>Wikipedia</a></div>
                 </>
-              : <>No Wikipedia information</>
+              : <>No Wikipedia information available.</>
           }
         </div>
       </section>
