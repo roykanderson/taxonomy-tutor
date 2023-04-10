@@ -1,6 +1,7 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
 
+import firstCharToUpper from "../utils/firstCharToUpper"
 import styles from './Suggestions.module.css'
 
 const Suggestions = ({ suggestions, setSuggestions, setInput, user }) => {
@@ -24,7 +25,7 @@ const Suggestions = ({ suggestions, setSuggestions, setInput, user }) => {
               <div className={styles.Suggestions__suggestion} data-name={suggestion.name} >
                 <div className={styles.Suggestions__commonName} data-name={suggestion.name}>{suggestion.preferred_common_name}</div>
                 <div className={styles.Suggestions__sciName} data-name={suggestion.name}>
-                  {suggestion.rank}<span data-name={suggestion.name}>{suggestion.name}</span>
+                  <span data-name={suggestion.name}>{suggestion.name}</span> ({firstCharToUpper(suggestion.rank)})
                 </div>
               </div>
             </li>
