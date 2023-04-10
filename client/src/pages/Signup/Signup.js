@@ -25,12 +25,12 @@ const Signup = () => {
     <div className={styles.Signup}>
       <div className={styles.Signup__display}>
         <div>
-          <p>Every species in the world.</p>
+          <p>Study every species in the world.</p>
           <p>All in one place.</p>
         </div>
       </div>
       <div className={styles.Signup__container}>
-        <form onSubmit={signUp.mutate}>
+        <form className={styles.Signup__form} onSubmit={signUp.mutate}>
           <div className={styles.Signup__card}>
             {signUp.isError &&
               <div className={styles.Signup__error}>

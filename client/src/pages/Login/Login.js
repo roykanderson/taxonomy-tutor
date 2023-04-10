@@ -22,12 +22,12 @@ const Login = () => {
     <div className={styles.Login}>
       <div className={styles.Login__display}>
         <div>
-          <p>Every species in the world.</p>
+          <p>Study every species in the world.</p>
           <p>All in one place.</p>
         </div>
       </div>
       <div className={styles.Login__container}>
-        <form onSubmit={login.mutate}>
+        <form className={styles.Login__form} onSubmit={login.mutate}>
           <div className={styles.Login__card}>
             {login.isError &&
               <div className={styles.Login__error}>

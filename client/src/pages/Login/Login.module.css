@@ -7,8 +7,8 @@
 .Login__display {
   background-color: var(--green-dark);
   color: var(--green);
-  width: 33vw;
-  padding-top: 7.2rem;
+  width: calc(33vw - 4.8rem);
+  padding: 7.2rem 2.4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,14 +18,17 @@
 
 .Login__container {
   width: 67vw;
-  margin-top: 7.2rem;
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.Login__form {
+  width: 50%;
 }
 
 .Login__card {
   background-color: var(--grey);
-  width: fit-content;
   display: flex;
   flex-direction: column;
   padding: 1.8rem;
@@ -46,9 +49,7 @@
 }
 
 .Login__input {
-  font-family: Roboto Mono;
   height: 2.4rem;
-  width: 23.47rem;
   background-color: var(--grey-light);
   color: var(--grey-dark);
   padding-inline: 0.625rem;
@@ -69,10 +70,9 @@
 .Login__submit {
   background-color: var(--green-dark);
   color: var(--green);
-  font-family: Roboto Mono;
+  width: 100%;
+  height: 2.4rem;
   border: none;
-  width: 28.27rem;
-  height: 2.525rem;
   padding: none;
   font-size: 1.125rem;
 }
@@ -81,4 +81,18 @@
   cursor: pointer;
   background-color: var(--green);
   color: var(--green-dark);
+}
+
+@media (max-width: 700px) {
+  .Login__display {
+    display: none;
+  }
+
+  .Login__container {
+    width: 100vw;
+  }
+
+  .Login__form {
+    width: 80%;
+  }
 }
