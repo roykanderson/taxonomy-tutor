@@ -6,15 +6,15 @@
   margin: 2.4rem 0;
   flex: 1;
   justify-content: center;
+  max-width: 48rem;
 }
 
 .Searchbar__input {
-  font-family: Roboto Mono;
-  width: 23.47rem;
+  width: 100%;
   background-color: var(--grey-light);
   color: var(--grey-dark);
   padding-inline: 0.625rem;
-  font-size: 1.125rem;
+  font-size: clamp(0.875rem, 0.4rem + 2vw, 1.125rem);
   border: none;
 }
 
@@ -41,4 +41,17 @@
 .Searchbar__submit:hover {
   cursor: pointer;
   opacity: 70%;
+}
+
+@media (max-width: 700px) {
+  .Searchbar {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .Searchbar__submit {
+    display: none;
+  }
 }

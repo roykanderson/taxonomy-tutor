@@ -15,6 +15,7 @@ const Navbar = () => {
   const navigate = useNavigate()
 
   const [menuActive, setMenuActive] = useState(false)
+  const [searchBarFocused, setSearchBarFocused] = useState(false)
 
   const handleNavigateToProfile = () => {
     navigate('/profile')
@@ -30,25 +31,22 @@ const Navbar = () => {
 
   return (
     <header>
-      <nav className={styles.Navbar}>
+      <nav className={searchBarFocused ? `${styles.Navbar} ${styles['Navbar--hide']}` : `${styles.Navbar}`}>
         <Link className={styles.Navbar__logo} to='/'>
           <Logo />
         </Link>
-        <Searchbar />
+        <Searchbar setSearchBarFocused={setSearchBarFocused} user={user} />
         {user
           ? <div className={styles.Navbar__profileContainer}>
               <button
-                  className={styles.Navbar__profile}
-                  onFocus={() => setMenuActive(true)}
-                  onBlur={() => setMenuActive(false)}
-                >
-                  {user.username.charAt(0).toUpperCase()}
-                  {menuActive &&
-                    <NavbarDropdown user={user} handleNavigateToProfile={handleNavigateToProfile} handleLogOut={handleLogOut}/>
-                  }
-                </button>
+                className={searchBarFocused ? `${styles.Navbar__profile} ${styles['Navbar__profile--hide']}` : `${styles.Navbar__profile}`}
+                onFocus={() => setMenuActive(true)}
+                onBlur={() => setMenuActive(false)}
+              >
+                {user.username.charAt(0).toUpperCase()}
+              </button>
             </div>
-          : <div className={styles.Navbar__linksContainer}>
+          : <div className={searchBarFocused ? `${styles.Navbar__linksContainer} ${styles['Navbar__linksContainer--hide']}` : `${styles.Navbar__linksContainer}`}>
               <Link
                 to='/login'
                 className={`${styles.Navbar__link} ${location.pathname === '/login' ? styles['Navbar__link--active'] : ''}`}
@@ -64,6 +62,9 @@ const Navbar = () => {
             </div>
         }
         </nav>
+        {menuActive &&
+          <NavbarDropdown user={user} handleNavigateToProfile={handleNavigateToProfile} handleLogOut={handleLogOut}/>
+        }
     </header>
   )
 }

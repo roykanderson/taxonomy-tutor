@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 
 import styles from './Suggestions.module.css'
 
-const Suggestions = ({ suggestions, setSuggestions, setInput }) => {
+const Suggestions = ({ suggestions, setSuggestions, setInput, user }) => {
   const navigate = useNavigate()
 
   const handleClick = ({ target }) => {
@@ -15,7 +15,7 @@ const Suggestions = ({ suggestions, setSuggestions, setInput }) => {
   }
 
   return (
-    <ul className={styles.Suggestions}>
+    <ul className={user ? `${styles.Suggestions} ${styles['Suggestions--user']}` : `${styles.Suggestions}`}>
       {suggestions && suggestions.map(suggestion =>
         <React.Fragment key={suggestion.id}>
           {suggestion.default_photo &&

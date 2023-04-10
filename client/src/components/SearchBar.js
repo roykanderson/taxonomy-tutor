@@ -7,7 +7,7 @@ import Suggestions from './Suggestions'
 import { ReactComponent as SearchIcon } from '../assets/search-icon.svg'
 import styles from './Searchbar.module.css'
 
-const Searchbar = () => {
+const Searchbar = ({ setSearchBarFocused, user }) => {
   const [input, setInput] = useState('')
   const [suggestions, setSuggestions] = useState(null)
   const [focused, setFocused] = useState(null)
@@ -42,10 +42,12 @@ const Searchbar = () => {
 
   const onFocus = async () => {
     setFocused(true)
+    setSearchBarFocused(true)
     setSuggestions(await taxaService.fetchTaxaSuggestions(input))
   }
 
   const onBlur = () => {
+    setSearchBarFocused(false)
     setTimeout(setFocused(false), 5000)
   }
 
@@ -61,7 +63,8 @@ const Searchbar = () => {
         <SearchIcon />
       </button>
       {focused &&
-        <Suggestions suggestions={suggestions} setSuggestions={setSuggestions} setInput={setInput} />}
+        <Suggestions suggestions={suggestions} setSuggestions={setSuggestions} setInput={setInput} user={user} />
+      }
     </form>
   )
 }

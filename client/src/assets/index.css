@@ -23,6 +23,10 @@ ul {
   padding: 0;
 }
 
+#app, #app>div {
+  width: 100%;
+}
+
 body {
   font-family: Roboto;
   background-color: var(--grey-dark);
@@ -37,6 +41,11 @@ input:-webkit-autofill:focus {
 
 a {
   text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }
 
 /*
