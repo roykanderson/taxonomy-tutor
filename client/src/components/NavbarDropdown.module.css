@@ -1,5 +1,6 @@
 .NavbarDropdown {
   position: absolute;
+  z-index: 2;
   right: 10%;
   top: 5.8rem;
   background-color: var(--grey-dark);
