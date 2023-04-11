@@ -17,6 +17,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
+  gap: 0.6rem;
 }
 
 .ProfileSets__set:hover {
@@ -25,23 +26,27 @@
 }
 
 .ProfileSets__set div {
-  flex-basis: 50%;
-  flex-grow: 1;
   color: var(--grey-extra-dark);
 }
 
 .ProfileSets__name {
   font-size: 1.25rem;
   font-weight: 500;
+  flex-basis: 50%;
+  flex-grow: 1;
 }
 
 .ProfileSets__date {
   text-align: end;
   font-size: 1rem;
+  font-weight: 300;
 }
 
 .ProfileSets__numSpecies {
   font-size: 1rem;
+  font-weight: 300;
+  flex-basis: 50%;
+  flex-grow: 1;
 }
 
 @media (max-width: 700px) {
