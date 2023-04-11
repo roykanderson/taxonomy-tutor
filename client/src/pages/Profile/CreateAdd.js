@@ -51,11 +51,13 @@ const CreateAdd = ({ taxa, setTaxa }) => {
                   {suggestion.default_photo &&
                     <img className={styles.CreateAddSuggestions__image} src={suggestion.default_photo.url} alt={suggestion.preferred_common_name} data-id={suggestion.id} index={index} />
                   }
-                  <div data-id={suggestion.id} index={index}>
-                    {suggestion.preferred_common_name}
-                  </div>
-                  <div className={styles.CreateAddSuggestions__sciName} data-id={suggestion.id} index={index}>
-                    {suggestion.name}
+                  <div className={styles.CreateAddSuggestions__namesContainer} data-id={suggestion.id}>
+                    <div className={styles.CreateAddSuggestions__commonName} data-id={suggestion.id} index={index}>
+                      {suggestion.preferred_common_name}
+                    </div>
+                    <div className={styles.CreateAddSuggestions__sciName} data-id={suggestion.id} index={index}>
+                      {suggestion.name}
+                    </div>
                   </div>
                 </li>
               )}
