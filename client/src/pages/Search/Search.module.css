@@ -26,6 +26,11 @@
   justify-content: space-between;
 }
 
+.Search__results.Search__results--single {
+  display: flex;
+  justify-content: center;
+}
+
 .Search__footer {
   display: flex;
   justify-content: flex-end;
@@ -41,21 +46,11 @@
   .Search {
     display: flex;
     flex-direction: column;
+    padding: 1.2rem
   }
-}
 
-@media (max-width: 829px) {
   .Search__results {
     grid-template-columns: repeat(2, auto);
-  }
-}
-
-@media (max-width: 570px) {
-  .Search {
-    padding: 1.2rem;
-  }
-
-  .Search__results {
     margin: 1.2rem auto;
     gap: 1.2rem;
   }
@@ -67,6 +62,7 @@
   }
 
   .Search__summaryText {
+    text-align: center;
     margin: auto;
   }
 

@@ -49,7 +49,7 @@
   text-overflow: ellipsis;
 }
 
-@media (max-width: 570px) {
+@media (max-width: 829px) {
   .SearchResult {
     max-width: clamp(8rem, 7.5rem + 2vw, 14rem);
   }

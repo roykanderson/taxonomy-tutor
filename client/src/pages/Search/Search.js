@@ -31,10 +31,10 @@ const Search = () => {
       </section>
       {isFetching
         ? <LoadingIcon />
-        : <section className={styles.Search__results}>
-          {data.results.map(taxon => {
-            return <SearchResult key={taxon.id} taxon={taxon} />
-          })}
+        : <section className={data.results.length === 1 ? `${styles.Search__results} ${styles['Search__results--single']}` : `${styles.Search__results}`}>
+          {data.results.map(taxon => 
+              <SearchResult key={taxon.id} taxon={taxon} />     
+          )}
         </section>
       }
       {data && page !== Math.ceil(data.total_results / data.per_page) && !isFetching &&
