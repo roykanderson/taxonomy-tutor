@@ -24,7 +24,7 @@
   opacity: 80%;
 }
 
-.ProfileSets__set p {
+.ProfileSets__set div {
   flex-basis: 50%;
   flex-grow: 1;
   color: var(--grey-extra-dark);
@@ -42,4 +42,33 @@
 
 .ProfileSets__numSpecies {
   font-size: 1rem;
+}
+
+@media (max-width: 700px) {
+  .ProfileSets__set {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .ProfileSets__set div {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .ProfileSets__name {
+    font-size: clamp(1rem, 0.8rem + 1vw, 1.25rem);
+  }
+
+  .ProfileSets__date {
+    font-size: clamp(0.8rem, 0.6rem + 1vw, 1rem);
+    text-align: start;
+    font-weight: 300;
+  }
+
+  .ProfileSets__numSpecies {
+    font-size: clamp(0.8rem, 0.6rem + 1vw, 1rem);
+    font-weight: 300;
+  }
 }

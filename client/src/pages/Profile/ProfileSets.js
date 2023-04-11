@@ -37,15 +37,15 @@ const ProfileSets = () => {
           .sort((set1, set2) => new Date(set2.dateLastUpdated) - new Date(set1.dateLastUpdated)) // Sort sets by most recently updated
           .map(set => 
             <Link key={set.id} className={styles.ProfileSets__set} to={`/profile/${set.id}`}>
-              <p className={styles.ProfileSets__name}>
+              <div className={styles.ProfileSets__name}>
                 {set.name}
-              </p>
-              <p className={styles.ProfileSets__date}>
+              </div>
+              <div className={styles.ProfileSets__date}>
                 {new Date(set.dateLastUpdated).toLocaleDateString('en-us', { year: 'numeric', month: 'long', day: 'numeric' })}
-              </p>
-              <p className={styles.ProfileSets__numSpecies}>
+              </div>
+              <div className={styles.ProfileSets__numSpecies}>
                 {set.numberOfTaxa} species
-              </p>
+              </div>
             </Link>
           )
       }

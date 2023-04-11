@@ -40,7 +40,7 @@
   border-radius: 2rem;
   color: var(--grey-light);
   font-size: 1.1rem;
-  font-family: Roboto Mono;
+  font-family: Roboto;
   font-weight: 300;
   padding: 0.438rem 0.876rem;
 }
@@ -56,4 +56,20 @@
 
 .Profile__link {
   color: var(--grey-light);
+}
+
+@media (max-width: 700px) {
+  .Profile__icon {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5rem;
+  }
+
+  .Profile__username {
+    font-size: 1.3rem;
+  }
+
+  .Profile__button {
+    font-size: clamp(0.5rem, 0.4rem + 2vw, 1.1rem);
+  }
 }
