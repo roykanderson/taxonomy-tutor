@@ -1,5 +1,8 @@
 import { useState } from "react"
+
 import taxaService from "../../services/taxaService"
+import toTitleCase from "../../utils/toTitleCase"
+import firstCharToUpper from "../../utils/firstCharToUpper"
 
 import styles from './CreateAdd.module.css'
 
@@ -53,10 +56,10 @@ const CreateAdd = ({ taxa, setTaxa }) => {
                   }
                   <div className={styles.CreateAddSuggestions__namesContainer} data-id={suggestion.id}>
                     <div className={styles.CreateAddSuggestions__commonName} data-id={suggestion.id} index={index}>
-                      {suggestion.preferred_common_name}
+                      {toTitleCase(suggestion.preferred_common_name)}
                     </div>
                     <div className={styles.CreateAddSuggestions__sciName} data-id={suggestion.id} index={index}>
-                      {suggestion.name}
+                      {firstCharToUpper(suggestion.name)}
                     </div>
                   </div>
                 </li>
