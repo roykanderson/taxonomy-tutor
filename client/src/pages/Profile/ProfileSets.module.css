@@ -27,6 +27,9 @@
 
 .ProfileSets__set div {
   color: var(--grey-extra-dark);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .ProfileSets__name {
@@ -57,9 +60,6 @@
 
   .ProfileSets__set div {
     width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
   }
 
   .ProfileSets__name {
