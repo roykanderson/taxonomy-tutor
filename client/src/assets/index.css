@@ -31,7 +31,6 @@ body {
   font-family: Roboto;
   background-color: var(--grey-dark);
 }
-*/
 
 /* Disable autofill after form submission */
 input:-webkit-autofill,
