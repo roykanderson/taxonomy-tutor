@@ -78,11 +78,13 @@ const CreateTaxon = ({ taxa, setTaxa, index }) => {
             {suggestion.default_photo &&
               <img className={styles.CreateTaxonSuggestions__image} src={suggestion.default_photo.url} alt={suggestion.preferred_common_name} data-id={suggestion.id} />
             }
-            <div data-id={suggestion.id}>
-              {suggestion.preferred_common_name}
-            </div>
-            <div className={styles.CreateTaxonSuggestions__sciName} data-id={suggestion.id}>
-              {suggestion.name}
+            <div className={styles.CreateTaxonSuggestions__namesContainer}>
+              <div className={styles.CreateTaxonSuggestions__commonName} data-id={suggestion.id}>
+                {suggestion.preferred_common_name}
+              </div>
+              <div className={styles.CreateTaxonSuggestions__sciName} data-id={suggestion.id}>
+                {suggestion.name}
+              </div>
             </div>
           </li>
         )}
