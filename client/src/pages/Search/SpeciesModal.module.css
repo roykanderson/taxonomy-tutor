@@ -28,6 +28,7 @@
 
 .SpeciesModal__heading {
   margin: 0 0 1.2rem 0;
+  font-size: clamp(1rem, .5rem + 2vw, 1.5rem)
 }
 
 .SpeciesModal__closeButton {
@@ -54,4 +55,11 @@
 .SpeciesModal__buttons {
   display: flex;
   justify-content: space-between;
+}
+
+@media (max-width: 650px) {
+  .SpeciesModal__buttons {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
 }

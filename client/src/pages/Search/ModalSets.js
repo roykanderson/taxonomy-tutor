@@ -18,14 +18,14 @@ const ModalSets = ({ data, activeSet, setActiveSet, setCreateActive, setError })
             onClick={() => handleSetClick(set.id)}
           >
             <div className={styles.ModalSets__setTopRow}>
-              <p>
+              <p className={styles.ModalSets__setName}>
                 {set.name}
               </p>
-              <p>
+              <p className={styles.ModalSets__setDate}>
                 Last updated {new Date(set.dateLastUpdated).toLocaleDateString('en-us', { year: 'numeric', month: 'long', day: 'numeric' })}
               </p>
             </div>
-            <div>
+            <div className={styles.ModalSets__setAmount}>
               {set.numberOfTaxa} species
             </div>
           </div>

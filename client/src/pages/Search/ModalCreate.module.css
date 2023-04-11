@@ -1,7 +1,7 @@
 .CreateInput {
   background-color: var(--grey-extra-light);
   color: var(--grey-extra-dark);
-  font-family: Roboto Mono;
+  font-family: Roboto;
   font-size: 0.9rem;
   padding: 0 0.6rem;
   border: none;
@@ -15,7 +15,7 @@
 .CreateButton {
   background-color: var(--grey-extra-dark);
   color: var(--grey-light);
-  font-family: Roboto Mono;
+  font-family: Roboto;
   font-size: 0.9rem;
   font-weight: 500;
   padding: 0.6rem 1.2rem;
@@ -26,4 +26,11 @@
 .CreateButton:hover {
   cursor: pointer;
   opacity: 80%;
+}
+
+@media (max-width: 650px) {
+  .CreateInput {
+    width: calc(100% - 1.2rem);
+    padding: 0.6rem;
+  }
 }
