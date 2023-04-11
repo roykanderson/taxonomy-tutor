@@ -41,7 +41,7 @@ const ProfileSets = () => {
                 {set.name}
               </div>
               <div className={styles.ProfileSets__date}>
-                {new Date(set.dateLastUpdated).toLocaleDateString('en-us', { year: 'numeric', month: 'long', day: 'numeric' })}
+                Last updated {new Date(set.dateLastUpdated).toLocaleDateString('en-us', { year: 'numeric', month: 'long', day: 'numeric' })}
               </div>
               <div className={styles.ProfileSets__numSpecies}>
                 {set.numberOfTaxa} species
