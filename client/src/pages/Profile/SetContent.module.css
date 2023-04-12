@@ -12,24 +12,15 @@
   width: 100%;
 }
 
-/*
-.study-card-loading-icon-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 23.4rem;
-}
-*/
-
 .SetContent__banner {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: var(--grey-extra-dark);
   color: var(--grey-light);
-  font-size: 1.125rem;
-  height: 3rem;
-  padding: 0 1.2rem;
+  font-size: clamp(0.7rem, 0.5rem + 1vw, 1.125rem);
+  min-height: 3rem;
+  padding: 0 clamp(0.3rem, 0.3rem + 1vw, 1.2rem);
 }
 
 .SetContent__bannerBox {
@@ -50,7 +41,7 @@
 }
 
 .SetContent__bannerButton {
-  font-family: Roboto Mono;
+  font-family: Roboto;
   background-color: var(--grey-dark);
   color: var(--grey-light);
   border: none;
@@ -59,11 +50,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 1.2rem;
+  padding: 0 clamp(0.3rem, 0.3rem + 1vw, 1.2rem);
 }
 
 .SetContent__shuffleButton {
-  font-size: 1rem;
+  font-size: clamp(0.7rem, 0.5rem + 1vw, 1.125rem);
 }
 
 .SetContent__shuffleButton.SetContent__shuffleButton--active {
@@ -76,7 +67,7 @@
 }
 
 .SetContent__bannerArrow {
-  font-size: 2rem;
+  font-size: clamp(1rem, 1rem + 2vw, 2rem);
   font-weight: 100;
   margin: 0.3rem;
   opacity: 30%;
@@ -100,12 +91,12 @@
 .SetContent__main {
   display: flex;
   background-color: var(--grey-light);
-  height: 20.4rem;
   justify-content: space-between;
+  height: clamp(10rem, 8rem + 12vw, 20.4rem);
 }
 
 .SetContent__textContainer {
-  padding: 1.2rem;
+  padding: 0.6rem 1.2rem;
   color: var(--grey-extra-dark);
   display: flex;
   flex-direction: column;
@@ -113,33 +104,35 @@
 }
 
 .SetContent__commonName {
-  font-size: 2.25vw;
+  font-size: clamp(1.3rem, 1rem + 1vw, 2rem);
 }
 
 .SetContent__sciName {
   font-style: italic;
-  font-size: 2vw;
+  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 0.7rem + 1vw, 1.5rem);
   font-weight: 200;
-  margin-bottom: 0.6rem;
 }
 
 .SetContent__wikiText {
   border-top: 0.05rem solid var(--grey-extra-dark);
   padding: 0.6rem 0;
-  max-height: 9rem;
+  flex-basis: 6rem;
+  flex-shrink: 1;
   overflow: scroll;
   margin: 0.6rem 0;
+  font-size: clamp(0.8rem, 0.5rem + 1vw, 1rem);
 }
 
 .SetContent__button {
   background-color: var(--grey-dark);
   color: var(--grey-light);
   margin: auto;
-  padding: 0.6rem 1.8rem;
+  padding: 0.6rem clamp(0.6rem, 0.6rem + 1vw, 1.8rem);
   border: none;
   border-radius: 2rem;
-  font-family: Roboto Mono;
-  font-size: 1rem;
+  font-family: Roboto;
+  font-size: clamp(0.5rem, 0.4rem + 1vw, 1rem);
 }
 
 .SetContent__button:hover {
@@ -152,18 +145,43 @@
 }
 
 .SetContent__image {
-  height: 20.4rem;
-  max-width: 20.4rem;
+  height: 100%;
+  width: clamp(10rem, 8rem + 12vw, 20.4rem);
   object-fit: cover;
   object-position: center;
 }
 
 .SetContent__noImage {
-  height: 20.4rem;
-  width: 20.4rem;
+  height: 100%;
+  width: clamp(10rem, 8rem + 12vw, 20.4rem);
   background-color: var(--grey-medium);
   color: var(--grey-extra-dark);
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 600px) {
+  .SetContent__banner {
+    justify-content: space-between;
+  }
+
+  .SetContent__main {
+    flex-direction: column-reverse;
+    height: fit-content;
+  }
+
+  .SetContent__button {
+    margin: 1.2rem auto;
+  }
+
+  .SetContent__image {
+    height: clamp(10rem, 8rem + 12vw, 20.4rem);
+    width: auto;
+  }
+
+  .SetContent__noImage {
+    height: clamp(10rem, 8rem + 12vw, 20.4rem);
+    width: auto;
+  }
 }
