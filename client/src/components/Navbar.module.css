@@ -13,13 +13,13 @@
   margin-right: auto;
 }
 
-.Navbar__profileContainer {
+.Navbar__menuContainer {
   display: flex;
   justify-content: right;
   margin-left: auto;
 }
 
-.Navbar__profile {
+.Navbar__menuButton {
   position: relative;
   background-color: var(--green);
   color: var(--grey-dark);
@@ -28,10 +28,13 @@
   height: 2.4rem;
   border-radius: 1.2rem;
   font-size: 1.2rem;
-  font-family: Roboto Mono;
+  font-family: Roboto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.Navbar__profile:hover {
+.Navbar__menuButton:hover {
   cursor: pointer;
 }
 
@@ -57,7 +60,7 @@
     display: none;
   }
 
-  .Navbar__profileContainer {
+  .Navbar__menuContainer {
     flex: 0;
   }
 }
@@ -67,7 +70,7 @@
     gap: 0;
   }
 
-  .Navbar__profile.Navbar__profile--hide {
+  .Navbar__menuButton.Navbar__menuButton--hide {
     display: none;
   }
 

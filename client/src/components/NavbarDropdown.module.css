@@ -45,6 +45,10 @@
   text-align: left;
 }
 
+.NavbarDropdown__linkContainer.NavbarDropdown__linkContainer--noTopBorder {
+  border-top: none;
+}
+
 .NavbarDropdown__link {
   color: var(--grey-light);
   text-decoration: none;

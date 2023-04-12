@@ -1,17 +1,17 @@
 import { useState, useContext } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { UserContext } from '../context/UserContext'
 import userService from '../services/userService'
 
 import Searchbar from './Searchbar'
 import { ReactComponent as Logo } from '../assets/logo.svg'
+import { ReactComponent as HamburgerMenu } from '../assets/hamburger-menu.svg'
 import styles from './Navbar.module.css'
 import NavbarDropdown from './NavbarDropdown'
 
 const Navbar = () => {
   const { user, setUser } = useContext(UserContext)
-  const location = useLocation()
   const navigate = useNavigate()
 
   const [menuActive, setMenuActive] = useState(false)
@@ -33,28 +33,23 @@ const Navbar = () => {
         </Link>
         <Searchbar setSearchBarFocused={setSearchBarFocused} user={user} />
         {user
-          ? <div className={styles.Navbar__profileContainer}>
+          ? <div className={styles.Navbar__menuContainer}>
               <button
-                className={searchBarFocused ? `${styles.Navbar__profile} ${styles['Navbar__profile--hide']}` : `${styles.Navbar__profile}`}
+                className={searchBarFocused ? `${styles.Navbar__menuButton} ${styles['Navbar__menuButton--hide']}` : `${styles.Navbar__menuButton}`}
                 onFocus={() => setMenuActive(true)}
                 onBlur={() => setMenuActive(false)}
               >
                 {user.username.charAt(0).toUpperCase()}
               </button>
             </div>
-          : <div className={searchBarFocused ? `${styles.Navbar__linksContainer} ${styles['Navbar__linksContainer--hide']}` : `${styles.Navbar__linksContainer}`}>
-              <Link
-                to='/login'
-                className={`${styles.Navbar__link} ${location.pathname === '/login' ? styles['Navbar__link--active'] : ''}`}
+          : <div className={styles.Navbar__menuContainer}>
+              <button
+                className={searchBarFocused ? `${styles.Navbar__menuButton} ${styles['Navbar__menuButton--hide']}` : `${styles.Navbar__menuButton}`}
+                onFocus={() => setMenuActive(true)}
+                onBlur={() => setMenuActive(false)}
               >
-                Log in
-              </Link>
-              <Link
-                to='/signup'
-                className={`${styles.Navbar__link} ${location.pathname === '/signup' ? styles['Navbar__link--active'] : ''}`}
-              >
-                Sign up
-              </Link>
+                <HamburgerMenu />
+              </button>
             </div>
         }
         </nav>
