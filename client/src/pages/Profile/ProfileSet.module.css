@@ -6,6 +6,7 @@
 .ProfileSet__topSection {
   margin-top: 0.9rem;
   display: flex;
+  gap: 1.2rem;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.2rem;
