@@ -128,6 +128,10 @@
   margin-bottom: 1.2rem;
 }
 
+.SetContent__wikiLink {
+  font-weight: 300;
+}
+
 .SetContent__wikiLink a {
   text-decoration: underline;
   color: var(--grey-extra-dark);
