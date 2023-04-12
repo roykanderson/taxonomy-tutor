@@ -36,7 +36,7 @@ const ProfileSet = () => {
           </span>
           {set.name}
         </div>
-        <div>
+        <div className={styles.ProfileSet__date}>
           Last updated {new Date(set.dateLastUpdated).toLocaleDateString('en-us', { year: 'numeric', month: 'long', day: 'numeric' })}
         </div>
       </div>

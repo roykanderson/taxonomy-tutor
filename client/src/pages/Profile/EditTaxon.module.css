@@ -123,13 +123,13 @@
 }
 
 .EditTaxonSuggestions__commonName {
-  font-style: italic;
-  opacity: 70%;
+  font-weight: 300;
 }
 
 .EditTaxonSuggestions__sciName {
   font-style: italic;
-  opacity: 70%;
+  font-weight: 200;
+  font-size: 90%;
 }
 
 @media (max-width: 500px) {

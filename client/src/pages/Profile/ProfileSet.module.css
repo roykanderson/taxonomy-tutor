@@ -13,8 +13,10 @@
   border-bottom: 0.1rem solid var(--grey);
 }
 
-.ProfileSet__topSection div:nth-child(2) {
+.ProfileSet__date {
   color: var(--grey-light);
+  font-weight: 300;
+  font-size: 1rem;
 }
 
 .ProfileSet__usernameTitle {
@@ -78,6 +80,10 @@
     align-items: flex-start;
     gap: 0.6rem;
     margin-bottom: clamp(0.6rem, 0.6rem + 1vw, 1.2rem);
+  }
+
+  .ProfileSet__date {
+    font-size: clamp(0.7rem, 0.7rem + 1vw, 1rem);
   }
 
   .ProfileSet__options {
