@@ -49,7 +49,7 @@ const SetContent = () => {
   if (taxa.length === 0) {
     return (
       <div className={styles.SetContentNoSpecies}>
-        Looks like this study set is empty! Click the "Edit" button to add species.
+        It looks like this study set is empty! Click "Edit" to add species.
       </div>
     )
   }

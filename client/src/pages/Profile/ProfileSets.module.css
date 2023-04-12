@@ -9,6 +9,9 @@
   display: flex;
   justify-content: center;
   color: var(--grey-light);
+  font-weight: 300;
+  font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
+  text-align: center;
 }
 
 .ProfileSets__set {

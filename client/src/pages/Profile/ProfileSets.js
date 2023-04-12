@@ -25,7 +25,7 @@ const ProfileSets = () => {
   else if (data.length === 0) {
     return (
       <div className={styles.ProfileSets__noSets}>
-        It looks like you haven't created any study sets yet. Now's the perfect time to start!
+        It looks like you haven't created any study sets yet! Click "Create new set" to start.
       </div>
     )
   }
