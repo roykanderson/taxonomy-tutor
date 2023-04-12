@@ -19,7 +19,7 @@
 
 .ProfileSet__usernameTitle {
   color: var(--green);
-  font-size: 1.875rem;
+  font-size: clamp(1.4rem, 1.4rem + 1vw, 1.875rem);
 }
 
 .ProfileSet__backLink {
@@ -50,7 +50,7 @@
   border-radius: 2rem;
   color: var(--grey-light);
   font-size: 1.1rem;
-  font-family: Roboto Mono;
+  font-family: Roboto;
   font-weight: 300;
   padding: 0.438rem 0.876rem;
 }
@@ -66,4 +66,25 @@
 
 .ProfileSet__optionLink {
   color: var(--grey-light);
+}
+
+@media (max-width: 700px) {
+  .ProfileSet {
+    margin: 1.2rem auto;
+  }
+
+  .ProfileSet__topSection {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: clamp(0.6rem, 0.6rem + 1vw, 1.2rem);
+  }
+
+  .ProfileSet__options {
+    margin-bottom: clamp(0.6rem, 0.6rem + 1vw, 1.2rem);
+  }
+
+  .ProfileSet__button {
+    font-size: clamp(0.5rem, 0.4rem + 2vw, 1.1rem);
+  }
 }

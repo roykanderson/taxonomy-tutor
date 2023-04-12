@@ -1,5 +1,7 @@
 import { useState } from "react"
 import taxaService from "../../services/taxaService"
+import toTitleCase from "../../utils/toTitleCase"
+import firstCharToUpper from "../../utils/firstCharToUpper"
 
 import styles from './EditAdd.module.css'
 
@@ -39,16 +41,18 @@ const EditAdd = ({ selectedTaxa, setSelectedTaxa, checkForTaxaChanges }) => {
               onChange={handleInputChange}
             />
             <ul className={styles.EditAddSuggestions}>
-              {suggestions && suggestions.map(suggestion =>
+              {suggestions && suggestions.map((suggestion, index) =>
                 <li key={suggestion.id} className={styles.EditAddSuggestions__suggestion} onMouseDown={handleSuggestionClick} data-id={suggestion.id}>
                   {suggestion.default_photo &&
                     <img className={styles.EditAddSuggestions__image} src={suggestion.default_photo.url} alt={suggestion.preferred_common_name} data-id={suggestion.id} />
                   }
-                  <div data-id={suggestion.id}>
-                    {suggestion.preferred_common_name}
-                  </div>
-                  <div className={styles.EditAddSuggestions__sciName} data-id={suggestion.id}>
-                    {suggestion.name}
+                  <div className={styles.EditAddSuggestions__namesContainer} data-id={suggestion.id}>
+                    <div className={styles.EditAddSuggestions__commonName} data-id={suggestion.id} index={index}>
+                      {toTitleCase(suggestion.preferred_common_name)}
+                    </div>
+                    <div className={styles.EditAddSuggestions__sciName} data-id={suggestion.id} index={index}>
+                      {firstCharToUpper(suggestion.name)}
+                    </div>
                   </div>
                 </li>
               )}

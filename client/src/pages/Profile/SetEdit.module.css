@@ -13,7 +13,7 @@
 .SetEdit__deleteButton {
   background-color: var(--grey-extra-dark);
   color: var(--red);
-  font-family: Roboto Mono;
+  font-family: Roboto;
   font-size: 1.2rem;
   font-weight: 500;
   min-width: 15%;
@@ -32,7 +32,7 @@
 .SetEdit__submit {
   background-color: var(--green);
   color: var(--grey-extra-dark);
-  font-family: Roboto Mono;
+  font-family: Roboto;
   font-size: 1.2rem;
   font-weight: 500;
   min-width: 15%;
@@ -56,4 +56,14 @@
 .SetEdit__submit.SetEdit__submit--inactive:hover {
   cursor: default;
   opacity: 100%;
+}
+
+@media (max-width: 700px) {
+  .SetEdit__buttons {
+    justify-content: center;
+  }
+
+  .SetEdit__deleteButton, .SetEdit__deleteButton {
+    font-size: 1rem;
+  }
 }

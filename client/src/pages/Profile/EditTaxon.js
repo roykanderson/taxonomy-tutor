@@ -84,11 +84,13 @@ const EditTaxon = ({ selectedTaxa, setSelectedTaxa, index, checkForTaxaChanges }
             {suggestion.default_photo &&
               <img className={styles.EditTaxonSuggestions__image} src={suggestion.default_photo.url} alt={suggestion.preferred_common_name} data-id={suggestion.id} />
             }
-            <div data-id={suggestion.id}>
-              {suggestion.preferred_common_name}
-            </div>
-            <div className={styles.EditTaxonSuggestions__sciName} data-id={suggestion.id}>
-              {suggestion.name}
+            <div className={styles.EditTaxonSuggestions__namesContainer}>
+              <div className={styles.EditTaxonSuggestions__commonName} data-id={suggestion.id}>
+                {suggestion.preferred_common_name}
+              </div>
+              <div className={styles.EditTaxonSuggestions__sciName} data-id={suggestion.id}>
+                {suggestion.name}
+              </div>
             </div>
           </li>
         )}
