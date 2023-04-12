@@ -25,8 +25,15 @@ const Species = () => {
         <div>
           <section className={styles.Species__titleSection}>
             <div className={styles.Species__namesContainer}>
-              <div className={styles.Species__commonName}>{taxon.preferred_common_name}</div>
-              <div className={styles.Species__sciName}>{taxon.name}</div>
+              <div className={styles.Species__commonName}>
+                {taxon.preferred_common_name
+                  ? taxon.preferred_common_name
+                  : taxon.name
+                }
+              </div>
+              <div className={styles.Species__sciName}>
+                {taxon.name}
+              </div>
             </div>
             {user &&
               <button className={styles.Species__addButton} onClick={() => setShowModal(true)}>

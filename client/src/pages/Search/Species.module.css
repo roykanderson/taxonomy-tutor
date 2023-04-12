@@ -98,6 +98,7 @@
 
 .Species__noImage {
   width: clamp(12rem, 10rem + 15vw, 24rem);
+  height: clamp(12rem, 10rem + 15vw, 24rem);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -139,6 +140,6 @@
 
   .Species__noImage {
     order: -1;
-    width: clamp(12rem, 10rem + 15vw, 24rem);
+    margin: auto;
   }
 }
