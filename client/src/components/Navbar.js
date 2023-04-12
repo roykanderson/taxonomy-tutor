@@ -17,10 +17,6 @@ const Navbar = () => {
   const [menuActive, setMenuActive] = useState(false)
   const [searchBarFocused, setSearchBarFocused] = useState(false)
 
-  const handleNavigateToProfile = () => {
-    navigate('/profile')
-  }
-
   const handleLogOut = () => {
     setUser(null)
     setMenuActive(false)
@@ -63,7 +59,7 @@ const Navbar = () => {
         }
         </nav>
         {menuActive &&
-          <NavbarDropdown user={user} handleNavigateToProfile={handleNavigateToProfile} handleLogOut={handleLogOut}/>
+          <NavbarDropdown user={user} handleLogOut={handleLogOut}/>
         }
     </header>
   )

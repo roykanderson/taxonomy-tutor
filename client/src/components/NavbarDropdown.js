@@ -1,8 +1,10 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import styles from './NavbarDropdown.module.css'
 
-const NavbarDropdown = ({ user, handleNavigateToProfile, handleLogOut }) => {
+const NavbarDropdown = ({ user, handleLogOut }) => {
+  const navigate = useNavigate()
+
   return (
     <div className={styles.NavbarDropdown}>
       <div className={styles.NavbarDropdown__userContainer}>
@@ -14,7 +16,10 @@ const NavbarDropdown = ({ user, handleNavigateToProfile, handleLogOut }) => {
         </div>
       </div>
       <div className={styles.NavbarDropdown__linkContainer}>
-        <Link className={styles.NavbarDropdown__link} to='/profile' onMouseDown={handleNavigateToProfile}>My species sets</Link>
+        <Link className={styles.NavbarDropdown__link} to='/' onMouseDown={() => navigate('/')}>Home</Link>
+      </div>
+      <div className={styles.NavbarDropdown__linkContainer}>
+        <Link className={styles.NavbarDropdown__link} to='/profile' onMouseDown={() => navigate('/profile')}>My species sets</Link>
       </div>
       <div className={styles.NavbarDropdown__linkContainer}>
         <Link className={styles.NavbarDropdown__link} to='/' onMouseDown={handleLogOut}>Log out</Link>
