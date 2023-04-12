@@ -33,6 +33,10 @@ usersRouter.post('/', async (req, res) => {
     return res.status(400).json({ message: 'Username must contain only alphanumeric characters.' })
   }
 
+  if (username.length < 3) {
+    return res.status(400).json({ message: 'Username must be at least 3 characters.' })
+  }
+
   // Ensure password is valid
   if (!helpers.doesNotContainSpaces(password)) {
     return res.status(400).json({ message: 'Password must not contain any spaces.' })
