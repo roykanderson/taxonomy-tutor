@@ -101,11 +101,19 @@ const SetContent = () => {
                   {taxa[set.idIndices[array[index]]].name}
                 </div>
               </div>
-              <div className={styles.SetContent__wikiText}>
-                {taxa[set.idIndices[array[index]]].wikiSummary
-                  ? taxa[set.idIndices[array[index]]].wikiSummary
-                  : <>No Wikipedia information available.</>
-                }
+              <div className={styles.SetContent__wikiContainer}>
+                <p className={styles.SetContent__wikiText}>
+                  {taxa[set.idIndices[array[index]]].wikiSummary
+                    ? taxa[set.idIndices[array[index]]].wikiSummary
+                    : 'No Wikipedia information available.'
+                  }
+                </p>
+                <p className={styles.SetContent__wikiLink}>
+                  {taxa[set.idIndices[array[index]]].wikiSummary
+                    ? <>Information from <a href={taxa[set.idIndices[array[index]]].wikipedia_url}>Wikipedia</a></>
+                    : ''
+                  }
+                </p>
               </div>
               <button
                 className={`${styles.SetContent__button} ${styles['SetContent__button--hide']}`}

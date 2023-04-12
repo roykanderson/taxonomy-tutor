@@ -114,7 +114,7 @@
   font-weight: 200;
 }
 
-.SetContent__wikiText {
+.SetContent__wikiContainer {
   border-top: 0.05rem solid var(--grey-extra-dark);
   padding: 0.6rem 0;
   flex-basis: 6rem;
@@ -122,6 +122,19 @@
   overflow: scroll;
   margin: 0.6rem 0;
   font-size: clamp(0.8rem, 0.5rem + 1vw, 1rem);
+}
+
+.SetContent__wikiText {
+  margin-bottom: 1.2rem;
+}
+
+.SetContent__wikiLink a {
+  text-decoration: underline;
+  color: var(--grey-extra-dark);
+}
+
+.SetContent__wikiLink a:hover {
+  color: var(--green-dark);
 }
 
 .SetContent__button {
