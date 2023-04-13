@@ -4,11 +4,6 @@
   padding: clamp(1.8rem, 1.8rem + 1vw, 3rem) 0;
 }
 
-.Home__flexContainer {
-  background-color: var(--grey-extra-dark);
-  padding: 1.2rem;
-}
-
 .Home__heading {
   color: var(--green);
   font-family: Roboto Mono;
@@ -76,6 +71,5 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 0 1.2rem 1.2rem 1.2rem;
   }
 }
