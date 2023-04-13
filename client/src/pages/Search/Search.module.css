@@ -3,7 +3,6 @@
   min-width: 80%;
   margin: auto;
   padding: 2.4rem;
-  min-height: calc(100vh - 7.2rem);
 }
 
 .Search__summary {
