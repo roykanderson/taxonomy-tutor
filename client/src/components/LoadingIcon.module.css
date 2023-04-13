@@ -15,6 +15,14 @@
   animation: spin 0.8s linear infinite;
 }
 
+.LoadingIcon__spinner.LoadingIcon__spinner--small {
+  width: 0.6rem;
+  height: 0.6rem;
+  margin: 0;
+  border: 0.2rem solid;
+  border-color: var(--green) var(--green) var(--green) transparent;
+}
+
 @keyframes spin {
   0% {
       transform: rotate(0deg);
