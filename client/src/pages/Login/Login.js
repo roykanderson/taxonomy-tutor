@@ -22,8 +22,7 @@ const Login = () => {
     <div className={styles.Login}>
       <div className={styles.Login__display}>
         <div>
-          <p>Study every species in the world.</p>
-          <p>All in one place.</p>
+          <p>Study every species in the world, all in one place.</p>
         </div>
       </div>
       <div className={styles.Login__container}>

@@ -25,8 +25,7 @@ const Signup = () => {
     <div className={styles.Signup}>
       <div className={styles.Signup__display}>
         <div>
-          <p>Study every species in the world.</p>
-          <p>All in one place.</p>
+          <p>Study every species in the world, all in one place.</p>
         </div>
       </div>
       <div className={styles.Signup__container}>
