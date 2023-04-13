@@ -23,13 +23,13 @@ const Home = () => {
           Search for any species
         </h2>
         <p className={styles.Home__paragraph}>
-          Taxonomy Tutor utilizes iNaturalist.org's API to search for and catalog species. If you can find it on iNaturalist, then you can add it to your study sets on Taxonomy Tutor!
+          Taxonomy Tutor utilizes the <a className={styles.Home__link} href='https://api.inaturalist.org/v1/docs/'>iNaturalist API</a> to search for and catalog species. If you can find it on iNaturalist, then you can add it to your study sets on Taxonomy Tutor!
         </p>
         <h2 className={styles.Home__subheading}>
           Learn as you go
         </h2>
         <p className={styles.Home__paragraph}>
-          Taxonomy Tutor also utilizes the MediaWiki API to provide short descriptions from each species' Wikipedia article. When a species really sparks your interest, follow the link to its Wikipedia page to learn more!
+          Taxonomy Tutor also utilizes the <a className={styles.Home__link} href='https://www.mediawiki.org/wiki/API:Main_page'>MediaWiki API</a> to provide short descriptions from each species' Wikipedia article. When a species really sparks your interest, follow the link to its Wikipedia page to learn more!
         </p>
       </section>
       {!user &&

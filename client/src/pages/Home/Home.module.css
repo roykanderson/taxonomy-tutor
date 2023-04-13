@@ -32,6 +32,16 @@
   order: 1;
 }
 
+.Home__link {
+  color: var(--grey-medium-light);
+  text-decoration: underline;
+}
+
+.Home__link:hover {
+  color: var(--green);
+  cursor: pointer;
+}
+
 .Home__callToAction {
   max-width: fit-content;
   margin: 1.2rem auto 0 auto;
