@@ -32,7 +32,8 @@
 }
 
 .NavbarDropdown__username {
-  font-size: 0.75rem;
+  font-size: 1rem;
+  font-weight: 300;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
