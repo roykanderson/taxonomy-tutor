@@ -25,8 +25,8 @@ const ModalAdd = ({ activeSet, title, setShowModal, taxon, data, error, setError
 
   if (updateSetFromSearch.isLoading || createSetFromSearch.isLoading) {
     return (
-      <button className={styles.ModalAdd}>
-        <LoadingIcon />
+      <button className={`${styles.ModalAdd} ${styles['ModalAdd--active']}`}>
+        <LoadingIcon size='small' />
       </button>
     )
   }

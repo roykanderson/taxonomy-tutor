@@ -18,7 +18,7 @@
   width: 0.6rem;
   height: 0.6rem;
   margin: 0;
-  border: 0.2rem solid;
+  border: 0.05rem solid;
 }
 
 .ModalAdd.ModalAdd--active:hover {
