@@ -35,7 +35,13 @@ const getWikiSummary = async (url) => {
     const response = await axios.get(link)
     const extract = Object.values(response.data.query.pages)[0].extract
     const [rawSummary] = extract.match(/^.*/)
-    const cleanSummary = rawSummary.replace(/\(\)/g, '')
+    const cleanSummary = rawSummary
+      .replace(/\(\)/g, '')
+      .replace(/\.\w/g, (match) => {
+        return match
+          .split('.')
+          .join ('. ')
+      })
 
     return cleanSummary
   }
