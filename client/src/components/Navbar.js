@@ -36,9 +36,9 @@ const Navbar = () => {
           ? <div className={styles.Navbar__menuContainer}>
               <button
                 className={searchBarFocused ? `${styles.Navbar__menuButton} ${styles['Navbar__menuButton--hide']}` : `${styles.Navbar__menuButton}`}
-                onClick={() => this.focus()}
                 onFocus={() => setMenuActive(true)}
                 onBlur={() => setMenuActive(false)}
+                onClick={({ target }) => target.focus()}
               >
                 {user.username.charAt(0).toUpperCase()}
               </button>
@@ -46,9 +46,9 @@ const Navbar = () => {
           : <div className={styles.Navbar__menuContainer}>
               <button
                 className={searchBarFocused ? `${styles.Navbar__menuButton} ${styles['Navbar__menuButton--hide']}` : `${styles.Navbar__menuButton}`}
-                onClick={() => this.focus()}
                 onFocus={() => setMenuActive(true)}
                 onBlur={() => setMenuActive(false)}
+                onClick={({ target }) => target.focus()}
               >
                 <HamburgerMenu />
               </button>
