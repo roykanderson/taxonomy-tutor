@@ -6,7 +6,7 @@ import userService from '../services/userService'
 
 import Searchbar from './Searchbar'
 import { ReactComponent as Logo } from '../assets/logo.svg'
-import { ReactComponent as HamburgerMenu } from '../assets/hamburger-menu.svg'
+import { default as hamburgerMenu } from '../assets/hamburger-menu.svg'
 import styles from './Navbar.module.css'
 import NavbarDropdown from './NavbarDropdown'
 
@@ -38,7 +38,7 @@ const Navbar = () => {
                 className={searchBarFocused ? `${styles.Navbar__menuButton} ${styles['Navbar__menuButton--hide']}` : `${styles.Navbar__menuButton}`}
                 onFocus={() => setMenuActive(true)}
                 onBlur={() => setMenuActive(false)}
-                onClick={({ target }) => target.focus()}
+                onClick={({ target }) => target.focus()} // Ensure that focus event fires on mobile devices
               >
                 {user.username.charAt(0).toUpperCase()}
               </button>
@@ -48,9 +48,9 @@ const Navbar = () => {
                 className={searchBarFocused ? `${styles.Navbar__menuButton} ${styles['Navbar__menuButton--hide']}` : `${styles.Navbar__menuButton}`}
                 onFocus={() => setMenuActive(true)}
                 onBlur={() => setMenuActive(false)}
-                onClick={({ target }) => target.focus()}
+                onClick={({ target }) => target.focus()} // Ensure that focus event fires on mobile devices
               >
-                <HamburgerMenu />
+                <img src={hamburgerMenu} alt='menu icon' />
               </button>
             </div>
         }
