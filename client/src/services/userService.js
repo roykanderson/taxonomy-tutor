@@ -1,8 +1,8 @@
 import axios from 'axios'
 
-const SIGNUP_URL = 'http://localhost:3001/api/users'
-const LOGIN_URL = 'http://localhost:3001/api/login'
-const SETS_URL = 'http://localhost:3001/api/sets'
+const SIGNUP_URL = '/api/users'
+const LOGIN_URL = '/api/login'
+const SETS_URL = '/api/sets'
 
 let token = null
 

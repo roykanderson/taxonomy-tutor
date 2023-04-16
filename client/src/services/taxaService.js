@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 // Base url for fetching iNat observations
-const TAXA_URL = 'http://localhost:3001/api/taxa'
+const TAXA_URL = '/api/taxa'
 const SUGGESTION_URL = 'https://api.inaturalist.org/v1/taxa/autocomplete'
 const WIKI_URL = 'https://en.wikipedia.org/w/api.php'
 
