@@ -36,6 +36,7 @@ const Navbar = () => {
           ? <div className={styles.Navbar__menuContainer}>
               <button
                 className={searchBarFocused ? `${styles.Navbar__menuButton} ${styles['Navbar__menuButton--hide']}` : `${styles.Navbar__menuButton}`}
+                onClick={() => this.focus()}
                 onFocus={() => setMenuActive(true)}
                 onBlur={() => setMenuActive(false)}
               >
@@ -45,6 +46,7 @@ const Navbar = () => {
           : <div className={styles.Navbar__menuContainer}>
               <button
                 className={searchBarFocused ? `${styles.Navbar__menuButton} ${styles['Navbar__menuButton--hide']}` : `${styles.Navbar__menuButton}`}
+                onClick={() => this.focus()}
                 onFocus={() => setMenuActive(true)}
                 onBlur={() => setMenuActive(false)}
               >
