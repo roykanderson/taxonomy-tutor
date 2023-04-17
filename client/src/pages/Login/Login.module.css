@@ -82,9 +82,8 @@
 }
 
 .Login__submit:hover {
+  opacity: 80%;
   cursor: pointer;
-  background-color: var(--green);
-  color: var(--green-dark);
 }
 
 @media (max-width: 700px) {
