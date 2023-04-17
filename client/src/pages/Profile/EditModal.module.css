@@ -32,7 +32,7 @@
 
 .EditModal__button {
   background-color: var(--grey-extra-dark);
-  color: var(--grey-light);
+  color: var(--green);
   font-family: Roboto;
   font-size: 1rem;
   font-weight: 500;
