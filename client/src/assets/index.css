@@ -43,6 +43,7 @@ body {
 
 input {
   border-radius: 0;
+  padding: 0;
 }
 
 /* Disable autofill after form submission */

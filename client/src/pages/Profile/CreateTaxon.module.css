@@ -142,7 +142,7 @@
   }
 
   .CreateTaxon__input {
-    font-size: clamp(0.8rem, 0.7rem + 1vw, 1.125rem);
+    font-size: clamp(1rem, 0.7rem + 1vw, 1.125rem);
   }
 
   .CreateTaxon__sciName {
