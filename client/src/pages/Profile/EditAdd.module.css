@@ -30,7 +30,6 @@
 
 .EditAdd.EditAdd--active:focus {
   outline: none;
-  border-bottom: 0.12rem solid var(--green);
 }
 
 .EditAddSuggestions {

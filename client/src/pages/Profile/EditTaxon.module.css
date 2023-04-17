@@ -75,7 +75,8 @@
   background-color: var(--grey-extra-dark);
   color: var(--grey-light);
   font-family: Roboto;
-  font-size: 0.8rem;
+  font-size: 1rem;
+  font-weight: 500;
   border: none;
   border-radius: 1.2rem;
   margin-right: 0.6rem;

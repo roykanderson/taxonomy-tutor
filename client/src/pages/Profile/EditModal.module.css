@@ -11,7 +11,7 @@
 }
 
 .EditModal__container {
-  width: 60%;
+  width: fit-content;
   margin: auto;
   padding: 1.2rem 2.4rem;
   background-color: var(--grey-light);
@@ -27,14 +27,15 @@
 .EditModal__buttons {
   display: flex;
   gap: 1.2rem;
+  justify-content: center;
 }
 
 .EditModal__button {
   background-color: var(--grey-extra-dark);
   color: var(--grey-light);
-  font-family: Roboto Mono;
-  font-size: 1.1rem;
-  font-weight: 400;
+  font-family: Roboto;
+  font-size: 1rem;
+  font-weight: 500;
   min-width: 15%;
   height: 2.4rem;
   border: none;

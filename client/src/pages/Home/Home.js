@@ -34,10 +34,9 @@ const Home = () => {
       </section>
       {!user &&
         <section className={styles.Home__callToAction}>
-          Create an account to get started!
           <Link className={styles.Home__link} to='/signup'>
             <button className={styles.Home__button}>
-              Sign up
+              Create an account to get started!
             </button>
           </Link>
         </section>

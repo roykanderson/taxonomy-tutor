@@ -59,12 +59,14 @@
 
 .Home__button {
   border: none;
-  border-radius: 3rem;
+  border-radius: 2.4rem;
+  min-height: 2.4rem;
   background-color: var(--green);
   color: var(--grey-extra-dark);
   padding: 0.6rem 1.2rem;
-  font-size: clamp(1rem, 0.9rem + 1vw, 1.1rem);
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: Roboto;
 }
 
 .Home__button:hover {
