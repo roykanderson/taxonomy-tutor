@@ -1,6 +1,7 @@
 import { useState } from "react"
 
 import taxaService from "../../services/taxaService"
+import { ReactComponent as RemoveIcon } from '../../assets/remove-icon.svg'
 
 import styles from './CreateTaxon.module.css'
 
@@ -69,7 +70,9 @@ const CreateTaxon = ({ taxa, setTaxa, index }) => {
           }
         </div>
         <button className={styles.CreateTaxon__removeButton} onClick={handleRemove}>
-          Remove
+          <div>
+            <RemoveIcon />
+          </div>
         </button>
       </div>
       <ul className={styles.CreateTaxonSuggestions}>

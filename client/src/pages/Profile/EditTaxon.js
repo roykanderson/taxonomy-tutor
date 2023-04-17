@@ -2,6 +2,7 @@ import { useState } from "react"
 
 import taxaService from "../../services/taxaService"
 
+import { ReactComponent as RemoveIcon } from '../../assets/remove-icon.svg'
 import styles from './EditTaxon.module.css'
 
 const EditTaxon = ({ selectedTaxa, setSelectedTaxa, index, checkForTaxaChanges }) => {
@@ -75,7 +76,7 @@ const EditTaxon = ({ selectedTaxa, setSelectedTaxa, index, checkForTaxaChanges }
           }
         </div>
         <button className={styles.EditTaxon__removeButton} onClick={handleRemove}>
-          Remove
+          <RemoveIcon />
         </button>
       </div>
       <ul className={styles.EditTaxonSuggestions}>

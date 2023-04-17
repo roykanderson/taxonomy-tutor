@@ -64,22 +64,20 @@
 }
 
 .EditTaxon__sciName {
-  font-weight: 200;
+  width: 100%;
+  font-weight: 300;
   font-size: 1rem;
   font-style: italic;
-  opacity: 80%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .EditTaxon__removeButton {
-  padding: 0.6rem 1.2rem;
-  background-color: var(--grey-extra-dark);
-  color: var(--grey-light);
-  font-family: Roboto;
-  font-size: 1rem;
-  font-weight: 500;
+  background-color: transparent;
+  padding: 0;
   border: none;
-  border-radius: 1.2rem;
-  margin-right: 0.6rem;
+  margin-right: clamp(0.6rem, 0.6rem + 1vw, 1.2rem);
 }
 
 .EditTaxon__removeButton:hover {
@@ -97,6 +95,7 @@
   background-color: var(--grey-extra-dark);
   color: var(--grey-light);
   font-weight: 300;
+  font-size: 1rem;
   border-bottom: 0.08rem solid var(--grey);
   display: flex;
   align-items: center;
@@ -134,10 +133,6 @@
 }
 
 @media (max-width: 500px) {
-  .EditTaxon__info {
-    padding-right: 0.6rem;
-  }
-
   .EditTaxon__index {
     font-size: clamp(0.5rem, 0.5rem + 1vw, 0.875rem);
   }
@@ -148,15 +143,6 @@
 
   .EditTaxon__sciName {
     font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
-  }
-
-  .EditTaxon__removeButton {
-    position: absolute;
-    top: 0.2rem;
-    right: 0.2rem;
-    margin-right: 0;
-    padding: 0.2rem 0.5rem;
-    font-size: clamp(0.5rem, 0.4rem + 1vw, 0.7rem);
   }
 
   .EditTaxonSuggestions {

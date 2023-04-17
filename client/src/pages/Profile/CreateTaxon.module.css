@@ -64,26 +64,31 @@
 }
 
 .CreateTaxon__sciName {
-  font-weight: 200;
+  width: 100%;
+  font-weight: 300;
   font-size: 1rem;
   font-style: italic;
-  opacity: 80%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .CreateTaxon__removeButton {
-  padding: 0.6rem 1.2rem;
-  background-color: var(--grey-extra-dark);
-  color: var(--grey-light);
-  font-family: Roboto;
-  font-size: 0.8rem;
+  background-color: transparent;
+  padding: 0;
   border: none;
-  border-radius: 1.2rem;
-  margin-right: 0.6rem;
+  margin-right: clamp(0.6rem, 0.6rem + 1vw, 1.2rem);
 }
 
 .CreateTaxon__removeButton:hover {
   opacity: 80%;
   cursor: pointer;
+}
+
+.CreateTaxon__removeButton div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .CreateTaxonSuggestions {
@@ -96,6 +101,7 @@
   background-color: var(--grey-extra-dark);
   color: var(--grey-light);
   font-weight: 300;
+  font-size: 1rem;
   border-bottom: 0.08rem solid var(--grey);
   display: flex;
   align-items: center;
@@ -133,10 +139,6 @@
 }
 
 @media (max-width: 500px) {
-  .CreateTaxon__info {
-    padding-right: 0.6rem;
-  }
-
   .CreateTaxon__index {
     font-size: clamp(0.5rem, 0.5rem + 1vw, 0.875rem);
   }
@@ -147,15 +149,6 @@
 
   .CreateTaxon__sciName {
     font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
-  }
-
-  .CreateTaxon__removeButton {
-    position: absolute;
-    top: 0.2rem;
-    right: 0.2rem;
-    margin-right: 0;
-    padding: 0.2rem 0.5rem;
-    font-size: clamp(0.5rem, 0.4rem + 1vw, 0.7rem);
   }
 
   .CreateTaxonSuggestions {
