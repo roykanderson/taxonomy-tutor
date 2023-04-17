@@ -23,7 +23,7 @@
 }
 
 .Profile__username {
-  color: var(--white);
+  color: var(--grey-extra-light);
   font-size: 1.875rem;
 }
 
