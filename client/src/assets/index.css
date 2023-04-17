@@ -41,6 +41,10 @@ body {
   background-color: var(--grey-dark);
 }
 
+input {
+  border-radius: 0;
+}
+
 /* Disable autofill after form submission */
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
@@ -56,8 +60,18 @@ img {
   max-width: 100%;
 }
 
+button {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .Content {
   flex: 1 0 auto;
+}
+
+::placeholder {
+  opacity: 0.6;
+  color: var(--grey-extra-dark);
 }
 
 /*
