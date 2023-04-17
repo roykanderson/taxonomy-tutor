@@ -1,12 +1,12 @@
 .SearchResult {
-  background-color: var(--grey-light);
+  background-color: var(--grey-extra-dark);
   max-width: 14rem;
   text-decoration: none;
-  color: var(--grey-extra-dark);
+  color: var(--grey-extra-light);
 }
 
-.SearchResult:hover .SearchResult__image {
-  opacity: 80%;
+.SearchResult:hover, .SearchResult:active {
+  filter: brightness(1.1);
 }
 
 .SearchResult__image {
@@ -28,22 +28,24 @@
 }
 
 .SearchResult__namesContainer {
-  padding: 0.625rem;
+  padding: 1.2rem;
 }
 
 .SearchResult__commonName {
-  font-size: 1.375rem;
+  font-size: 1rem;
+  font-weight: 500;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2; /* number of lines to show */
   -webkit-box-orient: vertical;
-  margin-bottom: 0.625rem;
+  margin-bottom: 0.3rem;
 }
 
 .SearchResult__sciName {
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-style: italic;
+  font-weight: 300;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -51,17 +53,25 @@
 
 @media (max-width: 829px) {
   .SearchResult {
-    max-width: clamp(8rem, 7.5rem + 2vw, 14rem);
+    max-width: 33.33vw;
+  }
+
+  .SearchResult:nth-child(6n + 2), .SearchResult:nth-child(6n + 4), .SearchResult:nth-child(6n) {
+    background-color: var(--grey-medium-dark);
+  }
+  
+  .SearchResult:nth-child(6n + 1), .SearchResult:nth-child(6n + 3), .SearchResult:nth-child(6n + 5) {
+    background-color: var(--grey-extra-dark);
   }
 
   .SearchResult__image {
-    width: clamp(8rem, 7.5rem + 2vw, 14rem);
-    height: clamp(8rem, 7.5rem + 2vw, 14rem);
+    width: 33.33vw;
+    height: 33.33vw;
   }
 
   .SearchResult__noImage {
-    width: clamp(8rem, 7.5rem + 2vw, 14rem);
-    height: clamp(8rem, 7.5rem + 2vw, 14rem);
+    width: 33.33vw;
+    height: 33.33vw;
     font-size: 0.8rem;
   }
 
@@ -71,5 +81,30 @@
 
   .SearchResult__sciName {
     font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .SearchResult {
+    max-width: 50vw;
+  }
+
+  .SearchResult:nth-child(4n + 2), .SearchResult:nth-child(4n + 3) {
+    background-color: var(--grey-medium-dark);
+  }
+  
+  .SearchResult:nth-child(4n + 1), .SearchResult:nth-child(4n) {
+    background-color: var(--grey-extra-dark);
+  }
+
+  .SearchResult__image {
+    width: 50vw;
+    height: 50vw;
+  }
+
+  .SearchResult__noImage {
+    width: 50vw;
+    height: 50vw;
+    font-size: 0.8rem;
   }
 }
