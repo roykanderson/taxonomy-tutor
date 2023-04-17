@@ -3,6 +3,12 @@
   margin: 2.4rem auto;
 }
 
+.ProfileSet__backLink {
+  color: var(--green);
+  font-weight: 300;
+  font-size: 1rem;
+}
+
 .ProfileSet__topSection {
   margin-top: 0.9rem;
   display: flex;
@@ -20,14 +26,9 @@
   font-size: 1rem;
 }
 
-.ProfileSet__usernameTitle {
-  color: var(--green);
+.ProfileSet__title {
+  color: var(--grey-extra-light);
   font-size: clamp(1.4rem, 1.4rem + 1vw, 1.875rem);
-}
-
-.ProfileSet__backLink {
-  color: var(--grey-light);
-  font-weight: 300;
 }
 
 .ProfileSet__backLink:hover {
