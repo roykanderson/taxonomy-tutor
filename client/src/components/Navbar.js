@@ -6,7 +6,7 @@ import userService from '../services/userService'
 
 import Searchbar from './Searchbar'
 import { ReactComponent as Logo } from '../assets/logo.svg'
-import HamburgerMenu from '../assets/hamburger-menu.svg'
+import { ReactComponent as HamburgerMenu } from '../assets/hamburger-menu.svg'
 import styles from './Navbar.module.css'
 import NavbarDropdown from './NavbarDropdown'
 
@@ -50,7 +50,9 @@ const Navbar = () => {
                 onBlur={() => setMenuActive(false)}
                 onClick={({ target }) => target.focus()} // Ensure that focus event fires on mobile devices
               >
-                <img src={HamburgerMenu} alt="Menu icon" />
+                <div>
+                  <HamburgerMenu />
+                </div>
               </button>
             </div>
         }

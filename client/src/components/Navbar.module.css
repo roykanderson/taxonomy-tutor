@@ -14,13 +14,10 @@
 }
 
 .Navbar__menuContainer {
-  display: flex;
-  justify-content: right;
   margin-left: auto;
 }
 
 .Navbar__menuButton {
-  position: relative;
   background-color: var(--green);
   color: var(--grey-dark);
   border: none;
@@ -38,21 +35,8 @@
   cursor: pointer;
 }
 
-.Navbar__linksContainer {
-  display: flex;
-  justify-content: right;
-  gap: clamp(1.2rem, 0.6rem + 2vw, 2.4rem);
-  margin-left: auto;
-}
-
-.Navbar__link {
-  color: var(--grey-light);
-  text-decoration: none;
-  font-size: clamp(0.75rem, 0.4rem + 2vw, 1rem);
-}
-
-.Navbar__link--active {
-  color: var(--green);
+.Navbar__menuButton > * {
+  pointer-events: none;
 }
 
 @media (max-width: 700px) {
