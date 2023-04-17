@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.44db2b9c.css",
-    "main.js": "/static/js/main.9abd89dd.js",
+    "main.css": "/static/css/main.d90958c3.css",
+    "main.js": "/static/js/main.7500087d.js",
     "static/media/logo.svg": "/static/media/logo.41f5e0741a91a1f0cb12c3aa98dd728b.svg",
     "index.html": "/index.html",
+    "static/media/hamburger-menu.svg": "/static/media/hamburger-menu.9e4995cd4b4248305618e6fe7cba9573.svg",
     "static/media/search-icon.svg": "/static/media/search-icon.b2564ff440a41761365ed916b63ff6f3.svg",
     "static/media/back-arrow-green.svg": "/static/media/back-arrow-green.849a7d458dd60b1b1ea95fcf84873f60.svg",
     "static/media/back-arrow-grey.svg": "/static/media/back-arrow-grey.7cbafc24549a63634e81502e8c6ce6e0.svg",
     "static/media/next-arrow-green.svg": "/static/media/next-arrow-green.ade472438a97233657f80ab3363eb7bb.svg",
     "static/media/next-arrow-grey.svg": "/static/media/next-arrow-grey.1a2301b17e3d831a33f8c76d8b578fa0.svg",
-    "main.44db2b9c.css.map": "/static/css/main.44db2b9c.css.map",
-    "main.9abd89dd.js.map": "/static/js/main.9abd89dd.js.map"
+    "main.d90958c3.css.map": "/static/css/main.d90958c3.css.map",
+    "main.7500087d.js.map": "/static/js/main.7500087d.js.map"
   },
   "entrypoints": [
-    "static/css/main.44db2b9c.css",
-    "static/js/main.9abd89dd.js"
+    "static/css/main.d90958c3.css",
+    "static/js/main.7500087d.js"
   ]
 }
