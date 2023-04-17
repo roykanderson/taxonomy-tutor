@@ -77,6 +77,10 @@
 }
 
 @media (max-width: 700px) {
+  .Signup {
+    height: 100%;
+  }
+
   .Signup__display {
     display: none;
   }
@@ -87,5 +91,9 @@
 
   .Signup__form {
     width: 80%;
+  }
+
+  .Signup__input {
+    font-size: 1rem;
   }
 }
