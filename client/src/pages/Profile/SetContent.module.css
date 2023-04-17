@@ -152,7 +152,7 @@
   border: none;
   border-radius: 2rem;
   font-family: Roboto;
-  font-size: clamp(0.5rem, 0.4rem + 1vw, 1rem);
+  font-size: clamp(0.8rem, 0.4rem + 1vw, 1rem);
 }
 
 .SetContent__button:hover {
