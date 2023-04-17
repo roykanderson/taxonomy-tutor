@@ -14,7 +14,7 @@
   background-color: var(--grey-light);
   color: var(--grey-dark);
   padding-inline: 0.625rem;
-  font-size: clamp(0.875rem, 0.4rem + 2vw, 1.125rem);
+  font-size: clamp(1rem, 0.4rem + 2vw, 1.125rem);
   border: none;
 }
 
