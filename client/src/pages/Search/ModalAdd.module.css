@@ -14,13 +14,6 @@
   color: var(--green);
 }
 
-.ModalAdd.ModalAdd--active .spinner {
-  width: 0.6rem;
-  height: 0.6rem;
-  margin: 0;
-  border: 0.05rem solid;
-}
-
 .ModalAdd.ModalAdd--active:hover {
   cursor: pointer;
   opacity: 80%;

@@ -16,8 +16,9 @@
 }
 
 .LoadingIcon__spinner.LoadingIcon__spinner--small {
-  width: 0.6rem;
-  height: 0.6rem;
+  box-sizing: border-box;
+  width: 1.187rem;
+  height: 1.187rem;
   margin: 0;
   border: 0.2rem solid;
   border-color: var(--green) var(--green) var(--green) transparent;
