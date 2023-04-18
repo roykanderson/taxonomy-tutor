@@ -28,7 +28,7 @@ const Searchbar = ({ setSearchBarFocused, user }) => {
     if (input) {
       setFocused(false)
       setSuggestions(null)
-      navigate(`/search?q=${input}`)
+      navigate(`/search?q=${input}&page=1`)
     }
   }
 

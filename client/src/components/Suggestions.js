@@ -9,11 +9,9 @@ const Suggestions = ({ suggestions, setSuggestions, setInput, user }) => {
   const navigate = useNavigate()
 
   const handleClick = ({ target }) => {
-    console.log('click')
     setSuggestions(null)
     setInput(target.getAttribute('data-name'))
-    console.log(target.getAttribute('data-name'))
-    navigate(`/search?q=${target.getAttribute('data-name')}`)
+    navigate(`/search?q=${target.getAttribute('data-name')}&page=1`)
   }
 
   return (

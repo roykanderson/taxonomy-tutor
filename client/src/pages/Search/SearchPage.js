@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom'
+
 import { ReactComponent as BackArrowGrey } from '../../assets/back-arrow-grey.svg'
 import { ReactComponent as BackArrowGreen } from '../../assets/back-arrow-green.svg'
 import { ReactComponent as NextArrowGrey } from '../../assets/next-arrow-grey.svg'
@@ -5,15 +7,17 @@ import { ReactComponent as NextArrowGreen } from '../../assets/next-arrow-green.
 
 import styles from './SearchPage.module.css'
 
-const SearchPage = ({ data, page, setPage }) => {
+const SearchPage = ({ data, page, search }) => {
+  const navigate = useNavigate()
+
   const handleBackClick = () => {
-    setPage(page - 1)
     window.scrollTo(0, 0)
+    navigate(`/search?q=${search}&page=${Number(page) - 1}`)
   }
 
   const handleForwardClick = () => {
-    setPage(page + 1)
     window.scrollTo(0, 0)
+    navigate(`/search?q=${search}&page=${Number(page) + 1}`)
   }
 
   return (

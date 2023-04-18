@@ -1,5 +1,4 @@
-import { useSearchParams, useLocation } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
 
 import SearchPage from './SearchPage'
 import SearchResult from './SearchResult'
@@ -12,12 +11,7 @@ const Search = () => {
   // Obtain query from URL
   const [searchParams] = useSearchParams()
   const search = searchParams.get('q')
-
-  const [page, setPage] = useState(1)
-
-  // Reset page to 1 whenever query changes
-  const location = useLocation()
-  useEffect(() => setPage(1), [location])
+  const page = searchParams.get('page')
 
   const { data, isFetching } = useResults(search, page)
 
@@ -27,7 +21,7 @@ const Search = () => {
         <div className={styles.Search__summaryText}>
           Showing results for "{search}"
         </div>
-        <SearchPage data={data} page={page} setPage={setPage} />
+        <SearchPage data={data} page={page} search={search} />
       </section>
       {isFetching
         ? <LoadingIcon />
@@ -39,7 +33,7 @@ const Search = () => {
       }
       {data && page !== Math.ceil(data.total_results / data.per_page) && !isFetching &&
         <section className={styles.Search__footer}>
-          <SearchPage data={data} page={page} setPage={setPage} />
+          <SearchPage data={data} page={page} search={search} />
         </section>
       }
     </main>
