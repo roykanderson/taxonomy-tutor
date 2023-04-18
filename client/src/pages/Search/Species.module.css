@@ -1,6 +1,24 @@
 .Species {
   max-width: 80%;
   margin: 2.4rem auto;
+}
+
+.Species__backLink {
+  color: var(--green);
+  font-weight: 300;
+  font-size: 1rem;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin-bottom: 0.6rem;
+}
+
+.Species__backLink:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.Species__flexContainer {
   display: flex;
   flex-direction: row;
   gap: 2.4rem;
@@ -108,8 +126,17 @@
 
 @media (max-width: 700px) {
   .Species {
-    flex-direction: column;
     margin: 1.2rem auto;
+  }
+
+  .Species__backLink {
+    display: block;
+    margin: 0 auto 1.2rem auto;
+    text-align: center;
+  }
+
+  .Species__flexContainer {
+    flex-direction: column;
     gap: 1.2rem;
   }
 

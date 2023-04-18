@@ -1,5 +1,5 @@
 import { useState, useContext } from "react"
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 
 import { UserContext } from '../../context/UserContext'
 import useWikiSummary from '../../hooks/useWikiSummary'
@@ -12,6 +12,8 @@ import styles from './Species.module.css'
 const Species = () => {
   const { user } = useContext(UserContext)
 
+  const navigate = useNavigate()
+
   const location = useLocation()
   const taxon = location.state
   
@@ -21,46 +23,51 @@ const Species = () => {
 
   return (
     <main className={styles.Species}>
-      <section className={styles.Species__info}>
-        <div>
-          <section className={styles.Species__titleSection}>
-            <div className={styles.Species__namesContainer}>
-              <div className={styles.Species__commonName}>
-                {taxon.preferred_common_name
-                  ? taxon.preferred_common_name
-                  : taxon.name
-                }
+      <button className={styles.Species__backLink} onClick={() => navigate(-1)}>
+        {'< Back to results'}
+      </button>
+      <section className={styles.Species__flexContainer}>
+        <section className={styles.Species__info}>
+          <div>
+            <section className={styles.Species__titleSection}>
+              <div className={styles.Species__namesContainer}>
+                <div className={styles.Species__commonName}>
+                  {taxon.preferred_common_name
+                    ? taxon.preferred_common_name
+                    : taxon.name
+                  }
+                </div>
+                <div className={styles.Species__sciName}>
+                  {taxon.name}
+                </div>
               </div>
-              <div className={styles.Species__sciName}>
-                {taxon.name}
-              </div>
-            </div>
-            {user &&
-              <button className={styles.Species__addButton} onClick={() => setShowModal(true)}>
-                Add to set
-              </button>
+              {user &&
+                <button className={styles.Species__addButton} onClick={() => setShowModal(true)}>
+                  Add to set
+                </button>
+              }
+            </section>
+          </div>
+          <div className={styles.Species__wiki}>
+            {isFetching
+              ? <LoadingIcon />
+              : data
+                ? <>
+                    <div className={styles.Species__wikiDescription}>{data}</div>
+                    <div className={styles.Species__wikiCitation}>Information from <a href={taxon.wikipedia_url}>Wikipedia</a></div>
+                  </>
+                : <>No Wikipedia information available.</>
             }
-          </section>
-        </div>
-        <div className={styles.Species__wiki}>
-          {isFetching
-            ? <LoadingIcon />
-            : data
-              ? <>
-                  <div className={styles.Species__wikiDescription}>{data}</div>
-                  <div className={styles.Species__wikiCitation}>Information from <a href={taxon.wikipedia_url}>Wikipedia</a></div>
-                </>
-              : <>No Wikipedia information available.</>
-          }
-        </div>
+          </div>
+        </section>
+        {getDefaultPhotoUrl(taxon)
+          ? <img className={styles.Species__image} src={getDefaultPhotoUrl(taxon)} alt="species" />
+          : <div className={styles.Species__noImage}>No image available.</div>
+        }
+        {showModal &&
+          <SpeciesModal setShowModal={setShowModal} taxon={taxon} />
+        }
       </section>
-      {getDefaultPhotoUrl(taxon)
-        ? <img className={styles.Species__image} src={getDefaultPhotoUrl(taxon)} alt="species" />
-        : <div className={styles.Species__noImage}>No image available.</div>
-      }
-      {showModal &&
-        <SpeciesModal setShowModal={setShowModal} taxon={taxon} />
-      }
     </main>
   )
 }
