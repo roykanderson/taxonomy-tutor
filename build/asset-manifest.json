@@ -1,20 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.0765e9c3.css",
-    "main.js": "/static/js/main.bcca49e0.js",
+    "main.css": "/static/css/main.5ade0afd.css",
+    "main.js": "/static/js/main.0cb751a7.js",
     "static/media/logo.svg": "/static/media/logo.41f5e0741a91a1f0cb12c3aa98dd728b.svg",
     "index.html": "/index.html",
     "static/media/hamburger-menu.svg": "/static/media/hamburger-menu.53a1e0a64349daaaea05c7b8ae0d5246.svg",
+    "static/media/remove-icon.svg": "/static/media/remove-icon.8d49f0f8b8c5b9fa3a449fa235a018c9.svg",
     "static/media/search-icon.svg": "/static/media/search-icon.b2564ff440a41761365ed916b63ff6f3.svg",
     "static/media/back-arrow-green.svg": "/static/media/back-arrow-green.849a7d458dd60b1b1ea95fcf84873f60.svg",
     "static/media/back-arrow-grey.svg": "/static/media/back-arrow-grey.7cbafc24549a63634e81502e8c6ce6e0.svg",
     "static/media/next-arrow-green.svg": "/static/media/next-arrow-green.ade472438a97233657f80ab3363eb7bb.svg",
     "static/media/next-arrow-grey.svg": "/static/media/next-arrow-grey.1a2301b17e3d831a33f8c76d8b578fa0.svg",
-    "main.0765e9c3.css.map": "/static/css/main.0765e9c3.css.map",
-    "main.bcca49e0.js.map": "/static/js/main.bcca49e0.js.map"
+    "main.5ade0afd.css.map": "/static/css/main.5ade0afd.css.map",
+    "main.0cb751a7.js.map": "/static/js/main.0cb751a7.js.map"
   },
   "entrypoints": [
-    "static/css/main.0765e9c3.css",
-    "static/js/main.bcca49e0.js"
+    "static/css/main.5ade0afd.css",
+    "static/js/main.0cb751a7.js"
   ]
 }
