@@ -20,12 +20,6 @@ const Login = () => {
 
   return (
     <div className={styles.Login}>
-      <div className={styles.Login__display}>
-        <div>
-          <p>Study every species in the world, all in one place.</p>
-        </div>
-      </div>
-      <div className={styles.Login__container}>
         <form className={styles.Login__form} onSubmit={login.mutate}>
           <div className={styles.Login__card}>
             {login.isError &&
@@ -55,7 +49,6 @@ const Login = () => {
           </div>
           <button className={styles.Login__submit} type="submit">Log in</button>
         </form>
-      </div>
     </div>
   )
 }

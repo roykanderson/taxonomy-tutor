@@ -1,7 +1,7 @@
 .Home {
   max-width: 80%;
   margin: auto;
-  padding: clamp(1.8rem, 1.8rem + 1vw, 3rem) 0;
+  padding: clamp(1.2rem, 1.2rem + 1vw, 3rem) 0;
 }
 
 .Home__heading {
@@ -9,7 +9,15 @@
   font-family: Roboto Mono;
   font-size: clamp(1.4rem, 1.3rem + 1vw, 2rem);
   font-weight: 700;
+  margin-top: 0;
   margin-bottom: 1.8rem;
+}
+
+.Home__flexHeading {
+  color: var(--grey-extra-light);
+  font-weight: 300;
+  font-size: clamp(1.4rem, 1.3rem + 1vw, 1.8rem);
+  margin: 0 auto 1.8rem auto;
 }
 
 .Home__subheading {
@@ -75,6 +83,14 @@
 }
 
 @media (min-width: 1000px) {
+  .Home {
+    padding-top: 3.6rem;
+  }
+
+  .Home__flexHeading {
+    margin-bottom: 0.6rem;
+  }
+
   .Home__subheading:nth-child(1) {
     margin-top: 1.2rem;
   }

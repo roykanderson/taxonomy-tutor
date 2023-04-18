@@ -23,46 +23,39 @@ const Signup = () => {
 
   return (
     <div className={styles.Signup}>
-      <div className={styles.Signup__display}>
-        <div>
-          <p>Study every species in the world, all in one place.</p>
+      <form className={styles.Signup__form} onSubmit={signUp.mutate}>
+        <div className={styles.Signup__card}>
+          {signUp.isError &&
+            <div className={styles.Signup__error}>
+              {signUp.error.message}
+            </div>
+          }
+          <input
+            className={`${styles.Signup__input} ${styles['Signup__input--marginBottom']}`}
+            type="text"
+            placeholder='Username'
+            value={username}
+            onChange={({ target }) => setUsername(target.value)}
+          />
+          <input
+            className={`${styles.Signup__input} ${styles['Signup__input--marginBottom']}`}
+            type="password"
+            placeholder='Password'
+            value={password}
+            onChange={({ target }) => setPassword(target.value)}
+          />
+          <input
+            className={styles.Signup__input}
+            type="password"
+            placeholder='Confirm password'
+            value={confirmPassword}
+            onChange={({ target }) => setConfirmPassword(target.value)}
+          />
         </div>
-      </div>
-      <div className={styles.Signup__container}>
-        <form className={styles.Signup__form} onSubmit={signUp.mutate}>
-          <div className={styles.Signup__card}>
-            {signUp.isError &&
-              <div className={styles.Signup__error}>
-                {signUp.error.message}
-              </div>
-            }
-            <input
-              className={`${styles.Signup__input} ${styles['Signup__input--marginBottom']}`}
-              type="text"
-              placeholder='Username'
-              value={username}
-              onChange={({ target }) => setUsername(target.value)}
-            />
-            <input
-              className={`${styles.Signup__input} ${styles['Signup__input--marginBottom']}`}
-              type="password"
-              placeholder='Password'
-              value={password}
-              onChange={({ target }) => setPassword(target.value)}
-            />
-            <input
-              className={styles.Signup__input}
-              type="password"
-              placeholder='Confirm password'
-              value={confirmPassword}
-              onChange={({ target }) => setConfirmPassword(target.value)}
-            />
-          </div>
-          <button className={styles.Signup__submit} type="submit">
-            {signUp.isLoading ? <LoadingIcon /> : 'Sign up'}
-          </button>
-        </form>
-      </div>
+        <button className={styles.Signup__submit} type="submit">
+          {signUp.isLoading ? <LoadingIcon /> : 'Sign up'}
+        </button>
+      </form>
     </div>
   )
 }
