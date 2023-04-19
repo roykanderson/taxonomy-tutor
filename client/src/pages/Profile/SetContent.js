@@ -116,12 +116,11 @@ const SetContent = () => {
                     : 'No Wikipedia information available.'
                   }
                 </p>
-                <p className={styles.SetContent__wikiLink}>
-                  {taxa[set.idIndices[array[index]]].wikiSummary
-                    ? <>Information from <a href={taxa[set.idIndices[array[index]]].wikipedia_url} target="_blank" rel="noopener noreferrer">Wikipedia</a></>
-                    : ''
-                  }
-                </p>
+                {taxa[set.idIndices[array[index]]].wikiSummary &&
+                  <p className={styles.SetContent__wikiLink}>
+                    Information from <a href={taxa[set.idIndices[array[index]]].wikipedia_url} target="_blank" rel="noopener noreferrer">Wikipedia</a>
+                  </p>
+                }
               </div>
             </div>
           : <button

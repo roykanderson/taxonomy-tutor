@@ -19,6 +19,8 @@
   color: var(--grey-light);
   border-top: 1px solid var(--grey);
   padding: 1.2rem 0;
+  font-family: Roboto;
+  font-size: clamp(0.7rem, 0.5rem + 1vw, 1rem);
 }
 
 .SetContent__bannerBox {
@@ -32,6 +34,7 @@
 
 .SetContent__bannerBox.SetContent__bannerBox--center {
   justify-content: center;
+  gap: 0.45rem;
 }
 
 .SetContent__bannerBox.SetContent__bannerBox--right {
@@ -40,9 +43,6 @@
 }
 
 .SetContent__bannerButton {
-  font-family: Roboto;
-  font-size: clamp(0.7rem, 0.5rem + 1vw, 1rem);
-  font-weight: 500;
   background-color: var(--grey-extra-dark);
   color: var(--grey-light);
   border: none;
@@ -56,6 +56,7 @@
 
 .SetContent__shuffleButton {
   font-size: clamp(0.7rem, 0.5rem + 1vw, 1rem);
+  font-weight: 300;
 }
 
 .SetContent__shuffleButton.SetContent__shuffleButton--active {
@@ -69,10 +70,13 @@
 }
 
 .SetContent__bannerArrow {
-  font-size: clamp(1rem, 1rem + 2vw, 2rem);
   font-weight: 100;
-  margin: 0.3rem;
+  font-size: clamp(1rem, 1rem + 2vw, 2rem);
+  font-family: Roboto;
   opacity: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .SetContent__bannerArrow.SetContent__bannerArrow--active {
@@ -130,15 +134,14 @@
   border-top: 1px solid var(--grey);
   flex-shrink: 1;
   margin: 1.2rem 0;
-  padding: 1.2rem 0;
+  padding-top: 1.2rem;
   font-size: 1rem;
   width: 100%;
   font-size: 1rem;
   font-weight: 300;
-}
-
-.SetContent__wikiText {
-  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 }
 
 .SetContent__wikiLink {
@@ -164,7 +167,6 @@
   border-radius: 2rem;
   font-family: Roboto;
   font-size: 1rem;
-  font-weight: 500;
 }
 
 .SetContent__button:hover {
@@ -179,14 +181,14 @@
 }
 
 .SetContent__image {
-  height: clamp(10rem, 8rem + 12vw, 20.4rem);
+  height: clamp(12rem, 8rem + 12vw, 20.4rem);
   aspect-ratio: 1/1;
   object-fit: cover;
   object-position: center;
 }
 
 .SetContent__noImage {
-  height: clamp(10rem, 8rem + 12vw, 20.4rem);
+  height: clamp(12rem, 8rem + 12vw, 20.4rem);
   aspect-ratio: 1/1;
   background-color: var(--grey-medium);
   color: var(--grey-extra-dark);
@@ -206,13 +208,14 @@
   }
 
   .SetContent__textContainer {
-    margin-top: 0;
+    margin: 0;
   }
 
   .SetContent__textTop {
     flex-direction: column;
     align-items: center;
     gap: 0;
+    text-align: center;
   }
 
   .SetContent__wikiContainer {
@@ -222,18 +225,24 @@
     border-bottom: none;
   }
 
-  .SetContent__button, .SetContent__button.SetContent__button--hide {
-    margin: 0.9rem auto;
+  .SetContent__button {
+    margin: 1.2rem auto 0 auto;
     order: -1;
   }
 
+  .SetContent__button.SetContent__button--hide {
+    margin: 1.2rem auto 1.2rem auto;
+  }
+
   .SetContent__image {
-    height: clamp(10rem, 8rem + 12vw, 20.4rem);
-    width: auto;
+    height: clamp(14rem, 8rem + 12vw, 20.4rem);
+    width: clamp(14rem, 8rem + 12vw, 20.4rem);
+    margin: auto;
   }
 
   .SetContent__noImage {
-    height: clamp(10rem, 8rem + 12vw, 20.4rem);
-    width: auto;
+    height: clamp(14rem, 8rem + 12vw, 20.4rem);
+    width: clamp(14rem, 8rem + 12vw, 20.4rem);
+    margin: auto;
   }
 }

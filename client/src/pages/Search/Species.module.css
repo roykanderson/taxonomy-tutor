@@ -94,8 +94,8 @@
 }
 
 .Species__image {
-  width: clamp(12rem, 10rem + 15vw, 24rem);
-  height: clamp(12rem, 10rem + 15vw, 24rem);
+  width: clamp(14rem, 10rem + 15vw, 24rem);
+  height: clamp(14rem, 10rem + 15vw, 24rem);
   object-fit: cover;
   object-position: center;
 }
