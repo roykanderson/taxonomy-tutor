@@ -17,22 +17,22 @@ const Home = () => {
       </h2>
       <section className={styles.Home__flexContainer}>
         <h3 className={styles.Home__subheading}>
-          Practice your species identification skills
+          Practice species identification
         </h3>
         <p className={styles.Home__paragraph}>
-          Study species flashcard-style - create a study set, and try to recall each species from its picture alone. Once you're ready, reveal the species' information to see if you were right!
+          Create a set of flashcards and try to recall each species from its picture alone. Once you're ready, reveal the species info to see if you were right.
         </p>
         <h3 className={styles.Home__subheading}>
-          Search for (almost) any species
+          Learn with species descriptions
         </h3>
         <p className={styles.Home__paragraph}>
-          Taxonomy Tutor utilizes the <a className={styles.Home__link} href='https://api.inaturalist.org/v1/docs/'>iNaturalist API</a> to search for and catalog species. If you can find it amongst the 300,000+ species on iNaturalist, then you can add it to your study sets on Taxonomy Tutor!
+          Short species descriptions, along with a link to the source Wikipedia article, are retrieved via the <a className={styles.Home__link} href='https://www.mediawiki.org/wiki/API:Main_page' target="_blank" rel="noopener noreferrer">MediaWiki API</a>. Learn as you go.
         </p>
         <h3 className={styles.Home__subheading}>
-          Learn as you go
+          Always find new species
         </h3>
         <p className={styles.Home__paragraph}>
-          Taxonomy Tutor also utilizes the <a className={styles.Home__link} href='https://www.mediawiki.org/wiki/API:Main_page'>MediaWiki API</a> to provide short descriptions from each species' Wikipedia article. When a species really sparks your interest, follow the link to its Wikipedia page to learn more!
+          Taxonomy Tutor utilizes the <a className={styles.Home__link} href='https://inaturalist.org' target="_blank" rel="noopener noreferrer">iNaturalist</a> <a className={styles.Home__link} href='https://api.inaturalist.org/v1/docs/' target="_blank" rel="noopener noreferrer">API</a> to keep track. iNaturalist users have observed over <a className={styles.Home__link} href='https://www.inaturalist.org/blog/52872-one-sixth-of-all-named-species-tallied#:~:text=Most%20estimates%20are%20that%20there,described%20species%20with%20an%20observation.' target="_blank" rel="noopener noreferrer">333,000 unique species</a> around the world.
         </p>
       </section>
       {!user &&
