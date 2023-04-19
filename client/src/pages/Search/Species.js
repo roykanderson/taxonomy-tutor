@@ -54,7 +54,7 @@ const Species = () => {
               : data
                 ? <>
                     <div className={styles.Species__wikiDescription}>{data}</div>
-                    <div className={styles.Species__wikiCitation}>Information from <a href={taxon.wikipedia_url}>Wikipedia</a></div>
+                    <div className={styles.Species__wikiCitation}>Information from <a href={taxon.wikipedia_url} target="_blank" rel="noopener noreferrer">Wikipedia</a></div>
                   </>
                 : <>No Wikipedia information available.</>
             }
