@@ -29,7 +29,7 @@ const Search = () => {
     return (
       <main className={styles.Search}>
         <div className={styles.Search__errorMessage}>
-          Invalid search: "{search}". Please use only letters and spaces.
+          Did not find any results for: "{search}". Please use only letters and spaces in your search.
         </div>
       </main>
     )
