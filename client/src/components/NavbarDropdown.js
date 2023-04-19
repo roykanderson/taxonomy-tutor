@@ -12,10 +12,10 @@ const NavbarDropdown = ({ user, handleLogOut }) => {
           <Link className={styles.NavbarDropdown__link} to='/' onMouseDown={() => navigate('/')}>Home</Link>
         </div>
         <div className={styles.NavbarDropdown__linkContainer}>
-          <Link className={styles.NavbarDropdown__link} to='/login' onMouseDown={() => navigate('/login')}>Log in</Link>
+          <Link className={styles.NavbarDropdown__link} to='/signup' onMouseDown={() => navigate('/signup')}>Create an account</Link>
         </div>
         <div className={styles.NavbarDropdown__linkContainer}>
-          <Link className={styles.NavbarDropdown__link} to='/signup' onMouseDown={() => navigate('/signup')}>Sign up</Link>
+          <Link className={styles.NavbarDropdown__link} to='/login' onMouseDown={() => navigate('/login')}>Log in</Link>
         </div>
       </div>
     )
