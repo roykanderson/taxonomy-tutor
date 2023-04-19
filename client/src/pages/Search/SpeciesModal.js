@@ -7,6 +7,7 @@ import ModalSets from './ModalSets'
 import ModalCreate from "./ModalCreate"
 import ModalAdd from './ModalAdd'
 import OutsideDetector from "../../components/OutsideDetector"
+import { ReactComponent as CloseIcon } from "../../assets/close-icon.svg"
 
 import styles from './SpeciesModal.module.css'
 
@@ -36,7 +37,7 @@ const SpeciesModal = ({ setShowModal, taxon }) => {
                     Which set would you like to add this species to?
                   </h2>
                   <button className={styles.SpeciesModal__closeButton} onClick={() => setShowModal(false)}>
-                    X
+                    <CloseIcon className={styles.SpeciesModal__closeIcon} />
                   </button>
                 </div>
                 {data.length === 0

@@ -38,6 +38,10 @@
   font-size: 1.5rem;
 }
 
+.SpeciesModal__closeIcon {
+  scale: 0.7;
+}
+
 .SpeciesModal__closeButton:hover {
   cursor: pointer;
   opacity: 50%;
