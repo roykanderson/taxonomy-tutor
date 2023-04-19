@@ -1,6 +1,8 @@
 import { useState } from "react"
 
 import taxaService from "../../services/taxaService"
+import firstCharToUpper from "../../utils/firstCharToUpper"
+import toTitleCase from "../../utils/toTitleCase"
 
 import { ReactComponent as RemoveIcon } from '../../assets/remove-icon.svg'
 import styles from './EditTaxon.module.css'
@@ -61,17 +63,14 @@ const EditTaxon = ({ selectedTaxa, setSelectedTaxa, index, checkForTaxaChanges }
           <input
             className={styles.EditTaxon__input}
             type="text"
-            value={input
-              ? input
-              : selectedTaxa[index].name
-            }
+            value={toTitleCase(input)}
             onChange={handleChange}
             onFocus={() => setFocused(true)}
             onBlur={onBlur}
           />
           {!focused && 
             <div className={styles.EditTaxon__sciName}>
-              {selectedTaxa[index].name}
+              {firstCharToUpper(selectedTaxa[index].name)}
             </div>
           }
         </div>
@@ -87,10 +86,10 @@ const EditTaxon = ({ selectedTaxa, setSelectedTaxa, index, checkForTaxaChanges }
             }
             <div className={styles.EditTaxonSuggestions__namesContainer}>
               <div className={styles.EditTaxonSuggestions__commonName} data-id={suggestion.id}>
-                {suggestion.preferred_common_name}
+                {toTitleCase(suggestion.preferred_common_name)}
               </div>
               <div className={styles.EditTaxonSuggestions__sciName} data-id={suggestion.id}>
-                {suggestion.name}
+                {firstCharToUpper(suggestion.name)}
               </div>
             </div>
           </li>

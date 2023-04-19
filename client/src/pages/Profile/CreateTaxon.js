@@ -1,6 +1,8 @@
 import { useState } from "react"
 
 import taxaService from "../../services/taxaService"
+import toTitleCase from "../../utils/toTitleCase"
+import firstCharToUpper from "../../utils/firstCharToUpper"
 import { ReactComponent as RemoveIcon } from '../../assets/remove-icon.svg'
 
 import styles from './CreateTaxon.module.css'
@@ -58,14 +60,14 @@ const CreateTaxon = ({ taxa, setTaxa, index }) => {
           <input
             className={styles.CreateTaxon__input}
             type="text"
-            value={input}
+            value={toTitleCase(input)}
             onChange={handleChange}
             onFocus={() => setFocused(true)}
             onBlur={onBlur}
           />
           {!focused && 
             <div className={styles.CreateTaxon__sciName}>
-              {taxa[index].name}
+              {firstCharToUpper(taxa[index].name)}
             </div>
           }
         </div>
@@ -83,10 +85,10 @@ const CreateTaxon = ({ taxa, setTaxa, index }) => {
             }
             <div className={styles.CreateTaxonSuggestions__namesContainer}>
               <div className={styles.CreateTaxonSuggestions__commonName} data-id={suggestion.id}>
-                {suggestion.preferred_common_name}
+                {toTitleCase(suggestion.preferred_common_name)}
               </div>
               <div className={styles.CreateTaxonSuggestions__sciName} data-id={suggestion.id}>
-                {suggestion.name}
+                {firstCharToUpper(suggestion.name)}
               </div>
             </div>
           </li>
