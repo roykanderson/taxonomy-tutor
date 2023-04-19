@@ -76,7 +76,7 @@
   border: none;
   border-radius: 2.4rem;
   min-height: 2.4rem;
-  background-color: rgb(38, 38, 38);
+  background-color: var(--grey-extra-dark);
   color: var(--green);
   padding: 0.6rem 1.2rem;
   font-size: clamp(1rem, 1rem + 1vw, 1.125rem);
