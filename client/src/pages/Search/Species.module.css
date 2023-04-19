@@ -10,7 +10,7 @@
   background-color: transparent;
   border: none;
   padding: 0;
-  margin-bottom: 0.6rem;
+  margin-bottom: 2.4rem;
 }
 
 .Species__backLink:hover {
@@ -48,7 +48,7 @@
 
 .Species__commonName {
   font-size: 1.875rem;
-  color: var(--white);
+  color: var(--grey-extra-light);
 }
 
 .Species__sciName {
@@ -124,14 +124,14 @@
   background-color: var(--grey);
 }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
   .Species {
-    margin: 1.2rem auto;
+    margin: 1.8rem auto;
   }
 
   .Species__backLink {
     display: block;
-    margin: 0 auto 1.2rem auto;
+    margin: 0 auto 1.8rem auto;
     text-align: center;
   }
 

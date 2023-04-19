@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useNavigate, useSearchParams, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 import taxaService from '../services/taxaService'
 import Suggestions from './Suggestions'
@@ -13,13 +13,11 @@ const Searchbar = ({ setSearchBarFocused, user }) => {
   const [focused, setFocused] = useState(null)
 
   const location = useLocation()
-  const [searchParams] = useSearchParams()
 
+  // Set input to be blank when user searches or url changes
   useEffect(() => {
-    location.pathname === '/search'
-      ? setInput(searchParams.get('q'))
-      : setInput('')
-  }, [location, searchParams])
+    setInput('')
+  }, [location])
 
   const navigate = useNavigate()
 
