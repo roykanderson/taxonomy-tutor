@@ -16,7 +16,8 @@ const useWikiSummary = (url) => {
   return useQuery({
     queryKey: ['wikiSummary', url],
     queryFn: getWikiSummary,
-    staleTime: Infinity
+    staleTime: Infinity,
+    enabled: !!url
   })
 }
 

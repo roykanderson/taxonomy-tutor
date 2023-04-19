@@ -1,5 +1,5 @@
 import { useState, useContext } from "react"
-import { useLocation, useNavigate } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 
 import { UserContext } from '../../context/UserContext'
 import useWikiSummary from '../../hooks/useWikiSummary'
@@ -8,24 +8,31 @@ import LoadingIcon from "../../components/LoadingIcon"
 import SpeciesModal from "./SpeciesModal"
 
 import styles from './Species.module.css'
+import useTaxa from "../../hooks/useTaxa"
+import toTitleCase from "../../utils/toTitleCase"
+import firstCharToUpper from "../../utils/firstCharToUpper"
 
 const Species = () => {
   const { user } = useContext(UserContext)
 
-  const navigate = useNavigate()
-
   const location = useLocation()
-  const taxon = location.state
-  
-  const { data, isFetching } = useWikiSummary(taxon.wikipedia_url)
+  const taxonId = Number(location.pathname.split('/').pop())
+  const { data: taxa, isFetching: isFetchingTaxon } = useTaxa([taxonId])
+  const taxon = taxa ? taxa[0] : null
+  const { data: wikiText, isFetching: isFetchingWikiText } = useWikiSummary(taxon?.wikipedia_url)
 
   const [showModal, setShowModal] = useState(false)
 
+  if (isFetchingTaxon || isFetchingWikiText) {
+    return (
+      <main className={styles.Species}>
+        <LoadingIcon />
+      </main>
+    )
+  }
+
   return (
     <main className={styles.Species}>
-      <button className={styles.Species__backLink} onClick={() => navigate(-1)}>
-        {'< Back to results'}
-      </button>
       <section className={styles.Species__flexContainer}>
         <section className={styles.Species__info}>
           <div>
@@ -33,12 +40,12 @@ const Species = () => {
               <div className={styles.Species__namesContainer}>
                 <div className={styles.Species__commonName}>
                   {taxon.preferred_common_name
-                    ? taxon.preferred_common_name
-                    : taxon.name
+                    ? toTitleCase(taxon.preferred_common_name)
+                    : firstCharToUpper(taxon.name)
                   }
                 </div>
                 <div className={styles.Species__sciName}>
-                  {taxon.name}
+                  {firstCharToUpper(taxon.name)}
                 </div>
               </div>
               {user &&
@@ -49,14 +56,12 @@ const Species = () => {
             </section>
           </div>
           <div className={styles.Species__wiki}>
-            {isFetching
-              ? <LoadingIcon />
-              : data
-                ? <>
-                    <div className={styles.Species__wikiDescription}>{data}</div>
-                    <div className={styles.Species__wikiCitation}>Information from <a href={taxon.wikipedia_url} target="_blank" rel="noopener noreferrer">Wikipedia</a></div>
-                  </>
-                : <>No Wikipedia information available.</>
+            {wikiText
+              ? <>
+                  <div className={styles.Species__wikiDescription}>{wikiText}</div>
+                  <div className={styles.Species__wikiCitation}>Information from <a href={taxon.wikipedia_url} target="_blank" rel="noopener noreferrer">Wikipedia</a></div>
+                </>
+              : 'No Wikipedia information available.'
             }
           </div>
         </section>
