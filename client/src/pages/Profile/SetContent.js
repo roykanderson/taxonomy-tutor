@@ -48,7 +48,7 @@ const SetContent = () => {
 
   if (taxa.length === 0) {
     return (
-      <div className={styles.SetContentNoSpecies}>
+      <div className={styles.SetContentError}>
         It looks like this study set is empty! Click "Edit" to add species.
       </div>
     )
