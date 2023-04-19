@@ -10,7 +10,6 @@ const LoadingIcon = ({ size, color }) => {
   }
 
   else if (color === 'black') {
-    console.log('yuh')
     return (
       <div className={styles.LoadingIcon}>
         <div className={`${styles.LoadingIcon__spinner} ${styles['LoadingIcon__spinner--black']}`}></div>
