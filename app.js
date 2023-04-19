@@ -37,7 +37,7 @@ app.use(unknownEndpoint)
 app.use(errorHandler)
 
 app.get('*', (req, res) => {
-  res.sendFile('index.html', { root: path.join(__dirname, '../../client/build/') })
+  res.sendFile('./build/index.html')
 })
 
 module.exports = app
