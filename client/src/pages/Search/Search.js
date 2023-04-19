@@ -16,12 +16,21 @@ const Search = () => {
   const page = Number(searchParams.get('page'))
 
   const { data, isFetching } = useResults(search, page)
+  console.log(data, isFetching)
 
-  if (!isFetching && !data) {
+  if (isFetching) {
+    return (
+      <main className={styles.Search}>
+        <LoadingIcon />
+      </main>
+    )
+  }
+
+  else if (!data) {
     return (
       <main className={styles.Search}>
         <div className={styles.Search__errorMessage}>
-          Search invalid.
+          Search invalid. Please use only letters and spaces.
         </div>
       </main>
     )
@@ -35,14 +44,11 @@ const Search = () => {
         </div>
         <SearchPage data={data} page={page} search={search} />
       </section>
-      {isFetching
-        ? <LoadingIcon />
-        : <section className={styles.Search__results}>
-            {data.results.map(taxon => 
-              <SearchResult key={taxon.id} taxon={taxon} />     
-            )}
-          </section>
-      }
+      <section className={styles.Search__results}>
+        {data.results.map(taxon => 
+          <SearchResult key={taxon.id} taxon={taxon} />     
+        )}
+      </section>
       {data && page !== Math.ceil(data.total_results / data.per_page) && !isFetching &&
         <section className={styles.Search__footer}>
           <SearchPage data={data} page={page} search={search} />

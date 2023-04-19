@@ -6,9 +6,12 @@ import taxaService from '../services/taxaService'
 
 const useResults = (search, page = 1) => {
   const fetchResults = async ({ queryKey }) => {
+    if (queryKey[1].match(/[^a-zA-Z\s]/)) {
+      return null
+    }
+
     // The server first matches the search to a taxon
     const taxon = await taxaService.searchForTaxon(queryKey[1])
-    if (!taxon) return null
 
     // Then retrieves all descendants
     const descendants = await taxaService.searchForDescendants(taxon.id, queryKey[2])

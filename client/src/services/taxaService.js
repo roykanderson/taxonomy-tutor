@@ -6,7 +6,7 @@ const SUGGESTION_URL = 'https://api.inaturalist.org/v1/taxa/autocomplete'
 const WIKI_URL = 'https://en.wikipedia.org/w/api.php'
 
 const searchForTaxon = async (query) => {
-  if (query.match(/\W/)) {
+  if (query.match(/[^a-zA-Z\s]/)) {
     return null
   }
 
@@ -28,7 +28,7 @@ const fetchTaxaById = async (id) => {
 }
 
 const fetchTaxaSuggestions = async (search) => {
-  if (search.match(/\W/)) {
+  if (search.match(/[^a-zA-Z\s]/)) {
     return null
   }
 
