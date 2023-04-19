@@ -36,4 +36,8 @@ app.use('/api/taxa', taxaRouter)
 app.use(unknownEndpoint)
 app.use(errorHandler)
 
+app.get('*', (req, res) => {
+  res.sendFile('index.html', { root: path.join(__dirname, '../../client/build/') })
+})
+
 module.exports = app
