@@ -26,7 +26,7 @@
 
 .SetEdit__deleteButton:hover {
   cursor: pointer;
-  opacity: 80%;
+  filter: brightness(1.1);
 }
 
 .SetEdit__submit {
@@ -44,7 +44,7 @@
 }
 
 .SetEdit__submit:hover {
-  opacity: 80%;
+  filter: brightness(1.1);
   cursor: pointer;
 }
 

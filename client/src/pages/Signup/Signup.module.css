@@ -55,7 +55,7 @@
 }
 
 .Signup__submit:hover {
-  opacity: 80%;
+  filter: brightness(1.1);
   cursor: pointer;
 }
 

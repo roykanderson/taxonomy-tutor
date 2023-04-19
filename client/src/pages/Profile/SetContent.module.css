@@ -65,7 +65,7 @@
 
 .SetContent__shuffleButton:hover {
   cursor: pointer;
-  opacity: 80%;
+  filter: brightness(1.1);
 }
 
 .SetContent__bannerArrow {
@@ -81,7 +81,7 @@
 
 .SetContent__bannerArrow.SetContent__bannerArrow--active:hover {
   cursor: pointer;
-  opacity: 80%;
+  filter: brightness(1.1);
 }
 
 .SetContent__bannerArrow.SetContent__bannerArrow--active:active {
@@ -168,7 +168,7 @@
 }
 
 .SetContent__button:hover {
-  opacity: 80%;
+  filter: brightness(1.1);
   cursor: pointer;
 }
 
