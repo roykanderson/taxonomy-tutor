@@ -35,7 +35,7 @@ app.use('/api/sets', userExtractor, studySetsRouter)
 app.use('/api/taxa', taxaRouter)
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(`${__dirname}/build/index.html`))
+  res.sendFile(`${__dirname}/build/index.html`)
 })
 
 app.use(unknownEndpoint)
