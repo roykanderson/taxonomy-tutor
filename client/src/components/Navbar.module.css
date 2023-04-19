@@ -35,6 +35,12 @@
   cursor: pointer;
 }
 
+.Navbar__menuButton div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .Navbar__menuButton > * {
   pointer-events: none;
 }
