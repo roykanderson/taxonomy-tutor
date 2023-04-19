@@ -11,7 +11,7 @@ const Suggestions = ({ suggestions, setSuggestions, setInput, user }) => {
   const handleClick = ({ target }) => {
     setSuggestions(null)
     setInput(target.getAttribute('data-name'))
-    navigate(`/search?q=${target.getAttribute('data-name')}&page=1`)
+    navigate(`/search?q=${target.getAttribute('data-name')}&rank=${target.getAttribute('data-rank')}&commonName=${target.getAttribute('data-common-name')}&page=1`)
   }
 
   return (
@@ -19,14 +19,14 @@ const Suggestions = ({ suggestions, setSuggestions, setInput, user }) => {
       {suggestions && suggestions.map(suggestion =>
         <React.Fragment key={suggestion.id}>
           {suggestion.default_photo &&
-            <li className={styles.Suggestions__suggestionContainer} onMouseDown={handleClick} data-name={suggestion.name}>
-              <img className={styles.Suggestions__image} src={suggestion.default_photo.url} alt={suggestion.preferred_common_name} data-name={suggestion.name} />
-              <div className={styles.Suggestions__suggestion} data-name={suggestion.name} >
-                <div className={styles.Suggestions__commonName} data-name={suggestion.name}>
+            <li className={styles.Suggestions__suggestionContainer} onMouseDown={handleClick} data-name={suggestion.name} data-rank={suggestion.rank} data-common-name={toTitleCase(suggestion.preferred_common_name)}>
+              <img className={styles.Suggestions__image} src={suggestion.default_photo.url} alt={suggestion.preferred_common_name} data-name={suggestion.name} data-rank={suggestion.rank} data-common-name={toTitleCase(suggestion.preferred_common_name)} />
+              <div className={styles.Suggestions__suggestion} data-name={suggestion.name} data-rank={suggestion.rank} data-common-name={toTitleCase(suggestion.preferred_common_name)}>
+                <div className={styles.Suggestions__commonName} data-name={suggestion.name} data-rank={suggestion.rank} data-common-name={toTitleCase(suggestion.preferred_common_name)}>
                   {toTitleCase(suggestion.preferred_common_name)}
                 </div>
-                <div className={styles.Suggestions__sciName} data-name={suggestion.name}>
-                  <span data-name={suggestion.name}>{firstCharToUpper(suggestion.name)}</span> ({firstCharToUpper(suggestion.rank)})
+                <div className={styles.Suggestions__sciName} data-name={suggestion.name} data-rank={suggestion.rank} data-common-name={toTitleCase(suggestion.preferred_common_name)}>
+                  <span data-name={suggestion.name} data-rank={suggestion.rank} data-common-name={toTitleCase(suggestion.preferred_common_name)}>{firstCharToUpper(suggestion.name)}</span> ({firstCharToUpper(suggestion.rank)})
                 </div>
               </div>
             </li>

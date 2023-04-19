@@ -1,4 +1,5 @@
 .SearchPage {
+  flex-shrink: 0;
   background-color: var(--grey-extra-dark);
   display: flex;
   align-items: center;
