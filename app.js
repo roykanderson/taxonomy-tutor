@@ -33,11 +33,12 @@ app.use('/api/login', loginRouter)
 app.use('/api/users', userExtractor, usersRouter)
 app.use('/api/sets', userExtractor, studySetsRouter)
 app.use('/api/taxa', taxaRouter)
-app.use(unknownEndpoint)
-app.use(errorHandler)
 
 app.get('*', (req, res) => {
-  res.sendFile('./build/index.html')
+  res.sendFile(path.join(`${__dirname}/build/index.html`))
 })
+
+app.use(unknownEndpoint)
+app.use(errorHandler)
 
 module.exports = app
