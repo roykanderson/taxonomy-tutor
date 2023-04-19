@@ -29,7 +29,7 @@ const SpeciesModal = ({ setShowModal, taxon }) => {
       <OutsideDetector sideEffectFn={() => setShowModal(false)}>
         <div className={styles.SpeciesModal__container}>
           {isFetching
-            ? <LoadingIcon />
+            ? <LoadingIcon color='black' />
             : <>
                 <div className={styles.SpeciesModal__topSection}>
                   <h2 className={styles.SpeciesModal__heading}>
