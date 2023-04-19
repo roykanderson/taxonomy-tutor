@@ -16,6 +16,7 @@
   padding-inline: 0.625rem;
   font-size: clamp(1rem, 0.4rem + 2vw, 1.125rem);
   border: none;
+  margin: 0;
 }
 
 .Searchbar__input:focus {
@@ -26,8 +27,7 @@
 
 .Searchbar__submit {
   min-width: 3rem;
-  background-color: var(--green-dark);
-  color: var(--green);
+  background-color: var(--grey-light);
   font-size: 1rem;
   font-weight: 500;
   border-top-right-radius: 1.2rem;
@@ -36,6 +36,7 @@
   justify-content: center;
   align-items: center;
   border: none;
+  margin: 0;
 }
 
 .Searchbar__submit:hover {
@@ -51,7 +52,7 @@
 }
 
 @media (max-width: 500px) {
-  .Searchbar__submit {
-    display: none;
+  .Searchbar__submit.Searchbar__submit--active {
+    border-bottom-right-radius: 0;
   }
 }
