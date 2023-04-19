@@ -55,7 +55,7 @@ const Searchbar = ({ setSearchBarFocused, user }) => {
     <form className={styles.Searchbar} onSubmit={handleSubmit} onFocus={onFocus} onBlur={onBlur} >
       <input
         className={styles.Searchbar__input}
-        type='search'
+        type='text'
         value={input}
         placeholder='Search for taxa...'
         onChange={handleInputChange} />
