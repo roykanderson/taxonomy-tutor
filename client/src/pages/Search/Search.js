@@ -11,7 +11,7 @@ const Search = () => {
   // Obtain query from URL
   const [searchParams] = useSearchParams()
   const search = searchParams.get('q')
-  const page = searchParams.get('page')
+  const page = Number(searchParams.get('page'))
 
   const { data, isFetching } = useResults(search, page)
 
@@ -27,7 +27,7 @@ const Search = () => {
         ? <LoadingIcon />
         : <section className={data.results.length < 5 ? `${styles.Search__results} ${styles['Search__results--singleRow']}` : `${styles.Search__results}`}>
           {data.results.map(taxon => 
-              <SearchResult key={taxon.id} taxon={taxon} />     
+            <SearchResult key={taxon.id} taxon={taxon} />     
           )}
         </section>
       }

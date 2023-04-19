@@ -4,12 +4,8 @@
   align-items: center;
   gap: 1.2rem;
   color: var(--grey-light);
-  padding: 0.6rem;
+  padding: 0.9rem;
   border-radius: 2.4rem;
-}
-
-.SearchPage:hover {
-  opacity: 80%;
 }
 
 .SearchPage__button {

@@ -10,6 +10,8 @@ import styles from './SearchPage.module.css'
 const SearchPage = ({ data, page, search }) => {
   const navigate = useNavigate()
 
+  const numPages = Math.ceil(data.total_results / data.per_page)
+
   const handleBackClick = () => {
     window.scrollTo(0, 0)
     navigate(`/search?q=${search}&page=${Number(page) - 1}`)
@@ -24,21 +26,25 @@ const SearchPage = ({ data, page, search }) => {
     <>
       {data &&
         <div className={styles.SearchPage}>
-          <button
-            className={page === 1 ? `${styles.SearchPage__button}` : `${styles.SearchPage__button} ${styles['SearchPage__button--active']}`}
-            onClick={handleBackClick}
-            disabled={page === 1}
-          >
-            {page === 1 ? <BackArrowGrey /> : <BackArrowGreen />}
-          </button>
-          Page {page} of {Math.ceil(data.total_results / data.per_page)}
-          <button
-            className={page === Math.ceil(data.total_results / data.per_page) ? `${styles.SearchPage__button}` : `${styles.SearchPage__button} ${styles['SearchPage__button--active']}`}
-            onClick={handleForwardClick}
-            disabled={page === Math.ceil(data.total_results / data.per_page)}
-          >
-            {page === Math.ceil(data.total_results / data.per_page) ? <NextArrowGrey /> : <NextArrowGreen />}
-          </button>
+          {numPages !== 1 &&
+            <button
+              className={page === 1 ? `${styles.SearchPage__button}` : `${styles.SearchPage__button} ${styles['SearchPage__button--active']}`}
+              onClick={handleBackClick}
+              disabled={page === 1}
+            >
+              {page === 1 ? <BackArrowGrey /> : <BackArrowGreen />}
+            </button>
+          }
+          Page {page} of {numPages}
+          {numPages !== 1 &&
+            <button
+              className={page === numPages ? `${styles.SearchPage__button}` : `${styles.SearchPage__button} ${styles['SearchPage__button--active']}`}
+              onClick={handleForwardClick}
+              disabled={page === Math.ceil(data.total_results / data.per_page)}
+            >
+              {page === numPages ? <NextArrowGrey /> : <NextArrowGreen />}
+            </button>
+          }
         </div>
       }
     </>
