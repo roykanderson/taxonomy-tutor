@@ -38,7 +38,7 @@ const ProfileSet = () => {
       <div className={styles.ProfileSet__options}>
         <button className={location.pathname === `/profile/${set.id}` ? `${styles.ProfileSet__button} ${styles['ProfileSet__button--active']}` : `${styles.ProfileSet__button}`}>
           <Link className={styles.ProfileSet__optionLink} to=''>
-            Study
+            Flashcards
           </Link>
         </button>
         <button className={location.pathname === `/profile/${set.id}/edit` ? `${styles.ProfileSet__button} ${styles['ProfileSet__button--active']}` : `${styles.ProfileSet__button}`}>
