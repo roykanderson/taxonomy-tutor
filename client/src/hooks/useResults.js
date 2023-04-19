@@ -12,10 +12,23 @@ const useResults = (search, page = 1) => {
 
     // The server first matches the search to a taxon
     const taxon = await taxaService.searchForTaxon(queryKey[1])
+    
+    // If a taxon is found, retrieve all descendants
+    if (taxon) {
+      const descendants = await taxaService.searchForDescendants(taxon?.id, queryKey[2])
+      if (descendants?.total_results > 0) {
+        return descendants
+      }
 
-    // Then retrieves all descendants
-    const descendants = await taxaService.searchForDescendants(taxon.id, queryKey[2])
-    return descendants
+      // If no descendants are found, return the taxon alone
+      else if (taxon) {
+        descendants.results.push(taxon)
+        descendants.total_results = 1
+        return descendants
+      }
+    }
+
+    return null
   }
 
   return useQuery({
