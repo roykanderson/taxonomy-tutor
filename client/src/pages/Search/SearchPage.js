@@ -10,7 +10,7 @@ import styles from './SearchPage.module.css'
 const SearchPage = ({ data, page, search }) => {
   const navigate = useNavigate()
 
-  const numPages = Math.ceil(data.total_results / data.per_page)
+  const numPages = Math.ceil(data?.total_results / data?.per_page)
 
   const handleBackClick = () => {
     window.scrollTo(0, 0)
