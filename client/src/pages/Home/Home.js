@@ -39,7 +39,7 @@ const Home = () => {
         <section className={styles.Home__buttonsContainer}>
           <Link className={styles.Home__link} to='/signup'>
             <button className={styles.Home__signupButton}>
-              Create an account to get started
+              Create an account
             </button>
           </Link>
           <Link className={styles.Home__link} to='/login'>

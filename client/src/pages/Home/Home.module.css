@@ -1,7 +1,6 @@
 .Home {
   max-width: 80%;
-  margin: auto;
-  margin-top: clamp(1.2rem, 1.2rem + 1vw, 5rem);
+  margin: clamp(1.2rem, 1.2rem + 1vw, 5rem) auto;
 }
 
 .Home__heading {
@@ -51,7 +50,7 @@
 }
 
 .Home__buttonsContainer {
-  max-width: fit-content;
+  width: 100%;
   color: var(--grey-extra-light);
   font-family: Roboto;
   font-size: clamp(1rem, 0.9rem + 1vw, 1.2rem);
@@ -107,5 +106,15 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+  }
+}
+
+@media (max-width: 500px) {
+  .Home__buttonsContainer {
+    flex-direction: column;
+  }
+
+  .Home__signupButton, .Home__loginButton {
+    width: 100%;
   }
 }
