@@ -53,7 +53,7 @@ const Signup = () => {
           />
         </div>
         <button className={styles.Signup__submit} type="submit">
-          {signUp.isLoading ? <LoadingIcon /> : 'Sign up'}
+          {signUp.isLoading ? <LoadingIcon color='black' /> : 'Sign up'}
         </button>
       </form>
     </div>

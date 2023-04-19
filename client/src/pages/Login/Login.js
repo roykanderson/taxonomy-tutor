@@ -4,6 +4,7 @@ import { useQueryClient } from '@tanstack/react-query'
 
 import { UserContext } from '../../context/UserContext'
 import useLogin from '../../hooks/useLogin'
+import LoadingIcon from '../../components/LoadingIcon'
 
 import styles from './Login.module.css'
 
@@ -47,7 +48,9 @@ const Login = () => {
                 onChange={({ target }) => setPassword(target.value)}
               />
           </div>
-          <button className={styles.Login__submit} type="submit">Log in</button>
+          <button className={styles.Login__submit} type="submit">
+            {login.isLoading ? <LoadingIcon color='black' /> : 'Log in'}
+          </button>
         </form>
     </div>
   )
