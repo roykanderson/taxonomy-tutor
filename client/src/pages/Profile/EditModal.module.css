@@ -32,7 +32,7 @@
 
 .EditModal__button {
   background-color: var(--grey-extra-dark);
-  color: var(--green);
+  color: var(--grey-light);
   font-family: Roboto;
   font-size: 1rem;
   font-weight: 500;
@@ -45,5 +45,5 @@
 
 .EditModal__button:hover {
   cursor: pointer;
-  opacity: 80%;
+  filter: brightness(1.1)
 }
