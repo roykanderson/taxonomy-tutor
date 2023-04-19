@@ -1,7 +1,7 @@
 .Home {
   max-width: 80%;
   margin: auto;
-  padding: clamp(1.2rem, 1.2rem + 1vw, 3rem) 0;
+  margin-top: clamp(1.2rem, 1.2rem + 1vw, 5rem);
 }
 
 .Home__heading {
