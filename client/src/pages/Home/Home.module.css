@@ -17,7 +17,7 @@
   color: var(--grey-extra-light);
   font-weight: 300;
   font-size: clamp(1.4rem, 1.3rem + 1vw, 1.8rem);
-  margin: 0 auto 1.8rem auto;
+  margin: 0 0 1.8rem 0;
 }
 
 .Home__subheading {
@@ -50,35 +50,43 @@
   cursor: pointer;
 }
 
-.Home__callToAction {
+.Home__buttonsContainer {
   max-width: fit-content;
-  margin: 1.2rem auto 0 auto;
-  padding: 1.2rem;
   color: var(--grey-extra-light);
   font-family: Roboto;
   font-size: clamp(1rem, 0.9rem + 1vw, 1.2rem);
   font-weight: 400;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   gap: 1.2rem;
-  text-align: center;
+  margin-top: 2.4rem;
 }
 
-.Home__button {
+.Home__signupButton {
   border: none;
   border-radius: 2.4rem;
   min-height: 2.4rem;
   background-color: var(--green);
   color: var(--grey-extra-dark);
   padding: 0.6rem 1.2rem;
-  font-size: 1rem;
+  font-size: clamp(1rem, 1rem + 1vw, 1.125rem);
   font-weight: 500;
   font-family: Roboto;
 }
 
-.Home__button:hover {
-  opacity: 80%;
+.Home__loginButton {
+  border: none;
+  border-radius: 2.4rem;
+  min-height: 2.4rem;
+  background-color: rgb(38, 38, 38);
+  color: var(--green);
+  padding: 0.6rem 1.2rem;
+  font-size: clamp(1rem, 1rem + 1vw, 1.125rem);
+  font-weight: 500;
+  font-family: Roboto;
+}
+
+.Home__signupButton:hover ,.Home__loginButton:hover {
+  filter: brightness(1.1);
   cursor: pointer;
 }
 
