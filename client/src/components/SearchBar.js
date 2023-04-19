@@ -59,7 +59,10 @@ const Searchbar = ({ setSearchBarFocused, user }) => {
         value={input}
         placeholder='Search for taxa...'
         onChange={handleInputChange} />
-      <button className={styles.Searchbar__submit} type='submit'>
+      <button
+        className={suggestions?.length > 0 && focused ? `${styles.Searchbar__submit} ${styles['Searchbar__submit--active']}` : `${styles.Searchbar__submit}`}
+        type='submit'
+      >
         <SearchIcon />
       </button>
       {focused &&

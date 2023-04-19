@@ -6,6 +6,10 @@ const SUGGESTION_URL = 'https://api.inaturalist.org/v1/taxa/autocomplete'
 const WIKI_URL = 'https://en.wikipedia.org/w/api.php'
 
 const searchForTaxon = async (query) => {
+  if (query.match(/\W/)) {
+    return null
+  }
+
   const url = `${TAXA_URL}?q=${query}`
   const res = await axios.get(url)
   return res.data
@@ -24,6 +28,10 @@ const fetchTaxaById = async (id) => {
 }
 
 const fetchTaxaSuggestions = async (search) => {
+  if (search.match(/\W/)) {
+    return null
+  }
+
   const res = await axios.get(`${SUGGESTION_URL}?q=${search}`)
   return res.data.results.filter(taxon => taxon.preferred_common_name)
 }
