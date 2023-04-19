@@ -21,7 +21,7 @@ const Search = () => {
     <main className={styles.Search}>
       <section className={styles.Search__summary}>
         <div className={styles.Search__summaryText}>
-          Showing results for {rank} <i>{search}</i> {`(${commonName})`}
+          Showing results for {rank} <i>{search}</i>{commonName ? ` (${commonName})` : ''}
         </div>
         <SearchPage data={data} page={page} search={search} />
       </section>
