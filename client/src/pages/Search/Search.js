@@ -25,7 +25,7 @@ const Search = () => {
       </section>
       {isFetching
         ? <LoadingIcon />
-        : <section className={data.results.length < 5 ? `${styles.Search__results} ${styles['Search__results--singleRow']}` : `${styles.Search__results}`}>
+        : <section className={styles.Search__results}>
           {data.results.map(taxon => 
             <SearchResult key={taxon.id} taxon={taxon} />     
           )}
