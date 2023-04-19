@@ -3,21 +3,6 @@
   margin: 2.4rem auto;
 }
 
-.Species__backLink {
-  color: var(--green);
-  font-weight: 300;
-  font-size: 1rem;
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  margin-bottom: 2.4rem;
-}
-
-.Species__backLink:hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
-
 .Species__flexContainer {
   display: flex;
   flex-direction: row;
@@ -43,16 +28,17 @@
   max-width: 60%;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.3rem;
 }
 
 .Species__commonName {
-  font-size: 1.875rem;
+  font-size: clamp(1.3rem, 1rem + 1vw, 2rem);
   color: var(--grey-extra-light);
 }
 
 .Species__sciName {
-  font-size: 1.25rem;
+  font-size: clamp(1.1rem, 0.7rem + 1vw, 1.5rem);
+  font-weight: 200;
   font-style: italic;
   color: var(--grey-light);
 }

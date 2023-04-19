@@ -90,16 +90,24 @@ const SetContent = () => {
       <div className={styles.SetContent__main}>
         {reveal
           ? <div className={styles.SetContent__textContainer}>
-              <div className={styles.SetContent__names}>
-                <div className={styles.SetContent__commonName}>
-                  {taxa[set.idIndices[array[index]]].preferred_common_name
-                    ? taxa[set.idIndices[array[index]]].preferred_common_name
-                    : taxa[set.idIndices[array[index]]].name
-                  }
+              <div className={styles.SetContent__textTop}>
+                <div className={styles.SetContent__names}>
+                  <div className={styles.SetContent__commonName}>
+                    {taxa[set.idIndices[array[index]]].preferred_common_name
+                      ? taxa[set.idIndices[array[index]]].preferred_common_name
+                      : taxa[set.idIndices[array[index]]].name
+                    }
+                  </div>
+                  <div className={styles.SetContent__sciName}>
+                    {taxa[set.idIndices[array[index]]].name}
+                  </div>
                 </div>
-                <div className={styles.SetContent__sciName}>
-                  {taxa[set.idIndices[array[index]]].name}
-                </div>
+                <button
+                  className={`${styles.SetContent__button} ${styles['SetContent__button--hide']}`}
+                  onClick={() => setReveal(false)}
+                >
+                  Hide
+                </button>
               </div>
               <div className={styles.SetContent__wikiContainer}>
                 <p className={styles.SetContent__wikiText}>
@@ -115,12 +123,6 @@ const SetContent = () => {
                   }
                 </p>
               </div>
-              <button
-                className={`${styles.SetContent__button} ${styles['SetContent__button--hide']}`}
-                onClick={() => setReveal(false)}
-              >
-                Hide species information
-              </button>
             </div>
           : <button
               className={styles.SetContent__button}

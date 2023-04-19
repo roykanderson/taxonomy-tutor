@@ -36,12 +36,13 @@
 
 .SetContent__bannerBox.SetContent__bannerBox--right {
   justify-content: right;
+  font-weight: 300;
 }
 
 .SetContent__bannerButton {
   font-family: Roboto;
-  font-size: clamp(0.7rem, 0.5rem + 1vw, 1.125rem);
-  font-weight: 300;
+  font-size: clamp(0.7rem, 0.5rem + 1vw, 1rem);
+  font-weight: 500;
   background-color: var(--grey-extra-dark);
   color: var(--grey-light);
   border: none;
@@ -50,15 +51,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 clamp(0.3rem, 0.3rem + 1vw, 1.2rem);
+  padding: 0.6rem clamp(0.6rem, 0.6rem + 1vw, 1.8rem);
 }
 
 .SetContent__shuffleButton {
-  font-size: clamp(0.7rem, 0.5rem + 1vw, 1.125rem);
+  font-size: clamp(0.7rem, 0.5rem + 1vw, 1rem);
 }
 
 .SetContent__shuffleButton.SetContent__shuffleButton--active {
-  color: var(--green);
+  background-color: var(--green);
+  color: var(--grey-extra-dark);
 }
 
 .SetContent__shuffleButton:hover {
@@ -91,11 +93,11 @@
 .SetContent__main {
   display: flex;
   justify-content: space-between;
-  height: clamp(10rem, 8rem + 12vw, 20.4rem);
+  min-height: clamp(10rem, 8rem + 12vw, 20.4rem);
 }
 
 .SetContent__textContainer {
-  margin: 0.6rem 1.2rem;
+  margin: 0.6rem 1.2rem 0 0;
   color: var(--grey-extra-light);
   display: flex;
   flex-direction: column;
@@ -104,25 +106,31 @@
   flex: 1;
 }
 
+.SetContent__textTop {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.2rem;
+}
+
 .SetContent__commonName {
   font-size: clamp(1.3rem, 1rem + 1vw, 2rem);
+  margin-bottom: 0.3rem;
 }
 
 .SetContent__sciName {
   font-style: italic;
-  font-size: 1.5rem;
   font-size: clamp(1.1rem, 0.7rem + 1vw, 1.5rem);
   font-weight: 200;
   color: var(--grey-medium);
 }
 
 .SetContent__wikiContainer {
-  border-top: 0.05rem solid var(--grey-extra-dark);
-  border-bottom: 0.05rem solid var(--grey-extra-dark);
+  border-top: 1px solid var(--grey);
   flex-shrink: 1;
-  overflow: scroll;
-  margin: 0.6rem 0;
-  padding: 0.6rem 0;
+  margin: 1.2rem 0;
+  padding: 1.2rem 0;
   font-size: 1rem;
   width: 100%;
   font-size: 1rem;
@@ -165,21 +173,21 @@
 }
 
 .SetContent__button.SetContent__button--hide {
-  margin: auto 0 0 0;
   background-color: var(--grey-extra-dark);
   color: var(--grey-light);
+  margin: 0;
 }
 
 .SetContent__image {
-  height: 100%;
-  width: clamp(10rem, 8rem + 12vw, 20.4rem);
+  height: clamp(10rem, 8rem + 12vw, 20.4rem);
+  aspect-ratio: 1/1;
   object-fit: cover;
   object-position: center;
 }
 
 .SetContent__noImage {
-  height: 100%;
-  width: clamp(10rem, 8rem + 12vw, 20.4rem);
+  height: clamp(10rem, 8rem + 12vw, 20.4rem);
+  aspect-ratio: 1/1;
   background-color: var(--grey-medium);
   color: var(--grey-extra-dark);
   display: flex;
@@ -199,6 +207,12 @@
 
   .SetContent__textContainer {
     margin-top: 0;
+  }
+
+  .SetContent__textTop {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
   }
 
   .SetContent__wikiContainer {
