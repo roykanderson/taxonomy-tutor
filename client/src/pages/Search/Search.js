@@ -16,7 +16,6 @@ const Search = () => {
   const page = Number(searchParams.get('page'))
 
   const { data, isFetching } = useResults(search, page)
-  console.log(data, isFetching)
 
   if (isFetching) {
     return (
@@ -30,7 +29,7 @@ const Search = () => {
     return (
       <main className={styles.Search}>
         <div className={styles.Search__errorMessage}>
-          Search invalid. Please use only letters and spaces.
+          Invalid search: "{search}". Please use only letters and spaces.
         </div>
       </main>
     )
