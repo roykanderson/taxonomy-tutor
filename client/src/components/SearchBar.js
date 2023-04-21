@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 
 import taxaService from '../services/taxaService'
@@ -8,21 +8,26 @@ import { ReactComponent as SearchIcon } from '../assets/search-icon.svg'
 import styles from './Searchbar.module.css'
 
 const Searchbar = ({ setSearchBarFocused, user }) => {
+  const controlRef = useRef(null)
+
   const [input, setInput] = useState('')
   const [suggestions, setSuggestions] = useState(null)
   const [focused, setFocused] = useState(null)
 
   const location = useLocation()
 
-  // Set input to be blank when user searches or url changes
+  // Set input to be blank when user searches or url
   useEffect(() => {
-    setInput('')
+    if (!location.pathname.startsWith('/search')) {
+      setInput('')
+    }
   }, [location])
 
   const navigate = useNavigate()
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    controlRef.current.blur()
     if (input) {
       setFocused(false)
       setSuggestions(null)
@@ -56,7 +61,9 @@ const Searchbar = ({ setSearchBarFocused, user }) => {
         type='text'
         value={input}
         placeholder='Search for taxa...'
-        onChange={handleInputChange} />
+        onChange={handleInputChange}
+        ref={controlRef}
+      />
       <button
         className={suggestions?.length > 0 && focused ? `${styles.Searchbar__submit} ${styles['Searchbar__submit--active']}` : `${styles.Searchbar__submit}`}
         type='submit'
