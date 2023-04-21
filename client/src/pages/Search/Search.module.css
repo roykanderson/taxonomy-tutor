@@ -23,6 +23,7 @@
   background-color:  var(--grey-extra-dark);
   border-radius: 1000rem;
   font-size: 1rem;
+  padding: 0.9rem;
 }
 
 .Search__summaryText {
