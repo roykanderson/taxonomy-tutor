@@ -17,15 +17,8 @@ const Search = () => {
 
   const { data, isFetching } = useResults(search, page)
 
-  if (isFetching) {
-    return (
-      <main className={styles.Search}>
-        <LoadingIcon />
-      </main>
-    )
-  }
-
-  else if (!data) {
+  if (!data && !isFetching) {
+    console.log('ya')
     return (
       <main className={styles.Search}>
         <div className={styles.Search__errorMessage}>
@@ -41,13 +34,16 @@ const Search = () => {
         <div className={styles.Search__summaryText}>
           Showing results for {rank} <i>{search}</i>{commonName ? ` (${commonName})` : ''}
         </div>
-        <SearchPage data={data} page={page} search={search} />
+        <SearchPage data={data} page={page} search={search} rank={rank} commonName={commonName} />
       </section>
-      <section className={styles.Search__results}>
-        {data.results.map(taxon => 
-          <SearchResult key={taxon.id} taxon={taxon} />     
-        )}
-      </section>
+      {isFetching
+        ? <LoadingIcon />
+        : <section className={styles.Search__results}>
+            {data.results.map(taxon => 
+              <SearchResult key={taxon.id} taxon={taxon} />     
+            )}
+          </section>
+      }
       {data && page !== Math.ceil(data.total_results / data.per_page) && !isFetching &&
         <section className={styles.Search__footer}>
           <SearchPage data={data} page={page} search={search} />

@@ -7,19 +7,19 @@ import { ReactComponent as NextArrowGreen } from '../../assets/next-arrow-green.
 
 import styles from './SearchPage.module.css'
 
-const SearchPage = ({ data, page, search }) => {
+const SearchPage = ({ data, page, search, rank, commonName }) => {
   const navigate = useNavigate()
 
   const numPages = Math.ceil(data?.total_results / data?.per_page)
 
   const handleBackClick = () => {
     window.scrollTo(0, 0)
-    navigate(`/search?q=${search}&page=${Number(page) - 1}`)
+    navigate(`/search?q=${search}&rank=${rank}&commonName=${commonName}&page=${Number(page) - 1}`)
   }
 
   const handleForwardClick = () => {
     window.scrollTo(0, 0)
-    navigate(`/search?q=${search}&page=${Number(page) + 1}`)
+    navigate(`/search?q=${search}&rank=${rank}&commonName=${commonName}&page=${Number(page) + 1}`)
   }
 
   return (
