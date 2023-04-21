@@ -12,8 +12,8 @@ const Search = () => {
   // Obtain query from URL
   const [searchParams] = useSearchParams()
   const search = searchParams.get('q')
-  const rank = toTitleCase(searchParams.get('rank'))
-  const commonName = toTitleCase(searchParams.get('commonName'))
+  const rank = searchParams.get('rank') ? toTitleCase(searchParams.get('rank')) : null
+  const commonName = searchParams.get('commonName') ? toTitleCase(searchParams.get('commonName')) : null
   const page = Number(searchParams.get('page'))
 
   const { data, isFetching } = useResults(search, page)
@@ -35,7 +35,7 @@ const Search = () => {
         <div className={styles.Search__summaryText}>
           {rank && commonName
             ? <>{rank} <span className={styles.Search__query}>{search}</span> ({commonName})</>
-            : <span className={styles.Search__query}>"{search}"</span>
+            : <span className={styles.Search__queryCommonName}>"{search}"</span>
           }
         </div>
         <SearchPage data={data} page={page} search={search} rank={rank} commonName={commonName} />

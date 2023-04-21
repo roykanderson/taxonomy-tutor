@@ -39,6 +39,11 @@
   color: var(--grey-extra-light);
 }
 
+.Search__queryCommonName {
+  font-weight: 400;
+  color: var(--grey-extra-light);
+}
+
 .Search__results {
   margin: 2.4rem auto;
   display: grid;
