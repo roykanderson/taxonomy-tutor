@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <main className={styles.Home}>
       <h1 className={styles.Home__heading}>
-        Welcome to Taxonomy Tutor!
+        Flashcards, for naturalists.
       </h1>
       <section className={styles.Home__flexContainer}>
         <h3 className={styles.Home__subheading}>
@@ -20,7 +20,7 @@ const Home = () => {
           Make an account, search for species, and add them to your flashcard sets. Try to recall each species from its picture alone. Once you're ready, reveal the species info to see if you were right.
         </p>
         <h3 className={styles.Home__subheading}>
-          Learn from species descriptions on your flashcards
+          Learn from species descriptions
         </h3>
         <p className={styles.Home__paragraph}>
           Each flashcard contains a short species description, along with a link to the source Wikipedia article. These descriptions are retrieved via the <a className={styles.Home__link} href='https://www.mediawiki.org/wiki/API:Main_page' target="_blank" rel="noopener noreferrer">MediaWiki API</a>.
