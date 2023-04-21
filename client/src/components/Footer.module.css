@@ -1,6 +1,6 @@
 .Footer {
   flex-shrink: 0;
-  background-color: var(--grey-extra-dark);
+  background-color: var(--grey-dark);
   color: var(--grey-light);
   font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
   font-weight: 300;
