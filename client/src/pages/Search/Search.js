@@ -4,6 +4,7 @@ import SearchPage from './SearchPage'
 import SearchResult from './SearchResult'
 import LoadingIcon from '../../components/LoadingIcon'
 import useResults from '../../hooks/useResults'
+import toTitleCase from '../../utils/toTitleCase'
 
 import styles from './Search.module.css'
 
@@ -11,8 +12,8 @@ const Search = () => {
   // Obtain query from URL
   const [searchParams] = useSearchParams()
   const search = searchParams.get('q')
-  const rank = searchParams.get('rank')
-  const commonName = searchParams.get('commonName')
+  const rank = toTitleCase(searchParams.get('rank'))
+  const commonName = toTitleCase(searchParams.get('commonName'))
   const page = Number(searchParams.get('page'))
 
   const { data, isFetching } = useResults(search, page)
@@ -32,7 +33,10 @@ const Search = () => {
     <main className={styles.Search}>
       <section className={styles.Search__summary}>
         <div className={styles.Search__summaryText}>
-          Showing results for {rank} <i>{search}</i>{commonName ? ` (${commonName})` : ''}
+          {rank && commonName
+            ? <>{rank} <span className={styles.Search__query}>{search}</span> ({commonName})</>
+            : <span className={styles.Search__query}>"{search}"</span>
+          }
         </div>
         <SearchPage data={data} page={page} search={search} rank={rank} commonName={commonName} />
       </section>

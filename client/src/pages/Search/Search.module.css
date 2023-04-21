@@ -20,11 +20,21 @@
   justify-content: space-between;
   align-items: center;
   gap: 1.2rem;
+  background-color:  var(--grey-extra-dark);
+  border-radius: 1000rem;
+  font-size: 1rem;
 }
 
 .Search__summaryText {
-  margin-right: auto;
-  font-size: clamp(1rem, 0.6rem + 1.5vw, 1.625rem);
+  margin-left: 0.9rem;
+  font-size: clamp(1rem, 0.6rem + 1.5vw, 1.125rem);
+  font-weight: 300;
+  color: var(--grey-light);
+}
+
+.Search__query {
+  font-style: italic;
+  font-weight: 400;
   color: var(--grey-extra-light);
 }
 
@@ -63,12 +73,16 @@
   .Search__summary {
     flex-direction: column;
     align-items: center;
-    gap: 1.2rem;
+    gap: 0;
+    width: fit-content;
+    max-width: 75%;
+    margin: auto;
+    padding: 0 1.2rem;
   }
 
   .Search__summaryText {
     text-align: center;
-    margin: 0 0.6rem;
+    margin: 0.9rem 0.6rem 0 0.6rem;
   }
 
   .Search__footer {
