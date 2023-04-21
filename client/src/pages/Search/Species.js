@@ -48,10 +48,13 @@ const Species = () => {
                   {firstCharToUpper(taxon.name)}
                 </div>
               </div>
-              {user &&
-                <button className={styles.Species__addButton} onClick={() => setShowModal(true)}>
-                  Add to set
-                </button>
+              {user
+                ? <button className={styles.Species__addButton} onClick={() => setShowModal(true)}>
+                    Add to set
+                  </button>
+                : <button className={`${styles.Species__addButton} ${styles['Species__addButton--disabled']}`} disabled>
+                    Log in to add to set
+                  </button>
               }
             </section>
           </div>

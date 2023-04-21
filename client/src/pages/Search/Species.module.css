@@ -63,9 +63,14 @@
   cursor: pointer;
 }
 
-.Species__addButton:hover .Species__addButtonPlus {
-  background-color: var(--green);
-  color: var(--green-dark);
+.Species__addButton.Species__addButton--disabled {
+  background-color: var(--grey);
+  color: var(--grey-extra-dark);
+}
+
+.Species__addButton.Species__addButton--disabled:hover {
+  filter: none;
+  cursor: default;
 }
 
 .Species__wiki {
