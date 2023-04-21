@@ -12,24 +12,21 @@ const Home = () => {
       <h1 className={styles.Home__heading}>
         Welcome to Taxonomy Tutor!
       </h1>
-      <h2 className={styles.Home__flexHeading}>
-        Here you can...
-      </h2>
       <section className={styles.Home__flexContainer}>
         <h3 className={styles.Home__subheading}>
-          Practice species identification
+          Create flashcard sets to practice species identification
         </h3>
         <p className={styles.Home__paragraph}>
-          Create a set of flashcards and try to recall each species from its picture alone. Once you're ready, reveal the species info to see if you were right.
+          Make an account, search for species, and add them to your flashcard sets. Try to recall each species from its picture alone. Once you're ready, reveal the species info to see if you were right.
         </p>
         <h3 className={styles.Home__subheading}>
-          Learn with species descriptions
+          Learn from species descriptions on your flashcards
         </h3>
         <p className={styles.Home__paragraph}>
-          Short species descriptions, along with a link to the source Wikipedia article, are retrieved via the <a className={styles.Home__link} href='https://www.mediawiki.org/wiki/API:Main_page' target="_blank" rel="noopener noreferrer">MediaWiki API</a>. Learn as you go.
+          Each flashcard contains a short species description, along with a link to the source Wikipedia article. These descriptions are retrieved via the <a className={styles.Home__link} href='https://www.mediawiki.org/wiki/API:Main_page' target="_blank" rel="noopener noreferrer">MediaWiki API</a>.
         </p>
         <h3 className={styles.Home__subheading}>
-          Always find new species
+          Never run out of species to study
         </h3>
         <p className={styles.Home__paragraph}>
           Taxonomy Tutor utilizes the <a className={styles.Home__link} href='https://inaturalist.org' target="_blank" rel="noopener noreferrer">iNaturalist</a> <a className={styles.Home__link} href='https://api.inaturalist.org/v1/docs/' target="_blank" rel="noopener noreferrer">API</a> to keep track. iNaturalist users have observed over <a className={styles.Home__link} href='https://www.inaturalist.org/blog/52872-one-sixth-of-all-named-species-tallied#:~:text=Most%20estimates%20are%20that%20there,described%20species%20with%20an%20observation.' target="_blank" rel="noopener noreferrer">333,000 unique species</a> around the world.
@@ -39,7 +36,7 @@ const Home = () => {
         <section className={styles.Home__buttonsContainer}>
           <Link className={styles.Home__link} to='/signup'>
             <button className={styles.Home__signupButton}>
-              Create an account
+              Get started
             </button>
           </Link>
           <Link className={styles.Home__link} to='/login'>
