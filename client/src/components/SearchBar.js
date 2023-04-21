@@ -60,7 +60,7 @@ const Searchbar = ({ setSearchBarFocused, user }) => {
         className={styles.Searchbar__input}
         type='text'
         value={input}
-        placeholder='Search for taxa...'
+        placeholder='Search for a species, genus, etc.'
         onChange={handleInputChange}
         ref={controlRef}
       />
