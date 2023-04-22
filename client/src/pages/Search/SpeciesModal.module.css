@@ -52,6 +52,8 @@
   margin: 2rem 2.4rem 0 2.4rem;
   display: flex;
   justify-content: center;
+  text-align: center;
+  font-weight: 300;
 }
 
 .SpeciesModal__buttons {
