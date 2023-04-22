@@ -9,7 +9,9 @@ import styles from './EditTaxon.module.css'
 
 const EditTaxon = ({ selectedTaxa, setSelectedTaxa, index, checkForTaxaChanges }) => {
 
-  const [input, setInput] = useState(selectedTaxa[index].preferred_common_name)
+  console.log(selectedTaxa)
+
+  const [input, setInput] = useState(selectedTaxa[index].preferred_common_name ? toTitleCase(selectedTaxa[index].preferred_common_name) : firstCharToUpper(selectedTaxa[index].name))
   const [focused, setFocused] = useState(false)
   const [suggestions, setSuggestions] = useState(null)
 
@@ -63,7 +65,7 @@ const EditTaxon = ({ selectedTaxa, setSelectedTaxa, index, checkForTaxaChanges }
           <input
             className={styles.EditTaxon__input}
             type="text"
-            value={toTitleCase(input)}
+            value={input}
             onChange={handleChange}
             onFocus={() => setFocused(true)}
             onBlur={onBlur}
