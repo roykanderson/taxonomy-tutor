@@ -56,7 +56,8 @@
 }
 
 @media (max-width: 500px) {
-  .Searchbar__submit.Searchbar__submit--active {
+  .Searchbar__submit.Searchbar__submit--active.Searchbar__submit--mobile {
     border-bottom-right-radius: 0;
+    transition: border-bottom-right-radius 0s;
   }
 }
