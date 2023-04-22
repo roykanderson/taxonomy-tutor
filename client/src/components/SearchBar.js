@@ -65,7 +65,7 @@ const Searchbar = ({ setSearchBarFocused, user }) => {
         ref={controlRef}
       />
       <button
-        className={suggestions?.length > 0 && focused ? `${styles.Searchbar__submit} ${styles['Searchbar__submit--active']}` : `${styles.Searchbar__submit}`}
+        className={focused ? `${styles.Searchbar__submit} ${styles['Searchbar__submit--active']}` : `${styles.Searchbar__submit}`}
         type='submit'
       >
         <SearchIcon />
