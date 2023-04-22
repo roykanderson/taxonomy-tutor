@@ -3,6 +3,9 @@
   max-width: 14rem;
   text-decoration: none;
   color: var(--grey-extra-light);
+  border: 0.05rem solid var(--grey-medium);
+  border-radius: 0.5rem;
+  overflow: hidden;
 }
 
 .SearchResult:hover, .SearchResult:active {
@@ -17,8 +20,8 @@
 }
 
 .SearchResult__noImage {
-  background-color: var(--grey-medium);
-  color: var(--grey-dark);
+  background-color: var(--grey-extra-dark);
+  color: var(--grey-light);
   font-weight: 300;
   width: 14rem;
   height: 14rem;
@@ -29,6 +32,7 @@
 
 .SearchResult__namesContainer {
   padding: 1.2rem;
+  border-top: 0.05rem solid var(--grey-medium);
 }
 
 .SearchResult__commonName {
@@ -54,6 +58,8 @@
 @media (max-width: 829px) {
   .SearchResult {
     max-width: 33.33vw;
+    border: none;
+    border-radius: 0;
   }
 
   .SearchResult:nth-child(6n + 2), .SearchResult:nth-child(6n + 4), .SearchResult:nth-child(6n) {
@@ -73,6 +79,10 @@
     width: 33.33vw;
     height: 33.33vw;
     font-size: 0.8rem;
+  }
+
+  .SearchResult__namesContainer {
+    border-top: none;
   }
 
   .SearchResult__commonName {

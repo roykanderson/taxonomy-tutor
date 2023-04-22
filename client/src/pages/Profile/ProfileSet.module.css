@@ -63,11 +63,11 @@
 }
 
 .ProfileSet__button.ProfileSet__button--active {
-  background-color: var(--grey-extra-dark);
+  background-color: var(--grey-dark);
 }
 
 .ProfileSet__optionLink {
-  color: var(--grey-light);
+  color: var(--grey-extra-light);
 }
 
 @media (max-width: 700px) {

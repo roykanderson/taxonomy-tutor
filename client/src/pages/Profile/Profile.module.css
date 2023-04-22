@@ -51,11 +51,11 @@
 }
 
 .Profile__button--active {
-  background-color: var(--grey-extra-dark);
+  background-color: var(--grey-dark);
 }
 
 .Profile__link {
-  color: var(--grey-light);
+  color: var(--grey-extra-light);
 }
 
 @media (max-width: 700px) {

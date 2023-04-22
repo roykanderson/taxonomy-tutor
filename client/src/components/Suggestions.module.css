@@ -31,13 +31,13 @@
 }
 
 .Suggestions__commonName {
-  color: #404040;
+  color: var(--grey-extra-dark);
   font-weight: 300;
 }
 
 .Suggestions__sciName {
-  color: #515151;
-  font-weight: 200;
+  color: var(--grey-extra-dark);
+  font-weight: 300;
   font-size: 90%;
 }
 

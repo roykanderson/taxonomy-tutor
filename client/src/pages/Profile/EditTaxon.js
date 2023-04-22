@@ -28,7 +28,7 @@ const EditTaxon = ({ selectedTaxa, setSelectedTaxa, index, checkForTaxaChanges }
   const onBlur = () => {
     setFocused(false)
     setSuggestions(null)
-    setInput(selectedTaxa[index].preferred_common_name)
+    setInput(selectedTaxa[index].preferred_common_name ? toTitleCase(selectedTaxa[index].preferred_common_name) : firstCharToUpper(selectedTaxa[index].name))
   }
   
   const handleSuggestionClick = async ({ target }) => {

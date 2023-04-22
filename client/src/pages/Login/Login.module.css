@@ -10,11 +10,12 @@
 }
 
 .Login__card {
-  background-color: var(--grey);
+  background-color: var(--grey-dark);
   display: flex;
   flex-direction: column;
   padding: 1.8rem;
   margin-bottom: 1.8rem;
+  border-radius: 0.5rem;
 }
 
 .Login__error {

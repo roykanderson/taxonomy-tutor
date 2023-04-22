@@ -43,7 +43,7 @@
 }
 
 .SetContent__bannerButton {
-  background-color: var(--grey-extra-dark);
+  background-color: var(--grey-dark);
   color: var(--grey-light);
   border: none;
   height: 2.125rem;
@@ -127,7 +127,7 @@
   font-style: italic;
   font-size: clamp(1.1rem, 0.7rem + 1vw, 1.5rem);
   font-weight: 200;
-  color: var(--grey-medium);
+  color: var(--grey-light);
 }
 
 .SetContent__wikiContainer {
@@ -175,7 +175,7 @@
 }
 
 .SetContent__button.SetContent__button--hide {
-  background-color: var(--grey-extra-dark);
+  background-color: var(--grey-dark);
   color: var(--grey-light);
   margin: 0;
 }

@@ -39,7 +39,7 @@ ul {
 body {
   height: 100%;
   font-family: Roboto;
-  background-color: var(--grey-dark);
+  background-color: var(--grey-extra-dark);
 }
 
 input {

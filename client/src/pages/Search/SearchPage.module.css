@@ -12,6 +12,7 @@
 .SearchPage__button {
   border: none;
   background-color: var(--grey-extra-dark);
+  scale: 1.2;
 }
 
 .SearchPage__button--active {

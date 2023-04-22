@@ -76,8 +76,8 @@
   border: none;
   border-radius: 2.4rem;
   min-height: 2.4rem;
-  background-color: var(--grey-extra-dark);
-  color: var(--grey-light);
+  background-color: var(--grey-light);
+  color: var(--grey-extra-dark);
   padding: 0.6rem 1.2rem;
   font-size: clamp(1rem, 1rem + 1vw, 1.125rem);
   font-weight: 500;
