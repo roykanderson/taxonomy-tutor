@@ -19,7 +19,6 @@ const Search = () => {
   const { data, isFetching } = useResults(search, page)
 
   if (!data && !isFetching) {
-    console.log('ya')
     return (
       <main className={styles.Search}>
         <div className={styles.Search__errorMessage}>
