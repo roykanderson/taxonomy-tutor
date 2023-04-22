@@ -1,5 +1,5 @@
 .EditAdd {
-  background-color: var(--grey-dark);
+  background-color: var(--grey-super-dark);
   color: var(--green);
   border: none;
   font-family: Roboto;
@@ -22,7 +22,6 @@
 }
 
 .EditAdd.EditAdd--active {
-  border-bottom: 0.12rem solid var(--grey-light);
   background-color: var(--grey-light);
   color: var(--grey-dark);
   cursor: text;
@@ -30,6 +29,13 @@
 
 .EditAdd.EditAdd--active:focus {
   outline: none;
+  font-weight: 500;
+  opacity: 80%;
+  border-bottom: none;
+}
+
+.EditAdd.EditAdd--active:hover {
+  filter: none;
 }
 
 .EditAddSuggestions {
@@ -38,10 +44,9 @@
 
 .EditAddSuggestions__suggestion {
   min-height: 2.4rem;
-  background-color: var(--grey-extra-dark);
-  color: var(--grey-light);
+  background-color: var(--grey-light);
+  color: var(--grey-extra-dark);
   font-weight: 300;
-  border-bottom: 0.08rem solid var(--grey);
   display: flex;
   align-items: center;
   gap: 0.3rem;
@@ -64,7 +69,6 @@
 .EditAddSuggestions__namesContainer {
   display: flex;
   flex-direction: column;
-  color: var(--grey-extra-light);
   font-size: 1rem;
 }
 
@@ -74,7 +78,7 @@
 
 .EditAddSuggestions__sciName {
   font-style: italic;
-  font-weight: 200;
+  font-weight: 300;
   font-size: 90%;
 }
 

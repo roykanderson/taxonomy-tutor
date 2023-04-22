@@ -55,7 +55,7 @@
 
 .SetEdit__submit.SetEdit__submit--inactive:hover {
   cursor: default;
-  opacity: 100%;
+  filter: none;
 }
 
 @media (max-width: 700px) {

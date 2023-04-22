@@ -92,11 +92,10 @@
 
 .EditTaxonSuggestions__suggestion {
   height: 2.4rem;
-  background-color: var(--grey-extra-dark);
-  color: var(--grey-light);
+  background-color: var(--grey-light);
+  color: var(--grey-extra-dark);
   font-weight: 300;
   font-size: 1rem;
-  border-bottom: 0.08rem solid var(--grey);
   display: flex;
   align-items: center;
   gap: 0.3rem;
@@ -106,7 +105,7 @@
 
 .EditTaxonSuggestions__suggestion:hover {
   cursor: pointer;
-  opacity: 80%;
+  filter: brightness(1.1)
 }
 
 .EditTaxonSuggestions__image {
@@ -119,7 +118,6 @@
 .EditTaxonSuggestions__namesContainer {
   display: flex;
   flex-direction: column;
-  color: var(--grey-extra-light);
 }
 
 .EditTaxonSuggestions__commonName {
@@ -128,7 +126,7 @@
 
 .EditTaxonSuggestions__sciName {
   font-style: italic;
-  font-weight: 200;
+  font-weight: 300;
   font-size: 90%;
 }
 
