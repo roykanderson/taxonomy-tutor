@@ -35,7 +35,7 @@ const NavbarDropdown = ({ user, handleLogOut }) => {
         <Link className={styles.NavbarDropdown__link} to='/' onMouseDown={() => navigate('/')}>Home</Link>
       </div>
       <div className={styles.NavbarDropdown__linkContainer}>
-        <Link className={styles.NavbarDropdown__link} to='/profile' onMouseDown={() => navigate('/profile')}>My species sets</Link>
+        <Link className={styles.NavbarDropdown__link} to='/profile' onMouseDown={() => navigate('/profile')}>My flashcard sets</Link>
       </div>
       <div className={styles.NavbarDropdown__linkContainer}>
         <Link className={styles.NavbarDropdown__link} to='/' onMouseDown={handleLogOut}>Log out</Link>

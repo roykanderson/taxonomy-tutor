@@ -22,7 +22,7 @@ const Profile = () => {
       <div className={styles.Profile__options}>
         <button className={location.pathname === '/profile' ? `${styles.Profile__button} ${styles['Profile__button--active']}` : `${styles.Profile__button}`}>
           <Link className={styles.Profile__link} to=''>
-            My species sets
+            My flashcard sets
           </Link>
         </button>
         <button className={location.pathname === '/profile/create' ? `${styles.Profile__button} ${styles['Profile__button--active']}` : `${styles.Profile__button}`}>

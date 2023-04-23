@@ -34,7 +34,7 @@ const SpeciesModal = ({ setShowModal, taxon }) => {
             : <>
                 <div className={styles.SpeciesModal__topSection}>
                   <h2 className={styles.SpeciesModal__heading}>
-                    Which set would you like to add this species to?
+                    Which flashcard set would you like to add this species to?
                   </h2>
                   <button className={styles.SpeciesModal__closeButton} onClick={() => setShowModal(false)}>
                     <CloseIcon className={styles.SpeciesModal__closeIcon} />
@@ -42,7 +42,7 @@ const SpeciesModal = ({ setShowModal, taxon }) => {
                 </div>
                 {data.length === 0
                   ? <div className={styles.SpeciesModal__noSets}>
-                      It looks like you haven't created any study sets yet. Now's the perfect time to start!
+                      It looks like you haven't created any sets yet. Click "Create new set" to start.
                     </div>
                   : <ModalSets data={data} activeSet={activeSet} setActiveSet={setActiveSet} setCreateActive={setCreateActive} setError={setError} />
                 }
