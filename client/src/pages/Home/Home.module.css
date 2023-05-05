@@ -1,0 +1,120 @@
+.Home {
+  max-width: 80%;
+  margin: clamp(1.2rem, 1.2rem + 1vw, 5rem) auto;
+}
+
+.Home__heading {
+  color: var(--green);
+  font-family: Roboto Mono;
+  font-size: clamp(1.4rem, 1.3rem + 1vw, 2rem);
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 1.8rem;
+}
+
+.Home__flexHeading {
+  color: var(--grey-extra-light);
+  font-weight: 300;
+  font-size: clamp(1.4rem, 1.3rem + 1vw, 1.8rem);
+  margin: 0 0 1.8rem 0;
+}
+
+.Home__subheading {
+  color: var(--grey-extra-light);
+  font-size: clamp(1rem, 0.9rem + 1vw, 1.2rem);
+  font-weight: 400;
+  flex-basis: 30%;
+  order: -1;
+}
+
+.Home__subheading:nth-child(1) {
+  margin-top: 0;
+}
+
+.Home__paragraph {
+  color: var(--grey-medium-light);
+  font-size: clamp(0.8rem, 0.7rem + 1vw, 1rem);
+  font-weight: 300;
+  flex-basis: 30%;
+  order: 1;
+}
+
+.Home__link {
+  color: var(--grey-medium-light);
+  text-decoration: underline;
+}
+
+.Home__link:hover {
+  color: var(--green);
+  cursor: pointer;
+}
+
+.Home__buttonsContainer {
+  width: 100%;
+  color: var(--grey-extra-light);
+  font-family: Roboto;
+  font-size: clamp(1rem, 0.9rem + 1vw, 1.2rem);
+  font-weight: 400;
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 2.4rem;
+}
+
+.Home__signupButton {
+  border: none;
+  border-radius: 2.4rem;
+  min-height: 2.4rem;
+  background-color: var(--green);
+  color: var(--grey-extra-dark);
+  padding: 0.6rem 1.2rem;
+  font-size: clamp(1rem, 1rem + 1vw, 1.125rem);
+  font-weight: 500;
+  font-family: Roboto;
+}
+
+.Home__loginButton {
+  border: none;
+  border-radius: 2.4rem;
+  min-height: 2.4rem;
+  background-color: var(--grey-light);
+  color: var(--grey-extra-dark);
+  padding: 0.6rem 1.2rem;
+  font-size: clamp(1rem, 1rem + 1vw, 1.125rem);
+  font-weight: 500;
+  font-family: Roboto;
+}
+
+.Home__signupButton:hover ,.Home__loginButton:hover {
+  filter: brightness(1.1);
+  cursor: pointer;
+}
+
+@media (min-width: 1000px) {
+  .Home {
+    padding-top: 3.6rem;
+  }
+
+  .Home__flexHeading {
+    margin-bottom: 0.6rem;
+  }
+
+  .Home__subheading:nth-child(1) {
+    margin-top: 1.2rem;
+  }
+
+  .Home__flexContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 500px) {
+  .Home__buttonsContainer {
+    flex-direction: column;
+  }
+
+  .Home__signupButton, .Home__loginButton {
+    width: 100%;
+  }
+}

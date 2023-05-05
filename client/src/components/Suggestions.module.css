@@ -1,0 +1,52 @@
+.Suggestions {
+  position: absolute;
+  z-index: 2;
+  top: 2.4rem;
+  left: 0;
+  right: 3rem;
+}
+
+.Suggestions__suggestionContainer {
+  display: flex;
+  background-color: var(--grey-light);
+  height: 2.4rem;
+  padding: 0.25rem 0 0.25rem 0.25rem;
+}
+
+.Suggestions__suggestionContainer:hover {
+  background-color: var(--grey-extra-light);
+  cursor: pointer;
+}
+
+.Suggestions__suggestion {
+  min-width: 0;
+  padding: 0.25rem;
+  padding-top: 0;
+}
+
+.Suggestions__suggestion div {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.Suggestions__commonName {
+  color: var(--grey-extra-dark);
+  font-weight: 300;
+}
+
+.Suggestions__sciName {
+  color: var(--grey-extra-dark);
+  font-weight: 300;
+  font-size: 90%;
+}
+
+.Suggestions__sciName span {
+  font-style: italic;
+}
+
+@media (max-width: 500px) {
+  .Suggestions {
+    right: 0;
+  }
+}

@@ -1,0 +1,82 @@
+.ProfileSets {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.ProfileSets__noSets {
+  margin: 4.8rem 2.4rem 0 2.4rem;
+  display: flex;
+  justify-content: center;
+  color: var(--grey-light);
+  font-weight: 300;
+  font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
+  text-align: center;
+}
+
+.ProfileSets__set {
+  background-color: var(--grey-light);
+  padding: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.6rem;
+}
+
+.ProfileSets__set:hover {
+  cursor: pointer;
+  opacity: 80%;
+}
+
+.ProfileSets__set div {
+  color: var(--grey-extra-dark);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.ProfileSets__name {
+  font-size: 1.25rem;
+  font-weight: 500;
+  flex-basis: 50%;
+  flex-grow: 1;
+}
+
+.ProfileSets__date {
+  text-align: end;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.ProfileSets__numSpecies {
+  font-size: 1rem;
+  font-weight: 300;
+  flex-basis: 50%;
+  flex-grow: 1;
+}
+
+@media (max-width: 700px) {
+  .ProfileSets__set {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .ProfileSets__set div {
+    width: 100%;
+  }
+
+  .ProfileSets__name {
+    font-size: clamp(1rem, 0.8rem + 1vw, 1.25rem);
+  }
+
+  .ProfileSets__date {
+    font-size: clamp(0.8rem, 0.6rem + 1vw, 1rem);
+    text-align: start;
+    font-weight: 300;
+  }
+
+  .ProfileSets__numSpecies {
+    font-size: clamp(0.8rem, 0.6rem + 1vw, 1rem);
+    font-weight: 300;
+  }
+}

@@ -1,0 +1,35 @@
+.SearchPage {
+  flex-shrink: 0;
+  background-color: var(--grey-extra-dark);
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  color: var(--grey-light);
+  border-radius: 2.4rem;
+  font-size: 1rem;
+}
+
+.SearchPage__button {
+  border: none;
+  background-color: var(--grey-extra-dark);
+  scale: 1.2;
+}
+
+.SearchPage__button--active {
+  cursor: pointer;
+}
+
+.SearchPage__button--active:hover {
+  transform: scale(1.5);
+}
+
+@media (max-width: 829px) {
+  .SearchPage {
+    scale: 0.8;
+  }
+
+  .SearchPage {
+    margin: 0;
+    margin-bottom: 0.9rem;
+  }
+}

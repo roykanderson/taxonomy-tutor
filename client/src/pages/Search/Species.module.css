@@ -1,0 +1,164 @@
+.Species {
+  max-width: 80%;
+  margin: 2.4rem auto;
+}
+
+.Species__flexContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 2.4rem;
+  position: relative;
+}
+
+.Species__info {
+  flex: 1;
+}
+
+.Species__titleSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: first baseline;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--grey);
+}
+
+.Species__namesContainer {
+  max-width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.Species__commonName {
+  font-size: clamp(1.3rem, 1rem + 1vw, 2rem);
+  color: var(--grey-extra-light);
+}
+
+.Species__sciName {
+  font-size: clamp(1.1rem, 0.7rem + 1vw, 1.5rem);
+  font-weight: 200;
+  font-style: italic;
+  color: var(--grey-light);
+}
+
+.Species__addButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: var(--green);
+  color: var(--grey-extra-dark);
+  font-family: Roboto;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 1.2rem;
+  display: block;
+  padding: 0.438rem 0.876rem;
+}
+
+.Species__addButton:hover {
+  filter: brightness(1.1);
+  cursor: pointer;
+}
+
+.Species__addButton.Species__addButton--disabled {
+  background-color: var(--grey);
+  color: var(--grey-extra-dark);
+}
+
+.Species__addButton.Species__addButton--disabled:hover {
+  filter: none;
+  cursor: default;
+}
+
+.Species__wiki {
+  color: var(--grey-extra-light);
+  font-weight: 300;
+}
+
+.Species__wikiDescription {
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.Species__wikiCitation {
+  font-weight: 300;
+  font-size: 1rem;
+  color: var(--grey-light);
+}
+
+.Species__wikiCitation a {
+  text-decoration: underline;
+  color: var(--grey-light);
+}
+
+.Species__wikiCitation a:hover {
+  color: var(--green);
+}
+
+.Species__image {
+  width: clamp(14rem, 10rem + 15vw, 24rem);
+  height: clamp(14rem, 10rem + 15vw, 24rem);
+  object-fit: cover;
+  object-position: center;
+}
+
+.Species__noImage {
+  width: clamp(12rem, 10rem + 15vw, 24rem);
+  height: clamp(12rem, 10rem + 15vw, 24rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--grey-light);
+  background-color: var(--grey);
+}
+
+@media (max-width: 800px) {
+  .Species {
+    margin: 1.8rem auto;
+  }
+
+  .Species__backLink {
+    display: block;
+    margin: 0 auto 1.8rem auto;
+    text-align: center;
+  }
+
+  .Species__flexContainer {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .Species__titleSection {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  .Species__namesContainer {
+    max-width: 100%;
+  }
+
+  .Species__commonName {
+    font-size: 1.5rem;
+    margin: auto;
+  }
+
+  .Species__sciName {
+    font-size: 1.1rem;
+    margin: auto;
+  }
+
+  .Species__image {
+    order: -1;
+    margin: auto;
+  }
+
+  .Species__noImage {
+    order: -1;
+    margin: auto;
+  }
+}

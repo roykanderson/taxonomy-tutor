@@ -1,0 +1,30 @@
+.EditTitle {
+  background-color: var(--grey-light);
+  color: var(--grey-dark);
+  padding: 0.6rem 1.2rem;
+}
+
+.EditTitle__label {
+  font-size: 0.875rem;
+}
+
+.EditTitle__input {
+  background-color: transparent;
+  color: var(--grey-dark);
+  border: none;
+  width: 100%;
+  font-family: Roboto;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.EditTitle__input:focus {
+  outline: none;
+  border-bottom: 0.12rem solid var(--grey);
+}
+
+@media (max-width: 700px) {
+  .EditTitle__input {
+    font-size: clamp(1rem, 0.7rem + 1vw, 1.125rem);
+  }
+}

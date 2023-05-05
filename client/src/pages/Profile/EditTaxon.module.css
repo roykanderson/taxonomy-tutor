@@ -1,0 +1,149 @@
+.EditTaxon {
+  background-color: var(--grey-light);
+  color: var(--grey-dark);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.2rem;
+  position: relative;
+}
+
+.EditTaxon__photo {
+  object-fit: cover;
+  object-position: center;
+  height: clamp(4.2rem, 4.2rem + 1vw, 4.688rem);
+  width: clamp(4.2rem, 4.2rem + 1vw, 4.688rem);
+}
+
+.EditTaxon__noPhoto {
+  height: 4.688rem;
+  width: 4.688rem;
+  background-color: var(--grey-medium);
+  font-size: 0.7rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.EditTaxon__info {
+  flex: 1;
+  min-width: 0;
+  gap: 0.6rem;
+}
+
+.EditTaxon__index {
+  font-size: 0.875rem;
+}
+
+.EditTaxon__input {
+  background-color: transparent;
+  color: var(--grey-dark);
+  border: none;
+  font-family: Roboto;
+  font-size: 1.125rem;
+  font-weight: 500;
+  width: 100%;
+  padding: 0;
+  text-overflow: ellipsis;
+}
+
+.EditTaxon__input:hover {
+  background-color: var(--grey-extra-light);
+}
+
+.EditTaxon__input:focus {
+  outline: none;
+  border-bottom: 0.12rem solid var(--grey);
+  min-width: 100%;
+}
+
+.EditTaxon__input:focus:hover {
+  background-color: transparent;
+}
+
+.EditTaxon__sciName {
+  width: 100%;
+  font-weight: 300;
+  font-size: 1rem;
+  font-style: italic;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.EditTaxon__removeButton {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  margin-right: clamp(0.6rem, 0.6rem + 1vw, 1.2rem);
+}
+
+.EditTaxon__removeButton:hover {
+  opacity: 80%;
+  cursor: pointer;
+}
+
+.EditTaxonSuggestions {
+  margin-left: clamp(4.2rem, 4.2rem + 1vw, 4.688rem);
+  margin-top: none;
+}
+
+.EditTaxonSuggestions__suggestion {
+  height: 2.4rem;
+  background-color: var(--grey-light);
+  color: var(--grey-extra-dark);
+  font-weight: 300;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0 0.25rem 0.25rem;
+  overflow-wrap: break-word;
+}
+
+.EditTaxonSuggestions__suggestion:hover {
+  cursor: pointer;
+  filter: brightness(1.1)
+}
+
+.EditTaxonSuggestions__image {
+  width: 2.4rem;
+  height: 2.4rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+.EditTaxonSuggestions__namesContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.EditTaxonSuggestions__commonName {
+  font-weight: 300;
+}
+
+.EditTaxonSuggestions__sciName {
+  font-style: italic;
+  font-weight: 300;
+  font-size: 90%;
+}
+
+@media (max-width: 500px) {
+  .EditTaxon__index {
+    font-size: clamp(0.5rem, 0.5rem + 1vw, 0.875rem);
+  }
+
+  .EditTaxon__input {
+    font-size: clamp(1rem, 0.7rem + 1vw, 1.125rem);
+  }
+
+  .EditTaxon__sciName {
+    font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
+  }
+
+  .EditTaxonSuggestions {
+    margin-left: 0;
+  }
+}

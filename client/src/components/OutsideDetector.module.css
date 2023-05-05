@@ -1,0 +1,9 @@
+.OutsideDetector {
+  width: 70%;
+}
+
+@media (max-width: 650px) {
+  .OutsideDetector {
+    width: 92%;
+  }
+}

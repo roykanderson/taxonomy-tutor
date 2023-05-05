@@ -1,0 +1,85 @@
+.CreateAdd {
+  background-color: var(--grey-super-dark);
+  color: var(--green);
+  border: none;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 1.25rem;
+  padding: 0.6rem 1.2rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 1.2rem;
+}
+
+.CreateAdd.CreateAdd--error {
+  background-color: var(--grey-extra-dark);
+  color: var(--red);
+}
+
+.CreateAdd:hover {
+  border-bottom: 0.12rem solid var(--green);
+  cursor: pointer;
+}
+
+.CreateAdd.CreateAdd--active {
+  background-color: var(--grey-light);
+  color: var(--grey-dark);
+  cursor: text;
+}
+
+.CreateAdd.CreateAdd--active:focus {
+  outline: none;
+  font-weight: 500;
+  opacity: 80%;
+  border-bottom: none;
+}
+
+.CreateAddSuggestions {
+  margin-top: none;
+}
+
+.CreateAddSuggestions__suggestion {
+  min-height: 2.4rem;
+  background-color: var(--grey-light);
+  color: var(--grey-extra-dark);
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0 0.25rem 0.25rem;
+  overflow-wrap: break-word;
+}
+
+.CreateAddSuggestions__suggestion:hover {
+  cursor: pointer;
+  opacity: 80%;
+}
+
+.CreateAddSuggestions__image {
+  width: 2.4rem;
+  height: 2.4rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+.CreateAddSuggestions__namesContainer {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+}
+
+.CreateAddSuggestions__commonName {
+  font-weight: 300;
+}
+
+.CreateAddSuggestions__sciName {
+  font-style: italic;
+  font-weight: 300;
+  font-size: 90%;
+}
+
+@media (max-width: 700px) {
+  .CreateAdd {
+    font-size: clamp(1rem, 0.8rem + 1vw, 1.125rem);
+  }
+}

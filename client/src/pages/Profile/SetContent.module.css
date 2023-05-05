@@ -1,0 +1,248 @@
+.SetContentError {
+  margin: 4.8rem 2.4rem 0 2.4rem;
+  display: flex;
+  justify-content: center;
+  color: var(--grey-light);
+  font-weight: 300;
+  font-size: clamp(0.6rem, 0.6rem + 1vw, 1rem);
+  text-align: center;
+}
+
+.SetContent {
+  width: 100%;
+}
+
+.SetContent__banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--grey-light);
+  border-top: 1px solid var(--grey);
+  padding: 1.2rem 0;
+  font-family: Roboto;
+  font-size: clamp(0.7rem, 0.5rem + 1vw, 1rem);
+}
+
+.SetContent__bannerBox {
+  display: flex;
+  flex: 1;
+}
+
+.SetContent__bannerBox.SetContent__bannerBox--left {
+  justify-content: left;
+}
+
+.SetContent__bannerBox.SetContent__bannerBox--center {
+  justify-content: center;
+  gap: 0.45rem;
+}
+
+.SetContent__bannerBox.SetContent__bannerBox--right {
+  justify-content: right;
+  font-weight: 300;
+}
+
+.SetContent__bannerButton {
+  background-color: var(--grey-dark);
+  color: var(--grey-light);
+  border: none;
+  height: 2.125rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.6rem clamp(0.6rem, 0.6rem + 1vw, 1.8rem);
+}
+
+.SetContent__shuffleButton {
+  font-size: clamp(0.7rem, 0.5rem + 1vw, 1rem);
+  font-weight: 300;
+}
+
+.SetContent__shuffleButton.SetContent__shuffleButton--active {
+  background-color: var(--green);
+  color: var(--grey-extra-dark);
+}
+
+.SetContent__shuffleButton:hover {
+  cursor: pointer;
+  filter: brightness(1.1);
+}
+
+.SetContent__bannerArrow {
+  font-weight: 100;
+  font-size: clamp(1rem, 1rem + 2vw, 2rem);
+  font-family: Roboto;
+  opacity: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SetContent__bannerArrow.SetContent__bannerArrow--active {
+  opacity: 100%;
+}
+
+.SetContent__bannerArrow.SetContent__bannerArrow--active:hover {
+  cursor: pointer;
+  filter: brightness(1.1);
+}
+
+.SetContent__bannerArrow.SetContent__bannerArrow--active:active {
+  background-color: var(--green);
+  color: var(--grey-extra-dark);
+  opacity: 60%;
+}
+
+.SetContent__main {
+  display: flex;
+  justify-content: space-between;
+  min-height: clamp(10rem, 8rem + 12vw, 20.4rem);
+}
+
+.SetContent__textContainer {
+  margin: 0.6rem 1.2rem 0 0;
+  color: var(--grey-extra-light);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 100%;
+  flex: 1;
+}
+
+.SetContent__textTop {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.2rem;
+}
+
+.SetContent__commonName {
+  font-size: clamp(1.3rem, 1rem + 1vw, 2rem);
+  margin-bottom: 0.3rem;
+}
+
+.SetContent__sciName {
+  font-style: italic;
+  font-size: clamp(1.1rem, 0.7rem + 1vw, 1.5rem);
+  font-weight: 200;
+  color: var(--grey-light);
+}
+
+.SetContent__wikiContainer {
+  border-top: 1px solid var(--grey);
+  flex-shrink: 1;
+  margin: 1.2rem 0;
+  padding-top: 1.2rem;
+  font-size: 1rem;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.SetContent__wikiLink {
+  font-weight: 300;
+  color: var(--grey-medium);
+}
+
+.SetContent__wikiLink a {
+  text-decoration: underline;
+  color: var(--grey-medium);
+}
+
+.SetContent__wikiLink a:hover {
+  color: var(--green-dark);
+}
+
+.SetContent__button {
+  background-color: var(--green);
+  color: var(--grey-extra-dark);
+  margin: auto;
+  padding: 0.6rem clamp(0.6rem, 0.6rem + 1vw, 1.8rem);
+  border: none;
+  border-radius: 2rem;
+  font-family: Roboto;
+  font-size: 1rem;
+}
+
+.SetContent__button:hover {
+  filter: brightness(1.1);
+  cursor: pointer;
+}
+
+.SetContent__button.SetContent__button--hide {
+  background-color: var(--grey-dark);
+  color: var(--grey-light);
+  margin: 0;
+}
+
+.SetContent__image {
+  height: clamp(12rem, 8rem + 12vw, 20.4rem);
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: center;
+}
+
+.SetContent__noImage {
+  height: clamp(12rem, 8rem + 12vw, 20.4rem);
+  aspect-ratio: 1/1;
+  background-color: var(--grey-medium);
+  color: var(--grey-extra-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  .SetContent__banner {
+    justify-content: space-between;
+  }
+
+  .SetContent__main {
+    flex-direction: column-reverse;
+    height: fit-content;
+  }
+
+  .SetContent__textContainer {
+    margin: 0;
+  }
+
+  .SetContent__textTop {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    text-align: center;
+  }
+
+  .SetContent__wikiContainer {
+    overflow: visible;
+    flex: 0;
+    margin-bottom: 0;
+    border-bottom: none;
+  }
+
+  .SetContent__button {
+    margin: 1.2rem auto 0 auto;
+    order: -1;
+  }
+
+  .SetContent__button.SetContent__button--hide {
+    margin: 1.2rem auto 1.2rem auto;
+  }
+
+  .SetContent__image {
+    height: clamp(14rem, 8rem + 12vw, 20.4rem);
+    width: clamp(14rem, 8rem + 12vw, 20.4rem);
+    margin: auto;
+  }
+
+  .SetContent__noImage {
+    height: clamp(14rem, 8rem + 12vw, 20.4rem);
+    width: clamp(14rem, 8rem + 12vw, 20.4rem);
+    margin: auto;
+  }
+}

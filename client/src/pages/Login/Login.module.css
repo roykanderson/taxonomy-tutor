@@ -1,0 +1,79 @@
+.Login {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Login__form {
+  width: 23.8rem;
+}
+
+.Login__card {
+  background-color: var(--grey-dark);
+  display: flex;
+  flex-direction: column;
+  padding: 1.8rem;
+  margin-bottom: 1.8rem;
+  border-radius: 0.5rem;
+}
+
+.Login__error {
+  margin-bottom: 1.8rem;
+  color: var(--grey-light);
+}
+
+.Login__link {
+  color: var(--green);
+}
+
+.login-fields-password {
+  margin-top: 1.8rem;
+}
+
+.Login__input {
+  height: 2.4rem;
+  background-color: var(--grey-light);
+  color: var(--grey-dark);
+  padding-inline: 0.625rem;
+  font-size: 1.125rem;
+  border: none;
+}
+
+.Login__input:focus {
+  outline: none;
+  opacity: 70%;
+  transition: all 0.1s;
+}
+
+.Login__input--marginBottom {
+  margin-bottom: 1.8rem;
+}
+
+.Login__submit {
+  background-color: var(--green);
+  color: var(--grey-extra-dark);
+  font-family: Roboto;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  padding: none;
+  border-radius: 2.4rem;
+  height: 2.4rem;
+  width: 100%;
+}
+
+.Login__submit:hover {
+  filter: brightness(1.1);
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .Login__form {
+    width: 80%;
+  }
+
+  .Login__input {
+    font-size: 1rem;
+  }
+}
