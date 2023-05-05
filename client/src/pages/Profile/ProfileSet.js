@@ -17,7 +17,9 @@ const ProfileSet = () => {
 
   if (isFetchingSet || isFetchingTaxa) {
     return (
-      <LoadingIcon />
+      <main className={styles.ProfileSet}>
+        <LoadingIcon />
+      </main>
     )
   }
 
