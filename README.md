@@ -1,70 +1,19 @@
-# Getting Started with Create React App
+# Taxonomy Tutor
+#### Video Demo: https://www.youtube.com/watch?v=bZmRHJniNL8
+#### Description:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Taxonomy Tutor is a full-stack web application for biology students and naturalists to practice species identification using virtual flashcards. The project was built using Node.js (Express), MongoDB, React, React Router, and React Query. Users can create an account, search for species/taxa, and add species to flashcard sets. Flashcard sets can be edited or deleted after creation.
 
-## Available Scripts
+With the exception of the "client" and "build" subdirectories, the project's root directory contains the server-side code for the application. There are several configuration files in the root directory. The package.json and package-lock.json files document all of the dependencies for the server-side code and define npm scripts for running, linting, and deploying the project. The .gitignore file lists all of the files that should be ignored by Git. The .eslintrc file configures ESLint to provide linting for the project, and the .eslintignore file tells ESLint which files to ignore when linting.
 
-In the project directory, you can run:
+Moving on to the actual server-side code, index.js creates the server that listens for HTTP requests from the client. app.js defines an Express application that the server uses to handle these HTTP requests. Environment variables are accessed via utils/config.js. Functions for logging requests and errors are defined in utils/logger.js. Express middleware for calling logger functions and extracting info from requests such as the current user is defined in utils/middleware.js. Lastly, helper functions are defined in utils/helpers.js.
 
-### `npm start`
+The "models" subdirectory contains two files, StudySet.js and User.js, which define MongoDB models for flashcard sets and users, respectively. These models are used throughout the application to interface with the MongoDB database.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The "controllers" subdirectory contains routers for the various resources that users can create, read, update, and delete. loginRouter.js defines a POST endpoint for creating a new user account. studySetsRouter.js defines POST, GET, PUT, and DELETE endpoints for creating, reading, updating, and deleting user flashcard sets. taxaRouter.js defines two GET endpoints which wrap the iNaturalist API and allow users to search for species/taxa and obtain species/taxa suggestions. Lastly, usersRouter.js defines POST and GET endpoints for creating and reading user accounts.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Moving on to the client-side code now, inside the "client" subdirectory there is another pair of package.json and package-json.lock files. These files document all of the dependencies for the client-side code and define npm scripts for running and linting the project. The public subdirectory contains all of the resources that the end-user's computer receives when visiting the webpage, such as favicons and the manifest.json file. Most importantly, the public subdirectory contains the index.html file. This is the HTML file to which React renders the application's user interface.
 
-### `npm test`
+All of the React code for the application is contained within the "src" directory. If we take a look inside "src", we see that there are several more subdirectories, along with index.js and App.js. index.js acts as the entry point for React, telling React to render all JSX inside the div with the id "root" in index.html. App.js serves as the highest level React component, and contains all subcomponents. App.js also handles routing for the app's various pages and keeping track of the current user that is logged in. The "pages" subdirectory contains unique components for each of the app's pages, as well as CSS modules defining styles for each component. The "components" subdirectory contains components that are reused across more than one page, such as Navbar.js and LoadingIcon.js, and their accompanying CSS modules. The "assets" subdirectory contains static assets used throughout the app, such as index.css and SVG icons. The "utils" subdirectory contains utility functions used with component code. The "context" subdirectory contains one file, UserContext.js, which defines a context that can be used throughout the application to keep track of the current user. The "services" subdirectory defines modules (taxaService.js and userService.js) that allow the client to interface with the API endpoints defined in the root directory. Lastly, the "hooks" subdirectory contains individual files for each custom hook used throughout the application. Many of these custom hooks handle data fetching by utilizing the React Query library.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To put it all together, we'll go back to the root directory and take a look at the "build" subdirectory. Inside of this directory, we see all of the same resources that we saw in the "client/public" subdirectory: favicons, manifest.json and index.html. We also see a subdirectory called "static". If we look inside, we see three more subdirectories: "css", "js", and "media". "js" contains a minified, production build of our React code. This is the file that is sent to the user's browser when they visit the site; it handles the rendering of HTML that is defined as JSX in our React components. The CSS and SVGs needed to fully render the website are contained in the "css" and "media" subdirectories, respectively. The Express app defined in app.js is written in such a way that the server will send the client these resources in the build directory whenever they try to access a URL on our site.
