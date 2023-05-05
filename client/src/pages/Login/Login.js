@@ -20,7 +20,7 @@ const Login = () => {
   const login = useLogin(username, password, setUser, queryClient, navigate)
 
   return (
-    <div className={styles.Login}>
+    <main className={styles.Login}>
         <form className={styles.Login__form} onSubmit={login.mutate}>
           <div className={styles.Login__card}>
             {login.isError &&
@@ -52,7 +52,7 @@ const Login = () => {
             {login.isLoading ? <LoadingIcon color='black' /> : 'Log in'}
           </button>
         </form>
-    </div>
+    </main>
   )
 }
 

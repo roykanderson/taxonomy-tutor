@@ -22,7 +22,7 @@ const Signup = () => {
   const signUp = useSignUp(username, password, confirmPassword, setUser, queryClient, navigate)
 
   return (
-    <div className={styles.Signup}>
+    <main className={styles.Signup}>
       <form className={styles.Signup__form} onSubmit={signUp.mutate}>
         <div className={styles.Signup__card}>
           {signUp.isError &&
@@ -56,7 +56,7 @@ const Signup = () => {
           {signUp.isLoading ? <LoadingIcon color='black' /> : 'Sign up'}
         </button>
       </form>
-    </div>
+    </main>
   )
 }
 

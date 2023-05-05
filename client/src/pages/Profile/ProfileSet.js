@@ -22,7 +22,7 @@ const ProfileSet = () => {
   }
 
   return (
-    <div className={styles.ProfileSet}>
+    <main className={styles.ProfileSet}>
       <Link className={styles.ProfileSet__backLink} to='/profile'>
         {'< Back to profile'}
       </Link>
@@ -49,7 +49,7 @@ const ProfileSet = () => {
       </div>
 
       <Outlet context={{ set, taxa }} />
-    </div>
+    </main>
   )
 }
 

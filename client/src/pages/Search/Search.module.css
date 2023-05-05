@@ -3,6 +3,7 @@
   min-width: 80%;
   margin: auto;
   padding: 2.4rem;
+  flex: 1 0 auto;
 }
 
 .Search__errorMessage {
