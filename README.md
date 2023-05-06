@@ -4,11 +4,11 @@
 
 Taxonomy Tutor is a web application for practicing species identification with virtual flashcards. I built it with Express, React, React Router, React Query, and MongoDB. The app was inspired by my experience working as a field biologist, when I needed an efficient way to memorize all of the tide pool species on the Oregon coast. I wanted an app where I could seamlessly search for species and add their information to flashcard sets, all on one platform.
 
-#### Overview
+### Overview
 
-With the exception of the "client" and "build" subdirectories, the project's root directory contains the server-side code for the application. There are several configuration files in the root directory. The package.json and package-lock.json files document all of the dependencies for the server-side code and define npm scripts for running, linting, and deploying the project. The .gitignore file lists all of the files that should be ignored by Git. The .eslintrc file configures ESLint to provide linting for the project, and the .eslintignore file tells ESLint which files to ignore when linting.
+The application is split into two parts: the server and the client. The server-side application is implemented in Node.js with Express. The server interfaces with a MongoDB database, which stores information about users and their flashcard sets. The client-side application is written with React. The production build of the React code is sent to the client as static content by the server. Users can create an account, search for species by taxonomic group, add species to flashcard sets, and edit or delete sets. All species information is retrieved from the iNaturalist API and MediaWiki API.
 
-#### Server
+### Server
 
 All code for the server-side Express application is contained within the project’s root directory.
 There are several configuration files: package.json and package-lock.json contain descriptive and functional metadata about the application, .gitignore tells git to ignore certain sensitive files, .eslintrc configures ESLint, and .eslintignore is necessary for ESLint to ignore .eslintrc.
@@ -17,7 +17,7 @@ The index.js file is the entry point into the Express application. index.js crea
 
 The "models" subdirectory contains two files, StudySet.js and User.js, which define interfaces for creating, reading, updating, and deleting user and flashcard set documents from the database, which is hosted on MongoDB Atlas. The "controllers" subdirectory contains Express routers for handling HTTP requests from the client for performing and retrieving various actions and resources throughout the application. loginRouter.js allow users to create an account, usersRouter.js is used for accessing those accounts via token-based authentication, and studySetsRouter.js handles requests for flashcard sets. taxaRouter.js is a wrapper around the iNaturalist API and provides custom endpoints for retrieving data for all species contained within any particular taxonomic group.
 
-#### Client
+### Client
 
 All code for the client-side React application is contained in the “build” and “client” subdirectories.
 
