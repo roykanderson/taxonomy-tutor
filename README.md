@@ -1,6 +1,5 @@
 # Taxonomy Tutor
-#### Video Demo: https://www.youtube.com/watch?v=bZmRHJniNL8
-#### Description:
+#### Live Demo: https://taxonomy-tutor.onrender.com/
 
 Taxonomy Tutor is a web application for practicing species identification with virtual flashcards. I built it with Express, React, React Router, React Query, and MongoDB. The app was inspired by my experience working as a field biologist, when I needed an efficient way to memorize all of the tide pool species on the Oregon coast. I wanted an app where I could seamlessly search for species and add their information to flashcard sets, all on one platform.
 
